@@ -5,6 +5,7 @@ Node 14 / npm 6
 Github Desktop
 Draw.io
 Overleaf
+GanttProject
 
 Angular CLI (npm install @angular/cli)
 yarn (npm install -g yarn)
@@ -13,7 +14,8 @@ eslint (npm install -g eslint)
 ===================================================
 Extensions VSCode recomandées:
 
-Better Comments                 Permet de donner plus de sens aux commentaires (? pour une question, ! pour un danger, * pour quelquechose d'important)   
+EditorConfig for VS Code
+Better Comments                 Permet de donner plus de sens aux commentaires (? pour une question, ! pour un danger, * pour quelquechose d'important)
 Draw.io integration             Afficher des schémas drawio dans vscode
 Error Lens                      Affiche les erreurs du code dans le code
 ESLint                          Controle de la qualité du code JS/TS
@@ -22,7 +24,7 @@ Visual Studio Intellicode       Suggestions intelligentes lors de la saisie
 Angular Language Service        Suggestions liées à angular
 Auto close tag                  Fermer automatiquement les balises HTML
 Auto rename tag                 Renommer automatiquement les baliese HTML
-Debugger for Firefox            Permet de déboger un site dans vscode avec firefox        
+Debugger for Firefox            Permet de déboger un site dans vscode avec firefox
 markdown-lint                   Outil pour le langage markdown (fichiers .md)
 npm intellisense                Suggestions pour les imports des packages npm
 path intellisense               Suggestions pour les fichiers locaux

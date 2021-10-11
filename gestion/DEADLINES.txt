@@ -1,0 +1,9 @@
+- 18/10 - 24/10: roles du groupe établis
+
+- 15/11 - 21/11: Analyse des besoins, spécifications fonctionelles & planning prèts.
+
+- 06/12 - 12/12: Diagramme de classe et base de données
+
+- 03/01 - 09/01: RELEASE: code source + planning réel
+
+- 10/01 - 13/01: soutenances

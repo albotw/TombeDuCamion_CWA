@@ -1,0 +1,4 @@
+- Recherche TravisCI
+- Cahier des charges
+- trello pour la distribution des taches
+- qui est le responsable qualité ? le responsable communication ?
