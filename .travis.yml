@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "9"
+  - "14"
 dist: trusty
 sudo: required
 
@@ -8,8 +8,13 @@ branches:
   only:
     - main
 
-before_script:
-  - npm install -g @angular/cli
+install:
+  - npm install
 
-scripts: -ng lint
-  -ng build --prod --base-href https://albotw.github.io/TombeDuCamion_CWA/
+cache:
+  directories:
+    - "./node_modules"
+
+script:
+  - ng lint
+  - ng build --prod --base-href https://albotw.github.io/TombeDuCamion_CWA/
