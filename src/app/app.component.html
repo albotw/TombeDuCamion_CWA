@@ -1,12 +1,25 @@
 <h1>Tombé du Camion, pas du dropshipping mais presque</h1>
 
 Un site fait par les crackheads de l'uB:
-<ul>
-  <li>Yann TROU, Chef de projet, Staline incarné</li>
-  <li>Matthieu JOULAIN, AD Carry programmation</li>
-  <li>Jonathan Martin-Maestre, Responsable communication</li>
-  <li>Justin BIZOUARD, DIEU</li>
-  <li>Axel TOUSSENEL, le S tu connais</li>
-  <li>Wassim DJELLAT, futur chômeur</li>
-  <li>Arthur NICOLLE, le stagiaire de 3ème</li>
-</ul>
+<mat-list>
+
+  <div mat-subheader>Collaborateurs</div>
+  <mat-list-item *ngFor="let collab of collaborateurs">
+    <!--<mat-icon mat-list-icon>folder</mat-icon>-->
+    <div mat-line>{{collab.nom}}</div>
+    <div mat-line> {{collab.fonction}}, {{collab.ambition}} </div>
+  </mat-list-item>
+
+</mat-list>
+
+
+<mat-selection-list #sel [multiple]="false">
+  <mat-list-option *ngFor="let collab of collaborateurs" [value]="collab.idx">
+    {{collab.nom}}
+  </mat-list-option>
+</mat-selection-list>
+
+
+<p>
+  Option selected: {{collaborateurs[sel.selectedOptions.selected[0]?.value].fonction}}, {{collaborateurs[sel.selectedOptions.selected[0]?.value].ambition}}
+</p>
