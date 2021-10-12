@@ -20,6 +20,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: browser-action/setup-chrome@latest
       - run: chrome --version
+      
       - uses: actions/checkout@v2
       
       - uses: actions/setup-node@v1
@@ -27,7 +28,7 @@ jobs:
           node-version: 'v14.x'
       
       - name: Cache
-      - uses: actions/cache@v2.1.6
+        uses: actions/cache@v2.1.6
         with:
           path: ./node_modules
           
