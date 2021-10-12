@@ -1,26 +1,25 @@
 <h1>Tombé du Camion, pas du dropshipping mais presque</h1>
 
 Un site fait par les crackheads de l'uB:
-<mat-list>
 
+<mat-list >
   <div mat-subheader>Collaborateurs</div>
   <mat-list-item *ngFor="let collab of collaborateurs">
     <!--<mat-icon mat-list-icon>folder</mat-icon>-->
-    <div mat-line>{{collab.nom}}</div>
-    <div mat-line> {{collab.fonction}}, {{collab.ambition}} </div>
+    <div mat-line style="color: black">{{collab.nom}}</div>
+    <div mat-line style="color: black"> {{collab.fonction}}, {{collab.ambition}} </div>
   </mat-list-item>
 
 </mat-list>
 
 
-<mat-selection-list #sel [multiple]="false">
-  <mat-list-option *ngFor="let collab of collaborateurs" [value]="collab.idx">
+<mat-selection-list #sel [multiple]="false" (selectionChange)="onGroupsChange(sel.selectedOptions.selected)">
+  <mat-list-option *ngFor="let collab of collaborateurs" [value]="collab.idx" style="color: black">
     {{collab.nom}}
   </mat-list-option>
 </mat-selection-list>
 
 
-<p>
-  Test {{sel.selectedOptions.selected[0]?.value}}
-  Option selected: {{collaborateurs[sel.selectedOptions.selected[0]?.value].fonction}}, {{collaborateurs[sel.selectedOptions.selected[0]?.value].ambition}}
+<p *ngIf="collab != undefined">
+  Option selected: {{collab.fonction}}, {{collab.ambition}}
 </p>
