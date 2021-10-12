@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 export class AppComponent implements OnInit
 {
   text: string = "";
+  title: string = "TombeDuCamion";
   constructor()
   {
 

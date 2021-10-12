@@ -16,5 +16,4 @@ cache:
     - "./node_modules"
 
 script:
-  - ng lint
   - ng build --prod --base-href https://albotw.github.io/TombeDuCamion_CWA/
