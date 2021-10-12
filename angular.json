@@ -57,9 +57,14 @@
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
+              "outputHashing": "none",
+              "extractCss": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": false,
+              "progress": false,
+              "statsJson": false,
+              "aot": true
             }
           },
           "defaultConfiguration": "production"
