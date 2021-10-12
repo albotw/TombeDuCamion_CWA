@@ -26,12 +26,7 @@ jobs:
       - uses: actions/setup-node@v1
         with: 
           node-version: 'v14.x'
-      
-      - name: Cache
-        uses: actions/cache@v2.1.6
-        with:
-          path: ./node_modules
-          
+    
       - name: Install dependencies
         run: npm ci
       - name: Build
