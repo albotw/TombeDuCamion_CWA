@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject  } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatListOption } from '@angular/material/list'
@@ -27,7 +27,6 @@ export class AppComponent implements OnInit
   collab : {idx: number, nom:string, fonction :string, ambition:string} |undefined;
   constructor()
   {
-
   }
 
 
@@ -42,7 +41,5 @@ export class AppComponent implements OnInit
   {
 
   }
-
-
 }
 

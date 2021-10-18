@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, HostListener} from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 export interface DialogData {
@@ -13,7 +13,11 @@ export interface DialogData {
 
 export class PopupComponent implements OnInit {
 
+  screenHeight: number = 0;
+  screenWidth: number = 0;
+
   constructor(public dialog: MatDialog) {
+    this.onResize();
   }
 
   ngOnInit() {
@@ -31,17 +35,24 @@ export class PopupComponent implements OnInit {
       },
       backdropClass: 'test',
       panelClass: 'test',
-      width: '50%',
-      height:'50%',
+      width: Math.floor(this.screenWidth*0.4)+"px",
+      height:Math.floor(this.screenHeight*0.4)+"px",
       position: {
-        right:Math.floor(Math.random()*1000)+"px",
-        top:Math.floor(Math.random()*1000)+"px",
+        right:Math.floor(Math.random()*this.screenWidth*0.25+this.screenWidth*0.25)+"px",
+        top:  Math.floor(Math.random()*this.screenHeight*0.25+this.screenHeight*0.25)+"px",
         },
     });
     dialogRef.afterClosed().subscribe(result => {
       this.callDialog();
     });
   }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event?) {
+    this.screenHeight = window.innerHeight;
+    this.screenWidth = window.innerWidth;
+  }
+
 }
 
 @Component({
