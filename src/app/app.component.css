@@ -1,3 +1,7 @@
 h1 {
     border: 1px solid black;
 }
+@font-face {
+    font-family: "gothics";
+    src: local("gothics"), url(../assets/fonts/gothics.ttf) format("truetype");
+}

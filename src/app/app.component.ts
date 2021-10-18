@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject  } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -25,13 +25,19 @@ export class AppComponent implements OnInit
   collab: { idx: number, nom: string, fonction: string, ambition: string } | undefined;
   constructor()
   {
+  }
 
+
+  onGroupsChange(options: MatListOption[]) {
+    // map these MatListOptions to their values
+    let i = options.map(o => o.value)[0];
+
+    this.collab = this.collaborateurs[i];
   }
 
   ngOnInit()
   {
 
   }
-
-
 }
+

@@ -2,4 +2,29 @@
 
 Un site fait par les crackheads de l'uB
 
-<button class="btn btn-primary">Primary</button>
+<app-popup></app-popup>
+
+
+<button mat-button>NE PAS TOUCHER</button>
+
+<mat-list>
+  <div mat-subheader style="font-family: 'gothics', 'Arial Narrow', Arial, sans-serif; font-size: 75px;">Collaboratevrs</div>
+  <mat-list-item *ngFor="let collab of collaborateurs">
+    <!--<mat-icon mat-list-icon>folder</mat-icon>-->
+    <div mat-line [ngStyle]="{'background-color':'green'}">{{collab.nom}}</div>
+    <div mat-line> {{collab.fonction}}, {{collab.ambition}} </div>
+  </mat-list-item>
+
+</mat-list>
+
+
+<mat-selection-list #sel [multiple]="false" (selectionChange)="onGroupsChange(sel.selectedOptions.selected)">
+  <mat-list-option *ngFor="let collab of collaborateurs" [value]="collab.idx">
+    {{collab.nom}}
+  </mat-list-option>
+</mat-selection-list>
+
+
+<p *ngIf="collab != undefined">
+  Option selected: {{collab.fonction}}, {{collab.ambition}}
+</p>
