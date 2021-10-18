@@ -7,8 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { PopupComponent, DialogDataExampleDialog } from './popup/popup.component';
 import { CommonModule } from '@angular/common'; 
+<<<<<<< HEAD
 import {MatButtonModule} from '@angular/material/button'; 
 import { ClarityModule } from '@clr/angular';
+import {MatListModule} from '@angular/material/list';
+
+=======
+>>>>>>> parent of bac497e (Boutons)
 
 @NgModule({
   declarations: [
@@ -22,10 +27,13 @@ import { ClarityModule } from '@clr/angular';
     MatListModule,
     BrowserAnimationsModule,
     MatDialogModule,
+<<<<<<< HEAD
     CommonModule,
-    MatButtonModule
-    BrowserAnimationsModule,
+    MatButtonModule,
     ClarityModule
+=======
+    CommonModule
+>>>>>>> parent of bac497e (Boutons)
   ],
   providers: [],
   bootstrap: [AppComponent]
