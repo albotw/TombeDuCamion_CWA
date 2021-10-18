@@ -2,24 +2,4 @@
 
 Un site fait par les crackheads de l'uB:
 
-<mat-list >
-  <div mat-subheader>Collaborateurs</div>
-  <mat-list-item *ngFor="let collab of collaborateurs">
-    <!--<mat-icon mat-list-icon>folder</mat-icon>-->
-    <div mat-line style="color: black">{{collab.nom}}</div>
-    <div mat-line style="color: black"> {{collab.fonction}}, {{collab.ambition}} </div>
-  </mat-list-item>
-
-</mat-list>
-
-
-<mat-selection-list #sel [multiple]="false" (selectionChange)="onGroupsChange(sel.selectedOptions.selected)">
-  <mat-list-option *ngFor="let collab of collaborateurs" [value]="collab.idx" style="color: black">
-    {{collab.nom}}
-  </mat-list-option>
-</mat-selection-list>
-
-
-<p *ngIf="collab != undefined">
-  Option selected: {{collab.fonction}}, {{collab.ambition}}
-</p>
+<button class="btn btn-primary">Primary</button>
