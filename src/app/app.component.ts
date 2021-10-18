@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatListOption } from '@angular/material/list'
@@ -30,6 +30,7 @@ export class AppComponent implements OnInit
 
   }
 
+
   onGroupsChange(options: MatListOption[]) {
     // map these MatListOptions to their values
     let i = options.map(o => o.value)[0];
@@ -44,3 +45,4 @@ export class AppComponent implements OnInit
 
 
 }
+
