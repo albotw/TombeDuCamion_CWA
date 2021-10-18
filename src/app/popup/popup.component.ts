@@ -30,25 +30,17 @@ export class PopupComponent implements OnInit {
   }
 
   openDialog() {
-    for (let i=0; i<10; i++){
-      let dialogRef = this.dialog.open(DialogDataExampleDialog, {
-        data: {
-          animal: 'panda'
-        },
-        backdropClass: 'test',
-        panelClass: 'test',
-        width: Math.floor(this.screenWidth*0.2)+"px",
-        height:Math.floor(this.screenHeight*0.2)+"px",
-        position: {
-          right:Math.floor(Math.random()*this.screenWidth*0.5+this.screenWidth*0.2)+"px",
-          top:  Math.floor(Math.random()*this.screenHeight*0.5+this.screenHeight*0.2)+"px",
-          },
+    let dialogRef = this.dialog.open(DialogDataExampleDialog, {
+      data: {
+        animal: 'panda'
+      },
+      backdropClass: 'test',
+      panelClass: 'test',
+    });
+    if (!this.adblock){
+      dialogRef.afterClosed().subscribe(result => {
+        this.callDialog();
       });
-      if (!this.adblock){
-        dialogRef.afterClosed().subscribe(result => {
-          this.callDialog();
-        });
-      }
     }
   }
 

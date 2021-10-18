@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import {MatButtonModule} from '@angular/material/button'; 
 import { ClarityModule } from '@clr/angular';
 import {MatListModule} from '@angular/material/list';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {MatListModule} from '@angular/material/list';
     MatDialogModule,
     CommonModule,
     MatButtonModule,
-    ClarityModule
+    ClarityModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
