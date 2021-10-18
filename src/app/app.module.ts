@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { PopupComponent, DialogDataExampleDialog } from './popup/popup.component';
 import { CommonModule } from '@angular/common'; 
+import {MatButtonModule} from '@angular/material/button'; 
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CommonModule } from '@angular/common';
     MatListModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    CommonModule
+    CommonModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
