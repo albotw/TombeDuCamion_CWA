@@ -15,6 +15,7 @@ export class PopupComponent implements OnInit {
 
   screenHeight: number = 0;
   screenWidth: number = 0;
+  adblock: boolean = false;
 
   constructor(public dialog: MatDialog) {
     this.onResize();
@@ -29,22 +30,26 @@ export class PopupComponent implements OnInit {
   }
 
   openDialog() {
-    let dialogRef = this.dialog.open(DialogDataExampleDialog, {
-      data: {
-        animal: 'panda'
-      },
-      backdropClass: 'test',
-      panelClass: 'test',
-      width: Math.floor(this.screenWidth*0.4)+"px",
-      height:Math.floor(this.screenHeight*0.4)+"px",
-      position: {
-        right:Math.floor(Math.random()*this.screenWidth*0.25+this.screenWidth*0.25)+"px",
-        top:  Math.floor(Math.random()*this.screenHeight*0.25+this.screenHeight*0.25)+"px",
+    for (let i=0; i<10; i++){
+      let dialogRef = this.dialog.open(DialogDataExampleDialog, {
+        data: {
+          animal: 'panda'
         },
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      this.callDialog();
-    });
+        backdropClass: 'test',
+        panelClass: 'test',
+        width: Math.floor(this.screenWidth*0.2)+"px",
+        height:Math.floor(this.screenHeight*0.2)+"px",
+        position: {
+          right:Math.floor(Math.random()*this.screenWidth*0.5+this.screenWidth*0.2)+"px",
+          top:  Math.floor(Math.random()*this.screenHeight*0.5+this.screenHeight*0.2)+"px",
+          },
+      });
+      if (!this.adblock){
+        dialogRef.afterClosed().subscribe(result => {
+          this.callDialog();
+        });
+      }
+    }
   }
 
   @HostListener('window:resize', ['$event'])
