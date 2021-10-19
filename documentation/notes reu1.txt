@@ -1,0 +1,41 @@
+Tout le monde peut vendre et acheter
+pas d'administrateur
+Panier persistant au niveau de la session 
+-> localStorage
+
+uid -> hash unique pour identifier un utilisateur
+i_uid -> hash du nom de fichier en md5
+c_uid -> hash
+
+JSON:
+- auth
+    - password
+    - uid
+- userdata
+    - uid
+        - nom
+        - prenom
+        - email
+        - adresse
+        - wishlist
+            - p_uid
+            - p_uid
+            - ...
+- product
+    - p_uid
+        - vendor
+        - title
+        - stock
+        - description
+        - images
+            - i_uid
+            - i_uid
+        - comments
+            - c_uid
+            - c_uid
+- comments
+    - c_uid
+        - author
+        - date
+        - message
+        - note
