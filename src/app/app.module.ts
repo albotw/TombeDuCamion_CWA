@@ -11,13 +11,15 @@ import {MatButtonModule} from '@angular/material/button';
 import { ClarityModule } from '@clr/angular';
 import {MatListModule} from '@angular/material/list';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { NavigationbarComponent } from './navigationbar/navigationbar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PopupComponent,
-    DialogDataExampleDialog
+    DialogDataExampleDialog,
+    NavigationbarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,13 @@
 <h1>Tombé du Camion, pas du dropshipping mais presque</h1>
-
+<navbar></navbar>
 <p>Un site fait par les crackheads de l'uB</p>
 
 <app-popup></app-popup>
 
 
 <mat-selection-list #sel [multiple]="false" (selectionChange)="onGroupsChange(sel.selectedOptions.selected)">
-  <div mat-subheader style="font-family: 'gothics', 'Arial Narrow', Arial, sans-serif; font-size: 75px;">Collaboratevrs</div>
+  <div mat-subheader style="font-family: 'gothics', 'Arial Narrow', Arial, sans-serif; font-size: 75px;">Collaboratevrs
+  </div>
   <mat-list-option *ngFor="let collab of collaborateurs" [value]="collab.idx">
     <!--<mat-icon mat-list-icon>folder</mat-icon>-->
     <div mat-line [ngStyle]="{'background-color':'green'}">{{collab.nom}}</div>
