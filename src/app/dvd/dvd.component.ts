@@ -20,7 +20,7 @@ export class DvdComponent implements OnInit {
   addx = true;
   addy = true;
   
-  colors = ['red', 'blue', 'pink', 'yellow', 'green', 'black', 'white', 'orange', 'purple', 'brown']
+  colors = ['red', 'blue', 'pink', 'yellow', 'green', 'black', 'white', 'orange', 'purple', 'brown'];
 
   screenHeight : number = 0;
   screenWidth : number = 0;
@@ -47,7 +47,7 @@ export class DvdComponent implements OnInit {
   }
 
   callMoving(){
-    setTimeout(() => {this.move()}, 1);
+    setTimeout(() => {this.move()}, 25);
   }
 
 
