@@ -20,7 +20,7 @@ import { DvdComponent, DialogDataComponent } from './dvd/dvd.component';
     AppComponent,
     PopupComponent,
     DialogDataExampleDialog,
-    NavigationbarComponent
+    NavigationbarComponent,
     DvdComponent,
     DialogDataComponent
   ],
