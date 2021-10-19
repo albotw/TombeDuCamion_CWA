@@ -22,7 +22,7 @@ export class PopupComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.callDialog();
+    //this.callDialog();
   }
 
   callDialog(){
