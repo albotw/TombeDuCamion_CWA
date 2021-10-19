@@ -11,7 +11,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { ClarityModule } from '@clr/angular';
 import {MatListModule} from '@angular/material/list';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-import { DvdComponent } from './dvd/dvd.component';
+import { DvdComponent, DialogDataComponent} from './dvd/dvd.component';
 
 
 @NgModule({
@@ -19,7 +19,8 @@ import { DvdComponent } from './dvd/dvd.component';
     AppComponent,
     PopupComponent,
     DialogDataExampleDialog,
-    DvdComponent
+    DvdComponent,
+    DialogDataComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +31,7 @@ import { DvdComponent } from './dvd/dvd.component';
     CommonModule,
     MatButtonModule,
     ClarityModule,
-    DragDropModule
+    DragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { HostListener } from "@angular/core";
+import { HostListener, Inject } from "@angular/core";
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+export interface DialogData {
+  animal: 'panda' | 'unicorn' | 'lion';
+}
+
 
 @Component({
   selector: 'app-dvd',
@@ -22,15 +28,17 @@ export class DvdComponent implements OnInit {
   dvdStyle = {
     'position': 'absolute',
     'top':      this.posy+'px',
-    'left':     this.posx+'px'
+    'left':     this.posx+'px',
+    'z-index':  '8'
   }
 
   h1Style = {
-    'color':    'red'
+    'color':    'red',
+    'z-index':  '6'
   }
 
 
-  constructor() { 
+  constructor(public dialog: MatDialog) { 
     this.onResize();
   }
 
@@ -41,6 +49,7 @@ export class DvdComponent implements OnInit {
   callMoving(){
     setTimeout(() => {this.move()}, 1);
   }
+
 
   move() {
 
@@ -74,11 +83,45 @@ export class DvdComponent implements OnInit {
     this.callMoving();
   }
 
+
+  openDialog() {
+    console.log("test");
+    let dialogRef = this.dialog.open(DialogDataComponent, {
+      data: {
+        animal: 'panda'
+      },
+    });
+  }
+
   @HostListener('window:resize', ['$event'])
   onResize(event?) {
     this.screenHeight = window.innerHeight;
     this.screenWidth = window.innerWidth;
   }
 
+
+}
+
+@Component({
+  selector: 'dialog-data-1',
+  templateUrl: '../dialog-data/dialog-data-1.html',
+  styleUrls: ['../dialog-data/dialog-data-1.css'],
+})
+
+
+export class DialogDataComponent{
+  rot : number = 20;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) 
+  {
+    this.newRot();
+  }
+  
+  newRot(){
+    setTimeout(() => {
+        this.rot += 10;
+        this.newRot();
+      }, 100);
+    
+  }
 
 }
