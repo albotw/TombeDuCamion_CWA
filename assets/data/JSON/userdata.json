@@ -1,0 +1,14 @@
+[
+	{
+		"uid": "001",
+		"nom": "trou",
+		"prenom": "aaa",
+		"email": "aaa@aaa.ca",
+		"wishlist": [
+			"123",
+			"456"
+		],
+		"totalSales": "5",
+		"notation": "2.4"
+	}
+]

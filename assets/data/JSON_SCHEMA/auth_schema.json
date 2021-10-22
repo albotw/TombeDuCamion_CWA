@@ -1,0 +1,24 @@
+{
+	"$schema": "https://json-schema.org/draft-07/schema",
+	"title": "auth",
+	"description": "identification data",
+	"type": "array",
+	"items": {
+		"type": "object",
+		"uniqueItems": true
+	},
+	"properties": {
+		"hash": {
+			"description": "hash du mot de passe utilisateur",
+			"type": "string"
+		},
+		"uid": {
+			"description": "identifiant unique de l'utilisateur",
+			"type": "string"
+		}
+	},
+	"required": [
+		"hash",
+		"uid"
+	]
+}
