@@ -128,3 +128,29 @@ export class parent{
 ```
 
 ## Rendu conditionnel
+
+> if simple
+
+```javascript
+@Component({
+	selector: "component",
+	template: `<p *ngIf="afficher">Hello, World !</p>`,
+})
+export class component {
+	afficher: boolean = false;
+}
+```
+
+> if / else
+
+```javascript
+@Component({
+	selector: "component",
+	template: `
+		<p *ngIf="afficher; else autreAffichage">Goodbye, World!</p>
+		<ng-template #autreAffichage>Hello, World!</ng-template> 
+		`
+})
+export class component {
+	afficher: boolean = true;
+}

@@ -1,7 +1,9 @@
 Tout le monde peut vendre et acheter
 pas d'administrateur
-Panier persistant au niveau de la session 
+Panier persistant au niveau de la session
 -> localStorage
+
+voir ajv pour validation des fichiers json.
 
 uid -> hash unique pour identifier un utilisateur
 i_uid -> hash du nom de fichier en md5
@@ -11,6 +13,7 @@ JSON:
 - auth
     - password
     - uid
+
 - userdata
     - uid
         - nom
@@ -21,6 +24,7 @@ JSON:
             - p_uid
             - p_uid
             - ...
+
 - product
     - p_uid
         - vendor
@@ -33,6 +37,7 @@ JSON:
         - comments
             - c_uid
             - c_uid
+
 - comments
     - c_uid
         - author

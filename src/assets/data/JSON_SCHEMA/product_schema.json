@@ -1,0 +1,50 @@
+{
+	"$schema": "https://json-schema.org/draft-07/schema",
+	"title": "product",
+	"description": "données produit",
+	"type": "array",
+	"items": {
+		"type": "object",
+		"uniqueItems": true
+	},
+	"properties": {
+		"p_uid": {
+			"type": "string"
+		},
+		"vendor": {
+			"type": "string"
+		},
+		"title": {
+			"type": "string"
+		},
+		"stock": {
+			"type": "integer"
+		},
+		"description": {
+			"type": "string"
+		},
+		"images": {
+			"type": "array",
+			"items": {
+				"type": "string",
+				"uniqueItems": true
+			}
+		},
+		"comments": {
+			"type": "array",
+			"items": {
+				"type": "string",
+				"uniqueItems": true
+			}
+		}
+	},
+	"required": [
+		"p_uid",
+		"vendor",
+		"title",
+		"description",
+		"stock",
+		"images",
+		"comments"
+	]
+}
