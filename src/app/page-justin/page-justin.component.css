@@ -3,5 +3,5 @@ h1 {
 }
 @font-face {
     font-family: "gothics";
-    src: local("gothics"), url(../assets/fonts/gothics.ttf) format("truetype");
+    src: local("gothics"), url(../../assets/fonts/gothics.ttf) format("truetype");
 }
