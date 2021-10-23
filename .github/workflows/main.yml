@@ -30,16 +30,17 @@ jobs:
         run: npm ci
         
       - name: Build
+        working-directory: ./client/
         run: npm run build:ci
         
       - uses: browser-actions/setup-chrome@latest
       - run: chrome --version
           
       - name: Test
+        working-directory: ./client/
         run: npm run test:ci
         
       - name: Archive build
-      
         if: success()
         uses: actions/upload-artifact@v1
         with:
