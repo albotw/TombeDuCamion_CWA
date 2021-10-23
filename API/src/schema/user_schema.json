@@ -1,0 +1,49 @@
+{
+	"$schema": "https://json-schema.org/draft-07/schema",
+	"title": "userdata",
+	"description": "données utilisateur",
+	"type": "array",
+	"items": {
+		"type": "object",
+		"uniqueItems": true
+	},
+	"properties": {
+		"uid": {
+			"description": "identifiant unique de l'utilisateur",
+			"type": "string"
+		},
+		"nom": {
+			"type": "string"
+		},
+		"prenom": {
+			"type": "string"
+		},
+		"email": {
+			"type": "string"
+		},
+		"wishlist": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"totalSales": {
+			"type": "integer",
+			"exclusiveMinimum": 0
+		},
+		"notation": {
+			"type": "number",
+			"exclusiveMinimum": 0,
+			"exclusiveMaximum": 5
+		}
+	},
+	"required": [
+		"uid",
+		"nom",
+		"prenom",
+		"email",
+		"wishlist",
+		"totalSales",
+		"notation"
+	]
+}
