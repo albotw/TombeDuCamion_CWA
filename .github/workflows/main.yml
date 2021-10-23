@@ -22,30 +22,30 @@ jobs:
       - name: Setup Node 16
         uses: actions/setup-node@v2
         with: 
-          working-directory: ./client/
           node-version: '16'
           cache: "npm"
+          cache-dependency-path: client/package-lock.json
           
       - name: Install dependencies
-        working-directory: ./client/
+        working-directory: client/
         run: npm ci
         
       - name: Build
-        working-directory: ./client/
+        working-directory: client/
         run: npm run build:ci
         
       - uses: browser-actions/setup-chrome@latest
       - run: chrome --version
           
       - name: Test
-        working-directory: ./client/
+        working-directory: client/
         run: npm run test:ci
         
       - name: Archive build
         if: success()
         uses: actions/upload-artifact@v1
         with:
-          working-directory: ./client/
+          working-directory: client/
           name: deploy_dist
           path: dist
           
