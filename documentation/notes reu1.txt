@@ -1,9 +1,15 @@
 Tout le monde peut vendre et acheter
 pas d'administrateur
-Panier persistant au niveau de la session
--> localStorage
+Panier persistant au niveau de la session -> localStorage
 
 voir ajv pour validation des fichiers json.
+
+TOUTES LES DONNEES APPLIQUENT LE MODELE CRUD
+
+images stockées dans assets/IMG/hashfichier.extension
+format JPG / PNG / BMP uniquement
+
+Cycle de vie: comment faire si on veut prendre un cycle itératif
 
 uid -> hash unique pour identifier un utilisateur
 i_uid -> hash du nom de fichier en md5

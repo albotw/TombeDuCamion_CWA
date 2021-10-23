@@ -1,0 +1,7 @@
+stratégie de représentation des données:
+
+C = CREATE
+R = READ
+U = UPDATE
+D = DELETE
+
