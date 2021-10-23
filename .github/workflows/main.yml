@@ -22,11 +22,12 @@ jobs:
       - name: Setup Node 16
         uses: actions/setup-node@v2
         with: 
+          working-directory: ./client/
           node-version: '16'
           cache: "npm"
           
       - name: Install dependencies
-        if: steps.node-cache.outputs.cache-hit != 'true'
+        working-directory: ./client/
         run: npm ci
         
       - name: Build
@@ -44,6 +45,7 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v1
         with:
+          working-directory: ./client/
           name: deploy_dist
           path: dist
           
