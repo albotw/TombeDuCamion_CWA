@@ -45,9 +45,8 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v1
         with:
-          working-directory: client/
           name: deploy_dist
-          path: dist
+          path: client/dist
           
   deploy:
     runs-on: ubuntu-latest
