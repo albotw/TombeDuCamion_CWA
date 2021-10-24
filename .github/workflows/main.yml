@@ -71,7 +71,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to heroku
-        uses: AkhilesNS/heroku-deploy@v3.12.12
+        uses: AkhileshNS/heroku-deploy@v3.12.1
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_email: yann.trou@gmail.com
