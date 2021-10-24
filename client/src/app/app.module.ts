@@ -14,6 +14,19 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
 import { DvdComponent, DialogDataComponent } from './page-justin/dvd/dvd.component';
 import { PageJustinComponent } from './page-justin/page-justin.component';
+import { AccueilComponent } from './accueil/accueil.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { FooterComponent } from './footer/footer.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { NotfoundComponent } from './notfound/notfound.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatIconModule} from '@angular/material/icon';
+import {MatBadgeModule} from '@angular/material/badge';
+import {OverlayModule} from '@angular/cdk/overlay';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 
 
 @NgModule({
@@ -24,7 +37,10 @@ import { PageJustinComponent } from './page-justin/page-justin.component';
 		NavigationbarComponent,
 		DvdComponent,
 		DialogDataComponent,
-		PageJustinComponent
+		PageJustinComponent,
+  		AccueilComponent,
+    	FooterComponent,
+     	NotfoundComponent
 	],
 	imports: [
 		BrowserModule,
@@ -36,6 +52,15 @@ import { PageJustinComponent } from './page-justin/page-justin.component';
 		MatButtonModule,
 		ClarityModule,
 		DragDropModule,
+		MatTabsModule,
+		MatButtonToggleModule,
+		MatInputModule,
+		MatCardModule,
+		MatGridListModule,
+		MatIconModule,
+		MatBadgeModule,
+		OverlayModule,
+		MatProgressBarModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent]

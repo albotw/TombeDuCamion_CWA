@@ -36,6 +36,8 @@ export class PopupComponent implements OnInit {
       },
       backdropClass: 'test',
       panelClass: 'test',
+      width: '300px',
+      height: '300px',
     });
     if (!this.adblock){
       dialogRef.afterClosed().subscribe(result => {
