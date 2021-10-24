@@ -66,7 +66,8 @@ import { HttpClientModule } from '@angular/common/http';
 		MatProgressBarModule,
 		HttpClientModule
 	],
-	providers: [],
+	providers: [
+	],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
