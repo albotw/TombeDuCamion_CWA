@@ -10,8 +10,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
+  client-build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -48,10 +47,10 @@ jobs:
           name: deploy_dist
           path: client/dist
           
-  deploy:
+  client-deploy:
     runs-on: ubuntu-latest
     needs: 
-      - build
+      - client-build
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -67,12 +66,24 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: deploy_dist/TombeDuCamion
+  
+  api-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to heroku
+        uses: AkhilesNS/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_email: yann.trou@gmail.com
+          heroku_app_name: tombeducamion-api
+          appdir: API
           
   notify:
     name: Discord Notification
     runs-on: ubuntu-latest
     needs:
-      - deploy
+      - client-deploy
+      - api-deploy
     if: ${{ always() }}
     steps:
       - name: Notify
