@@ -23,6 +23,7 @@ function compile()
         .pipe(gulp.dest("dist/"));
 }
 
+// ? pas utile car chemin relatifs OK.
 function copy_data()
 {
     return gulp.src("./JSON/*.json")
@@ -43,11 +44,14 @@ function serve()
 }
 
 exports.launch = gulp.series(
-    gulp.parallel(
-        compile,
-    ),
+    compile,
     gulp.parallel(
         watch,
         serve
     )
 );
+
+exports.launchprod = gulp.series(
+    compile,
+    serve
+)

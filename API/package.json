@@ -4,7 +4,9 @@
   "description": "api rest de TombeDuCamion",
   "main": "dist/index.js",
   "scripts": {
-    "start": "nodemon ./src/index.ts"
+    "launch": "gulp launchdev",
+    "dev": "nodemon ./dist/index.js",
+    "start": "gulp launchprod"
   },
   "author": "",
   "license": "ISC",

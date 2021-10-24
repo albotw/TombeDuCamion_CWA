@@ -7,7 +7,9 @@ let app = express();
 let ajv = new Ajv();
 
 app.use(express.json());
-app.listen(8080, () =>
+
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () =>
 {
     console.log("Serveur à l'écoute sur 8080");
 });
@@ -20,6 +22,11 @@ app.listen(8080, () =>
 const products = require("../JSON/products.json");
 //=========================================================
 //! FONCTIONS REST
+app.get("/", (req, res) =>
+{
+    res.status(200);
+})
+
 app.get("/products", (req, res) =>
 {
     res.status(200);
