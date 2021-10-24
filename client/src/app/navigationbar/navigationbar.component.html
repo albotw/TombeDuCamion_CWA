@@ -1,28 +1,21 @@
-
 <div style="height:8%; background-color: purple; text-align: auto;">
-    <button mat-button routerLink="/accueil">Accueil</button>
-    <mat-form-field floatLabel="never">
-        <input matInput placeholder="Rechercher">
-    </mat-form-field>
-    <button mat-button routerLink="/lol">LOL</button>
-    <button mat-button routerLink="/mdr">Compte</button>
-    <button mat-button routerLink="/panier" 
-            (mouseover)="panierOuvert = true" 
-            (mouseout)="panierOuvert = false" 
-            cdkOverlayOrigin 
-            #trigger="cdkOverlayOrigin">
-        <mat-icon matBadge="1" matBadgeColor="warn">shopping_cart</mat-icon>
-    </button>
+	<button mat-button routerLink="/accueil">Accueil</button>
+	<mat-form-field floatLabel="never">
+		<input matInput placeholder="Rechercher">
+	</mat-form-field>
+	<button mat-button routerLink="/lol">LOL</button>
+	<button mat-button routerLink="/test-api">test api</button>
+	<button mat-button routerLink="/mdr">Compte</button>
+	<button mat-button routerLink="/panier" (mouseover)="panierOuvert = true" (mouseout)="panierOuvert = false"
+		cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+		<mat-icon matBadge="1" matBadgeColor="warn">shopping_cart</mat-icon>
+	</button>
 </div>
 
-<ng-template
-  cdkConnectedOverlay
-  [cdkConnectedOverlayOrigin]="trigger"
-  [cdkConnectedOverlayOpen]="panierOuvert"
->
-    <div style="background-color: white; width:300px">
-        <ul class="example-list">
-            <li>Hand Spinner x1</li>
-          </ul>
-    </div>
+<ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="panierOuvert">
+	<div style="background-color: white; width:300px">
+		<ul class="example-list">
+			<li>Hand Spinner x1</li>
+		</ul>
+	</div>
 </ng-template>

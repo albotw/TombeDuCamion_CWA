@@ -15,17 +15,19 @@ import { NavigationbarComponent } from './navigationbar/navigationbar.component'
 import { DvdComponent, DialogDataComponent } from './page-justin/dvd/dvd.component';
 import { PageJustinComponent } from './page-justin/page-justin.component';
 import { AccueilComponent } from './accueil/accueil.component';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 import { FooterComponent } from './footer/footer.component';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { NotfoundComponent } from './notfound/notfound.component';
-import {MatInputModule} from '@angular/material/input';
-import {MatCardModule} from '@angular/material/card';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatIconModule} from '@angular/material/icon';
-import {MatBadgeModule} from '@angular/material/badge';
-import {OverlayModule} from '@angular/cdk/overlay';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { TestApiComponent } from './test-api/test-api.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -38,9 +40,10 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 		DvdComponent,
 		DialogDataComponent,
 		PageJustinComponent,
-  		AccueilComponent,
-    	FooterComponent,
-     	NotfoundComponent
+		AccueilComponent,
+		FooterComponent,
+		NotfoundComponent,
+		TestApiComponent
 	],
 	imports: [
 		BrowserModule,
@@ -61,6 +64,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 		MatBadgeModule,
 		OverlayModule,
 		MatProgressBarModule,
+		HttpClientModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

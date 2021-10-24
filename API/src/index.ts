@@ -25,6 +25,7 @@ const products = require("../JSON/products.json");
 app.get("/", (req, res) =>
 {
     res.status(200);
+    res.json({});
 })
 
 app.get("/products", (req, res) =>
