@@ -70,6 +70,9 @@ jobs:
   api-deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Get repo content
+        uses: actions/checkout@v2
+        
       - name: Deploy to heroku
         uses: AkhileshNS/heroku-deploy@v3.12.12
         with:
