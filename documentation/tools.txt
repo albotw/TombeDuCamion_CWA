@@ -6,6 +6,7 @@ Github Desktop
 Draw.io
 Overleaf
 GanttProject
+Postman
 
 Angular CLI (npm install @angular/cli)
 yarn (npm install -g yarn)
