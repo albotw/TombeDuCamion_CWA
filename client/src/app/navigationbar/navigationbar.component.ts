@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+
 
 @Component({
   selector: 'navbar',
@@ -8,10 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class NavigationbarComponent implements OnInit
 {
 
+  panierOuvert = false;
   constructor() { }
 
-  ngOnInit(): void
-  {
+  ngOnInit(): void {
   }
 
 }

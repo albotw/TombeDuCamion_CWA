@@ -24,27 +24,29 @@ jobs:
         with: 
           node-version: '16'
           cache: "npm"
+          cache-dependency-path: client/package-lock.json
           
       - name: Install dependencies
-        if: steps.node-cache.outputs.cache-hit != 'true'
+        working-directory: client/
         run: npm ci
         
       - name: Build
+        working-directory: client/
         run: npm run build:ci
         
       - uses: browser-actions/setup-chrome@latest
       - run: chrome --version
           
       - name: Test
+        working-directory: client/
         run: npm run test:ci
         
       - name: Archive build
-      
         if: success()
         uses: actions/upload-artifact@v1
         with:
           name: deploy_dist
-          path: dist
+          path: client/dist
           
   deploy:
     runs-on: ubuntu-latest

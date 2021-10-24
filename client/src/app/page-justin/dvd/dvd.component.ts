@@ -47,31 +47,31 @@ export class DvdComponent implements OnInit {
   }
 
   callMoving(){
-    setTimeout(() => {this.move()}, 25);
+    setTimeout(() => {this.move()}, 1);
   }
 
 
   move() {
 
     if (this.addx) { //(this.posx + 10 + 100 > this.screenWidth){
-      this.posx = this.posx + 10;
+      this.posx = this.posx + 1;
     }
     else{
-      this.posx = this.posx - 10;
+      this.posx = this.posx - 1;
     }
     if (this.addy) { //(this.posy + 10 + 100 > this.screenHeight){
-      this.posy = this.posy + 10;
+      this.posy = this.posy + 1;
     }
     else{
-      this.posy = this.posy - 10;
+      this.posy = this.posy - 1;
     }
 
-    if (this.posx + 100 > this.screenWidth || this.posx < 0){
+    if (this.posx + 170 > this.screenWidth || this.posx < 0){
       this.addx = !this.addx;
       this.h1Style['color'] = this.colors[Math.floor(Math.random() * 10)];
     }
 
-    if (this.posy + 100 > this.screenHeight || this.posy < 0){
+    if (this.posy + 120 > this.screenHeight || this.posy < 0){
       this.addy = !this.addy;
       this.h1Style['color'] = this.colors[Math.floor(Math.random() * 10)];
     }
@@ -90,6 +90,8 @@ export class DvdComponent implements OnInit {
       data: {
         animal: 'panda'
       },
+      width: '350px',
+      height: '350px',
     });
   }
 
@@ -118,9 +120,12 @@ export class DialogDataComponent{
   
   newRot(){
     setTimeout(() => {
-        this.rot += 10;
+        this.rot += 1;
+        if (this.rot == 360){
+          this.rot = 0;
+        }
         this.newRot();
-      }, 100);
+      }, 10);
     
   }
 
