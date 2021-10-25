@@ -10,12 +10,12 @@ export class AccueilComponent implements OnInit
 {
 
   meilleuresVentes = [
-    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.78, src: '../../assets/img/handspinner.jpeg' },
-    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.23, src: '../../assets/img/handspinner.jpeg' },
-    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.45, src: '../../assets/img/handspinner.jpeg' },
-    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.86, src: '../../assets/img/handspinner.jpeg' },
-    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.43, src: '../../assets/img/handspinner.jpeg' },
-    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.19, src: '../../assets/img/handspinner.jpeg' },
+    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.78, src: './assets/img/handspinner.jpeg' },
+    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.23, src: './assets/img/handspinner.jpeg' },
+    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.45, src: './assets/img/handspinner.jpeg' },
+    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.86, src: './assets/img/handspinner.jpeg' },
+    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.43, src: './assets/img/handspinner.jpeg' },
+    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.19, src: './assets/img/handspinner.jpeg' },
   ]
 
   startIndex: number = 0;
