@@ -64,7 +64,8 @@ import { HttpClientModule } from '@angular/common/http';
 		MatBadgeModule,
 		OverlayModule,
 		MatProgressBarModule,
-		HttpClientModule
+		HttpClientModule,
+		NavigationbarModule,
 	],
 	providers: [
 	],
