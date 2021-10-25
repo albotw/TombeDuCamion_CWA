@@ -65,7 +65,6 @@ import { HttpClientModule } from '@angular/common/http';
 		OverlayModule,
 		MatProgressBarModule,
 		HttpClientModule,
-		NavigationbarModule,
 	],
 	providers: [
 	],
