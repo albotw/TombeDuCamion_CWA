@@ -6,6 +6,12 @@ export interface DialogData {
   animal: 'panda' | 'unicorn' | 'lion';
 }
 
+export enum KEY_CODE {
+  UP_ARROW = 38,
+  DOWN_ARROW = 40,
+  RIGHT_ARROW = 39,
+  LEFT_ARROW = 37
+}
 
 @Component({
   selector: 'app-dvd',
@@ -17,8 +23,13 @@ export class DvdComponent implements OnInit {
   posx : number = 250;
   posy: number = 250;
 
+  heightUser : number = 100;
+  heightBot  : number = 100;
+
   addx = true;
   addy = true;
+
+  moving = true;
   
   colors : string[] = ['red', 'blue', 'pink', 'yellow', 'green', 'black', 'white', 'orange', 'purple', 'brown'];
 
@@ -26,9 +37,24 @@ export class DvdComponent implements OnInit {
   screenWidth : number = 0;
 
   dvdStyle = {
+    'position':   'absolute',
+    'top':        this.posy+'px',
+    'left':       this.posx+'px',
+    'z-index':    '8',
+    'visibility': 'visible'
+  }
+
+  botStyle = {
     'position': 'absolute',
-    'top':      this.posy+'px',
-    'left':     this.posx+'px',
+    'top':      this.heightBot+'px',
+    'left':     '0px',
+    'z-index':  '8'
+  }
+
+  userStyle = {
+    'position': 'absolute',
+    'top':      this.heightUser+'px',
+    'left':     '0px',
     'z-index':  '8'
   }
 
@@ -36,6 +62,8 @@ export class DvdComponent implements OnInit {
     'color':    'red',
     'z-index':  '6'
   }
+
+  dialogRef = undefined;
 
 
   constructor(public dialog: MatDialog) { 
@@ -47,11 +75,12 @@ export class DvdComponent implements OnInit {
   }
 
   callMoving(){
-    setTimeout(() => {this.move()}, 1);
+    setTimeout(() => {this.move();}, 1);
   }
 
 
   move() {
+    let perdu = false;
 
     if (this.addx) { //(this.posx + 10 + 100 > this.screenWidth){
       this.posx = this.posx + 1;
@@ -67,8 +96,14 @@ export class DvdComponent implements OnInit {
     }
 
     if (this.posx + 170 > this.screenWidth || this.posx < 0){
+      perdu = true;
+    }
+
+    if ((this.posx + 170 > this.screenWidth && this.posy + 120 > this.heightBot && this.posy < this.heightBot + 100) 
+        || (this.posx < 0 && this.posy + 120 > this.heightUser && this.posy < this.heightUser + 100)){
       this.addx = !this.addx;
       this.h1Style['color'] = this.colors[Math.floor(Math.random() * 10)];
+      perdu = false;
     }
 
     if (this.posy + 120 > this.screenHeight || this.posy < 0){
@@ -76,17 +111,41 @@ export class DvdComponent implements OnInit {
       this.h1Style['color'] = this.colors[Math.floor(Math.random() * 10)];
     }
 
+
     this.dvdStyle['left'] = this.posx + 'px';
     this.dvdStyle['top'] = this.posy + 'px';
 
+    this.heightBot       = this.posy;
+    this.botStyle['top'] = this.heightBot + 'px';
 
-    this.callMoving();
+    if (perdu){
+      this.dvdStyle['visibility'] = 'hidden';
+      this.moving = false;
+      this.posx = 250;
+      this.posy = 250;
+      this.dvdStyle['left'] = this.posx + 'px';
+      this.dvdStyle['top'] = this.posy + 'px';
+    }
+    else{
+      this.callMoving();
+    }
+  }
+
+  launch(){
+    this.dvdStyle['visibility'] = 'visible';
+    if (!this.moving){
+      this.moving = true;
+      this.addx = true;
+      this.addy = true;
+      this.callMoving();
+    }
+
   }
 
 
   openDialog() {
     console.log("test");
-    let dialogRef = this.dialog.open(DialogDataComponent, {
+    this.dialogRef = this.dialog.open(DialogDataComponent, {
       data: {
         animal: 'panda'
       },
@@ -99,8 +158,34 @@ export class DvdComponent implements OnInit {
   onResize(event?) {
     this.screenHeight = window.innerHeight;
     this.screenWidth = window.innerWidth;
+    this.botStyle['left'] = (this.screenWidth-20) + 'px';
   }
 
+  @HostListener('window:keydown', ['$event'])
+  keyEvent(event: KeyboardEvent) {
+
+    if (event.keyCode === KEY_CODE.UP_ARROW) {
+      this.up();
+    }
+
+    if (event.keyCode === KEY_CODE.DOWN_ARROW) {
+      this.down();
+    }
+  }
+
+  up() {
+    if (this.heightUser > 0){
+      this.heightUser -= 50;
+      this.userStyle['top'] = this.heightUser + 'px';
+    }
+  }
+
+  down() {
+    if (this.heightUser < this.screenHeight - 100){
+      this.heightUser += 50;
+      this.userStyle['top'] = this.heightUser + 'px';
+    }
+  }
 
 }
 
