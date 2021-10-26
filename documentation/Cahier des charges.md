@@ -1,0 +1,32 @@
+Cahier des charges:
+- deux types d'utilisateurs: visiteur et membre
+- un membre est différencié d'un visiteur par son compte
+- un visiteur peut créer un compte pour devenir membre
+- il n'y a que les membres qui peuvent faire des actions autre que la lecture.
+- les produits sont représentés par leur nom, description, images et autres informations utiles.
+- les membres doivent pouvoir donner leur avis sur un produit.
+- les membres doivent pouvoir créer, lister, éditer et supprimer un produit qu'ils auraient mis en vente
+- les membres doivent pouvoir acheter un produit
+- tout le monde peut voir la liste des produits en vente.
+- les membres doivent pouvoir modifier les informations les concernant
+- les membres doivent pouvoir ajouter un produit dans une liste de souhait pour l'acheter dans un temps futur.
+- quand un membre souhaite acheter un produit, il sera placé dans un panier pour permettre l'achat simultané de plusieurs produits.
+- les produits peuvent être rangés, filtrés et triés selon plusieurs critères:
+    - prix
+    - date de mise en vente
+    - catégorie
+    - alphabétique
+    - promotion en cours
+- les catégories ne seront pas modifiables par les membres ou utilisateurs et seront codées en dur
+- sur chaque produit un compteur doit être incrémenté sur son nombre de ventes afin d'avoir un suivi statistique.
+- les produits les mieux vendus doivent être mis en avant, pour chaque catégorie et au niveau général.
+- il doit y avoir un endroit regroupant les promotions actuelles sur les produits d'une catégorie ainsi qu'au niveau général.
+- une note doit pouvoir être attribuée à un vendeur à partir des notes combinées des produits qu'il vend.
+- tout le monde doit pouvoir voir une page récapitulant l'historique et les informations de base d'un membre.
+- il n'y a que les produits qui peuvent être recherchés.
+- les caractères saisis pour une recherche doivent être comparés face au titre et a la description d'un produit pour qu'il soit retenu dans les résultats de ladite recherche.
+- un produit peut avoir entre 1 et 5 images le représentant.
+- un produit ne peut avoir un prix négatif, il ne peut y avoir que des offres, pas de demande.
+- les notations des produits et membres doivent rester entre 0 et 5 et seront représentées par des étoiles.
+- les membres doivent pouvoir vendre un produit unique ou un produit en gros.
+- les commentaires sont du texte brut, pas de fonctionnalité supplémentaire.
