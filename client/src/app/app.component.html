@@ -1,8 +1,16 @@
 
-<navbar></navbar>
 
-<router-outlet style="margin: auto;"></router-outlet>
+<div id="page-container">
 
-<footer style="background-color: purple; display: flex; ">
-    <app-footer></app-footer>
-</footer>
+    <div id="content-wrap">
+
+        <navbar *ngIf="(wWidth > wHeight)"></navbar>
+        <app-navbar-mobile *ngIf="(wWidth < wHeight)"></app-navbar-mobile>
+
+    </div>
+
+    <footer id="footer" class="secondBgCol">
+        <app-footer></app-footer>
+    </footer>
+
+</div>

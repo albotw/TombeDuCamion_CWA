@@ -1,7 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    background-color: #EAEAEA; 
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    height: 100%;
+    padding-bottom: 5%;    /* Footer height */
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 5%;            /* Footer height */
+}
+
+.secondBgCol {
+    background-color: #DD6E42; 
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
 
 .test > mat-dialog-container{
     background-color: rgba(0,0,0,0);

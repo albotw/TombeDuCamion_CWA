@@ -23,8 +23,8 @@ export class DvdComponent implements OnInit {
   posx : number = 250;
   posy: number = 250;
 
-  heightUser : number = 100;
-  heightBot  : number = 100;
+  heightUser : number = 250;
+  heightBot  : number = 250;
 
   addx = true;
   addy = true;

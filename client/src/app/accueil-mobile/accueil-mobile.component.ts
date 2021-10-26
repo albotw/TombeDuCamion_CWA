@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { MatCardModule } from "@angular/material/card";
-import { MatIconModule } from "@angular/material/icon";
+
 @Component({
-  selector: 'app-accueil',
-  templateUrl: './accueil.component.html',
-  styleUrls: ['./accueil.component.css']
+  selector: 'app-accueil-mobile',
+  templateUrl: './accueil-mobile.component.html',
+  styleUrls: ['./accueil-mobile.component.css']
 })
-export class AccueilComponent implements OnInit
-{
+export class AccueilMobileComponent implements OnInit {
 
   meilleuresVentes = [
     { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.78, src: '../../assets/img/handspinner.jpeg' },
@@ -24,7 +22,7 @@ export class AccueilComponent implements OnInit
 
   addIndex(idx): void
   {
-    if (this.startIndex[idx] + 4 < this.meilleuresVentes.length)
+    if (this.startIndex[idx] < this.meilleuresVentes.length - 1  )
     {
       this.startIndex[idx] += 1;
     }
@@ -40,19 +38,11 @@ export class AccueilComponent implements OnInit
 
   getVentes(idx)
   {
-    let res = [];
+    return [this.meilleuresVentes[this.startIndex[idx]]];
 
-    console.log(this.meilleuresVentes['0']);
-    for (let i = 0; i < 4; i++)
-    {
-      res.push(this.meilleuresVentes[this.startIndex[idx] + i]);
-      console.log(res, this.startIndex[idx] + i);
-    }
-    return res;
   }
 
-  ngOnInit(): void
-  {
+  ngOnInit(): void {
   }
 
 }

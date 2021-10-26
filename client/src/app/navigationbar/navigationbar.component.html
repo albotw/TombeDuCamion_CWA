@@ -1,4 +1,4 @@
-<div style="height:8%; background-color: purple; text-align: auto;">
+<div class="secondBgCol" style="text-align: auto;">
 	<button mat-button routerLink="/accueil">Accueil</button>
 	<mat-form-field floatLabel="never">
 		<input matInput placeholder="Rechercher">
@@ -8,14 +8,18 @@
 	<button mat-button routerLink="/mdr">Compte</button>
 	<button mat-button routerLink="/panier" (mouseover)="panierOuvert = true" (mouseout)="panierOuvert = false"
 		cdkOverlayOrigin #trigger="cdkOverlayOrigin">
-		<mat-icon matBadge="1" matBadgeColor="warn">shopping_cart</mat-icon>
+		<mat-icon matBadge="1" matBadgeColor="accent">shopping_cart</mat-icon>
 	</button>
 </div>
 
 <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="panierOuvert">
-	<div style="background-color: white; width:300px">
+	<div class="overlayPanier" style="width:300px">
 		<ul class="example-list">
 			<li>Hand Spinner x1</li>
 		</ul>
 	</div>
 </ng-template>
+
+<div style="margin-left: 10% ; margin-right: 10%;">
+	<router-outlet></router-outlet>
+</div>
