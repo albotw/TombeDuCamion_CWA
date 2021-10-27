@@ -7,7 +7,7 @@
 	<button mat-button routerLink="/test-api">test api</button>
 	<button mat-button routerLink="/mdr">Compte</button>
 	<button mat-button routerLink="/panier" (mouseover)="panierOuvert = true" (mouseout)="panierOuvert = false"
-		cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+		cdkOverlayOrigin #trigger="cdkOverlayOrigin" style="right: 0;">
 		<mat-icon matBadge="1" matBadgeColor="accent">shopping_cart</mat-icon>
 	</button>
 </div>

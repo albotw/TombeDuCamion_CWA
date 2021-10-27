@@ -31,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AccueilMobileComponent } from './accueil-mobile/accueil-mobile.component';
 import { NavbarMobileComponent } from './navbar-mobile/navbar-mobile.component';
 import {MatSidenavModule} from '@angular/material/sidenav'; 
-import {MatDividerModule} from '@angular/material/divider'; 
+import {MatDividerModule} from '@angular/material/divider';
+import { WassimComponent } from './wassim/wassim.component'; 
 
 @NgModule({
 	declarations: [
@@ -47,7 +48,8 @@ import {MatDividerModule} from '@angular/material/divider';
 		NotfoundComponent,
 		TestApiComponent,
   AccueilMobileComponent,
-  NavbarMobileComponent
+  NavbarMobileComponent,
+  WassimComponent
 	],
 	imports: [
 		BrowserModule,
