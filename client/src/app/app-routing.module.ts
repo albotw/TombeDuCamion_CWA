@@ -27,7 +27,7 @@ const mobileRoutes: Routes = [
 ];
 
 @NgModule({
-	imports: [RouterModule.forRoot((window.innerWidth > window.innerHeight) ? routes : mobileRoutes),
+	imports: [RouterModule.forRoot((window.innerWidth > window.innerHeight) ? routes : mobileRoutes,  {onSameUrlNavigation: 'reload'}),
 		],
 	exports: [RouterModule]
 })
