@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class TestApiComponent implements OnInit
 {
-	public product: any;
+	public product: any = {};
 	constructor(private http: HttpClient)
 	{
 		this.http.get("/api/products", { observe: "body", responseType: "json" })

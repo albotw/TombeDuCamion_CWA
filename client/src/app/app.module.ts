@@ -28,8 +28,11 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { TestApiComponent } from './test-api/test-api.component';
 import { HttpClientModule } from '@angular/common/http';
-
-
+import { AccueilMobileComponent } from './accueil-mobile/accueil-mobile.component';
+import { NavbarMobileComponent } from './navbar-mobile/navbar-mobile.component';
+import {MatSidenavModule} from '@angular/material/sidenav'; 
+import {MatDividerModule} from '@angular/material/divider';
+import { WassimComponent } from './wassim/wassim.component'; 
 
 @NgModule({
 	declarations: [
@@ -43,7 +46,10 @@ import { HttpClientModule } from '@angular/common/http';
 		AccueilComponent,
 		FooterComponent,
 		NotfoundComponent,
-		TestApiComponent
+		TestApiComponent,
+  AccueilMobileComponent,
+  NavbarMobileComponent,
+  WassimComponent
 	],
 	imports: [
 		BrowserModule,
@@ -64,7 +70,9 @@ import { HttpClientModule } from '@angular/common/http';
 		MatBadgeModule,
 		OverlayModule,
 		MatProgressBarModule,
-		HttpClientModule
+		HttpClientModule,
+		MatSidenavModule,
+		MatDividerModule,
 	],
 	providers: [
 	],

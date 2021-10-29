@@ -8,14 +8,19 @@ import { MatListOption } from '@angular/material/list';
 	styleUrls: ['./app.component.css']  // ? lien vers la feuille de style
 })
 
+
 export class AppComponent implements OnInit
 {
+	wHeight : number;
+	wWidth : number;
+	
 	constructor()
 	{
-
 	}
 
 	ngOnInit() {
+		this.wHeight = window.innerHeight;
+		this.wWidth  = window.innerWidth;
 		// let cache = JSONcache.instance();
 	}
 }
