@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { PANIER } from '../global';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 
 
 @Component({

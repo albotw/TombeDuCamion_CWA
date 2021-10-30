@@ -3,6 +3,7 @@ import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
 import { HttpClient } from '@angular/common/http';
 import { flattenAndSortAnimations } from '@cds/core/internal';
+import { environment } from 'src/environments/environment.prod';
 
 
 @Component({
@@ -21,12 +22,12 @@ export class AccueilComponent implements OnInit
 
 	constructor(private http: HttpClient)
 	{
-		this.http.get("/api/products", { observe: "body", responseType: "json" })
+		this.http.get(environment.API + "/products", { observe: "body", responseType: "json" })
 			.subscribe(
 				(data) =>
 				{
           for (let _=0; _<6; _++){
-            this.meilleuresVentes.push(data[Math.floor(Math.random()*800)]);
+            this.meilleuresVentes.push(data[Math.floor(Math.random()*60)]);
             if (this.meilleuresVentes[_].description.length > 100){
               this.meilleuresVentes[_].description = this.meilleuresVentes[_].description.substring(0,100)+"...";
             }
