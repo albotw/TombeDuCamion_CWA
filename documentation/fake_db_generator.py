@@ -26,12 +26,12 @@ with open('API/JSON/products.json','r+') as file:
                 'seller': 'Prof. Chen',
                 'title': s.names[0].name,
                 'stock': random.randrange(250),
-                'price': s.cost,
                 'description': s.effect_entries[0].effect,
                 'images': [s.sprites.default],
                 'category': 'pokemonItems',
                 'comments': [],
-                "notation": round(random.random()*5, 2)
+                "notation": round(random.random()*5, 2),
+                'price': s.cost,
             }
             file_data.append(prod)
             
