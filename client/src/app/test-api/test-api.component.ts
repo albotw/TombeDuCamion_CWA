@@ -13,7 +13,7 @@ export class TestApiComponent implements OnInit
 	public product: any = {};
 	constructor(private http: HttpClient)
 	{
-		this.http.get("https://tombeducamion-api.herokuapp.com/products", { observe: "body", responseType: "json" })
+		this.http.get("/api/products", { observe: "body", responseType: "json" })
 			.subscribe(
 				(data) =>
 				{
