@@ -1,9 +1,22 @@
 import express from "express";
 import { IProduct } from "./interfaces/IProduct";
 import product_schema from "./schema/product_schema.json";
-var cors = require('cors');
+import cors from "cors";
 
 let app = express();
+
+let corsOptions = {
+    origin: "*",
+    methods: [
+        'GET',
+        'POST',
+        'PUT',
+        'DELETE'
+    ],
+    allowedHeaders: ["Content-Type", "Access-Control-Allow-Origin"],
+};
+
+app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 9090;
 app.listen(PORT, () =>
@@ -28,15 +41,3 @@ app.get("/products", (req, res) =>
     res.json(products);
 })
 
-let corsOptions = {
-    origin: "*",
-    methods: [
-        'GET',
-        'POST',
-        'PUT',
-        'DELETE'
-    ],
-    allowedHeaders: ["Content-Type", "Access-Control-Allow-Origin"],
-};
-
-app.use(cors());
