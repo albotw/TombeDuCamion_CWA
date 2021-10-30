@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
+import { HttpClient } from '@angular/common/http';
+import { flattenAndSortAnimations } from '@cds/core/internal';
+
+
 @Component({
   selector: 'app-accueil',
   templateUrl: './accueil.component.html',
@@ -9,44 +13,51 @@ import { MatIconModule } from "@angular/material/icon";
 export class AccueilComponent implements OnInit
 {
 
-  meilleuresVentes = [
-    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.78, src: '../../assets/img/handspinner.jpeg' },
-    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.23, src: '../../assets/img/handspinner.jpeg' },
-    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.45, src: '../../assets/img/handspinner.jpeg' },
-    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.86, src: '../../assets/img/handspinner.jpeg' },
-    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.43, src: '../../assets/img/handspinner.jpeg' },
-    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.19, src: '../../assets/img/handspinner.jpeg' },
-  ]
+  id = 0;
 
-  startIndex: number = 0;
+  meilleuresVentes = [];
 
-  constructor() { }
+  startIndex: number[] = [0, 0, 0];
 
-  addIndex(): void
+	constructor(private http: HttpClient)
+	{
+		this.http.get("/api/products", { observe: "body", responseType: "json" })
+			.subscribe(
+				(data) =>
+				{
+          for (let _=0; _<6; _++){
+            this.meilleuresVentes.push(data[Math.floor(Math.random()*800)]);
+            if (this.meilleuresVentes[_].description.length > 100){
+              this.meilleuresVentes[_].description = this.meilleuresVentes[_].description.substring(0,100)+"...";
+            }
+          }
+				})
+	}
+
+
+  addIndex(idx): void
   {
-    if (this.startIndex + 4 < this.meilleuresVentes.length)
+    if (this.startIndex[idx] + 4 < this.meilleuresVentes.length)
     {
-      this.startIndex += 1;
+      this.startIndex[idx] += 1;
     }
   }
 
-  subIndex(): void
+  subIndex(idx): void
   {
-    if (this.startIndex > 0)
+    if (this.startIndex[idx] > 0)
     {
-      this.startIndex -= 1;
+      this.startIndex[idx] -= 1;
     }
   }
 
-  getVentes()
+  getVentes(idx)
   {
     let res = [];
 
-    console.log(this.meilleuresVentes['0']);
     for (let i = 0; i < 4; i++)
     {
-      res.push(this.meilleuresVentes[this.startIndex + i]);
-      console.log(res, this.startIndex + i);
+      res.push(this.meilleuresVentes[this.startIndex[idx] + i]);
     }
     return res;
   }

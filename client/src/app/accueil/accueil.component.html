@@ -1,31 +1,30 @@
 <h1>Tombé du Camion, pas du dropshipping mais presque</h1>
 
-<h3>Meilleures Ventes</h3>
+<div *ngFor="let _ of startIndex; let idx = index">
+    <h3>Meilleures Ventes</h3>
 
-<div style="display:flex; justify-content: center; align-items: center;">
-    <button (click)="subIndex();" mat-fab style="display: inline-block;">
-        <mat-icon>chevron_left</mat-icon>
-    </button>
-    
-    <div *ngFor="let vente of getVentes();" style="display: inline-block;">
-        <mat-card *ngIf="vente !== undefined">
-            <mat-card-title-group>
-                <mat-card-title>{{vente.name}}</mat-card-title>
-                <img mat-card-lg-image src="{{vente.src}}" >
-            </mat-card-title-group>
-            <mat-card-content>
-            {{vente.description}}
-            </mat-card-content>
-            <mat-card-actions>
-                {{vente.rating}} / 5, Prix de vente : {{vente.price}} €
-            </mat-card-actions>
-        </mat-card>
+    <div style="display:flex; justify-content: center; align-items: center;">
+        <button (click)="subIndex(idx);" mat-fab style="display: inline-block;">
+            <mat-icon>chevron_left</mat-icon>
+        </button>
+        
+        <div *ngFor="let vente of getVentes(idx);" style="display: inline-block; align-items: stretch;">
+            <mat-card *ngIf="vente !== undefined" routerLink='/produit/{{vente.p_uid}}'>
+                <mat-card-title-group>
+                    <mat-card-title>{{vente.title}}</mat-card-title>
+                    <img mat-card-sm-image src="{{vente.images[0]}}" >
+                </mat-card-title-group>
+                <mat-card-content>
+                {{vente.description}}
+                </mat-card-content>
+                <mat-card-actions>
+                    Prix de vente : {{vente.price}} €
+                </mat-card-actions>
+            </mat-card>
+        </div>
+        
+        <button (click)="addIndex(idx);" mat-fab style="display: inline-block; ">
+            <mat-icon>chevron_right</mat-icon>
+        </button>
     </div>
-    
-    
-
-    <button (click)="addIndex();" mat-fab style="display: inline-block; ">
-        <mat-icon>chevron_right</mat-icon>
-    </button>
 </div>
-

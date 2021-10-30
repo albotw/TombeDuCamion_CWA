@@ -1,0 +1,21 @@
+<h1>{{product.title}}</h1>
+
+
+<p>
+	{{product.description}}
+</p>
+
+<img src="{{product.images[0]}}">
+
+<p>
+	{{product.price}} €
+</p>
+<p>
+	Stock : {{product.stock}}
+</p>
+
+<button mat-flat-button color="warn" (click)="addToPanier();">
+	Ajouter au panier
+	<mat-icon>add_shopping_cart</mat-icon>
+</button>
+
