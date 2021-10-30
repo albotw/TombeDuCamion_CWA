@@ -32,7 +32,8 @@ import { AccueilMobileComponent } from './accueil-mobile/accueil-mobile.componen
 import { NavbarMobileComponent } from './navbar-mobile/navbar-mobile.component';
 import {MatSidenavModule} from '@angular/material/sidenav'; 
 import {MatDividerModule} from '@angular/material/divider';
-import { WassimComponent } from './wassim/wassim.component'; 
+import { WassimComponent } from './wassim/wassim.component';
+import { DetailProduitComponent } from './detail-produit/detail-produit.component'; 
 
 @NgModule({
 	declarations: [
@@ -49,7 +50,8 @@ import { WassimComponent } from './wassim/wassim.component';
 		TestApiComponent,
   AccueilMobileComponent,
   NavbarMobileComponent,
-  WassimComponent
+  WassimComponent,
+  DetailProduitComponent
 	],
 	imports: [
 		BrowserModule,

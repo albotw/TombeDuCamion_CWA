@@ -158,7 +158,7 @@ export class DvdComponent implements OnInit {
   onResize(event?) {
     this.screenHeight = window.innerHeight;
     this.screenWidth = window.innerWidth;
-    this.botStyle['left'] = (this.screenWidth-20) + 'px';
+    this.botStyle['left'] = (this.screenWidth-40) + 'px';
   }
 
   @HostListener('window:keydown', ['$event'])

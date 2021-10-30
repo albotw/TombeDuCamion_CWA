@@ -1,4 +1,4 @@
-<div class="secondBgCol" style="text-align: auto; ">
+<div class="background-color-primary">
 	<button mat-button routerLink="/accueil" style="margin-left:16px; margin-right:16px; margin-top:16px; width:64px; height:64px; background: url(./assets/img/Camion.png); background-size: 64px 64px;"></button>
 	<mat-form-field floatLabel="never">
 		<input matInput placeholder="Rechercher">
@@ -7,7 +7,7 @@
 	<button mat-button routerLink="/test-api">test api</button>
 	<button mat-button routerLink="/mdr">Compte</button>
 	<button mat-button routerLink="/panier" (mouseover)="panierOuvert = true" (mouseout)="panierOuvert = false"
-		cdkOverlayOrigin #trigger="cdkOverlayOrigin" style="right: 0;">
+		cdkOverlayOrigin #trigger="cdkOverlayOrigin" style="justify-content: flex-end;">
 		<mat-icon matBadge="1" matBadgeColor="accent">shopping_cart</mat-icon>
 	</button>
 </div>

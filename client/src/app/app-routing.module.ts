@@ -7,6 +7,7 @@ import { PageJustinComponent } from './page-justin/page-justin.component';
 import { TestApiComponent } from './test-api/test-api.component';
 import { HostListener } from "@angular/core";
 import { AccueilMobileComponent } from './accueil-mobile/accueil-mobile.component';
+import { DetailProduitComponent } from './detail-produit/detail-produit.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
 	{ path: 'accueil', component: AccueilComponent },
 	{ path: 'lol', component: PageJustinComponent },
 	{ path: "test-api", component: TestApiComponent },
+	{ path: 'produit/:id', component: DetailProduitComponent },
 	{ path: '**', component: NotfoundComponent },
 
 ];
@@ -23,6 +25,7 @@ const mobileRoutes: Routes = [
 	{ path: 'accueil', component: AccueilMobileComponent },
 	{ path: 'lol', component: PageJustinComponent },
 	{ path: "test-api", component: TestApiComponent },
+	{ path: 'produit/:id', component: DetailProduitComponent },
 	{ path: '**', component: NotfoundComponent },
 ];
 

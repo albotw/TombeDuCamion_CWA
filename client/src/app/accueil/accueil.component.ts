@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
+import { HttpClient } from '@angular/common/http';
+import { flattenAndSortAnimations } from '@cds/core/internal';
+
+
 @Component({
   selector: 'app-accueil',
   templateUrl: './accueil.component.html',
@@ -9,18 +13,24 @@ import { MatIconModule } from "@angular/material/icon";
 export class AccueilComponent implements OnInit
 {
 
-  meilleuresVentes = [
-    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.78, src: './assets/img/handspinner.jpeg' },
-    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.23, src: './assets/img/handspinner.jpeg' },
-    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.45, src: './assets/img/handspinner.jpeg' },
-    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.86, src: './assets/img/handspinner.jpeg' },
-    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.43, src: './assets/img/handspinner.jpeg' },
-    { name: 'Hand Spinner', price: 5.00, description: 'Bah c\'est un hand spinner', rating: 4.19, src: './assets/img/handspinner.jpeg' },
-  ]
+  id = 0;
+
+  meilleuresVentes = [];
 
   startIndex: number[] = [0, 0, 0];
 
-  constructor() { }
+	constructor(private http: HttpClient)
+	{
+		this.http.get("/api/products", { observe: "body", responseType: "json" })
+			.subscribe(
+				(data) =>
+				{
+          for (let _=0; _<6; _++){
+            this.meilleuresVentes.push(data[Math.floor(Math.random()*800)]);
+          }
+				})
+	}
+
 
   addIndex(idx): void
   {

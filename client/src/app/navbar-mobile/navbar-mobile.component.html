@@ -1,5 +1,5 @@
 
-<mat-drawer-container>
+<mat-drawer-container   style="height: 100vh;">
     <mat-drawer #drawer mode="over" class="secondBgCol">
         <mat-list>
             <mat-list-item>
@@ -22,13 +22,15 @@
             </mat-list-item>
             <mat-divider></mat-divider>
 
-            <mat-list-item>Item 1</mat-list-item>
+            <mat-list-item>
+                <button mat-button routerLink="/panier">Panier</button>
+            </mat-list-item>
         </mat-list>
     </mat-drawer>
 
 
     <mat-drawer-content>
-        <div class="secondBgCol" style="text-align: auto;">
+        <div class="background-color-primary" style="text-align: auto;">
             <button mat-button (click)="drawer.toggle()">
                 <mat-icon>list</mat-icon>
             </button>
@@ -37,7 +39,7 @@
                 <input matInput placeholder="Rechercher">
             </mat-form-field>
         </div>
-        <div style="margin-left: 10% ; margin-right: 10%; height:100%;">
+        <div style="margin-left: 10% ; margin-right: 10%;">
             <router-outlet></router-outlet>
         </div>
     </mat-drawer-content>

@@ -13,7 +13,7 @@ body {
 }
 
 #content-wrap {
-    height: 100%;
+    height: 100vh;
     padding-bottom: 5%;    /* Footer height */
 }
 
@@ -22,11 +22,6 @@ body {
     bottom: 0;
     width: 100%;
     height: 5%;            /* Footer height */
-}
-
-.secondBgCol {
-    background-color: #DD6E42; 
-    font-family: 'IBM Plex Sans', sans-serif;
 }
 
 

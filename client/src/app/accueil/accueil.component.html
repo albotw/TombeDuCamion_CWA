@@ -9,16 +9,16 @@
         </button>
         
         <div *ngFor="let vente of getVentes(idx);" style="display: inline-block;">
-            <mat-card *ngIf="vente !== undefined">
+            <mat-card *ngIf="vente !== undefined" routerLink='/produit/{{vente.p_uid}}'>
                 <mat-card-title-group>
-                    <mat-card-title>{{vente.name}}</mat-card-title>
-                    <img mat-card-lg-image src="{{vente.src}}" >
+                    <mat-card-title>{{vente.title}}</mat-card-title>
+                    <img mat-card-lg-image src="{{vente.images[0]}}" >
                 </mat-card-title-group>
                 <mat-card-content>
                 {{vente.description}}
                 </mat-card-content>
                 <mat-card-actions>
-                    {{vente.rating}} / 5, Prix de vente : {{vente.price}} €
+                    Prix de vente : {{vente.price}} €
                 </mat-card-actions>
             </mat-card>
         </div>
