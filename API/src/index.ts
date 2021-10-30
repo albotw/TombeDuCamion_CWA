@@ -1,6 +1,7 @@
 import express from "express";
 import { IProduct } from "./interfaces/IProduct";
 import product_schema from "./schema/product_schema.json";
+import cors from "cors";
 
 let app = express();
 
@@ -27,4 +28,15 @@ app.get("/products", (req, res) =>
     res.json(products);
 })
 
-app.use
+let corsOptions = {
+    origin: "*",
+    methods: [
+        'GET',
+        'POST',
+        'PUT',
+        'DELETE'
+    ],
+    allowedHeaders: ["Content-Type"],
+};
+
+app.use(cors(corsOptions));
