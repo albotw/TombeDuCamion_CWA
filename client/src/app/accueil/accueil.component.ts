@@ -22,7 +22,7 @@ export class AccueilComponent implements OnInit
 
 	constructor(private http: HttpClient)
 	{
-		this.http.get("/api/products", { observe: "body", responseType: "json" })
+		this.http.get(environment.API+"/products", { observe: "body", responseType: "json" })
 			.subscribe(
 				(data) =>
 				{
