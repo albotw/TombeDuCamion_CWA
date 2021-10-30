@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatListOption } from '@angular/material/list';
+import { PANIER } from './global';
+
 
 @Component({
 	selector: 'app-root', // ? nom de la balise lorsque l'on veut utiliser le composant
@@ -13,6 +15,7 @@ export class AppComponent implements OnInit
 {
 	wHeight : number;
 	wWidth : number;
+
 	
 	constructor()
 	{

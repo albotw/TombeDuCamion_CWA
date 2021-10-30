@@ -27,6 +27,9 @@ export class AccueilComponent implements OnInit
 				{
           for (let _=0; _<6; _++){
             this.meilleuresVentes.push(data[Math.floor(Math.random()*800)]);
+            if (this.meilleuresVentes[_].description.length > 100){
+              this.meilleuresVentes[_].description = this.meilleuresVentes[_].description.substring(0,100)+"...";
+            }
           }
 				})
 	}
@@ -52,11 +55,9 @@ export class AccueilComponent implements OnInit
   {
     let res = [];
 
-    console.log(this.meilleuresVentes['0']);
     for (let i = 0; i < 4; i++)
     {
       res.push(this.meilleuresVentes[this.startIndex[idx] + i]);
-      console.log(res, this.startIndex[idx] + i);
     }
     return res;
   }

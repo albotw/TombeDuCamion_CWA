@@ -1,8 +1,21 @@
-<h1>Connexion à l'API REST hébergée sur heroku</h1>
-<ul>
-	<li>p_uid: {{product.p_uid }}</li>
-	<li>title: {{product.title }}</li>
-	<li>stock: {{product.stock }}</li>
-	<li>vendor: {{product.vendor }}</li>
-	<li>description: {{ product.description }}</li>
-</ul>
+<h1>{{product.title}}</h1>
+
+
+<p>
+	{{product.description}}
+</p>
+
+<img src="{{product.images[0]}}">
+
+<p>
+	{{product.price}} €
+</p>
+<p>
+	Stock : {{product.stock}}
+</p>
+
+<button mat-flat-button color="warn" (click)="addToPanier();">
+	Ajouter au panier
+	<mat-icon>add_shopping_cart</mat-icon>
+</button>
+

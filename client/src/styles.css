@@ -13,15 +13,14 @@ body {
 }
 
 #content-wrap {
-    height: 100vh;
-    padding-bottom: 5%;    /* Footer height */
+    padding-bottom: 2.5rem;    /* Footer height */
 }
 
 #footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 5%;            /* Footer height */
+    height: 2.5rem;           /* Footer height */
 }
 
 
