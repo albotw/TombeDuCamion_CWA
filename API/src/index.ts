@@ -36,7 +36,7 @@ let corsOptions = {
         'PUT',
         'DELETE'
     ],
-    allowedHeaders: ["Content-Type"],
+    allowedHeaders: ["Content-Type", "Access-Control-Allow-Origin"],
 };
 
 app.use(cors(corsOptions));
