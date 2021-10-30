@@ -1,7 +1,7 @@
 [
     {
         "p_uid": "000",
-        "seller": "azrtéazr'g",
+        "seller": "azrt\u00c3\u00a9azr'g",
         "title": "test",
         "stock": 0,
         "description": "produit de test",
