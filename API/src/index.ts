@@ -1,7 +1,7 @@
 import express from "express";
 import { IProduct } from "./interfaces/IProduct";
 import product_schema from "./schema/product_schema.json";
-import cors from "cors";
+var cors = require('cors');
 
 let app = express();
 
@@ -39,4 +39,4 @@ let corsOptions = {
     allowedHeaders: ["Content-Type", "Access-Control-Allow-Origin"],
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
