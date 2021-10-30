@@ -24,7 +24,7 @@ with open('API/JSON/products.json','r+') as file:
             prod = {
                 'p_uid': str(i).zfill(2),
                 'seller': 'Prof. Chen',
-                'title': s.names[0].name,
+                'title': s.names[3].name,
                 'stock': random.randrange(250),
                 'description': s.effect_entries[0].effect,
                 'images': [s.sprites.default],

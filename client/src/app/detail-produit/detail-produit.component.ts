@@ -19,7 +19,7 @@ export class DetailProduitComponent implements OnInit
 	constructor(private http: HttpClient, private route: ActivatedRoute)
 	{
 		this.p_uid = Number(this.route.snapshot.paramMap.get('id'));
-		this.http.get(environment.API + "/products", { observe: "body", responseType: "json" })
+		this.http.get("/api/products", { observe: "body", responseType: "json" })
 			.subscribe(
 				(data) =>
 				{
