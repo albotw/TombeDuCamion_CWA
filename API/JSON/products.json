@@ -1,11 +1,13 @@
 [
     {
         "p_uid": "000",
-        "vendor": "ian",
+        "seller": "azrtéazr'g",
         "title": "test",
         "stock": 0,
         "description": "produit de test",
         "images": [],
-        "comments": []
+        "category": "",
+        "comments": [],
+        "notation": 1.5,
     }
 ]
