@@ -1,5 +1,6 @@
 import { Component, Inject, Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from "./../../environments/environment";
 
 @Component({
 	selector: 'app-test-api',
@@ -13,7 +14,7 @@ export class TestApiComponent implements OnInit
 	public product: any = {};
 	constructor(private http: HttpClient)
 	{
-		this.http.get("/api/products", { observe: "body", responseType: "json" })
+		this.http.get(environment.API + "/products", { observe: "body", responseType: "json" })
 			.subscribe(
 				(data) =>
 				{

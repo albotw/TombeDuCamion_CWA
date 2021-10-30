@@ -3,10 +3,10 @@ import auth_schema from "./schema/auth_schema.json";
 import comments_schema from "./schema/comments_schema.json";
 import product_schema from "./schema/product_schema.json";
 import user_schema from "./schema/user_schema.json";
-import { IAuth } from "./IAuth";
-import { IComment } from "./IComment";
-import { IProduct } from "./IProduct";
-import { IUser } from "./IUser";
+import { IAuth } from "./interfaces/IAuth";
+import { IComment } from "./interfaces/IComment";
+import { IProduct } from "./interfaces/IProduct";
+import { IUser } from "./interfaces/IUser";
 import { JSONdata } from "./JSONdata";
 
 import fs from "fs";
