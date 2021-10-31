@@ -1,0 +1,17 @@
+type ProductType {
+    p_uid: String!
+    seller: String!
+    title: String!
+    stock: Int!
+    description: String!
+    images: [String!]!
+    category: String!
+    comments: [String!]!
+    notation: Float!
+    price: Float!
+}
+
+type Query {
+    product(p_uid: String): ProductType
+    products: [ProductType]
+}

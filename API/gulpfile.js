@@ -30,6 +30,11 @@ function copy_data()
         .pipe(gulp.dest("dist/JSON/"));
 }
 
+function copy_graphql_schemas()
+{
+    return gulp.src("./src/*.graphql").pipe(gulp.dest("dist/"));
+}
+
 function watch()
 {
     return gulp.watch(["./src/**/*.ts", "./src/**/*.json"], compile);
@@ -44,7 +49,10 @@ function serve()
 }
 
 exports.launch = gulp.series(
-    compile,
+    gulp.parallel(
+        compile,
+        copy_graphql_schemas
+    ),
     gulp.parallel(
         watch,
         serve

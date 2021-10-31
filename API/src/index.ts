@@ -2,9 +2,14 @@ import express from "express";
 import { IProduct } from "./interfaces/IProduct";
 import product_schema from "./schema/product_schema.json";
 import cors from "cors";
+import { buildSchema, GraphQLSchema } from "graphql";
+import { graphqlHTTP } from "express-graphql";
+import { createHash } from "crypto";
+import { readFileSync } from "fs";
 
 let app = express();
 
+//paramétrage CORS
 let corsOptions = {
     origin: "*",
     methods: [
@@ -15,20 +20,40 @@ let corsOptions = {
     ],
     allowedHeaders: ["Content-Type", "Access-Control-Allow-Origin"],
 };
-
 app.use(cors(corsOptions));
 
+//active l'écoute du serveur pour la réception des appels.
 const PORT = process.env.PORT || 9090;
 app.listen(PORT, () =>
 {
-    console.log("Serveur à l'écoute sur " + PORT);
+    console.log("Serveur à l'écoute sur le port:" + PORT);
 });
 
-
-
-app.use(express.json());
+//chargement des produits
 const products = require("../JSON/products.json");
 
+//graphql
+//obligé de mettre dist/ car le CWD est /API
+let prodSchema_string = readFileSync("dist/product.graphql", { encoding: "utf-8" });
+let prodSchema = buildSchema(prodSchema_string);
+let root = {
+    products: () =>
+    {
+        return products;
+    },
+    product: (p_uid: string) =>
+    {
+        return products
+    }
+}
+app.use("/graphql", graphqlHTTP({
+    schema: prodSchema,
+    rootValue: root,
+    graphiql: true
+}));
+
+//REST
+app.use(express.json());
 app.get("/", (req, res) =>
 {
     res.status(200);
@@ -41,3 +66,8 @@ app.get("/products", (req, res) =>
     res.json(products);
 })
 
+//test hashage
+let hash = createHash("sha256");
+hash.update("test");
+let hashResult = hash.digest().toString("hex");
+console.log("test => " + hashResult);
