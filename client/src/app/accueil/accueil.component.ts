@@ -31,6 +31,7 @@ export class AccueilComponent implements OnInit
           p_uid
           seller
           title
+          price
           stock
           description
           images

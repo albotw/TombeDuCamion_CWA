@@ -23,7 +23,7 @@
     
 </ng-template>
 <button mat-fab (click)="isOpen = !isOpen; startConv(); this.hidden = !this.hidden;" 
-        cdkOverlayOrigin #trigger="cdkOverlayOrigin" 
+        cdkOverlayOrigin #trigger="cdkOverlayOrigin" matBadgeColor="warn"
         matBadge="1" [matBadgeHidden]="hidden" matBadgeSize="large"
         style="background: url(./assets/img/la_vendeuse.jpg); background-size: 64px 64px;"
 ></button>

@@ -43,7 +43,8 @@ let root = {
     },
     productsSearch: (param) =>
     {
-        return products.filter(data => data.title.toLowerCase().startsWith(param.searchString.toLowerCase()));
+        return products.filter(data => data.title.toLowerCase().includes(param.searchString.toLowerCase()) 
+                                        || data.description.toLowerCase().includes(param.searchString.toLowerCase()));
     },
     product: (param) =>
     {
