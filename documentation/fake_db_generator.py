@@ -30,7 +30,7 @@ with open('API/JSON/products.json','r+') as file:
                 'images': [s.sprites.default],
                 'category': 'pokemonItems',
                 'comments': [],
-                "notation": round(random.random()*5, 2),
+                "notation": round(random.random()*5, 3),
                 'price': s.cost,
             }
             file_data.append(prod)

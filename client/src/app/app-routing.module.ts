@@ -8,6 +8,7 @@ import { TestApiComponent } from './test-api/test-api.component';
 import { HostListener } from "@angular/core";
 import { AccueilMobileComponent } from './accueil-mobile/accueil-mobile.component';
 import { DetailProduitComponent } from './detail-produit/detail-produit.component';
+import { ResultatsComponent } from './resultats/resultats.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
 	{ path: 'lol', component: PageJustinComponent },
 	{ path: "test-api", component: TestApiComponent },
 	{ path: 'produit/:id', component: DetailProduitComponent },
+	{ path: 'recherche/:str', component: ResultatsComponent },
 	{ path: '**', component: NotfoundComponent },
 
 ];

@@ -37,6 +37,7 @@ import { DetailProduitComponent } from './detail-produit/detail-produit.componen
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { ResultatsComponent } from './resultats/resultats.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { FormsModule } from '@angular/forms';
   AccueilMobileComponent,
   NavbarMobileComponent,
   WassimComponent,
-  DetailProduitComponent
+  DetailProduitComponent,
+  ResultatsComponent
 	],
 	imports: [
 		BrowserModule,

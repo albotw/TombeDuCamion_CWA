@@ -3,7 +3,8 @@ import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
 import { HttpClient } from '@angular/common/http';
 import { flattenAndSortAnimations } from '@cds/core/internal';
-import { environment } from 'src/environments/environment';//.prod';
+import { environment } from 'src/environments/environment.prod';//.prod';
+import { AssertNotNull } from '@angular/compiler';
 
 
 @Component({
@@ -24,10 +25,26 @@ export class AccueilComponent implements OnInit
 	{
     for (let _=0; _<6; _++){
       let id = Math.floor(Math.random()*60);
-      this.http.get(environment.API+"/products/"+id, { observe: "body", responseType: "json" })
+      console.log(id);
+      let query = `{
+        product(p_uid:\"${id}\"){
+          p_uid
+          seller
+          title
+          stock
+          description
+          images
+          comments
+        }
+      }`;
+      let variables = null;
+      this.http.post(environment.API+"/graphql?", JSON.stringify({ query, variables }), 
+        {headers: {"Content-Type": "application/json",}, observe: "body", responseType: "json"}
+        )
         .subscribe(
           (data) =>
           {
+            data = data['data']['product'];
             if (data['description'].length > 40){
               data['description'] = data['description'].substring(0, 37)+"...";
             }

@@ -34,17 +34,21 @@ const products = require("../JSON/products.json");
 
 //graphql
 //obligé de mettre dist/ car le CWD est /API
-let prodSchema_string = readFileSync("dist/product.graphql", { encoding: "utf-8" });
+let prodSchema_string = readFileSync(`${__dirname}\\product.graphql`, { encoding: "utf-8" });
 let prodSchema = buildSchema(prodSchema_string);
 let root = {
     products: () =>
     {
         return products;
     },
-    product: (p_uid: string) =>
+    productsSearch: (param) =>{
+        return products.filter(data => data.title.toLowerCase().startsWith(param.searchString.toLowerCase()));
+    },
+    product: (param) =>
     {
-        return products
+        return products.find(data => parseInt(data.p_uid) == parseInt(param.p_uid));
     }
+
 }
 app.use("/graphql", graphqlHTTP({
     schema: prodSchema,
