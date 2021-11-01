@@ -6,7 +6,7 @@ import { buildSchema, GraphQLSchema } from "graphql";
 import { graphqlHTTP } from "express-graphql";
 import { createHash } from "crypto";
 import { readFileSync } from "fs";
-
+console.log("CWD: " + process.cwd());
 let app = express();
 
 //paramétrage CORS
@@ -34,14 +34,15 @@ const products = require("../JSON/products.json");
 
 //graphql
 //obligé de mettre dist/ car le CWD est /API
-let prodSchema_string = readFileSync(`dist\\product.graphql`, { encoding: "utf-8" });
+let prodSchema_string = readFileSync(`dist/product.graphql`, { encoding: "utf-8" });
 let prodSchema = buildSchema(prodSchema_string);
 let root = {
     products: () =>
     {
         return products;
     },
-    productsSearch: (param) =>{
+    productsSearch: (param) =>
+    {
         return products.filter(data => data.title.toLowerCase().startsWith(param.searchString.toLowerCase()));
     },
     product: (param) =>
@@ -79,7 +80,7 @@ app.get("/products/:id", (req, res) =>
 app.get("/products/:title", (req, res) =>
 {
     res.status(200);
-    res.json(products.filter( (data) => {data.title[0] === req.params.title[0] } ));
+    res.json(products.filter((data) => { data.title[0] === req.params.title[0] }));
 })
 
 
