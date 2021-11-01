@@ -19,7 +19,7 @@ export class ResultatsComponent implements OnInit {
 
   ngOnInit(): void {
 		this.rech = this.route.snapshot.paramMap.get('str');
-    this.products = [];
+    	this.products = [];
 		let query = `{
 			productsSearch(searchString:\"${this.rech}\"){
 			p_uid
