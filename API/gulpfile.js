@@ -60,6 +60,9 @@ exports.launch = gulp.series(
 );
 
 exports.launchprod = gulp.series(
-    compile,
+    gulp.parallel(
+        compile,
+        copy_graphql_schemas,
+    ),
     serve
 )
