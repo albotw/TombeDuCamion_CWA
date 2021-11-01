@@ -43,8 +43,8 @@ let root = {
     },
     productsSearch: (param) =>
     {
-        return products.filter(data => data.title.toLowerCase().includes(param.searchString.toLowerCase()) 
-                                        || data.description.toLowerCase().includes(param.searchString.toLowerCase()));
+        return products.filter(data => data.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(" ", "").includes(param.searchString.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(" ", "")))
+            .concat(products.filter(data => data.description.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(" ", "").includes(param.searchString.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(" ", ""))));
     },
     product: (param) =>
     {
