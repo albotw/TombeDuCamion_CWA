@@ -5,7 +5,8 @@
 	{{product.description}}
 </p>
 
-<img src="{{product.images[0]}}">
+<img *ngIf="product.images !== undefined"  src="{{product.images[0]}}">
+<mat-spinner *ngIf="product.images === undefined"></mat-spinner>
 
 <p>
 	{{product.price}} €

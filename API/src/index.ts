@@ -41,3 +41,17 @@ app.get("/products", (req, res) =>
     res.json(products);
 })
 
+app.get("/products/:id", (req, res) =>
+{
+    res.status(200);
+    res.json(products[req.params.id]);
+})
+
+app.get("/products/:title", (req, res) =>
+{
+    res.status(200);
+    res.json(products.filter( (data) => {data.title[0] === req.params.title[0] } ));
+})
+
+
+

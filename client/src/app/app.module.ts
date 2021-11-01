@@ -34,6 +34,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
 import { WassimComponent } from './wassim/wassim.component';
 import { DetailProduitComponent } from './detail-produit/detail-produit.component'; 
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
 	declarations: [
@@ -75,6 +79,9 @@ import { DetailProduitComponent } from './detail-produit/detail-produit.componen
 		HttpClientModule,
 		MatSidenavModule,
 		MatDividerModule,
+		MatProgressSpinnerModule,
+		MatFormFieldModule,
+		FormsModule,
 	],
 	providers: [
 	],

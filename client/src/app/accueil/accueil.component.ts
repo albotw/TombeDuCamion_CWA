@@ -3,7 +3,7 @@ import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
 import { HttpClient } from '@angular/common/http';
 import { flattenAndSortAnimations } from '@cds/core/internal';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';//.prod';
 
 
 @Component({
@@ -22,17 +22,18 @@ export class AccueilComponent implements OnInit
 
 	constructor(private http: HttpClient)
 	{
-		this.http.get(environment.API+"/products", { observe: "body", responseType: "json" })
-			.subscribe(
-				(data) =>
-				{
-          for (let _=0; _<6; _++){
-            this.meilleuresVentes.push(data[Math.floor(Math.random()*60)]);
-            if (this.meilleuresVentes[_].description.length > 100){
-              this.meilleuresVentes[_].description = this.meilleuresVentes[_].description.substring(0,100)+"...";
+    for (let _=0; _<6; _++){
+      let id = Math.floor(Math.random()*60);
+      this.http.get(environment.API+"/products/"+id, { observe: "body", responseType: "json" })
+        .subscribe(
+          (data) =>
+          {
+            if (data['description'].length > 40){
+              data['description'] = data['description'].substring(0, 37)+"...";
             }
-          }
-				})
+            this.meilleuresVentes.push(data);
+          });
+    }
 	}
 
 

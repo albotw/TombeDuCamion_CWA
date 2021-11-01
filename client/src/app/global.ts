@@ -1,8 +1,8 @@
 
 'use strict';
 
-export const PANIER = [
-    {name: 'Hand Spinner', number: 2, price: 5}
-];
+export const PANIER_IDS = [];
+
+export const PANIER = [];
 
 
