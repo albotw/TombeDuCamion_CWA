@@ -1,17 +1,26 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { AccueilComponent } from './accueil/accueil.component';
 import { AppComponent } from './app.component';
+import { DetailProduitComponent } from './detail-produit/detail-produit.component';
 
 describe('AppComponent', () => {
+  let httpClient: HttpClient;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        AccueilComponent,
+        DetailProduitComponent
       ],
     }).compileComponents();
+    httpClient = TestBed.get(HttpClient);
   });
 
   it('should create the app', () => {

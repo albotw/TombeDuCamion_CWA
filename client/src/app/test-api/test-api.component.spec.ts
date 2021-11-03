@@ -24,7 +24,7 @@ describe('TestApiComponent', () =>
 		fixture.detectChanges();
 	});
 
-	it('should create', () =>
+	it('should create the app', () =>
 	{
 		expect(component).toBeTruthy();
 	});
