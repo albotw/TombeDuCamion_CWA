@@ -15,4 +15,5 @@ type Query {
     product(p_uid: String): ProductType
     products: [ProductType]
     productsSearch(searchString: String): [ProductType]
+    bestSellers: [ProductType]
 }

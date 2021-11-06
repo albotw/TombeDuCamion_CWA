@@ -5,85 +5,69 @@ import { HttpClient } from '@angular/common/http';
 import { flattenAndSortAnimations } from '@cds/core/internal';
 import { environment } from 'src/environments/environment.prod';//.prod';
 import { AssertNotNull } from '@angular/compiler';
+import DataController from '../shared/DataController';
 
 
 @Component({
-  selector: 'app-accueil',
-  templateUrl: './accueil.component.html',
-  styleUrls: ['./accueil.component.css']
+	selector: 'app-accueil',
+	templateUrl: './accueil.component.html',
+	styleUrls: ['./accueil.component.css']
 })
 export class AccueilComponent implements OnInit
 {
 
-  id = 0;
+	id = 0;
 
-  meilleuresVentes = [];
+	meilleuresVentes = [];
 
-  startIndex: number[] = [0, 0, 0];
+	startIndex: number[] = [0, 0, 0];
 
 	constructor(private http: HttpClient)
 	{
-    for (let _=0; _<6; _++){
-      let id = Math.floor(Math.random()*60);
-      console.log(id);
-      let query = `{
-        product(p_uid:\"${id}\"){
-          p_uid
-          seller
-          title
-          price
-          stock
-          description
-          images
-          comments
-        }
-      }`;
-      let variables = null;
-      this.http.post(environment.API+"/graphql?", JSON.stringify({ query, variables }), 
-        {headers: {"Content-Type": "application/json",}, observe: "body", responseType: "json"}
-        )
-        .subscribe(
-          (data) =>
-          {
-            data = data['data']['product'];
-            if (data['description'].length > 40){
-              data['description'] = data['description'].substring(0, 37)+"...";
-            }
-            this.meilleuresVentes.push(data);
-          });
-    }
+		DataController.bestSellers((data) =>
+		{
+			data = data.bestSellers;
+			data = data.map((product) =>
+			{
+				if (product.description.length > 40)
+					product.description = product.description.substring(0, 37) + "...";
+				return product;
+			});
+			this.meilleuresVentes = data;
+
+		})
 	}
 
 
-  addIndex(idx): void
-  {
-    if (this.startIndex[idx] + 4 < this.meilleuresVentes.length)
-    {
-      this.startIndex[idx] += 1;
-    }
-  }
+	addIndex(idx): void
+	{
+		if (this.startIndex[idx] + 4 < this.meilleuresVentes.length)
+		{
+			this.startIndex[idx] += 1;
+		}
+	}
 
-  subIndex(idx): void
-  {
-    if (this.startIndex[idx] > 0)
-    {
-      this.startIndex[idx] -= 1;
-    }
-  }
+	subIndex(idx): void
+	{
+		if (this.startIndex[idx] > 0)
+		{
+			this.startIndex[idx] -= 1;
+		}
+	}
 
-  getVentes(idx)
-  {
-    let res = [];
+	getVentes(idx)
+	{
+		let res = [];
 
-    for (let i = 0; i < 4; i++)
-    {
-      res.push(this.meilleuresVentes[this.startIndex[idx] + i]);
-    }
-    return res;
-  }
+		for (let i = 0; i < 4; i++)
+		{
+			res.push(this.meilleuresVentes[this.startIndex[idx] + i]);
+		}
+		return res;
+	}
 
-  ngOnInit(): void
-  {
-  }
+	ngOnInit(): void
+	{
+	}
 
 }

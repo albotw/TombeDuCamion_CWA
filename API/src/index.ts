@@ -56,7 +56,7 @@ let root = {
 
         param = toUnicode(param.searchString);
         console.log("SEARCH product with arg %o", param);
-        
+
         let output = products.filter(product =>
         {
             let titleAsUnicode = toUnicode(product.title);
@@ -73,6 +73,17 @@ let root = {
         let p_uid = args.p_uid;
         console.log("GET product with p_uid %o", p_uid);
         return products.find(product => product.p_uid == p_uid);
+    },
+    bestSellers: () =>
+    {
+        //TODO: demander à justin une méthode efficace.
+        let bestsellers = [];
+        for (let i = 0; i < 6; i++)
+        {
+            bestsellers.push(products[i]);
+        }
+
+        return bestsellers;
     }
 
 }

@@ -23,6 +23,27 @@ export default class DataController
 		DataController.grab(query, null).then(callback);
 	}
 
+	public static bestSellers = async (callback: (data: any) => void) =>
+	{
+		let query = gql`
+			query getBestSellers {
+				bestSellers {
+					p_uid
+					seller
+					title
+					price
+					stock
+					description
+					images
+					comments
+				}
+			}
+
+		`
+
+		DataController.grab(query, null).then(callback);
+	}
+
 	public static getProduct = async (id: string, callback: (data: any) => void) =>
 	{
 		let query = gql`
