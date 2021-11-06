@@ -8,7 +8,7 @@
 		"watch": "ng build --watch --configuration development",
 		"test": "ng test",
 		"build:ci": "ng build --base-href /TombeDuCamion_CWA/  --source-map=false --configuration=production",
-		"test:ci": "ng test --watch=false --code-coverage --source-map=false  --browsers=ChromeHeadless --configuration=production"
+		"test:ci": "ng test --watch=false --code-coverage --source-map=false  --browsers=ChromeHeadless"
 	},
 	"private": true,
 	"dependencies": {
