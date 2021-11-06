@@ -29,11 +29,21 @@ app.listen(PORT, () =>
     console.log("Serveur à l'écoute sur le port:" + PORT);
 });
 
+//fonction hash
+let hash = createHash("sha256");
+
+//fonction unicode
+let toUnicode = (toConvert: string) =>
+{
+    return toConvert.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+
 //chargement des produits
 const products = require("../JSON/products.json");
 
 //graphql
-//obligé de mettre dist/ car le CWD est /API
+//obligé de mettre dist/ car le CWD est /API (Heroku ou local)
 let prodSchema_string = readFileSync(`dist/product.graphql`, { encoding: "utf-8" });
 let prodSchema = buildSchema(prodSchema_string);
 let root = {
@@ -41,14 +51,28 @@ let root = {
     {
         return products;
     },
-    productsSearch: (param) =>
+    productsSearch: (param: any) =>
     {
-        return products.filter(data => data.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(" ", "").includes(param.searchString.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(" ", "")))
-            .concat(products.filter(data => data.description.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(" ", "").includes(param.searchString.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(" ", ""))));
+
+        param = toUnicode(param.searchString);
+        console.log("SEARCH product with arg %o", param);
+        
+        let output = products.filter(product =>
+        {
+            let titleAsUnicode = toUnicode(product.title);
+            let descriptionAsUnicode = toUnicode(product.description);
+            if (titleAsUnicode.includes(param) || descriptionAsUnicode.includes(param))
+                return product;
+        }
+        );
+
+        return output;
     },
-    product: (param) =>
+    product: (args: any) =>
     {
-        return products.find(data => parseInt(data.p_uid) == parseInt(param.p_uid));
+        let p_uid = args.p_uid;
+        console.log("GET product with p_uid %o", p_uid);
+        return products.find(product => product.p_uid == p_uid);
     }
 
 }
@@ -86,8 +110,4 @@ app.get("/products/:title", (req, res) =>
 
 
 
-//test hashage
-let hash = createHash("sha256");
-hash.update("test");
-let hashResult = hash.digest().toString("hex");
-console.log("test => " + hashResult);
+

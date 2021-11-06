@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { PANIER, PANIER_IDS } from '../global';
-import { environment } from 'src/environments/environment.prod';//.prod';
+import { environment } from 'src/environments/environment';//.prod';
+import DataController from '../shared/DataController';
 
 
 @Component({
@@ -14,39 +15,25 @@ export class DetailProduitComponent implements OnInit
 {
 
 	public product: any = {};
-	public p_uid: number = -1;
+	public p_uid: string = "";
 
 	constructor(private http: HttpClient, private route: ActivatedRoute)
 	{
-		this.p_uid = Number(this.route.snapshot.paramMap.get('id'));
-		let query = `{
-			product(p_uid:\"${this.p_uid}\"){
-			p_uid
-			seller
-			title
-			price
-			stock
-			description
-			images
-			comments
-			}
-		}`;
-		let variables = null;
-		this.http.post(environment.API+"/graphql?", JSON.stringify({ query, variables }), 
-			{headers: {"Content-Type": "application/json",}, observe: "body", responseType: "json"}
-			)
-			.subscribe(
-			(data) =>
-			{
-				data = data['data']['product'];
-				this.product = data;
-			});
+		this.p_uid = this.route.snapshot.paramMap.get('id');
+
+		DataController.getProduct(this.p_uid, (data) =>
+		{
+			console.log(data);
+			this.product = data.product;
+		})
 	}
 
-	ngOnInit(): void {
+	ngOnInit(): void
+	{
 	}
-	
-	addToPanier(): void {
+
+	addToPanier(): void
+	{
 		let test = false;
 		for (let item of PANIER_IDS)
 		{
@@ -56,8 +43,9 @@ export class DetailProduitComponent implements OnInit
 				test = true;
 			}
 		}
-		if (!test){
-			PANIER_IDS.push({ p_uid: this.product.p_uid, number: 1, price: parseInt(this.product.price)});
+		if (!test)
+		{
+			PANIER_IDS.push({ p_uid: this.product.p_uid, number: 1, price: parseInt(this.product.price) });
 			PANIER.push(this.product);
 		}
 	}

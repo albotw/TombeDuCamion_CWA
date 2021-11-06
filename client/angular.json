@@ -78,13 +78,12 @@
 							"aot": true
 						}
 					},
-					"defaultConfiguration": "production"
+					"defaultConfiguration": "development"
 				},
 				"serve": {
 					"builder": "@angular-devkit/build-angular:dev-server",
 					"options": {
-						"browserTarget": "Web:build",
-						"proxyConfig": "proxy.conf.json"
+						"browserTarget": "Web:build"
 					},
 					"configurations": {
 						"production": {
