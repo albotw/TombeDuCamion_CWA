@@ -28,17 +28,10 @@ jobs:
       - name: Install dependencies
         working-directory: client/
         run: npm ci
-        
+
       - name: Build
         working-directory: client/
         run: npm run build:ci
-        
-      - uses: browser-actions/setup-chrome@latest
-      - run: chrome --version
-          
-      - name: Test
-        working-directory: client/
-        run: npm run test:ci
         
       - name: Archive build
         if: success()
@@ -46,6 +39,15 @@ jobs:
         with:
           name: deploy_dist
           path: client/dist
+
+
+      - uses: browser-actions/setup-chrome@latest
+      - run: chrome --version
+          
+      - name: Test
+        working-directory: client/
+        run: npm run test:ci
+        
           
   client-deploy:
     runs-on: ubuntu-latest
@@ -94,3 +96,4 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           discord-webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          description: "${{ github.ref }}, résultat : {{STATUS}}"

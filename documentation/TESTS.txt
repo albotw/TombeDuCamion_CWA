@@ -1,0 +1,37 @@
+Plan des tests envisagés:
+	
+	I) Authentification:
+		(Connexion)
+		- L'utilisateur doit remplir un nom d'utilisateur ou un email dans un même champ -> vérifier que la différence est bien faite entre les deux pour chercher dans la BD par email ou par nom d'utilisateur
+		  |-> Si le champ est vide -> Indiquer l'erreur
+		  |-> Si aucun nom d'utilisateur/email correspondant n'est trouvé -> Indiquer que le compte n'existe pas
+		- L'utilisateur doit remplir un mot de passe, si le champ est vide -> Indiquer l'erreur
+		- Verifier que l'API, renvoie une réponse logique si la combinaison nom utilisateur/mot de passe est valide
+		- Vérifier qu'une fois l'utilisateur connecté, il possède les bons accès réservés aux membres
+		(Inscription)
+		- Lors de l'inscription d'un utilisateur, vérifier que tout les champs sont complétés
+		- Vérifier qu'on ne puisse pas créer de doublons dans la BD, (pas 2x le même nom d'utilisateur, même email, ...)
+	II)  Achat:
+		- Vérifier que le bouton d'ajout au panier soit bloquer si le stock du produit est =< 0
+		- Vérifier que lorsque l'utilisateur diminue la quantité d'un produit, le stock du produit réaugmente, et que la quantité du produit ne puisse pas être =< 0 dans le panier
+		- Vérifier qu'après l'achat, le produit apparaisse dans l'historique de l'acheteur
+	III) Vente:
+		- Vérifier que tous les champs requis ne soient pas vides lors de la création de la vente (nom, description, stock, prix)
+		- Vérifier que le stock et le prix du produit à créer soit > 0
+		- Vérifier que l'ajout du produit dans la BD ne fasse pas de doublons (pas 2x même utilisateur ET même nom)
+		- Vérifier qu'après avoir ajouter le produit à la BD, il apparaisse bien dans les résultats de recherche et soit bien ajouter à la liste des produits vendus par le vendeur
+	IV) Commentaire:
+		- Vérifier que les champs ne puissent pas être vides
+		- Vérifier qu'à l'ajout d'un commentaire, le calcul de la note moyenne du produit et du vendeur soit recalculé
+		- Vérifier qu'un utilisateur ne puisse écrire qu'un seul commentaire par produit
+		- Vérifier qu'un utilisateur puisse ajouter un commentaire sur un produit/vendeur uniquement si il a acheté ce produit/chez le vendeur
+	V) Produit:
+		- Vérifier qu'un utilisateur puisse modifier la page de vente de son produit, uniquement si il en est le vendeur
+		- Vérifier que l'on ne puisse pas acheter un produit si le vendeur est en train de le modifier 
+	VI) Recherche:
+		- Vérifier que les résultats d'une recherche ait un stock > 0
+		- Vérifier que les résultats de la recherche soit cohérente en fonction des filtres
+		- Vérifier que l'application d'un tri sur la recherche conserve le nombre de résultats
+	VII) API:
+		- Vérifier qu'uniquement les admins (+le site web considéré comme un admin) puissent créer/modifier/supprimer la BD
+
