@@ -37,7 +37,7 @@ function copy_graphql_schemas()
 
 function watch()
 {
-	return gulp.watch(["./src/**/*.ts", "./src/**/*.json", "./src/**/*.graphql"], gulp.series(copy_graphql_schemas, compile));
+	return gulp.watch(["./src/**/*.ts", "./src/**/*.json", "./src/**/*.graphql", "./JSON/*.json"], gulp.series(copy_graphql_schemas, compile));
 }
 
 function serve()

@@ -9,7 +9,8 @@
         "category": "test",
         "comments": [],
         "notation": 5,
-        "price": 10
+        "price": 1,
+        "sales": 0
     },
     {
         "p_uid": "ac04a988943f536a41bcff5f0b8a2311fe7eeb49ff2dba42cac4b2fb1fec7c33",

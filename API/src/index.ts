@@ -6,6 +6,8 @@ import { buildSchema, GraphQLSchema } from "graphql";
 import { graphqlHTTP } from "express-graphql";
 import { createHash } from "crypto";
 import { readFileSync } from "fs";
+import productResolver from "./resolvers/productResolver";
+
 console.log("CWD: " + process.cwd());
 let app = express();
 
@@ -32,60 +34,19 @@ app.listen(PORT, () =>
 //fonction hash
 let hash = createHash("sha256");
 
-//fonction unicode
-let toUnicode = (toConvert: string) =>
-{
-    return toConvert.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-}
 
+//chargement des données
 
-//chargement des produits
-const products = require("../JSON/products.json");
+let users = require("../JSON/users.json");
+let comments = require("../JSON/comments.json");
+let auth = require("../JSON/auth.json");
 
 //graphql
 //obligé de mettre dist/ car le CWD est /API (Heroku ou local)
 let prodSchema_string = readFileSync(`dist/product.graphql`, { encoding: "utf-8" });
 let prodSchema = buildSchema(prodSchema_string);
 let root = {
-    products: () =>
-    {
-        return products;
-    },
-    productsSearch: (param: any) =>
-    {
-
-        param = toUnicode(param.searchString);
-        console.log("SEARCH product with arg %o", param);
-
-        let output = products.filter(product =>
-        {
-            let titleAsUnicode = toUnicode(product.title);
-            let descriptionAsUnicode = toUnicode(product.description);
-            if (titleAsUnicode.includes(param) || descriptionAsUnicode.includes(param))
-                return product;
-        }
-        );
-
-        return output;
-    },
-    product: (args: any) =>
-    {
-        let p_uid = args.p_uid;
-        console.log("GET product with p_uid %o", p_uid);
-        return products.find(product => product.p_uid == p_uid);
-    },
-    bestSellers: () =>
-    {
-        //TODO: demander à justin une méthode efficace.
-        let bestsellers = [];
-        for (let i = 0; i < 6; i++)
-        {
-            bestsellers.push(products[i]);
-        }
-
-        return bestsellers;
-    }
-
+    productResolver,
 }
 app.use("/graphql", graphqlHTTP({
     schema: prodSchema,
@@ -94,6 +55,7 @@ app.use("/graphql", graphqlHTTP({
 }));
 
 //REST
+/*
 app.use(express.json());
 app.get("/", (req, res) =>
 {
@@ -118,7 +80,7 @@ app.get("/products/:title", (req, res) =>
     res.status(200);
     res.json(products.filter((data) => { data.title[0] === req.params.title[0] }));
 })
-
+*/
 
 
 
