@@ -1,11 +1,12 @@
 let products = require("../../JSON/products.json");
+let bests = require("../../JSON/bests.json");
 
 let toUnicode = (toConvert: string) =>
 {
     return toConvert.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
-export default {
+const e = {
     products: () =>
     {
         return products;
@@ -36,12 +37,33 @@ export default {
     bestSellers: () =>
     {
         //TODO: demander à justin une méthode efficace.
-        let bestsellers = [];
+        
+        let bestsellers = [];           // mieux que filter car l'ordre est important
         for (let i = 0; i < 6; i++)
         {
-            bestsellers.push(products[i]);
+            bestsellers.push(products.find(product => product.p_uid == bests["sells"][i]));
         }
-
         return bestsellers;
+        
+    },
+    bestRated: () =>
+    {
+        let bestrated = [];           // mieux que filter car l'ordre est important
+        for (let i = 0; i < 6; i++)
+        {
+            bestrated.push(products.find(product => product.p_uid == bests["rating"][i]));
+        }
+        return bestrated;
+    },
+    bestViews: () =>
+    {
+        let bestviews = [];           // mieux que filter car l'ordre est important
+        for (let i = 0; i < 6; i++)
+        {
+            bestviews.push(products.find(product => product.p_uid == bests["views"][i]));
+        }
+        return bestviews;
     }
 }
+
+export default e;
