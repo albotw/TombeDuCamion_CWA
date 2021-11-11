@@ -1,4 +1,4 @@
-type ProductType {
+type Product {
     p_uid: String!
     seller: String!
     title: String!
@@ -9,13 +9,14 @@ type ProductType {
     comments: [String!]!
     notation: Float!
     price: Float!
+    sales: Int!
 }
 
 type Query {
-    product(p_uid: String): ProductType
-    products: [ProductType]
-    productsSearch(searchString: String): [ProductType]
-    bestSellers: [ProductType]
-    bestRated: [ProductType]
-    bestViews: [ProductType]
+    product(p_uid: String): Product
+    products: [Product]
+    productsSearch(searchString: String): [Product]
+    bestSellers: [Product]
+    bestRated: [Product]
+    bestViews: [Product]
 }

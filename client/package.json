@@ -3,7 +3,9 @@
 	"version": "0.0.0",
 	"scripts": {
 		"ng": "ng",
-		"start": "ng serve",
+		"API": "node bin/launchapi.js",
+		"start": "concurrently \"npm:API\" \"npm:CLIENT\"",
+		"CLIENT": "ng serve --configuration development",
 		"build": "ng build",
 		"watch": "ng build --watch --configuration development",
 		"test": "ng test",
@@ -27,9 +29,11 @@
 		"@clr/ui": "12.0.5",
 		"@types/jquery": "^3.5.8",
 		"ajv": "^8.6.3",
+		"concurrently": "^6.3.0",
 		"graphql": "^16.0.1",
 		"graphql-request": "^3.6.1",
 		"rxjs": "~6.6.0",
+		"shelljs": "^0.8.4",
 		"tslib": "^2.3.0",
 		"zone.js": "~0.11.4"
 	},

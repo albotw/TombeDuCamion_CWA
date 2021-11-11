@@ -1,0 +1,24 @@
+type HistoryElement {
+    type: HistoryElementType!
+    product: String!
+}
+
+enum HistoryElementType {
+    BUY,
+    SALE
+}
+
+type User {
+    uid: String!
+    nickname: String!
+    email: String!
+    wishlist: [String!]!
+    sales: Int!
+    popularity: Int!
+    history: [HistoryElement!]!
+}
+
+type Query {
+    user(uid: String) : User
+    users: [User]
+}
