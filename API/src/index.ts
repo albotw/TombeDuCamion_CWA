@@ -41,6 +41,7 @@ let toUnicode = (toConvert: string) =>
 
 //chargement des produits
 const products = require("../JSON/products.json");
+const bests = require("../JSON/bests.json");
 
 //graphql
 //obligé de mettre dist/ car le CWD est /API (Heroku ou local)
@@ -77,14 +78,34 @@ let root = {
     bestSellers: () =>
     {
         //TODO: demander à justin une méthode efficace.
-        let bestsellers = [];
+        
+        let bestsellers = [];           // mieux que filter car l'ordre est important
         for (let i = 0; i < 6; i++)
         {
-            bestsellers.push(products[i]);
+            bestsellers.push(products.find(product => product.p_uid == bests["sells"][i]));
         }
-
         return bestsellers;
+        
+    },
+    bestRated: () =>
+    {
+        let bestrated = [];           // mieux que filter car l'ordre est important
+        for (let i = 0; i < 6; i++)
+        {
+            bestrated.push(products.find(product => product.p_uid == bests["rating"][i]));
+        }
+        return bestrated;
+    },
+    bestViews: () =>
+    {
+        let bestviews = [];           // mieux que filter car l'ordre est important
+        for (let i = 0; i < 6; i++)
+        {
+            bestviews.push(products.find(product => product.p_uid == bests["views"][i]));
+        }
+        return bestviews;
     }
+
 
 }
 app.use("/graphql", graphqlHTTP({

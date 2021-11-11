@@ -1,0 +1,63 @@
+
+<h1>Votre Panier : </h1>
+
+<div style="width: 65%; float:left">
+    <mat-card *ngFor="let item of panier; let idx=index;">
+        <mat-card-title-group>
+            <mat-card-title>{{item.title}}</mat-card-title>
+            <mat-card-subtitle>x{{panierIDs[idx].number}}</mat-card-subtitle>
+            <img mat-card-sm-image src="{{item.images[0]}}" >
+        </mat-card-title-group>
+        <mat-card-actions align="end">
+            <button mat-button (click)="delItem(idx)">DEL</button>
+            <button mat-button (click)="subItem(idx)">-</button>
+            <button mat-button (click)="addItem(idx)">+</button>
+        </mat-card-actions>
+    </mat-card> 
+</div>
+        
+
+<div style="width: 30%; float:right;">
+
+    <mat-form-field>
+        <mat-label>Nom & Prénom</mat-label>
+        <input matInput #input maxlength="10">
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>CP</mat-label>
+        <input matInput #input maxlength="5">
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>Addresse</mat-label>
+        <input matInput #input>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <mat-form-field>
+        <mat-label>Nom & Prénom</mat-label>
+        <input matInput #input maxlength="10">
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>Code</mat-label>
+        <input matInput #input maxlength="5">
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>Date exp.</mat-label>
+        <input matInput #input>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <button mat-raised-button color="warn" (click)="acheter()">
+        PAYER ;)
+    </button>
+
+</div>
+        
+
+

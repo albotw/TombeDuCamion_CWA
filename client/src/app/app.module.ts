@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from '../router';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -38,6 +38,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { ResultatsComponent } from './resultats/resultats.component';
+import { PanierComponent } from './panier/panier.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { ResultatsComponent } from './resultats/resultats.component';
   NavbarMobileComponent,
   WassimComponent,
   DetailProduitComponent,
-  ResultatsComponent
+  ResultatsComponent,
+  PanierComponent
 	],
 	imports: [
 		BrowserModule,

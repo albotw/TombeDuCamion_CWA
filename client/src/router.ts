@@ -6,6 +6,8 @@ import { DetailProduitComponent } from "./app/detail-produit/detail-produit.comp
 import { NavigationbarComponent } from "./app/navigationbar/navigationbar.component";
 import { NotfoundComponent } from "./app/notfound/notfound.component";
 import { PageJustinComponent } from "./app/page-justin/page-justin.component";
+import { PanierComponent } from "./app/panier/panier.component";
+import { ResultatsComponent } from "./app/resultats/resultats.component";
 import { TestApiComponent } from "./app/test-api/test-api.component";
 
 
@@ -15,8 +17,9 @@ const routes: Routes = [
 	{ path: 'lol', component: PageJustinComponent },
 	{ path: "test-api", component: TestApiComponent },
 	{ path: 'produit/:id', component: DetailProduitComponent },
+	{ path: 'recherche/:str', component: ResultatsComponent },
+	{ path: 'panier', component: PanierComponent},
 	{ path: '**', component: NotfoundComponent },
-
 ];
 
 const mobileRoutes: Routes = [
@@ -25,6 +28,8 @@ const mobileRoutes: Routes = [
 	{ path: 'lol', component: PageJustinComponent },
 	{ path: "test-api", component: TestApiComponent },
 	{ path: 'produit/:id', component: DetailProduitComponent },
+	{ path: 'recherche/:str', component: ResultatsComponent },
+	{ path: 'panier', component: PanierComponent},
 	{ path: '**', component: NotfoundComponent },
 ];
 

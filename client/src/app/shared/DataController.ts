@@ -44,6 +44,48 @@ export default class DataController
 		DataController.grab(query, null).then(callback);
 	}
 
+	public static bestRated = async (callback: (data: any) => void) =>
+	{
+		let query = gql`
+			query getBestRated {
+				bestRated {
+					p_uid
+					seller
+					title
+					price
+					stock
+					description
+					images
+					comments
+				}
+			}
+
+		`
+
+		DataController.grab(query, null).then(callback);
+	}
+
+	public static bestViews = async (callback: (data: any) => void) =>
+	{
+		let query = gql`
+			query getBestViews {
+				bestViews {
+					p_uid
+					seller
+					title
+					price
+					stock
+					description
+					images
+					comments
+				}
+			}
+
+		`
+
+		DataController.grab(query, null).then(callback);
+	}
+
 	public static getProduct = async (id: string, callback: (data: any) => void) =>
 	{
 		let query = gql`
@@ -93,4 +135,6 @@ export default class DataController
 	{
 		return request(environment.API + "/graphql", query, variables);
 	}
+
+
 }
