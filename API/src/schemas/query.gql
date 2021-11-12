@@ -1,0 +1,13 @@
+type Query {
+    getProduct(p_uid: ID): Product
+    getAllProducts: [Product]
+    searchProduct(searchString: String): [Product]
+    top(categorie: String, champ: String) : [Product]
+
+    "FONCTIONS USER"
+    user(uid: String) : User
+    users: [User]
+
+    "FONCTIONS AUTH"
+    uid(hash: String) : String
+}

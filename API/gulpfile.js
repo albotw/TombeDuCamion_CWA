@@ -1,7 +1,13 @@
 "use strict";
 
 var gulp = require("gulp");
+var del = require("del");
 var nodemon = require("gulp-nodemon");
+
+function cleanDist()
+{
+	return del(["dist"]);
+}
 
 function compile()
 {
@@ -32,7 +38,7 @@ function copy_data()
 
 function copy_graphql_schemas()
 {
-	return gulp.src("./src/*.graphql").pipe(gulp.dest("dist/"));
+	return gulp.src("./src/schemas/*.gql").pipe(gulp.dest("dist/schemas"));
 }
 
 function watch()
@@ -49,6 +55,7 @@ function serve()
 }
 
 exports.launch = gulp.series(
+	cleanDist,
 	gulp.parallel(
 		compile,
 		copy_graphql_schemas
@@ -60,6 +67,7 @@ exports.launch = gulp.series(
 );
 
 exports.launchprod = gulp.series(
+	cleanDist,
 	gulp.parallel(
 		compile,
 		copy_graphql_schemas,

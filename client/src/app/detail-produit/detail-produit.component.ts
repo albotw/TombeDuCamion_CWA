@@ -23,8 +23,7 @@ export class DetailProduitComponent implements OnInit
 
 		DataController.getProduct(this.p_uid, (data) =>
 		{
-			console.log(data);
-			this.product = data.product;
+			this.product = data
 		})
 	}
 

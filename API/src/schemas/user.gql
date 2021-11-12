@@ -17,8 +17,3 @@ type User {
     popularity: Int!
     history: [HistoryElement!]!
 }
-
-type Query {
-    user(uid: String) : User
-    users: [User]
-}

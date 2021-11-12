@@ -24,9 +24,9 @@ with open(filePath ,'r+') as file:
             s = pb.item(i)
 
             prod = {
-                'p_uid': hashlib.sha256(s.names[3].name.encode()).hexdigest(),
+                'p_uid': hashlib.sha256(s.name.encode()).hexdigest(),
                 'seller': 'Prof. Chen',
-                'title': s.names[3].name,
+                'title': s.name,
                 'stock': random.randrange(250),
                 'description': s.effect_entries[0].effect,
                 'images': [s.sprites.default],
@@ -34,11 +34,15 @@ with open(filePath ,'r+') as file:
                 'comments': [],
                 "notation": round(random.random()*5, 3),
                 'price': s.cost,
+                "sales": random.randrange(0, 500),
+                "views": random.randrange(0, 1000),
             }
             file_data.append(prod)
             
             file.seek(0)
             json.dump(file_data, file, indent = 4)
+
+            print("added product n°", i, " out of 954");
     
     print("Got data, closing file");
     

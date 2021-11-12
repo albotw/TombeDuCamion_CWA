@@ -2,7 +2,3 @@ type Auth {
     hash: String!
     uid: String!
 }
-
-type Query {
-    uid(hash: String) : String
-}

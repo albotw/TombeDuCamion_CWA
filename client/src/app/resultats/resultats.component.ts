@@ -28,8 +28,6 @@ export class ResultatsComponent implements OnInit
 
 		DataController.searchProduct(this.rech, (data) =>
 		{
-			console.log(data);
-			data = data.productsSearch;
 			for (let item of data)
 			{
 				if (item['description'].length > 40)

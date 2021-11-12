@@ -18,52 +18,45 @@ export class AccueilComponent implements OnInit
 
 	id = 0;
 
-	meilleurs: {[key: string]: any} = {
-		"Meilleurs Ventes": [], 
-		"Plus Vus": [], 
+	meilleurs: { [key: string]: any } = {
+		"Meilleurs Ventes": [],
+		"Plus Vus": [],
 		"Mieux Notés": []
 	};
 
-	startIndex: {[key: string]: number} = {
-		"Meilleurs Ventes": 0, 
-		"Plus Vus": 0, 
+	startIndex: { [key: string]: number } = {
+		"Meilleurs Ventes": 0,
+		"Plus Vus": 0,
 		"Mieux Notés": 0
 	};
 
+	private _hideDescription = (data: any) =>
+	{
+		return data.map((product) =>
+		{
+			if (product.description.length > 40)
+				product.description = product.description.substring(0, 37) + "...";
+			return product;
+		});
+	}
+
 	constructor(private http: HttpClient)
 	{
-		DataController.bestSellers((data) =>
+		DataController.top("Global", "sales", (data) =>
 		{
-			data = data.bestSellers;
-			data = data.map((product) =>
-			{
-				if (product.description.length > 40)
-					product.description = product.description.substring(0, 37) + "...";
-				return product;
-			});
-			this.meilleurs["Meilleurs Ventes"] = data;
+			console.log(data);
+			this.meilleurs["Meilleurs Ventes"] = this._hideDescription(data);
 		})
-		DataController.bestRated((data) =>
+		DataController.top("Global", "notation", (data) =>
 		{
-			data = data.bestRated;
-			data = data.map((product) =>
-			{
-				if (product.description.length > 40)
-					product.description = product.description.substring(0, 37) + "...";
-				return product;
-			});
-			this.meilleurs["Mieux Notés"] = data;
+			console.log(data);
+			this.meilleurs["Mieux Notés"] = this._hideDescription(data);
 		})
-		DataController.bestViews((data) =>
+		DataController.top("Global", "views", (data) =>
 		{
-			data = data.bestViews;
-			data = data.map((product) =>
-			{
-				if (product.description.length > 40)
-					product.description = product.description.substring(0, 37) + "...";
-				return product;
-			});
-			this.meilleurs["Plus Vus"] = data;
+			console.log(data);
+
+			this.meilleurs["Plus Vus"] = this._hideDescription(data);
 		})
 	}
 
