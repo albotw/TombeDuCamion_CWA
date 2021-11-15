@@ -1,48 +1,49 @@
 import { Component, OnInit } from '@angular/core';
-import { PANIER, PANIER_IDS } from '../global';
+import { CacheData } from '../shared/cache';
+import Cache from "../shared/cache";
 import DataController from '../shared/DataController';
 
 @Component({
-  selector: 'app-panier',
-  templateUrl: './panier.component.html',
-  styleUrls: ['./panier.component.css']
+	selector: 'app-panier',
+	templateUrl: './panier.component.html',
+	styleUrls: ['./panier.component.css']
 })
-export class PanierComponent implements OnInit {
+export class PanierComponent implements OnInit
+{
 
-  panier:any;
-  panierIDs: any;
+	panier: any;
 
-  constructor() { }
+	constructor() { }
 
-  ngOnInit(): void {
-    this.panier = PANIER;
-    this.panierIDs = PANIER_IDS;
-  }
+	ngOnInit(): void
+	{
+		this.panier = Cache.get(CacheData.Panier);
+	}
 
-  addItem(idx: number) : void{
-    PANIER_IDS[idx].number += 1;
-    this.panierIDs = PANIER_IDS;
-  }
+	addItem(index: number): void
+	{
+		this.panier[index].count += 1;
+	}
 
-  subItem(idx: number) : void{
-    PANIER_IDS[idx].number -= 1;
-    if (PANIER_IDS[idx].number == 0) {
-      PANIER_IDS.splice(idx, 1);
-      PANIER.splice(idx, 1);
-      this.panier = PANIER;
-    }
-    this.panierIDs = PANIER_IDS;
-  }
+	subItem(index: number): void
+	{
+		this.panier[index].count -= 1;
+		if (this.panier[index].count == 0)
+		{
+			this.panier.splice(index, 1);
+			Cache.set(CacheData.Panier, this.panier);
+		}
+	}
 
-  delItem(idx: number) : void{
-    PANIER_IDS.splice(idx, 1);
-    PANIER.splice(idx, 1);
-    this.panierIDs = PANIER_IDS;
-    this.panier = PANIER;
-  }
+	delItem(index: number): void
+	{
+		this.panier.splice(index, 1);
+		Cache.set(CacheData.Panier, this.panier);
+	}
 
-  acheter(): void{
-    //TODO fonction acheter qui enlève du stock le nombre de produit acheter
-  }
+	acheter(): void
+	{
+		//TODO fonction acheter qui enlève du stock le nombre de produit acheter
+	}
 
 }

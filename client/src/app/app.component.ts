@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject, HostBinding } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatListOption } from '@angular/material/list';
-import { PANIER } from './global';
 
 @Component({
 	selector: 'app-root', // ? nom de la balise lorsque l'on veut utiliser le composant
@@ -12,17 +11,18 @@ import { PANIER } from './global';
 
 export class AppComponent implements OnInit
 {
-	wHeight : number;
-	wWidth : number;
+	wHeight: number;
+	wWidth: number;
 
-	
+
 	constructor()
 	{
 	}
 
-	ngOnInit() {
+	ngOnInit()
+	{
 		this.wHeight = window.innerHeight;
-		this.wWidth  = window.innerWidth;
+		this.wWidth = window.innerWidth;
 		// let cache = JSONcache.instance();
 	}
 }

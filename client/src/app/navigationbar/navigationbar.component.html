@@ -1,9 +1,10 @@
 <div class="background-color-primary">
-	<button mat-button routerLink="/accueil" style="margin-left:16px; margin-right:16px; margin-top:16px; width:64px; height:64px; background: url(./assets/img/Camion.png); background-size: 64px 64px;"></button>
+	<button mat-button routerLink="/accueil"
+		style="margin-left:16px; margin-right:16px; margin-top:16px; width:64px; height:64px; background: url(./assets/img/Camion.png); background-size: 64px 64px;"></button>
 	<mat-form-field floatLabel="never">
 		<input matInput placeholder="Rechercher" [(ngModel)]="value" (input)="updateRoute();">
 		<button matSuffix mat-icon-button aria-label="Clear" routerLink="/recherche/{{value}}">
-		  <mat-icon>send</mat-icon>
+			<mat-icon>send</mat-icon>
 		</button>
 	</mat-form-field>
 	<button mat-button routerLink="/lol">LOL</button>
@@ -11,15 +12,15 @@
 	<button mat-button routerLink="/mdr">Compte</button>
 	<button mat-button routerLink="/panier" (mouseover)="panierOuvert = true" (mouseout)="panierOuvert = false"
 		cdkOverlayOrigin #trigger="cdkOverlayOrigin" style="justify-content: flex-end;">
-		<mat-icon [matBadge]="panierIds.length" matBadgeColor="accent">shopping_cart</mat-icon>
+		<mat-icon [matBadge]="panier.length" matBadgeColor="accent">shopping_cart</mat-icon>
 	</button>
 </div>
 
 <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="panierOuvert">
 	<div class="overlayPanier" style="width:300px">
 		<ul class="example-list">
-			<li *ngFor="let product of panierItems; let idx = index">
-				{{product.title}}  x{{panierIds[idx].number}} : {{panierIds[idx].number * panierIds[idx].price}} € 
+			<li *ngFor="let item of panier;">
+				{{item.product.title}} x{{item.count}} : {{item.count * item.product.price}} €
 			</li>
 		</ul>
 		<p>Total : {{total}} €</p>
