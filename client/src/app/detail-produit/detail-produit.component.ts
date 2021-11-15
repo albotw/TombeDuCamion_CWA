@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import { PANIER, PANIER_IDS } from '../global';
 import { environment } from 'src/environments/environment';//.prod';
 import DataController from '../shared/DataController';
-
+import Cache, { CacheData } from "../shared/cache";
 
 @Component({
 	selector: 'app-detail-produit',
@@ -33,20 +32,28 @@ export class DetailProduitComponent implements OnInit
 
 	addToPanier(): void
 	{
-		let test = false;
-		for (let item of PANIER_IDS)
+		let alreadyExists = false;
+		let panier = Cache.get(CacheData.Panier);
+		for (let item of panier)
 		{
 			if (item.p_uid == this.product.p_uid)
 			{
-				item.number += 1;
-				test = true;
+				item.count += 1;
+				alreadyExists = true;
 			}
 		}
-		if (!test)
+		if (!alreadyExists)
 		{
-			PANIER_IDS.push({ p_uid: this.product.p_uid, number: 1, price: parseInt(this.product.price) });
-			PANIER.push(this.product);
+			let toCache = {
+				p_uid: this.product.p_uid,
+				title: this.product.title,
+				count: 1,
+				price: this.product.price,
+			}
+			panier.push(toCache);
 		}
+
+		Cache.set(CacheData.Panier, panier);
 	}
 
 }

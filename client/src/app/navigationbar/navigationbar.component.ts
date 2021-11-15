@@ -1,45 +1,48 @@
-import { Component, OnInit} from '@angular/core';
-import { PANIER, PANIER_IDS } from '../global';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';//.prod';
 import { Router } from '@angular/router';
+import Cache, { CacheData } from "../shared/cache";
 
 
 @Component({
-  selector: 'navbar',
-  templateUrl: './navigationbar.component.html',
-  styleUrls: ['./navigationbar.component.css']
+	selector: 'navbar',
+	templateUrl: './navigationbar.component.html',
+	styleUrls: ['./navigationbar.component.css']
 })
 export class NavigationbarComponent implements OnInit
 {
 
-  panierOuvert = false;
-  value="";
+	panierOuvert = false;
+	value = "";
 
-  constructor(private router: Router) {
-  }
+	constructor(private router: Router)
+	{
+	}
 
-  ngOnInit(): void {
-  }
+	ngOnInit(): void
+	{
+	}
 
-  updateRoute(): void{
-    this.router.navigate(['recherche', this.value]);
-  }
+	updateRoute(): void
+	{
+		this.router.navigate(['recherche', this.value]);
+	}
 
-  get total()
-  {
-    let t = 0;
-    for (let _=0; _<PANIER_IDS.length; _++){
-      t += PANIER_IDS[_].price * PANIER_IDS[_].number;
-    }
-    return t;
-  }
+	get total()
+	{
+		let panier = Cache.get(CacheData.Panier);
+		let t = 0;
+		for (let i = 0; i < panier.length; i++)
+		{
+			t += panier[i].price * panier[i].count;
+		}
+		return t;
+	}
 
-  get panierIds() { 
-    return PANIER_IDS; 
-  }
+	get panier()
+	{
+		return Cache.get(CacheData.Panier);
+	}
 
-  get panierItems() { 
-    return PANIER; 
-  }
 }
