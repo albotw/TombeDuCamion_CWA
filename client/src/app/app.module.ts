@@ -39,6 +39,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { ResultatsComponent } from './resultats/resultats.component';
 import { PanierComponent } from './panier/panier.component';
+import { PorteTransitionComponentComponent } from './porte-transition-component/porte-transition-component.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { PanierComponent } from './panier/panier.component';
   WassimComponent,
   DetailProduitComponent,
   ResultatsComponent,
-  PanierComponent
+  PanierComponent,
+  PorteTransitionComponentComponent
 	],
 	imports: [
 		BrowserModule,

@@ -27,6 +27,6 @@
 	</div>
 </ng-template>
 
-<div style="margin-left: 10% ; margin-right: 10%;">
-	<router-outlet></router-outlet>
+<div style="margin-left: 10% ; margin-right: 10%;" [@routeAnimations]="prepareRoute(outlet)">
+	<router-outlet #outlet="outlet"></router-outlet>
 </div>

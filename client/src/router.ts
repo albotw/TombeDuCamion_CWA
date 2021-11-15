@@ -7,16 +7,18 @@ import { NavigationbarComponent } from "./app/navigationbar/navigationbar.compon
 import { NotfoundComponent } from "./app/notfound/notfound.component";
 import { PageJustinComponent } from "./app/page-justin/page-justin.component";
 import { PanierComponent } from "./app/panier/panier.component";
+import { PorteTransitionComponentComponent } from "./app/porte-transition-component/porte-transition-component.component";
 import { ResultatsComponent } from "./app/resultats/resultats.component";
 import { TestApiComponent } from "./app/test-api/test-api.component";
 
 
 const routes: Routes = [
-	{ path: '', component: AccueilComponent},
-	{ path: 'accueil', component: AccueilComponent },
+	{ path: '', component: AccueilComponent, data: { animation: 'accueil' } },
+	{ path: 'accueil', component: AccueilComponent, data: { animation: 'accueil' } },
+	{ path: 'transition/:id', component: PorteTransitionComponentComponent, data: { animation: 'transition' } },
 	{ path: 'lol', component: PageJustinComponent },
 	{ path: "test-api", component: TestApiComponent },
-	{ path: 'produit/:id', component: DetailProduitComponent },
+	{ path: 'produit/:id', component: DetailProduitComponent, data: { animation: 'produit' } },
 	{ path: 'recherche/:str', component: ResultatsComponent },
 	{ path: 'panier', component: PanierComponent},
 	{ path: '**', component: NotfoundComponent },
