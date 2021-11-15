@@ -36,7 +36,7 @@ export class DetailProduitComponent implements OnInit
 		let panier = Cache.get(CacheData.Panier);
 		for (let item of panier)
 		{
-			if (item.p_uid == this.product.p_uid)
+			if (item.product.p_uid == this.product.p_uid)
 			{
 				item.count += 1;
 				alreadyExists = true;
@@ -45,10 +45,8 @@ export class DetailProduitComponent implements OnInit
 		if (!alreadyExists)
 		{
 			let toCache = {
-				p_uid: this.product.p_uid,
-				title: this.product.title,
 				count: 1,
-				price: this.product.price,
+				product: this.product,
 			}
 			panier.push(toCache);
 		}

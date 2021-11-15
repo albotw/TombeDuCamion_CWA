@@ -35,7 +35,7 @@ export class NavigationbarComponent implements OnInit
 		let t = 0;
 		for (let i = 0; i < panier.length; i++)
 		{
-			t += panier[i].price * panier[i].count;
+			t += panier[i].product.price * panier[i].count;
 		}
 		return t;
 	}

@@ -19,8 +19,8 @@
 <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="panierOuvert">
 	<div class="overlayPanier" style="width:300px">
 		<ul class="example-list">
-			<li *ngFor="let product of panier; let idx = index">
-				{{product.title}} x{{product.count}} : {{product.count * product.price}} €
+			<li *ngFor="let item of panier;">
+				{{item.product.title}} x{{item.count}} : {{item.count * item.product.price}} €
 			</li>
 		</ul>
 		<p>Total : {{total}} €</p>
