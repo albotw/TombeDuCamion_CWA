@@ -7,11 +7,10 @@ import { environment } from 'src/environments/environment.prod';//.prod';
 import { AssertNotNull } from '@angular/compiler';
 import DataController from '../shared/DataController';
 
-
 @Component({
 	selector: 'app-accueil',
 	templateUrl: './accueil.component.html',
-	styleUrls: ['./accueil.component.css']
+	styleUrls: ['./accueil.component.css'],
 })
 export class AccueilComponent implements OnInit
 {
