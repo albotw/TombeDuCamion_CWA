@@ -33,19 +33,21 @@ app.listen(PORT, () =>
 // ? Chargement des schémas graphql
 // ! obligé de mettre dist/ car le CWD est /API (Heroku ou local)
 let query_string = readFileSync("dist/schemas/query.gql", { encoding: "utf-8" });
+let mutation_string = readFileSync("dist/schemas/mutation.gql", { encoding: "utf-8" });
 let prodSchema_string = readFileSync("dist/schemas/product.gql", { encoding: "utf-8" });
 let authSchema_string = readFileSync("dist/schemas/auth.gql", { encoding: "utf-8" });
 let userSchema_string = readFileSync("dist/schemas/user.gql", { encoding: "utf-8" });
 
 // ? fusion des schémas en un seul
-let globalSchema = buildSchema(prodSchema_string + authSchema_string + userSchema_string + query_string);
+let globalSchema = buildSchema(prodSchema_string + authSchema_string + userSchema_string + query_string + mutation_string);
 
 // ? mapping resolvers
 let root = {
     getAllProducts: productResolver.getAllProducts,
     searchProduct: productResolver.searchProduct,
     getProduct: productResolver.getProduct,
-    top: productResolver.top
+    top: productResolver.top,
+    createProduct: productResolver.createProduct
 }
 
 app.use("/graphql", graphqlHTTP({
