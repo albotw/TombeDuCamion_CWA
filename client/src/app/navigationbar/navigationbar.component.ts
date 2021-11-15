@@ -84,6 +84,10 @@ export class NavigationbarComponent implements OnInit
 	{
 		this.router.navigate(['recherche', this.value]);
 	}
+  
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
+  }
 
 	get total()
 	{
