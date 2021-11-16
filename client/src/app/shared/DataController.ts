@@ -84,21 +84,29 @@ export default class DataController
 	}
 
 	/**
-	 * fonction pour rechercher un produit.
+	 * fonction pour rechercher un produit avec pagination intégrée.
 	 * @param arg texte de la recherche.
+	 * @param limit nombre de résultats à récupérer
+	 * @param offset décalage des résultats
 	 */
 	public static searchProduct = async (arg: string, limit: number, offset: number, callback: (data: any) => void) =>
 	{
 		let query = gql`
 		query searchProducts($text: String, $offset: Int, $limit: Int) {
 			searchProduct(searchString: $text, offset: $offset, limit: $limit) {
-				p_uid
-				seller
-				title
-				stock
-				description
-				images
-				comments
+				meta {
+					totalCount
+					totalPages
+				}
+				results {
+					p_uid
+					title
+					description
+					images
+					category
+					notation
+					price
+				}
 			}
 		}
 		`

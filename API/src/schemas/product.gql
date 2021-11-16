@@ -13,3 +13,12 @@ type Product {
     views: Int!
 }
 
+type SearchResult {
+    meta: SearchResultMetadata
+    results: [Product]
+}
+
+type SearchResultMetadata {
+    totalCount: Int!
+    totalPages: Int!
+}

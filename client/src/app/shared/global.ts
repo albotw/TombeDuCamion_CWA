@@ -1,3 +1,3 @@
 
 
-export const data = {redirection: '/transition', darkmode: false};
+export const data = { redirection: '/transition', darkmode: false };

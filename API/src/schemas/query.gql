@@ -1,7 +1,7 @@
 type Query {
     getProduct(p_uid: ID): Product
     getAllProducts: [Product]
-    searchProduct(searchString: String, limit: Int, offset: Int): [Product]
+    searchProduct(searchString: String, limit: Int, offset: Int): SearchResult
     top(categorie: String, champ: String) : [Product]
 
     "FONCTIONS USER"

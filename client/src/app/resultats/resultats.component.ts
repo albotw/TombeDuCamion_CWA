@@ -15,47 +15,43 @@ export class ResultatsComponent implements OnInit
 
 	rech = "";
 	products = [];
-	results = [];
-	maxItems = 0;
+	totalCount = 0;
 
-	constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router)
+	constructor(private route: ActivatedRoute, private router: Router)
 	{
 		this.router.routeReuseStrategy.shouldReuseRoute = () => false;
 	}
 
 	ngOnInit(): void
 	{
-		this.results  = [];
-		DataController.searchProduct(this.rech, 0, 999, (data) =>
+		console.log(this.rech);
+		this.refreshProducts(0, 10);
+	}
+
+	public refreshProducts(pageIndex: number, pageSize: number)
+	{
+
+		this.rech = this.route.snapshot.paramMap.get('str');
+
+		let offset = pageIndex * pageSize;
+
+		DataController.searchProduct(this.rech, pageSize, offset, (data) =>
 		{
-			for (let item of data)
+			this.totalCount = data.meta.totalCount;
+			this.products = data.results.map(product =>
 			{
-				if (item['description'].length > 40)
+				if (product['description'].length > 40)
 				{
-					item['description'] = item['description'].substring(0, 37) + "...";
+					product['description'] = product['description'].substring(0, 37) + "...";
 				}
-				this.results.push(item);
-			}
-			this.refreshProducts(0, 12);
+
+				return product;
+			})
 		});
 	}
 
-	public refreshProducts(pageIndex: number, pageSize: number){
-
-		this.maxItems = pageSize;
-		this.rech = this.route.snapshot.paramMap.get('str');
-		console.log(this.rech);
-
-		this.products = [];
-		
-		for (let i=pageIndex*this.maxItems; i<(pageIndex + 1)*this.maxItems; i++){
-			if (i < this.results.length){
-				this.products.push(this.results[i]);
-			}
-		}
-	}
-
-	public getServerData(event?:PageEvent){
+	public getServerData(event?: PageEvent)
+	{
 		this.refreshProducts(event.pageIndex, event.pageSize);
 	}
 

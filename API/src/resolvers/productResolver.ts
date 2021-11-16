@@ -2,7 +2,9 @@ import crypto from "crypto";
 import fs from "fs";
 
 let products = require("../../JSON/products.json");
-let infos = require("../../JSON/infos.json");
+
+const MODIFICATION_THRESHOLD: number = 10;
+let modificationCounter: number = 0;
 
 let toUnicode = (toConvert: string) =>
 {
@@ -11,9 +13,17 @@ let toUnicode = (toConvert: string) =>
 
 let saveProducts = () =>
 {
-    let productString = JSON.stringify(products, null, 4);
-    fs.writeFileSync("JSON/products.json", productString, { encoding: "utf-8", flag: "w" });
-    console.log("--- Saved products ---");
+    if (modificationCounter < MODIFICATION_THRESHOLD)
+    {
+        modificationCounter++;
+    }
+    else
+    {
+        let productString = JSON.stringify(products, null, 4);
+        fs.writeFileSync("JSON/products.json", productString, { encoding: "utf-8", flag: "w" });
+        console.log("--- Saved products ---");
+        modificationCounter = 0;
+    }
 }
 
 export default {
@@ -26,27 +36,29 @@ export default {
     {
         searchString = toUnicode(searchString);
 
-
-        let output = [];
-
-        for (var i = offset; i < limit; i++)
+        let fullResults = products.filter(product =>
         {
+            let unicodeTitle = toUnicode(product.title);
+            let unicodeDescription = toUnicode(product.description);
 
-            let product = products[i];
+            return unicodeTitle.includes(searchString) || unicodeDescription.includes(searchString);
+        });
 
-            let titleAsUnicode = toUnicode(product.title);
-            let descriptionAsUnicode = toUnicode(product.description);
-            if (titleAsUnicode.includes(searchString) || descriptionAsUnicode.includes(searchString))
-            {
-                output.push(product);
-            }
-        }
-        return output;
+        return {
+            "meta": {
+                "totalCount": fullResults.length,
+                "totalPages": Math.round(fullResults.length / limit),
+            },
+            "results": fullResults.slice(offset, offset + limit)
+        };
     },
 
     getProduct: ({ p_uid }) =>
     {
-        return products.find(product => product.p_uid == p_uid);
+        let product = products.find(product => product.p_uid == p_uid);
+        product.views += 1;
+        saveProducts();
+        return product;
     },
 
     top: ({ categorie, champ }) =>
