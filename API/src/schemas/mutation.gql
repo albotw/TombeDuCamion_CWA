@@ -1,0 +1,10 @@
+type Mutation {
+    createProduct(
+        seller: String, 
+        title: String, 
+        stock: Int, 
+        description: String, 
+        category: String, 
+        price: Float,   
+    ) : Product
+}

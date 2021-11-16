@@ -1,4 +1,5 @@
-import { performance } from "perf_hooks";
+import crypto from "crypto";
+import fs from "fs";
 
 let products = require("../../JSON/products.json");
 let infos = require("../../JSON/infos.json");
@@ -8,6 +9,12 @@ let toUnicode = (toConvert: string) =>
     return toConvert.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
+let saveProducts = () =>
+{
+    let productString = JSON.stringify(products, null, 4);
+    fs.writeFileSync("JSON/products_v2.json", productString, { encoding: "utf-8", flag: "w" });
+    console.log("--- Saved products ---");
+}
 export default {
     getAllProducts: () =>
     {
@@ -53,4 +60,34 @@ export default {
         }
         return topProducts;
     },
+
+    createProduct: ({ seller, title, stock, description, category, price }) =>
+    {
+        console.log("create");
+        //TODO: ajouter import images: placement dans IMG/, hasher nom fichier, ajouter hash dans [images]
+        //TODO: vérifier catégorie
+        title = title.normalize("NFD");
+        description = description.normalize("NFD");
+
+        let p_uid = crypto.createHash("sha256").update(title + seller + description).digest("hex");
+        let product = {
+            p_uid: p_uid,
+            seller: seller,
+            title: title,
+            stock: stock,
+            description: description,
+            images: [],
+            category: category,
+            comments: [],
+            notation: 0.0,
+            price: price,
+            sales: 0,
+            views: 0
+        };
+
+        console.log(product);
+        products.unshift(product);
+
+        saveProducts();
+    }
 };
