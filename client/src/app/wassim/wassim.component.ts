@@ -1,4 +1,5 @@
 import { Component, OnInit  } from '@angular/core';
+import { data } from '../shared/global';
 
 @Component({
   selector: 'app-wassim',
@@ -9,8 +10,12 @@ export class WassimComponent implements OnInit {
   isOpen = false;
   hidden = false;
   msgs = [];
+  inpstr = '';
+  DATA: any;
 
-  constructor() { }
+  constructor() {
+    this.DATA = data;
+  }
 
   ngOnInit(): void {
   }
@@ -20,8 +25,9 @@ export class WassimComponent implements OnInit {
       this.msgs = [];
     }
     else{
-      this.msgs.push('Salut mon coquin ;)');
-
+      this.msgs.push('En quoi puis-je vous aider UwU ?');
+      
+      /*
       setTimeout( () => {
         if (this.msgs.length == 1){
           this.msgs.push('Soit pas timide ;)');
@@ -39,9 +45,33 @@ export class WassimComponent implements OnInit {
           this.msgs.push('Rejoins-moi vite sur http://ceciestunearnaque.fr/');
         }
       }, 7500);
+      */
     }
-
-    
   }
+
+  onSubmit(): void{
+    console.log(this.inpstr);
+    if (this.inpstr == '/animation off'){
+      data.redirection = '';
+      this.msgs.push('Les animations ont été supprimés');
+      this.inpstr = '';
+    }
+    else if (this.inpstr == '/animation on'){
+      data.redirection = '/transition';
+      this.msgs.push('Les animations ont été ajouté');
+      this.inpstr = '';
+    }
+    if (this.inpstr == '/darkmode off'){
+      data.darkmode = false;
+      this.msgs.push('Theme light');
+      this.inpstr = '';
+    }
+    else if (this.inpstr == '/darkmode on'){
+      data.darkmode = true;
+      this.msgs.push('Theme dark');
+      this.inpstr = '';
+    }
+  }
+
 
 }

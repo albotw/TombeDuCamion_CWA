@@ -6,6 +6,7 @@ import { flattenAndSortAnimations } from '@cds/core/internal';
 import { environment } from 'src/environments/environment.prod';//.prod';
 import { AssertNotNull } from '@angular/compiler';
 import DataController from '../shared/DataController';
+import { data } from '../shared/global'
 
 @Component({
 	selector: 'app-accueil',
@@ -16,6 +17,7 @@ export class AccueilComponent implements OnInit
 {
 
 	id = 0;
+	DATA : any;
 
 	meilleurs: { [key: string]: any } = {
 		"Meilleurs Ventes": [],
@@ -41,6 +43,7 @@ export class AccueilComponent implements OnInit
 
 	constructor(private http: HttpClient)
 	{
+		this.DATA = data;
 		DataController.top("Global", "sales", (data) =>
 		{
 			console.log(data);

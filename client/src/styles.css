@@ -4,7 +4,6 @@ html, body { height: 100%; }
 body {
     margin: 0;
     font-family: 'IBM Plex Sans', sans-serif;
-    background-color: #EAEAEA;
 }
 
 #page-container {

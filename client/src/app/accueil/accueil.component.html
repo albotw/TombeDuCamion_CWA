@@ -9,7 +9,7 @@
         </button>
         
         <div *ngFor="let vente of getVentes(item.key);" style="display: inline-block; align-items: stretch;">
-            <mat-card *ngIf="vente !== undefined" routerLink='/transition/{{vente.p_uid}}'> 
+            <mat-card *ngIf="vente !== undefined" routerLink='{{DATA.redirection}}/produit/{{vente.p_uid}}'> 
                 <mat-card-title-group>
                     <mat-card-title>{{vente.title}}</mat-card-title>
                     <img mat-card-sm-image src="{{vente.images[0]}}" >

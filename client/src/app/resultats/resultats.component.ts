@@ -15,6 +15,7 @@ export class ResultatsComponent implements OnInit
 
 	rech = "";
 	products = [];
+	results = [];
 	maxItems = 0;
 
 	constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router)
@@ -24,10 +25,7 @@ export class ResultatsComponent implements OnInit
 
 	ngOnInit(): void
 	{
-		this.rech = this.route.snapshot.paramMap.get('str');
-		console.log(this.rech);
-		this.products = [];
-
+		this.results  = [];
 		DataController.searchProduct(this.rech, (data) =>
 		{
 			for (let item of data)
@@ -36,16 +34,29 @@ export class ResultatsComponent implements OnInit
 				{
 					item['description'] = item['description'].substring(0, 37) + "...";
 				}
-				this.products.push(item);
-				if (this.products.length > this.maxItems){
-					break;
-				}
+				this.results.push(item);
 			}
-		})
-	}
-	public getServerData(event?:PageEvent){
-		this.maxItems = 1;
+			this.refreshProducts(0, 12);
+		});
 	}
 
+	public refreshProducts(pageIndex: number, pageSize: number){
+
+		this.maxItems = pageSize;
+		this.rech = this.route.snapshot.paramMap.get('str');
+		console.log(this.rech);
+
+		this.products = [];
+		
+		for (let i=pageIndex*this.maxItems; i<(pageIndex + 1)*this.maxItems; i++){
+			if (i < this.results.length){
+				this.products.push(this.results[i]);
+			}
+		}
+	}
+
+	public getServerData(event?:PageEvent){
+		this.refreshProducts(event.pageIndex, event.pageSize);
+	}
 
 }

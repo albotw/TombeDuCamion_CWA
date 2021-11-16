@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';//.prod';
 import { Router, RouterOutlet } from '@angular/router';
 import Cache, { CacheData } from "../shared/cache";
-
+import { data } from '../shared/global'
 
 
 import {
@@ -77,9 +77,11 @@ export class NavigationbarComponent implements OnInit
 
 	panierOuvert = false;
 	value = "";
+  DATA: any;
 
 	constructor(private router: Router)
 	{
+    this.DATA = data;
 	}
 
 	ngOnInit(): void

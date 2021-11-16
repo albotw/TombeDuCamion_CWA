@@ -15,7 +15,9 @@ import { TestApiComponent } from "./app/test-api/test-api.component";
 const routes: Routes = [
 	{ path: '', component: AccueilComponent, data: { animation: 'accueil' } },
 	{ path: 'accueil', component: AccueilComponent, data: { animation: 'accueil' } },
+	{ path: 'transition/:id/:opt', component: PorteTransitionComponentComponent, data: { animation: 'transition' } },
 	{ path: 'transition/:id', component: PorteTransitionComponentComponent, data: { animation: 'transition' } },
+	{ path: 'transition', component: PorteTransitionComponentComponent, data: { animation: 'transition' } },
 	{ path: 'lol', component: PageJustinComponent },
 	{ path: "test-api", component: TestApiComponent },
 	{ path: 'produit/:id', component: DetailProduitComponent, data: { animation: 'produit' } },

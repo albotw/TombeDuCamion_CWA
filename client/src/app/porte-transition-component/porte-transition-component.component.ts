@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -8,6 +8,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class PorteTransitionComponentComponent implements OnInit {
 
+  @Input() toRoute = ''
+
   constructor(
     private route: ActivatedRoute,
     private router: Router
@@ -16,8 +18,14 @@ export class PorteTransitionComponentComponent implements OnInit {
   ngOnInit(): void {
     setTimeout( () => {
       console.log("test", this.route);
-      const heroId = this.route.snapshot.paramMap.get('id');
-      this.router.navigate(['/produit/'+heroId]);
+      const id = this.route.snapshot.paramMap.get('id');
+      const opt = this.route.snapshot.paramMap.get('opt');
+      if (opt !== null){
+        this.router.navigate(['/'+id+'/'+opt]);
+      }
+      else{
+        this.router.navigate(['/'+id]);
+      }
     }, 1200);
   }
 
