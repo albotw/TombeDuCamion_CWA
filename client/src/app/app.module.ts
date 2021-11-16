@@ -40,6 +40,7 @@ import { FormsModule } from '@angular/forms';
 import { ResultatsComponent } from './resultats/resultats.component';
 import { PanierComponent } from './panier/panier.component';
 import { PorteTransitionComponentComponent } from './porte-transition-component/porte-transition-component.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -88,6 +89,7 @@ import { PorteTransitionComponentComponent } from './porte-transition-component/
 		MatProgressSpinnerModule,
 		MatFormFieldModule,
 		FormsModule,
+		MatPaginatorModule,
 	],
 	providers: [
 	],

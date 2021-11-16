@@ -18,7 +18,7 @@ export class PorteTransitionComponentComponent implements OnInit {
       console.log("test", this.route);
       const heroId = this.route.snapshot.paramMap.get('id');
       this.router.navigate(['/produit/'+heroId]);
-    }, 1000);
+    }, 1200);
   }
 
 }

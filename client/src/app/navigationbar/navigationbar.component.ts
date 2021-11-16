@@ -25,16 +25,21 @@ import { UrlResolver } from '@angular/compiler';
 	animations: [
 		trigger('routeAnimations', [
       transition('* => transition',[
+        query(':leave', [
+          style({ 
+            opacity: 1,
+          }),
+        ]),
         query(':enter', [
           style({ 
             position: 'absolute',
             opacity: 1,
-            top: -1000,
+            top: -1100,
             left:0,
           }),
         ]),
         query(':enter', [
-          animate('600ms', style({ 
+          animate('900ms', style({ 
             position: 'absolute',
             opacity: 1,
             top: 0,
@@ -46,19 +51,20 @@ import { UrlResolver } from '@angular/compiler';
         query(':enter', [
           style({ 
             position: 'absolute',
-            opacity: 0,
+            opacity: 1,
           }),
         ]),
         query(':leave', [
           style({
             position: 'absolute',
+            zIndex: 1,
             opacity: 1,
             top: 0,
             left: 0,
           }),
-          animate('600ms', style({
+          animate('900ms', style({
             opacity: 1,
-            top: -1000,
+            top: -1100,
             left:0,
           })),
         ]),
@@ -84,7 +90,7 @@ export class NavigationbarComponent implements OnInit
 	{
 		this.router.navigate(['recherche', this.value]);
 	}
-  
+
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }

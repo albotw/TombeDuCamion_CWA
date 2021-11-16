@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';//.prod';
 import DataController from '../shared/DataController';
@@ -14,6 +15,7 @@ export class ResultatsComponent implements OnInit
 
 	rech = "";
 	products = [];
+	maxItems = 0;
 
 	constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router)
 	{
@@ -35,8 +37,14 @@ export class ResultatsComponent implements OnInit
 					item['description'] = item['description'].substring(0, 37) + "...";
 				}
 				this.products.push(item);
+				if (this.products.length > this.maxItems){
+					break;
+				}
 			}
 		})
+	}
+	public getServerData(event?:PageEvent){
+		this.maxItems = 1;
 	}
 
 
