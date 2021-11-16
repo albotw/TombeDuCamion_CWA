@@ -26,7 +26,7 @@ export class ResultatsComponent implements OnInit
 	ngOnInit(): void
 	{
 		this.results  = [];
-		DataController.searchProduct(this.rech, (data) =>
+		DataController.searchProduct(this.rech, 0, 999, (data) =>
 		{
 			for (let item of data)
 			{
