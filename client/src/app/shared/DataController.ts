@@ -51,7 +51,7 @@ export default class DataController
 			champ: champ
 		}
 
-		DataController.grab(query, variables).then(result => result.top	).then(callback);
+		DataController.grab(query, variables).then(result => result.top).then(callback);
 	}
 
 
@@ -87,11 +87,11 @@ export default class DataController
 	 * fonction pour rechercher un produit.
 	 * @param arg texte de la recherche.
 	 */
-	public static searchProduct = async (arg: string, callback: (data: any) => void) =>
+	public static searchProduct = async (arg: string, limit: number, offset: number, callback: (data: any) => void) =>
 	{
 		let query = gql`
-		query searchProducts($text: String) {
-			searchProduct(searchString: $text) {
+		query searchProducts($text: String, $offset: Int, $limit: Int) {
+			searchProduct(searchString: $text, offset: $offset, limit: $limit) {
 				p_uid
 				seller
 				title
@@ -103,7 +103,9 @@ export default class DataController
 		}
 		`
 		let variables = {
-			text: arg
+			text: arg,
+			offset: offset,
+			limit: limit
 		};
 		DataController.grab(query, variables).then(result => result.searchProduct).then(callback);
 	}
