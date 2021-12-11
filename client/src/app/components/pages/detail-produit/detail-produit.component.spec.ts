@@ -26,4 +26,17 @@ describe('DetailProduitComponent', () => {
     expect(app).toBeTruthy();
   });
 
+  it("shouldn't add products if the stock is 0", () => {
+
+    const fixture = TestBed.createComponent(DetailProduitComponent);
+    const app = fixture.componentInstance;
+    
+		app.product = {
+        stock: 0
+    }
+    app.product.stock = 0;
+    expect(app.addToPanier()).toEqual(false);
+
+  });
+
 });

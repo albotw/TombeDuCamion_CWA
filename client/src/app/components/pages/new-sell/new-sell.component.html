@@ -1,0 +1,91 @@
+<mat-stepper orientation="vertical" [linear]="true" #stepper>
+
+    <mat-step [stepControl]="titleGroup">
+      <form [formGroup]="titleGroup">
+        <ng-template matStepLabel>Nom du produit</ng-template>
+        <mat-form-field style="width: 75%;" appearance="fill">
+          <mat-label>Produit</mat-label>
+          <input matInput placeholder="Nom du produit" formControlName="title" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="descrGroup">
+      <form [formGroup]="descrGroup">
+        <ng-template matStepLabel>Description</ng-template>
+        <mat-form-field style="width: 75%;" appearance="fill">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="descr" placeholder="Ajouter une description..." required></textarea>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Précédent</button>
+          <button mat-button matStepperNext>Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="category">
+      <form [formGroup]="category">
+        <ng-template matStepLabel>Categorie</ng-template>
+        <mat-form-field style="width: 75%;" appearance="fill">
+          <mat-label>Categorie</mat-label>
+          <mat-select formControlName="category">
+            <mat-option *ngFor="let cat of CATEGORIES" [value]="cat">{{cat}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Précédent</button>
+          <button mat-button matStepperNext>Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+
+
+    <mat-step>
+      <ng-template matStepLabel>Images</ng-template>
+      <mat-card style="max-width: 40px;">
+        <button mat-mini-fab mat-button (click)="openDialog()">
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-card>
+      <mat-card *ngFor="let image of images" style="max-width: 250px;">
+        <img mat-card-xl-image src="{{image}}" >
+      </mat-card>
+      <div>
+        <button mat-button matStepperPrevious>Précédent</button>
+        <button mat-button matStepperNext>Suivant</button>
+      </div>
+    </mat-step>
+
+    <mat-step [stepControl]="details1">
+      <form [formGroup]="details1">
+        <ng-template matStepLabel>Details</ng-template>
+        <mat-form-field style="width: 75%;" appearance="fill">
+          <mat-label>Stock</mat-label>
+          <input matInput type="number" formControlName="stock" required>
+        </mat-form-field>
+        <mat-form-field style="width: 75%;" appearance="fill">
+          <mat-label>Prix</mat-label>
+          <input matInput type="number" formControlName="price" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Précédent</button>
+          <button mat-button matStepperNext>Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Fini</ng-template>
+      <p>Tout à l'air bon, vous pouvez désormais publier votre annonce en ligne !</p>
+      <div>
+        <button mat-button matStepperPrevious>Précédent</button>
+        <button mat-button (click)="post()">Publier</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+    
+  </mat-stepper>

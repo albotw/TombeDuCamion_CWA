@@ -22,4 +22,5 @@ describe('AccueilComponent', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
+
 });

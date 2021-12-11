@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PanierComponent } from './panier.component';
+import { NewSellComponent } from './new-sell.component';
 
-describe('PanierComponent', () => {
-  let component: PanierComponent;
-  let fixture: ComponentFixture<PanierComponent>;
+describe('NewSellComponent', () => {
+  let component: NewSellComponent;
+  let fixture: ComponentFixture<NewSellComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PanierComponent ]
+      declarations: [ NewSellComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PanierComponent);
+    fixture = TestBed.createComponent(NewSellComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -22,5 +22,4 @@ describe('PanierComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
 });

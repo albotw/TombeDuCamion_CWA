@@ -34,14 +34,18 @@ import { WassimComponent } from './components/template/chat/wassim.component';
 import { DetailProduitComponent } from './components/pages/detail-produit/detail-produit.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResultatsComponent } from './components/pages/resultats/resultats.component';
 import { PanierComponent } from './components/pages/panier/panier.component';
 import { PorteTransitionComponentComponent } from './components/template/transitionPorte/porte-transition-component.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { CompteComponent } from './compte/compte.component';
-import { ListeComponent } from './compte/liste/liste.component';
-import { InformationsComponent } from './compte/informations/informations.component';
+import { CompteComponent } from './components/pages/compte/compte.component';
+import { ListeComponent } from './components/pages/compte/liste/liste.component';
+import { InformationsComponent } from './components/pages/compte/informations/informations.component';
+import {MatSelectModule} from '@angular/material/select';
+import { NewSellComponent } from './components/pages/new-sell/new-sell.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import { NewSellAddUrlDialog } from './components/pages/new-sell/new-sell.component';
 
 
 @NgModule({
@@ -64,7 +68,9 @@ import { InformationsComponent } from './compte/informations/informations.compon
 		PorteTransitionComponentComponent,
 		CompteComponent,
 		ListeComponent,
-		InformationsComponent
+		InformationsComponent,
+ 		NewSellComponent,
+		NewSellAddUrlDialog,
 	],
 	imports: [
 		BrowserModule,
@@ -92,6 +98,10 @@ import { InformationsComponent } from './compte/informations/informations.compon
 		MatFormFieldModule,
 		FormsModule,
 		MatPaginatorModule,
+		MatSelectModule,
+		MatStepperModule,
+		ReactiveFormsModule,
+		FormsModule,
 	],
 	providers: [
 	],

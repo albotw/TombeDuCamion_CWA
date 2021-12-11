@@ -30,28 +30,34 @@ export class DetailProduitComponent implements OnInit
 	{
 	}
 
-	addToPanier(): void
+	addToPanier(): boolean
 	{
-		let alreadyExists = false;
-		let panier = Cache.get(CacheData.Panier);
-		for (let item of panier)
-		{
-			if (item.product.p_uid == this.product.p_uid)
+		if (this.product.stock > 0){
+			let alreadyExists = false;
+			let panier = Cache.get(CacheData.Panier);
+			for (let item of panier)
 			{
-				item.count += 1;
-				alreadyExists = true;
+				if (item.product.p_uid == this.product.p_uid)
+				{
+					item.count += 1;
+					alreadyExists = true;
+				}
 			}
-		}
-		if (!alreadyExists)
-		{
-			let toCache = {
-				count: 1,
-				product: this.product,
+			if (!alreadyExists)
+			{
+				let toCache = {
+					count: 1,
+					product: this.product,
+				}
+				panier.push(toCache);
 			}
-			panier.push(toCache);
+	
+			Cache.set(CacheData.Panier, panier);
+			return true;
 		}
-
-		Cache.set(CacheData.Panier, panier);
+		else{
+			return false;
+		}
 	}
 
 }

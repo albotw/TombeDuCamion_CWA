@@ -75,6 +75,9 @@ import { UrlResolver } from '@angular/compiler';
 export class NavigationbarComponent implements OnInit
 {
 
+  CATEGORIES = ['Categories', 'Jouets', 'Informatique', 'Vêtements']
+  defaultCategorie = 'Categories'
+
 	panierOuvert = false;
 	value = "";
   DATA: any;
