@@ -15,7 +15,7 @@ export class NewSellComponent implements OnInit {
   titleGroup: FormGroup;
   descrGroup: FormGroup;
   details1: FormGroup;
-  category: FormGroup;
+  categoryGroup: FormGroup;
 
   constructor(private _formBuilder: FormBuilder,
               public dialog: MatDialog) { }
@@ -31,7 +31,7 @@ export class NewSellComponent implements OnInit {
       stock: [0, Validators.required],
       price: [0, Validators.required],
     });
-    this.category = this._formBuilder.group({
+    this.categoryGroup = this._formBuilder.group({
       category: ['', Validators.required],
     });
   }
@@ -43,7 +43,7 @@ export class NewSellComponent implements OnInit {
     let descr = this.descrGroup.get('descr');
     let stock = this.details1.get('stock');
     let price = this.details1.get('price');
-    let category = this.category.get('category');
+    let category = this.categoryGroup.get('category');
     let product = {
       p_uid: "00e21440870f4c17e2301c9fe5e9f2fcefc0f2e7621982c23f2e9ecc20a24ab9",
         seller: "Prof. Chen", // TODO: Variable global définissant l'utilisateur connecté
