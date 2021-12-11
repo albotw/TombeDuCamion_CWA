@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';//.prod';
 import { Router, RouterOutlet } from '@angular/router';
-import Cache, { CacheData } from "../shared/cache";
-import { data } from '../shared/global'
+import Cache, { CacheData } from "../../../shared/cache";
+import { data } from '../../../shared/global'
 
 
 import {
@@ -26,12 +26,12 @@ import { UrlResolver } from '@angular/compiler';
 		trigger('routeAnimations', [
       transition('* => transition',[
         query(':leave', [
-          style({ 
+          style({
             opacity: 1,
           }),
         ]),
         query(':enter', [
-          style({ 
+          style({
             position: 'absolute',
             opacity: 1,
             top: -1100,
@@ -39,7 +39,7 @@ import { UrlResolver } from '@angular/compiler';
           }),
         ]),
         query(':enter', [
-          animate('900ms', style({ 
+          animate('900ms', style({
             position: 'absolute',
             opacity: 1,
             top: 0,
@@ -49,7 +49,7 @@ import { UrlResolver } from '@angular/compiler';
       ]),
       transition('transition => *', [
         query(':enter', [
-          style({ 
+          style({
             position: 'absolute',
             opacity: 1,
           }),

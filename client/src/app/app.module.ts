@@ -5,20 +5,20 @@ import { AppRoutingModule } from '../router';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
-import { PopupComponent, DialogDataExampleDialog } from './page-justin/popup/popup.component';
+import { PopupComponent, DialogDataExampleDialog } from './components/pages/page-justin/popup/popup.component';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { ClarityModule } from '@clr/angular';
 import { MatListModule } from '@angular/material/list';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { NavigationbarComponent } from './navigationbar/navigationbar.component';
-import { DvdComponent, DialogDataComponent } from './page-justin/dvd/dvd.component';
-import { PageJustinComponent } from './page-justin/page-justin.component';
-import { AccueilComponent } from './accueil/accueil.component';
+import { NavigationbarComponent } from './components/template/navigationbar/navigationbar.component';
+import { DvdComponent, DialogDataComponent } from './components/pages/page-justin/dvd/dvd.component';
+import { PageJustinComponent } from './components/pages/page-justin/page-justin.component';
+import { AccueilComponent } from './components/pages/accueil/accueil.component';
 import { MatTabsModule } from '@angular/material/tabs';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './components/template/footer/footer.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { NotfoundComponent } from './notfound/notfound.component';
+import { NotfoundComponent } from './components/pages/notfound/notfound.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -26,21 +26,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { TestApiComponent } from './test-api/test-api.component';
+import { TestApiComponent } from './components/pages/test-api/test-api.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AccueilMobileComponent } from './accueil-mobile/accueil-mobile.component';
-import { NavbarMobileComponent } from './navbar-mobile/navbar-mobile.component';
-import {MatSidenavModule} from '@angular/material/sidenav'; 
-import {MatDividerModule} from '@angular/material/divider';
-import { WassimComponent } from './wassim/wassim.component';
-import { DetailProduitComponent } from './detail-produit/detail-produit.component'; 
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider';
+import { WassimComponent } from './components/template/chat/wassim.component';
+import { DetailProduitComponent } from './components/pages/detail-produit/detail-produit.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
-import { ResultatsComponent } from './resultats/resultats.component';
-import { PanierComponent } from './panier/panier.component';
-import { PorteTransitionComponentComponent } from './porte-transition-component/porte-transition-component.component';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { ResultatsComponent } from './components/pages/resultats/resultats.component';
+import { PanierComponent } from './components/pages/panier/panier.component';
+import { PorteTransitionComponentComponent } from './components/template/transitionPorte/porte-transition-component.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -56,13 +54,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 		FooterComponent,
 		NotfoundComponent,
 		TestApiComponent,
-  AccueilMobileComponent,
-  NavbarMobileComponent,
-  WassimComponent,
-  DetailProduitComponent,
-  ResultatsComponent,
-  PanierComponent,
-  PorteTransitionComponentComponent
+		WassimComponent,
+		DetailProduitComponent,
+		ResultatsComponent,
+		PanierComponent,
+		PorteTransitionComponentComponent
 	],
 	imports: [
 		BrowserModule,

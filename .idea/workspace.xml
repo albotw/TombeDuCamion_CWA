@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a198339e-a7e9-466e-b3e4-5152dd0145f3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/client/src/app/accueil-mobile/accueil-mobile.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/accueil-mobile/accueil-mobile.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/accueil-mobile/accueil-mobile.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/accueil-mobile/accueil-mobile.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/accueil/accueil.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/accueil/accueil.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/accueil/accueil.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/accueil/accueil.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/detail-produit/detail-produit.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/detail-produit/detail-produit.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/detail-produit/detail-produit.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/detail-produit/detail-produit.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/footer/footer.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/footer/footer.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/footer/footer.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/footer/footer.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/navbar-mobile/navbar-mobile.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/navbar-mobile/navbar-mobile.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/navbar-mobile/navbar-mobile.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/navbar-mobile/navbar-mobile.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/navigationbar/navigationbar.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/navigationbar/navigationbar.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/navigationbar/navigationbar.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/navigationbar/navigationbar.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/notfound/notfound.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/notfound/notfound.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/notfound/notfound.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/notfound/notfound.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/page-justin/dialog-data/dialog-data-1.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/page-justin/dialog-data/dialog-data-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/page-justin/dvd/dvd.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/page-justin/dvd/dvd.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/page-justin/dvd/dvd.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/page-justin/dvd/dvd.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/page-justin/page-justin.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/page-justin/page-justin.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/page-justin/page-justin.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/page-justin/page-justin.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/page-justin/popup/popup.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/page-justin/popup/popup.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/page-justin/popup/popup.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/page-justin/popup/popup.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/panier/panier.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/panier/panier.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/panier/panier.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/panier/panier.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/porte-transition-component/porte-transition-component.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/porte-transition-component/porte-transition-component.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/porte-transition-component/porte-transition-component.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/porte-transition-component/porte-transition-component.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/resultats/resultats.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/resultats/resultats.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/resultats/resultats.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/resultats/resultats.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/test-api/test-api.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/test-api/test-api.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/test-api/test-api.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/test-api/test-api.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/wassim/wassim.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/wassim/wassim.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/wassim/wassim.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/wassim/wassim.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="21xnQtWur0la45PgSLHz1zO5kRr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a198339e-a7e9-466e-b3e4-5152dd0145f3" name="Changes" comment="" />
+      <created>1638891593877</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1638891593877</updated>
+      <workItem from="1638891596700" duration="59000" />
+    </task>
+    <servers />
+  </component>
+</project>

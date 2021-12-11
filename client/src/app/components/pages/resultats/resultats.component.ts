@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';//.prod';
-import DataController from '../shared/DataController';
+import DataController from '../../../shared/DataController';
 
 @Component({
 	selector: 'app-resultats',
