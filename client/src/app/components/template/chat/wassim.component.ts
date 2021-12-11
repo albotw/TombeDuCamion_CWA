@@ -1,5 +1,5 @@
 import { Component, OnInit  } from '@angular/core';
-import { data } from '../shared/global';
+import { data } from '../../../shared/global';
 
 @Component({
   selector: 'app-wassim',
@@ -26,7 +26,7 @@ export class WassimComponent implements OnInit {
     }
     else{
       this.msgs.push('En quoi puis-je vous aider UwU ?');
-      
+
       /*
       setTimeout( () => {
         if (this.msgs.length == 1){

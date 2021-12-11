@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';//.prod';
-import DataController from '../shared/DataController';
-import Cache, { CacheData } from "../shared/cache";
+import DataController from '../../../shared/DataController';
+import Cache, { CacheData } from "../../../shared/cache";
 
 @Component({
 	selector: 'app-detail-produit',

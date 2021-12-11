@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CacheData } from '../shared/cache';
-import Cache from "../shared/cache";
-import DataController from '../shared/DataController';
+import { CacheData } from '../../../shared/cache';
+import Cache from "../../../shared/cache";
+import DataController from '../../../shared/DataController';
 
 @Component({
 	selector: 'app-panier',

@@ -1,7 +1,7 @@
 import { Component, Inject, Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from "./../../environments/environment";//.prod";
-import DataController from '../shared/DataController';
+import { environment } from "../../../../environments/environment";//.prod";
+import DataController from '../../../shared/DataController';
 
 @Component({
 	selector: 'app-test-api',

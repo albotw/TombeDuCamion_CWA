@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { flattenAndSortAnimations } from '@cds/core/internal';
 import { environment } from 'src/environments/environment.prod';//.prod';
 import { AssertNotNull } from '@angular/compiler';
-import DataController from '../shared/DataController';
-import { data } from '../shared/global'
+import DataController from '../../../shared/DataController';
+import { data } from '../../../shared/global'
 
 @Component({
 	selector: 'app-accueil',
