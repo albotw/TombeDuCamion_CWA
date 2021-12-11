@@ -41,6 +41,9 @@ import { ResultatsComponent } from './resultats/resultats.component';
 import { PanierComponent } from './panier/panier.component';
 import { PorteTransitionComponentComponent } from './porte-transition-component/porte-transition-component.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { CompteComponent } from './compte/compte.component';
+import { ListeComponent } from './compte/liste/liste.component';
+import { InformationsComponent } from './compte/informations/informations.component';
 
 
 @NgModule({
@@ -62,7 +65,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
   DetailProduitComponent,
   ResultatsComponent,
   PanierComponent,
-  PorteTransitionComponentComponent
+  PorteTransitionComponentComponent,
+  CompteComponent,
+  ListeComponent,
+  InformationsComponent
 	],
 	imports: [
 		BrowserModule,

@@ -25,7 +25,7 @@ export class ResultatsComponent implements OnInit
 	ngOnInit(): void
 	{
 		console.log(this.rech);
-		this.refreshProducts(0, 10);
+		this.refreshProducts(0, 16);
 	}
 
 	public refreshProducts(pageIndex: number, pageSize: number)

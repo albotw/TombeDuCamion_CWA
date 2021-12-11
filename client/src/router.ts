@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { AccueilMobileComponent } from "./app/accueil-mobile/accueil-mobile.component";
 import { AccueilComponent } from "./app/accueil/accueil.component";
+import { CompteComponent } from "./app/compte/compte.component";
 import { DetailProduitComponent } from "./app/detail-produit/detail-produit.component";
 import { NavigationbarComponent } from "./app/navigationbar/navigationbar.component";
 import { NotfoundComponent } from "./app/notfound/notfound.component";
@@ -23,6 +24,7 @@ const routes: Routes = [
 	{ path: 'produit/:id', component: DetailProduitComponent, data: { animation: 'produit' } },
 	{ path: 'recherche/:str', component: ResultatsComponent },
 	{ path: 'panier', component: PanierComponent},
+	{ path: 'compte', component: CompteComponent},
 	{ path: '**', component: NotfoundComponent },
 ];
 
