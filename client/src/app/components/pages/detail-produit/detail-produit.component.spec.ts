@@ -3,6 +3,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DetailProduitComponent } from './detail-produit.component';
 import { HttpClient } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
 
 describe('DetailProduitComponent', () => {
@@ -11,7 +12,8 @@ describe('DetailProduitComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        MatBottomSheetModule
       ],
       declarations: [
         DetailProduitComponent
