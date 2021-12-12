@@ -1,0 +1,18 @@
+<mat-nav-list>
+
+    <h4>Commentaire de $USERNAME$ : </h4>
+
+    <textarea matInput placeholder="Ex. wow really good would buy again"
+                        style="height: 100px; margin-bottom: 10px;"></textarea>
+
+    <button mat-icon-button *ngFor="let i of [0,1,2,3,4]" (click)="updateStars(i+1)">
+        <mat-icon *ngIf="i>=stars">star_outline</mat-icon>
+        <mat-icon *ngIf="i<stars">star</mat-icon>
+    </button>
+
+
+    <button mat-flat-button color="warn" style="float: right;">
+        Publier
+    </button>
+
+</mat-nav-list>

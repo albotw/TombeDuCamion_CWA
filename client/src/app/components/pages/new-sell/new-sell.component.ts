@@ -1,6 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { data } from '../../../shared/global'
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-new-sell',
@@ -8,7 +11,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
   styleUrls: ['./new-sell.component.css']
 })
 export class NewSellComponent implements OnInit {
-  CATEGORIES = ['Jouets', 'Informatique', 'Vêtements']
+  CATEGORIES = data.categories;
 
   images = [];
 
@@ -18,7 +21,8 @@ export class NewSellComponent implements OnInit {
   categoryGroup: FormGroup;
 
   constructor(private _formBuilder: FormBuilder,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              private http: HttpClient) { }
 
   ngOnInit(): void {
     this.titleGroup = this._formBuilder.group({
@@ -47,19 +51,21 @@ export class NewSellComponent implements OnInit {
     let product = {
       p_uid: "00e21440870f4c17e2301c9fe5e9f2fcefc0f2e7621982c23f2e9ecc20a24ab9",
         seller: "Prof. Chen", // TODO: Variable global définissant l'utilisateur connecté
-        title: title,
-        stock: stock,
-        description: descr,
+        title: title.value,
+        stock: stock.value,
+        description: descr.value,
         images: this.images,
-        category: category,
+        category: category.value,
         comments: [],
-        notation: 0.808,
-        price: price,
+        notation: -1,
+        price: price.value,
         sales: 0,
         views: 0
     }
+    console.log(product);
     // TODO: Ajouter un post sur l'API
   }
+
 
   openDialog(): void {
     const dialogRef = this.dialog.open(NewSellAddUrlDialog, {
@@ -67,10 +73,15 @@ export class NewSellComponent implements OnInit {
       data: ''
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.images.push(result);
-    });
+    dialogRef.afterClosed()
+      .pipe(switchMap(url => {
+        this.images.push(url);
+        return this.http.get(url, {responseType: 'blob'});
+      }))
+      .subscribe(
+        console.log,
+        error => {this.images.pop();}
+      );
   }
 }
 

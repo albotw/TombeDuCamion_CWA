@@ -15,7 +15,6 @@ import {
   query,
 	// ...
   } from '@angular/animations';
-import { UrlResolver } from '@angular/compiler';
 
 
 @Component({
@@ -75,8 +74,7 @@ import { UrlResolver } from '@angular/compiler';
 export class NavigationbarComponent implements OnInit
 {
 
-  CATEGORIES = ['Categories', 'Jouets', 'Informatique', 'Vêtements']
-  defaultCategorie = 'Categories'
+  CATEGORIES = data.categories;
 
 	panierOuvert = false;
 	value = "";
@@ -87,8 +85,7 @@ export class NavigationbarComponent implements OnInit
     this.DATA = data;
 	}
 
-	ngOnInit(): void
-	{
+	ngOnInit(): void{
 	}
 
 	updateRoute(): void

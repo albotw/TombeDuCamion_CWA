@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';//.prod';
 import DataController from '../../../shared/DataController';
 import Cache, { CacheData } from "../../../shared/cache";
+import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
 
 @Component({
 	selector: 'app-detail-produit',
@@ -16,7 +17,7 @@ export class DetailProduitComponent implements OnInit
 	public product: any = {};
 	public p_uid: string = "";
 
-	constructor(private http: HttpClient, private route: ActivatedRoute)
+	constructor(private http: HttpClient, private route: ActivatedRoute, private _bottomSheet: MatBottomSheet)
 	{
 		this.p_uid = this.route.snapshot.paramMap.get('id');
 
@@ -24,6 +25,10 @@ export class DetailProduitComponent implements OnInit
 		{
 			this.product = data
 		})
+	}
+
+	openBottomSheet(): void {
+	  this._bottomSheet.open(BottomNewCommSheet);
 	}
 
 	ngOnInit(): void
@@ -58,6 +63,26 @@ export class DetailProduitComponent implements OnInit
 		else{
 			return false;
 		}
+	}
+
+}
+
+@Component({
+	selector: 'new-commentary',
+	templateUrl: './new-commentary.component.html',
+})
+export class BottomNewCommSheet {
+	stars = 5;
+	constructor() {}
+
+	updateStars(i: number): void{
+		if (this.stars == i){
+			this.stars = 0;
+		}
+		else{
+			this.stars = i;
+		}
+
 	}
 
 }

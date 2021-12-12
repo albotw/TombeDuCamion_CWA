@@ -1,22 +1,39 @@
 <h1>{{product.title}}</h1>
 
+<div style="width: 50%; float:left;">
+	<div style="width: 75%;">
+		<p>
+			{{product.description}}
+		</p>
+		
+		<img *ngIf="product.images !== undefined"  src="{{product.images[0]}}">
+		<mat-spinner *ngIf="product.images === undefined"></mat-spinner>
+		
+		<p>
+			{{product.price}} €
+		</p>
+		
+		<p>
+			Stock : {{product.stock}}
+		</p>
+		
+		<button mat-flat-button color="warn" (click)="addToPanier();">
+			Ajouter au panier
+			<mat-icon>add_shopping_cart</mat-icon>
+		</button>
+	</div>
+</div>
+		
+<div style="width: 50%; float:left;">
+	<h2>Commentaires : </h2>
+	<mat-card *ngFor="let com of product.comments">
+		<mat-card-title>{{com.title}}</mat-card-title>
+		<mat-card-subtitle>{{com.note}}</mat-card-subtitle>
+		<mat-card-content>{{com.content}}</mat-card-content>
+	</mat-card>
 
-<p>
-	{{product.description}}
-</p>
 
-<img *ngIf="product.images !== undefined"  src="{{product.images[0]}}">
-<mat-spinner *ngIf="product.images === undefined"></mat-spinner>
-
-<p>
-	{{product.price}} €
-</p>
-<p>
-	Stock : {{product.stock}}
-</p>
-
-<button mat-flat-button color="warn" (click)="addToPanier();">
-	Ajouter au panier
-	<mat-icon>add_shopping_cart</mat-icon>
-</button>
-
+	<button mat-flat-button color="warn" (click)="openBottomSheet()">
+		Ajouter un commentaire
+	</button>
+</div>		

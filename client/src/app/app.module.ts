@@ -31,7 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { WassimComponent } from './components/template/chat/wassim.component';
-import { DetailProduitComponent } from './components/pages/detail-produit/detail-produit.component';
+import { BottomNewCommSheet, DetailProduitComponent } from './components/pages/detail-produit/detail-produit.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -46,6 +46,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { NewSellComponent } from './components/pages/new-sell/new-sell.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import { NewSellAddUrlDialog } from './components/pages/new-sell/new-sell.component';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 
 
 @NgModule({
@@ -71,6 +72,7 @@ import { NewSellAddUrlDialog } from './components/pages/new-sell/new-sell.compon
 		InformationsComponent,
  		NewSellComponent,
 		NewSellAddUrlDialog,
+		BottomNewCommSheet,
 	],
 	imports: [
 		BrowserModule,
@@ -102,6 +104,7 @@ import { NewSellAddUrlDialog } from './components/pages/new-sell/new-sell.compon
 		MatStepperModule,
 		ReactiveFormsModule,
 		FormsModule,
+		MatBottomSheetModule,
 	],
 	providers: [
 	],
