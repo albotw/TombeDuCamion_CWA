@@ -1,0 +1,7 @@
+type Comment {
+    c_uid: ID!
+    author: String!
+    date: String!
+    message: String!
+    note: Float!
+}

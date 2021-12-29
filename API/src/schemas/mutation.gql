@@ -6,5 +6,34 @@ type Mutation {
         description: String, 
         category: String, 
         price: Float,   
+    ) : String "retourne p_uid pour l'upload d'images."
+
+    updateProduct(
+        title: String,
+        stock: String,
+        description: String,
+        category: String,
+        price: Float,
+    ) : String "retourne p_uid"
+
+    processOrder(
+        items: [Order]
     ) : Product
+
+    "COMMENTAIRES"
+    createComment(
+        p_uid: String,
+        message: String,
+        note: Float
+    ) : String "retourne c_uid ?"
+
+    deleteComment(
+        p_uid: String,
+        c_uid: String,
+    ): Boolean
+}
+
+input Order {
+    p_uid: String!,
+    quantity: Int!
 }

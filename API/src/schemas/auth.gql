@@ -1,4 +1,0 @@
-type Auth {
-    hash: String!
-    uid: String!
-}

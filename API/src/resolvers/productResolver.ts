@@ -1,7 +1,9 @@
 import crypto from "crypto";
 import fs from "fs";
+import IProduct from "../interfaces/Product";
+import IOrder from "../interfaces/Order";
 
-let products = require("../../JSON/products.json");
+let products : IProduct[] = require("../../JSON/products.json");
 
 const MODIFICATION_THRESHOLD: number = 10;
 let modificationCounter: number = 0;
@@ -44,6 +46,9 @@ export default {
             return unicodeTitle.includes(searchString) || unicodeDescription.includes(searchString);
         });
 
+        //TODO: placer les résultats en cache ?
+        //HashMap entre clé unique et fullResults. Nettoyé toutes les minutes.
+
         return {
             "meta": {
                 "totalCount": fullResults.length,
@@ -68,7 +73,7 @@ export default {
             switch (champ)
             {
                 case "sales":
-                    return product2.sells - product1.sells;
+                    return product2.sales - product1.sales;
                 case "notation":
                     return product2.notation - product1.notation;
                 case "views":
@@ -101,7 +106,7 @@ export default {
         title = title.normalize("NFD");
         description = description.normalize("NFD");
 
-        let p_uid = crypto.createHash("sha256").update(title + seller + description).digest("hex");
+        let p_uid = crypto.createHash("sha256").update(title + seller + description + Date()).digest("hex");
         let product = {
             p_uid: p_uid,
             seller: seller,
@@ -119,6 +124,28 @@ export default {
 
         // ? placé au début des produits pour débug facile.
         products.unshift(product);
+
+        saveProducts();
+
+        return p_uid;
+    },
+
+    processOrder: ({orders}) => {
+        orders = orders as IOrder[];
+        orders.forEach(order => {
+            let index = products.findIndex(p => (p.p_uid == order.p_uid));
+            if (index != -1 && products[index].stock > 0) {
+                products[index].stock--;
+                products[index].sales++;
+
+                if (products[index].stock < 0) {
+                    //TODO: suppression ?
+                }
+            }
+            else {
+                console.error("Achat d'un produit indisponible !!");
+            }
+        });
 
         saveProducts();
     }

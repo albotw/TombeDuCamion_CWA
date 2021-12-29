@@ -1,6 +1,7 @@
 [
 	{
 		"uid": "001",
+		"hash": "azerqsfhazeiomh",
 		"pseudo": "ianzer",
 		"email": "aaa@aaa.ca",
 		"wishlist": [
@@ -9,7 +10,6 @@
 		],
 		"totalSales": "5",
 		"notation": "2.4",
-		"buyHistory": [],
-		"saleHistory": []
+		"history": []
 	}
 ]

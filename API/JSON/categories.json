@@ -1,5 +1,4 @@
-{
-    "category": [
+[
         "standard-balls",
         "special-balls",
         "healing",
@@ -45,5 +44,4 @@
         "mega-stones",
         "z-crystals",
         "memories"
-    ]
-}
+]

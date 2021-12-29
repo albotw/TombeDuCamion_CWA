@@ -5,9 +5,10 @@ type Query {
     top(categorie: String, champ: String) : [Product]
 
     "FONCTIONS USER"
-    user(uid: String) : User
-    users: [User]
+    connect(pseudo: String, hash: String) : User
+    isConnected(uid: String) : Boolean
 
-    "FONCTIONS AUTH"
-    uid(hash: String) : String
+    "COMMENTAIRES"
+    getComment(c_uid: String) : Comment
+    getCommentsOfProduct(p_uid: String) : [Comment]
 }

@@ -2,10 +2,9 @@ import express from "express";
 import cors from "cors";
 import { buildSchema, GraphQLSchema } from "graphql";
 import { graphqlHTTP } from "express-graphql";
-import { createHash } from "crypto";
 import { readFileSync } from "fs";
 import productResolver from "./resolvers/productResolver";
-import { performance } from "perf_hooks";
+import userResolver from "./resolvers/userResolver";
 
 console.log("CWD: " + process.cwd());
 let app = express();
@@ -35,19 +34,29 @@ app.listen(PORT, () =>
 let query_string = readFileSync("dist/schemas/query.gql", { encoding: "utf-8" });
 let mutation_string = readFileSync("dist/schemas/mutation.gql", { encoding: "utf-8" });
 let prodSchema_string = readFileSync("dist/schemas/product.gql", { encoding: "utf-8" });
-let authSchema_string = readFileSync("dist/schemas/auth.gql", { encoding: "utf-8" });
 let userSchema_string = readFileSync("dist/schemas/user.gql", { encoding: "utf-8" });
+let commentsSchema_string = readFileSync("dist/schemas/comment.gql", {encoding: "utf-8"});
 
 // ? fusion des schémas en un seul
-let globalSchema = buildSchema(prodSchema_string + authSchema_string + userSchema_string + query_string + mutation_string);
+let globalSchema = buildSchema(prodSchema_string + userSchema_string + commentsSchema_string + query_string + mutation_string);
 
-// ? mapping resolvers
+
+// création resolvers
+userResolver.create();
+
+
+// ? mapping resolvers (mutation & query)
 let root = {
     getAllProducts: productResolver.getAllProducts,
     searchProduct: productResolver.searchProduct,
     getProduct: productResolver.getProduct,
     top: productResolver.top,
-    createProduct: productResolver.createProduct
+    connect: userResolver.instance.connect,
+    isConnected: userResolver.instance.isConnected,
+
+
+    processOrder: productResolver.processOrder,
+    createProduct: productResolver.createProduct,
 }
 
 app.use("/graphql", graphqlHTTP({
@@ -56,5 +65,6 @@ app.use("/graphql", graphqlHTTP({
     graphiql: true
 }));
 
+//TODO Ajouter point REST pour l'upload d'images.
 
 
