@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a198339e-a7e9-466e-b3e4-5152dd0145f3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/TombeDuCamion_CWA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TombeDuCamion_CWA.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/src/interfaces/HistoryElement.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/API/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/API/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/src/resolvers/commentsResolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/resolvers/commentsResolver.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/src/resolvers/productResolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/resolvers/productResolver.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/src/resolvers/userResolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/resolvers/userResolver.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/src/schemas/mutation.gql" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/schemas/mutation.gql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/src/schemas/query.gql" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/schemas/query.gql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/src/schemas/user.gql" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/schemas/user.gql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +98,8 @@
       <workItem from="1640626378940" duration="728000" />
       <workItem from="1640711584388" duration="5769000" />
       <workItem from="1640807164640" duration="6922000" />
-      <workItem from="1640852191351" duration="3545000" />
+      <workItem from="1640852191351" duration="9427000" />
+      <workItem from="1640869525487" duration="4289000" />
     </task>
     <servers />
   </component>

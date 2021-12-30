@@ -5,15 +5,16 @@ type HistoryElement {
 
 enum HistoryElementType {
     BUY,
-    SALE
+    SELL
 }
 
 type User {
     uid: String!
+    hash: String!
     nickname: String!
     email: String!
     wishlist: [String!]!
-    sales: Int!
-    popularity: Int!
+    totalSales: Int!
+    notation: Float!
     history: [HistoryElement!]!
 }

@@ -2,6 +2,8 @@ import crypto from "crypto";
 import fs from "fs";
 import IProduct from "../interfaces/Product";
 import IOrder from "../interfaces/Order";
+import userResolver from "./userResolver";
+import IHistoryElement from "../interfaces/HistoryElement";
 
 export default class productResolver {
     public static instance : productResolver;
@@ -107,61 +109,97 @@ export default class productResolver {
         return filteredTopProducts;
     }
 
-    public createProduct= ({ seller, title, stock, description, category, price }) => {
-        console.log("Received create order");
-        seller = seller as string;
-        title = title as string;
-        stock = stock as number;
-        description = description as string;
-        category = category as string;
-        price = price as number;
+    public createProduct= ({ uid, seller, title, stock, description, category, price }) => {
+        if (userResolver.instance.isConnected({user: uid})){
+            seller = seller as string;
+            title = title as string;
+            stock = stock as number;
+            description = description as string;
+            category = category as string;
+            price = price as number;
 
-        //TODO: ajouter import images: placement dans IMG/, hasher nom fichier, ajouter hash dans [images]
-        //TODO: vérifier catégorie
-        title = title.normalize("NFD");
-        description = description.normalize("NFD");
+            //TODO: ajouter import images: placement dans IMG/, hasher nom fichier, ajouter hash dans [images]
+            //TODO: vérifier catégorie
+            title = title.normalize("NFD");
+            description = description.normalize("NFD");
 
-        let p_uid = crypto.createHash("sha256").update(title + seller + description + Date()).digest("hex");
-        let product = {
-            p_uid: p_uid,
-            seller: seller,
-            title: title,
-            stock: stock,
-            description: description,
-            images: [],
-            category: category,
-            comments: [],
-            notation: 0.0,
-            price: price,
-            sales: 0,
-            views: 0
-        };
+            let p_uid = crypto.createHash("sha256").update(title + seller + description + Date()).digest("hex");
+            let product = {
+                p_uid: p_uid,
+                seller: seller,
+                title: title,
+                stock: stock,
+                description: description,
+                images: [],
+                category: category,
+                comments: [],
+                notation: 0.0,
+                price: price,
+                sales: 0,
+                views: 0
+            };
 
-        // ? placé au début des produits pour débug facile.
-        this.productData.unshift(product);
+            // ? placé au début des produits pour débug facile.
+            this.productData.unshift(product);
 
-        this._saveProducts();
+            this._saveProducts();
 
-        return p_uid;
+            return p_uid;
+        }
+        return undefined;
     }
 
-    public processOrder= ({orders}) => {
-        orders = orders as IOrder[];
-        orders.forEach(order => {
-            let index = this.productData.findIndex(p => (p.p_uid == order.p_uid));
-            if (index != -1 && this.productData[index].stock > 0) {
-                this.productData[index].stock--;
-                this.productData[index].sales++;
+    public linkComment = ({uid, p_uid, c_uid}) => {
+        uid = uid as string;
+        p_uid = p_uid as string;
+        c_uid = c_uid as string;
 
-                if (this.productData[index].stock < 0) {
-                    //TODO: suppression ?
+        if (userResolver.instance.isConnected({user: uid})){
+            this.productData.find(p => p.p_uid, p_uid).comments.push(c_uid);
+            this._saveProducts();
+        }
+    }
+
+    public updateProduct = () => {
+        //TODO
+    }
+
+    public processOrder= ({uid, items}) => {
+        uid = uid as String;
+        items = items as IOrder[];
+
+        if (userResolver.instance.isConnected({user: uid})) {
+            items.forEach(order => {
+                let index = this.productData.findIndex(p => (p.p_uid == order.p_uid));
+                if (index != -1 && this.productData[index].stock > 0) {
+                    this.productData[index].stock--;
+                    this.productData[index].sales++;
+
+                    if (this.productData[index].stock < 0) {
+                        //TODO: suppression ?
+                    }
+
+                    let buyerHistoryElement : IHistoryElement = {
+                        type: "BUY",
+                        product: this.productData[index].p_uid
+                    }
+                    userResolver.instance.addToHistory({uid: uid, element: buyerHistoryElement});
+
+                    let sellerHistoryElement : IHistoryElement = {
+                        type: "SELL",
+                        product: this.productData[index].p_uid
+                    }
+                    userResolver.instance.addToHistory({uid: this.productData[index].seller, element: sellerHistoryElement});
                 }
-            }
-            else {
-                console.error("Achat d'un produit indisponible !!");
-            }
-        });
+                else {
+                    console.error("Achat d'un produit indisponible !!");
+                }
+            });
 
-        this._saveProducts();
+            this._saveProducts();
+
+            return "order completed";
+        }
+        return "login error";
     }
 }

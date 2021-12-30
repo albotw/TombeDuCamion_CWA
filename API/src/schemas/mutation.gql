@@ -1,5 +1,7 @@
 type Mutation {
+    "PRODUITS"
     createProduct(
+        uid: String,
         seller: String, 
         title: String, 
         stock: Int, 
@@ -9,28 +11,50 @@ type Mutation {
     ) : String "retourne p_uid pour l'upload d'images."
 
     updateProduct(
+        uid: String,
         title: String,
         stock: String,
         description: String,
         category: String,
         price: Float,
-    ) : String "retourne p_uid"
+    ) : String
 
     processOrder(
+        uid: String,
         items: [Order]
-    ) : Product
+    ) : String
 
     "COMMENTAIRES"
     createComment(
+        uid: String,
         p_uid: String,
         message: String,
         note: Float
-    ) : String "retourne c_uid ?"
+    ) : String
+
+    updateComment(
+        uid: String,
+        message: String,
+        note: String,
+    ) : String
 
     deleteComment(
+        uid: String,
         p_uid: String,
         c_uid: String,
     ): Boolean
+
+    "UTILISATEURS"
+    createUser(
+        nickname: String,
+        email: String,
+    ) : String
+
+    updateUser(
+        uid: String,
+        email: String,
+        nickname: String,
+    ) : String
 }
 
 input Order {
