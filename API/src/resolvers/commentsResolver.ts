@@ -10,18 +10,25 @@ export default class commentsResolver {
     private modificationThreshold: number = 10;
     private modificationCounter : number = 10;
 
+    public static create() {
+        if (commentsResolver.instance == null) {
+            commentsResolver.instance = new commentsResolver();
+        }
+
+        return commentsResolver;
+    }
+
     public getComment = ({c_uid}) => {
         c_uid = c_uid as String;
         return this.commentsData.find(c => c.c_uid == c_uid);
     }
 
     public getCommentsOfProduct = ({p_uid}) => {
-        let product: IProduct = productResolver.getProduct({p_uid});
+        let product: IProduct = productResolver.instance.getProduct({p_uid});
 
         return product.comments.map(c_uid => {
                 return this.commentsData.find(c => c.c_uid == c_uid);
             }
         );
     }
-
 }

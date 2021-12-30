@@ -3,45 +3,56 @@ import fs from "fs";
 import IProduct from "../interfaces/Product";
 import IOrder from "../interfaces/Order";
 
-let products : IProduct[] = require("../../JSON/products.json");
+export default class productResolver {
+    public static instance : productResolver;
 
-const MODIFICATION_THRESHOLD: number = 10;
-let modificationCounter: number = 0;
+    private productData : IProduct[] = require("../../JSON/products.json");
+    private modificationThreshold : number = 10;
+    private modificationCounter : number = 0;
 
-let toUnicode = (toConvert: string) =>
-{
-    return toConvert.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-}
+    public static create() {
+        if (productResolver.instance == null) {
+            productResolver.instance = new productResolver();
+        }
 
-let saveProducts = () =>
-{
-    if (modificationCounter < MODIFICATION_THRESHOLD)
-    {
-        modificationCounter++;
+        return productResolver.instance;
     }
-    else
+
+    private _toUnicode = (toConvert: string) =>
     {
-        let productString = JSON.stringify(products, null, 4);
-        fs.writeFileSync("JSON/products.json", productString, { encoding: "utf-8", flag: "w" });
-        console.log("--- Saved products ---");
-        modificationCounter = 0;
+        return toConvert.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
-}
 
-export default {
-    getAllProducts: () =>
+    private _saveProducts = () =>
     {
-        return products;
-    },
-
-    searchProduct: ({ searchString, limit, offset }) =>
-    {
-        searchString = toUnicode(searchString);
-
-        let fullResults = products.filter(product =>
+        if (this.modificationCounter < this.modificationThreshold)
         {
-            let unicodeTitle = toUnicode(product.title);
-            let unicodeDescription = toUnicode(product.description);
+            this.modificationCounter++;
+        }
+        else
+        {
+            let productString = JSON.stringify(this.productData, null, 4);
+            fs.writeFileSync("JSON/products.json", productString, { encoding: "utf-8", flag: "w" });
+            console.log("--- Saved products ---");
+            this.modificationCounter = 0;
+        }
+    }
+
+    public getAllProducts = () =>
+    {
+        return this.productData;
+    };
+
+    public searchProduct = ({ searchString, limit, offset }) => {
+        searchString = searchString as string;
+        limit = limit as number;
+        offset = offset as number;
+
+        searchString = this._toUnicode(searchString);
+
+        let fullResults = this.productData.filter(product => {
+            let unicodeTitle = this._toUnicode(product.title);
+            let unicodeDescription = this._toUnicode(product.description);
 
             return unicodeTitle.includes(searchString) || unicodeDescription.includes(searchString);
         });
@@ -53,54 +64,58 @@ export default {
             "meta": {
                 "totalCount": fullResults.length,
                 "totalPages": Math.round(fullResults.length / limit),
-            },
+                },
             "results": fullResults.slice(offset, offset + limit)
         };
-    },
+    }
 
-    getProduct: ({ p_uid }) =>
-    {
-        let product = products.find(product => product.p_uid == p_uid);
-        product.views += 1;
-        saveProducts();
-        return product;
-    },
+    public getProduct= ({ p_uid }) => {
+        p_uid = p_uid as string;
 
-    top: ({ categorie, champ }) =>
-    {
-        let topProducts = products.sort((product1, product2) =>
-        {
-            switch (champ)
-            {
+        let index = this.productData.findIndex(product => product.p_uid == p_uid);
+        this.productData[index].views++;
+        this._saveProducts();
+        return this.productData[index];
+    }
+
+    public top= ({ categorie, champ }) => {
+        categorie = categorie as string;
+        champ = champ as string;
+
+        let topProducts = this.productData.sort((product1, product2) => {
+            switch (champ) {
                 case "sales":
-                    return product2.sales - product1.sales;
+                return product2.sales - product1.sales;
                 case "notation":
-                    return product2.notation - product1.notation;
+                return product2.notation - product1.notation;
                 case "views":
-                    return product2.views - product1.views;
+                return product2.views - product1.views;
             }
         });
 
-        let filteredTopProducts = topProducts.reduce((output, product) =>
-        {
-            if (output.length < 6)
-            {
-                if (categorie != "Global" && product.category == categorie)
-                {
+        let filteredTopProducts = topProducts.reduce((output, product) => {
+            if (output.length < 6) {
+                if (categorie != "Global" && product.category == categorie) {
                     output.push(product);
                 }
-                else if (categorie == "Global")
-                {
+                else if (categorie == "Global") {
                     output.push(product);
                 }
             }
             return output;
         }, []);
         return filteredTopProducts;
-    },
+    }
 
-    createProduct: ({ seller, title, stock, description, category, price }) =>
-    {
+    public createProduct= ({ seller, title, stock, description, category, price }) => {
+        console.log("Received create order");
+        seller = seller as string;
+        title = title as string;
+        stock = stock as number;
+        description = description as string;
+        category = category as string;
+        price = price as number;
+
         //TODO: ajouter import images: placement dans IMG/, hasher nom fichier, ajouter hash dans [images]
         //TODO: vérifier catégorie
         title = title.normalize("NFD");
@@ -123,22 +138,22 @@ export default {
         };
 
         // ? placé au début des produits pour débug facile.
-        products.unshift(product);
+        this.productData.unshift(product);
 
-        saveProducts();
+        this._saveProducts();
 
         return p_uid;
-    },
+    }
 
-    processOrder: ({orders}) => {
+    public processOrder= ({orders}) => {
         orders = orders as IOrder[];
         orders.forEach(order => {
-            let index = products.findIndex(p => (p.p_uid == order.p_uid));
-            if (index != -1 && products[index].stock > 0) {
-                products[index].stock--;
-                products[index].sales++;
+            let index = this.productData.findIndex(p => (p.p_uid == order.p_uid));
+            if (index != -1 && this.productData[index].stock > 0) {
+                this.productData[index].stock--;
+                this.productData[index].sales++;
 
-                if (products[index].stock < 0) {
+                if (this.productData[index].stock < 0) {
                     //TODO: suppression ?
                 }
             }
@@ -147,6 +162,6 @@ export default {
             }
         });
 
-        saveProducts();
+        this._saveProducts();
     }
-};
+}

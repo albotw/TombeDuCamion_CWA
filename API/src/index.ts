@@ -5,6 +5,7 @@ import { graphqlHTTP } from "express-graphql";
 import { readFileSync } from "fs";
 import productResolver from "./resolvers/productResolver";
 import userResolver from "./resolvers/userResolver";
+import commentsResolver from "./resolvers/commentsResolver";
 
 console.log("CWD: " + process.cwd());
 let app = express();
@@ -43,20 +44,22 @@ let globalSchema = buildSchema(prodSchema_string + userSchema_string + commentsS
 
 // création resolvers
 userResolver.create();
+productResolver.create();
+commentsResolver.create();
 
 
 // ? mapping resolvers (mutation & query)
 let root = {
-    getAllProducts: productResolver.getAllProducts,
-    searchProduct: productResolver.searchProduct,
-    getProduct: productResolver.getProduct,
-    top: productResolver.top,
+    getAllProducts: productResolver.instance.getAllProducts,
+    searchProduct: productResolver.instance.searchProduct,
+    getProduct: productResolver.instance.getProduct,
+    top: productResolver.instance.top,
     connect: userResolver.instance.connect,
     isConnected: userResolver.instance.isConnected,
 
 
-    processOrder: productResolver.processOrder,
-    createProduct: productResolver.createProduct,
+    processOrder: productResolver.instance.processOrder,
+    createProduct: productResolver.instance.createProduct,
 }
 
 app.use("/graphql", graphqlHTTP({

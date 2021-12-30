@@ -2,24 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a198339e-a7e9-466e-b3e4-5152dd0145f3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/Client___API.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/src/interfaces/Comment.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/src/interfaces/Order.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/src/interfaces/Product.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/src/interfaces/User.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/src/resolvers/commentsResolver.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/src/resolvers/userResolver.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/src/schemas/comment.gql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TombeDuCamion_CWA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TombeDuCamion_CWA.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/JSON/auth.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/JSON/categories.json" beforeDir="false" afterPath="$PROJECT_DIR$/API/JSON/categories.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/JSON/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/API/JSON/users.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/API/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/src/resolvers/commentsResolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/resolvers/commentsResolver.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/src/resolvers/productResolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/resolvers/productResolver.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/src/schemas/auth.gql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/src/schemas/mutation.gql" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/schemas/mutation.gql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/src/schemas/query.gql" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/schemas/query.gql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +52,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="E:\Yann\CODE\TombeDuCamion_CWA\client\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="E:\Yann\CODE\TombeDuCamion_CWA\API\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReaderModeSettings">
@@ -105,7 +92,8 @@
       <workItem from="1640554161534" duration="1558000" />
       <workItem from="1640626378940" duration="728000" />
       <workItem from="1640711584388" duration="5769000" />
-      <workItem from="1640807164640" duration="6617000" />
+      <workItem from="1640807164640" duration="6922000" />
+      <workItem from="1640852191351" duration="3545000" />
     </task>
     <servers />
   </component>
