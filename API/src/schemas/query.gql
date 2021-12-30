@@ -9,6 +9,7 @@ type Query {
     disconnect(uid: String) : String
     isConnected(uid: String) : Boolean
     getUser(uid: String) : Boolean
+    getNickname(uid: String) : String
     getHistory(uid: String) : [HistoryElement]
     getNotation(uid: String, target_uid: String) : Float
 

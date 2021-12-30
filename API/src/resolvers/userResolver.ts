@@ -40,7 +40,7 @@ export default class userResolver {
         nickname = nickname as String;
         hash = hash as String;
 
-        let user = this._userData.find(u => u.pseudo == nickname && u.hash == hash);
+        let user = this._userData.find(u => u.nickname == nickname && u.hash == hash);
 
         let disconnectTime = new Date(Date.now() + this.ALIVE_DURATION);
         this._connectedPool.set(user.uid, disconnectTime);
@@ -86,6 +86,11 @@ export default class userResolver {
         if (this.isConnected({user : uid})) {
             return this._userData.find(u => u.uid == target_uid).notation;
         }
+    }
+
+    public getNickname = ({uid}) => {
+        uid = uid as string;
+        return this._userData.find(u => u.uid == uid).nickname;
     }
 
     private _saveUserData = () => {

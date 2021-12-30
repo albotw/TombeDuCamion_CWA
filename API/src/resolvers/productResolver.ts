@@ -160,8 +160,42 @@ export default class productResolver {
         }
     }
 
-    public updateProduct = () => {
-        //TODO
+    public unlinkComment = ({uid, p_uid, c_uid}) => {
+        uid = uid as string;
+        p_uid = p_uid as string;
+        c_uid = c_uid as string;
+
+        if(userResolver.instance.isConnected({user: uid})) {
+            let index = this.productData.findIndex(p => p.p_uid == p_uid);
+            let c_index = this.productData[index].comments.indexOf(c_uid);
+
+            delete this.productData[index].comments[c_index];
+
+            this._saveProducts();
+        }
+}
+
+    public updateProduct = ({uid, p_uid, title, stock, description, category, price}) => {
+        uid = uid as string;
+        p_uid = p_uid as string;
+        title = title as string;
+        stock = stock as number;
+        description = description as string;
+        category = category as string;
+        price = price as number;
+
+        if (userResolver.instance.isConnected({user: uid})) {
+            let index = this.productData.findIndex(p => p.p_uid == p_uid);
+
+            this.productData[index].title = title;
+            this.productData[index].stock = stock;
+            this.productData[index].description = description;
+            this.productData[index].category = category;
+            this.productData[index].price = price;
+
+            return "product updated";
+        }
+        return "login error";
     }
 
     public processOrder= ({uid, items}) => {

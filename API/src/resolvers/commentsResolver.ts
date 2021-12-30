@@ -56,6 +56,43 @@ export default class commentsResolver {
         }
     }
 
+    public updateComment = ({uid, c_uid, message, note}) => {
+        uid = uid as string;
+        c_uid = c_uid as string;
+        message = message as string;
+        note = note as number;
+
+        if (userResolver.instance.isConnected({user: uid})) {
+            let index = this.commentsData.findIndex(c => c.c_uid == c_uid);
+            this.commentsData[index].message = message;
+            this.commentsData[index].note = note;
+
+            this._saveComments();
+
+            return "Comment updated";
+        }
+        return "Login error";
+    }
+
+    public deleteComment = ({uid, p_uid, c_uid}) => {
+        uid = uid as string;
+        p_uid = p_uid as string;
+        c_uid = c_uid as string;
+
+        if (userResolver.instance.isConnected({user: uid})) {
+            let index = this.commentsData.findIndex(c => c.c_uid == c_uid && c.author == uid);
+            delete this.commentsData[index];
+
+            productResolver.instance.unlinkComment({uid: uid, p_uid: p_uid, c_uid: c_uid});
+
+            this._saveComments();
+
+            return "Comment deleted";
+        }
+
+        return "login error"
+    }
+
     private _saveComments = () => {
         if (this.modificationCounter < this.modificationThreshold) {
             this.modificationCounter++;

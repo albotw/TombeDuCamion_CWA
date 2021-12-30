@@ -1,7 +1,7 @@
 export default interface IUser {
     uid: string;
     hash: string;
-    pseudo: string;
+    nickname: string;
     email: string;
     wishlist : string[];
     totalSales: number;
