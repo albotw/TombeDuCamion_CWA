@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';//.prod';
 import DataController from '../../../shared/DataController';
 import Cache, { CacheData } from "../../../shared/cache";
 import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
 	selector: 'app-detail-produit',
@@ -73,7 +74,14 @@ export class DetailProduitComponent implements OnInit
 })
 export class BottomNewCommSheet {
 	stars = 5;
-	constructor() {}
+	commentaryGroup: FormGroup;
+	constructor(private _formBuilder: FormBuilder) {}
+
+	ngOnInit(): void {
+		this.commentaryGroup = this._formBuilder.group({
+		  commentary: ['', Validators.required],
+		});
+	}
 
 	updateStars(i: number): void{
 		if (this.stars == i){
@@ -82,7 +90,10 @@ export class BottomNewCommSheet {
 		else{
 			this.stars = i;
 		}
+	}
 
+	post(): void{
+		//TODO poster le commentaire
 	}
 
 }
