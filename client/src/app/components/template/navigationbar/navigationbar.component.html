@@ -10,7 +10,7 @@
 	</mat-form-field>	
   
 	<mat-form-field>
-		<input matInput placeholder="Rechercher" [(ngModel)]="value" (input)="updateRoute();">
+		<input matInput id="src_input" placeholder="Rechercher" [(ngModel)]="value" (input)="updateRoute();">
 		<button matSuffix [disabled]="value==''" mat-icon-button aria-label="Clear" routerLink="{{DATA.redirection}}/recherche/{{value}}">
 			<mat-icon>send</mat-icon>
 		</button>

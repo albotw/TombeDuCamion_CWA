@@ -1,4 +1,4 @@
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { ComponentFixture, TestBed, tick } from '@angular/core/testing';
 
 import { ResultatsComponent } from './resultats.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -32,17 +32,21 @@ describe('ResultatsComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should give result with stock > 0', <any>fakeAsync(() => {
+  it('should give result with stock > 0', () => {
     const fixture = TestBed.createComponent(ResultatsComponent);
     const app = fixture.componentInstance;
-    router = TestBed.get(Router);
-    router.initialNavigation();
+
+    router = TestBed.inject(Router);
+
+    router.createUrlTree(['recherche', 'poke']);
+
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      for (let product of app.products){
+        expect(product['stock']).toBeGreaterThanOrEqual(1);
+      }
+    });
     
-    router.navigate(['recherche', 'poké']);
-    tick();
-    for (let product of app.products){
-      expect(product['stock']).toBeGreaterThanOrEqual(1);
-    }
-  }))
+  });
 
 });
