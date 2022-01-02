@@ -5,6 +5,7 @@ import productResolver from "./productResolver";
 import userResolver from "./userResolver";
 import dayjs from "dayjs";
 import crypto from "crypto";
+import IAuthData from "../interfaces/AuthData";
 
 export default class commentsResolver {
     public static instance: commentsResolver;
@@ -35,15 +36,15 @@ export default class commentsResolver {
         );
     }
 
-    public createComment = ({uid, p_uid, message, note}) => {
-        uid = uid as string;
+    public createComment = ({auth, p_uid, message, note}) => {
+        auth = auth as IAuthData;
         p_uid = p_uid as string;
         message = message as string;
         note = note as number;
-        if (userResolver.instance.isConnected({user: uid})) {
+        if (userResolver.instance.isConnected(auth)) {
             let c_uid = crypto.createHash("sha256").update(message + note + dayjs().format);
             let comment : IComment = {
-                author: uid,
+                author: auth.uid,
                 c_uid: c_uid.digest("hex"),
                 date: dayjs().format("DD/MM/YYYY"),
                 message: message,
@@ -51,19 +52,19 @@ export default class commentsResolver {
             }
 
             this.commentsData.push(comment);
-            productResolver.instance.linkComment({uid: uid, p_uid: p_uid, c_uid: c_uid});
+            productResolver.instance.linkComment({auth, p_uid, c_uid});
             this._saveComments();
         }
     }
 
-    public updateComment = ({uid, c_uid, message, note}) => {
-        uid = uid as string;
+    public updateComment = ({auth, c_uid, message, note}) => {
+        auth = auth as IAuthData;
         c_uid = c_uid as string;
         message = message as string;
         note = note as number;
 
-        if (userResolver.instance.isConnected({user: uid})) {
-            let index = this.commentsData.findIndex(c => c.c_uid == c_uid);
+        if (userResolver.instance.isConnected(auth)) {
+            let index = this.commentsData.findIndex(c => c.c_uid == c_uid && c.author == auth.p_uid);
             this.commentsData[index].message = message;
             this.commentsData[index].note = note;
 
@@ -74,16 +75,16 @@ export default class commentsResolver {
         return "Login error";
     }
 
-    public deleteComment = ({uid, p_uid, c_uid}) => {
-        uid = uid as string;
+    public deleteComment = ({auth, p_uid, c_uid}) => {
+        auth = auth as IAuthData;
         p_uid = p_uid as string;
         c_uid = c_uid as string;
 
-        if (userResolver.instance.isConnected({user: uid})) {
-            let index = this.commentsData.findIndex(c => c.c_uid == c_uid && c.author == uid);
+        if (userResolver.instance.isConnected(auth)) {
+            let index = this.commentsData.findIndex(c => c.c_uid == c_uid && c.author == auth.uid);
             delete this.commentsData[index];
 
-            productResolver.instance.unlinkComment({uid: uid, p_uid: p_uid, c_uid: c_uid});
+            productResolver.instance.unlinkComment({auth, p_uid: p_uid, c_uid: c_uid});
 
             this._saveComments();
 

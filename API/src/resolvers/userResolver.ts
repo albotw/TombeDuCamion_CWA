@@ -67,8 +67,8 @@ export default class userResolver {
     }
 
     // @internal
-    public addToHistory = ({auth, element}) => {
-        let index = this._userData.findIndex(u => u.uid == auth.uid);
+    public addToHistory = ({uid, element}) => {
+        let index = this._userData.findIndex(u => u.uid == uid);
         this._userData[index].history.push(element);
         this._saveUserData();
     }
