@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a198339e-a7e9-466e-b3e4-5152dd0145f3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/API/src/interfaces/AuthData.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/install.ps1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/src/interfaces/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/interfaces/User.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/src/resolvers/commentsResolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/resolvers/commentsResolver.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/src/resolvers/productResolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/resolvers/productResolver.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/src/resolvers/userResolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/resolvers/userResolver.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/src/schemas/mutation.gql" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/schemas/mutation.gql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/src/schemas/query.gql" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/schemas/query.gql" afterDir="false" />
@@ -65,7 +64,11 @@
       <recent name="E:\Yann\CODE\TombeDuCamion_CWA\API\src\resolvers" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.API">
+  <component name="RunManager" selected="PowerShell.INSTALL ALL">
+    <configuration name="INSTALL ALL" type="PowerShellRunType" factoryName="PowerShell" scriptUrl="E:\Yann\CODE\TombeDuCamion_CWA\install.ps1" workingDirectory="E:\Yann\CODE\TombeDuCamion_CWA" executablePath="C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe">
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="API" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/API/package.json" />
       <command value="run" />
@@ -79,6 +82,7 @@
     <list>
       <item itemvalue="npm.Client + API" />
       <item itemvalue="npm.API" />
+      <item itemvalue="PowerShell.INSTALL ALL" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -96,7 +100,10 @@
       <workItem from="1640711584388" duration="5769000" />
       <workItem from="1640807164640" duration="6922000" />
       <workItem from="1640852191351" duration="9427000" />
-      <workItem from="1640869525487" duration="7250000" />
+      <workItem from="1640869525487" duration="8511000" />
+      <workItem from="1641052332774" duration="1684000" />
+      <workItem from="1641128700785" duration="1192000" />
+      <workItem from="1641130878970" duration="129000" />
     </task>
     <servers />
   </component>

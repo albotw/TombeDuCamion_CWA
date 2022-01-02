@@ -1,7 +1,7 @@
 type Mutation {
     "PRODUITS"
     createProduct(
-        uid: String,
+        auth: AuthInfo,
         seller: String, 
         title: String, 
         stock: Int, 
@@ -11,7 +11,7 @@ type Mutation {
     ) : String "retourne p_uid pour l'upload d'images."
 
     updateProduct(
-        uid: String,
+        auth: AuthInfo,
         p_uid: String,
         title: String,
         stock: String,
@@ -21,27 +21,27 @@ type Mutation {
     ) : String
 
     processOrder(
-        uid: String,
+        auth: AuthInfo,
         items: [Order]
     ) : String
 
     "COMMENTAIRES"
     createComment(
-        uid: String,
+        auth: AuthInfo,
         p_uid: String,
         message: String,
         note: Float
     ) : String
 
     updateComment(
-        uid: String,
+        auth: AuthInfo,
         c_uid: String,
         message: String,
         note: String,
     ) : String
 
     deleteComment(
-        uid: String,
+        auth: AuthInfo,
         p_uid: String,
         c_uid: String,
     ): Boolean
@@ -50,10 +50,11 @@ type Mutation {
     createUser(
         nickname: String,
         email: String,
+        password: String
     ) : String
 
     updateUser(
-        uid: String,
+        auth: AuthInfo,
         email: String,
         nickname: String,
     ) : String

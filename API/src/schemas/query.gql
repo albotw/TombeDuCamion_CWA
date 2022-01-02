@@ -5,15 +5,25 @@ type Query {
     top(categorie: String, champ: String) : [Product]
 
     "FONCTIONS USER"
-    connect(nickname: String, hash: String) : User
-    disconnect(uid: String) : String
-    isConnected(uid: String) : Boolean
-    getUser(uid: String) : Boolean
+    connect(nickname: String, hash: String) : AuthData
+    disconnect(auth: AuthInfo) : String
+    isConnected(auth: AuthInfo) : Boolean
+    getUser(uid: String) : User
     getNickname(uid: String) : String
     getHistory(uid: String) : [HistoryElement]
-    getNotation(uid: String, target_uid: String) : Float
+    getNotation(target_uid: String) : Float
 
     "COMMENTAIRES"
     getComment(c_uid: String) : Comment
     getCommentsOfProduct(p_uid: String) : [Comment]
+}
+
+type AuthData {
+    uid: String
+    token: String
+}
+
+input AuthInfo {
+    uid: String
+    token: String
 }
