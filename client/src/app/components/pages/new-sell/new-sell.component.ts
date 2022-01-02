@@ -32,8 +32,8 @@ export class NewSellComponent implements OnInit {
       descr: ['', Validators.required],
     });
     this.details1 = this._formBuilder.group({
-      stock: [0, Validators.required],
-      price: [0, Validators.required],
+      stock: [Validators.required, Validators.min(1)],
+      price: [Validators.required, Validators.min(1)],
     });
     this.categoryGroup = this._formBuilder.group({
       category: ['', Validators.required],
@@ -49,7 +49,7 @@ export class NewSellComponent implements OnInit {
     let price = this.details1.get('price');
     let category = this.categoryGroup.get('category');
     let product = {
-      p_uid: "00e21440870f4c17e2301c9fe5e9f2fcefc0f2e7621982c23f2e9ecc20a24ab9",
+        p_uid: "00e21440870f4c17e2301c9fe5e9f2fcefc0f2e7621982c23f2e9ecc20a24ab9",
         seller: "Prof. Chen", // TODO: Variable global définissant l'utilisateur connecté
         title: title.value,
         stock: stock.value,
