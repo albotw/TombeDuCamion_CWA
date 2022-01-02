@@ -47,6 +47,7 @@ import { NewSellComponent } from './components/pages/new-sell/new-sell.component
 import {MatStepperModule} from '@angular/material/stepper';
 import { NewSellAddUrlDialog } from './components/pages/new-sell/new-sell.component';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import { CompteAchatComponent } from './components/pages/compte/compte-achat/compte-achat.component';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
  		NewSellComponent,
 		NewSellAddUrlDialog,
 		BottomNewCommSheet,
+  CompteAchatComponent,
 	],
 	imports: [
 		BrowserModule,

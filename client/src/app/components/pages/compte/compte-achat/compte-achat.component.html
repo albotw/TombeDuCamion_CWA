@@ -1,0 +1,13 @@
+<h2> Historique d'achat</h2>
+<div *ngFor="let achat of dataSource">
+    <mat-card-title-group>
+        <mat-card-title>{{achat.p_uid}}</mat-card-title>
+    </mat-card-title-group>
+</div>
+<mat-paginator [length]="100"
+              [pageSize]="10"
+              [hidePageSize]="true"
+              [showFirstLastButtons] ="true"
+              [pageSizeOptions]=""
+              aria-label="Select page">
+</mat-paginator>
