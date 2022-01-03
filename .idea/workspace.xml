@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a198339e-a7e9-466e-b3e4-5152dd0145f3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/API/TODO.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/src/resolvers/categoryResolver.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/src/resolvers/userResolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/resolvers/userResolver.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/src/schemas/comment.gql" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/schemas/comment.gql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/src/schemas/mutation.gql" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/schemas/mutation.gql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/src/schemas/product.gql" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/schemas/product.gql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/src/schemas/query.gql" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/schemas/query.gql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/src/schemas/user.gql" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/schemas/user.gql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/install.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/install.ps1" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,8 +50,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="D:\yannt\CODE\TombeDuCamion_CWA\client\node_modules\typescript\lib" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="ts.external.directory.path" value="E:\Yann\CODE\TombeDuCamion_CWA\API\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReaderModeSettings">
@@ -65,7 +62,7 @@
       <recent name="E:\Yann\CODE\TombeDuCamion_CWA\API\src\resolvers" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.API">
+  <component name="RunManager" selected="npm.Client + API">
     <configuration name="INSTALL ALL" type="PowerShellRunType" factoryName="PowerShell" scriptUrl="E:\Yann\CODE\TombeDuCamion_CWA\install.ps1" workingDirectory="E:\Yann\CODE\TombeDuCamion_CWA" executablePath="C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe">
       <envs />
       <method v="2" />
@@ -110,6 +107,7 @@
       <workItem from="1641222100274" duration="4098000" />
       <workItem from="1641227148883" duration="1000000" />
       <workItem from="1641238959594" duration="2741000" />
+      <workItem from="1641242128370" duration="1801000" />
     </task>
     <servers />
   </component>
