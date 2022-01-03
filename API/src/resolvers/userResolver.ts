@@ -2,6 +2,7 @@ import * as fs from "fs";
 import IUser from "../interfaces/User";
 import IAuthData from "../interfaces/AuthData";
 import crypto from "crypto";
+import dayjs from "dayjs";
 
 export default class userResolver {
     public static instance: userResolver;
@@ -102,8 +103,26 @@ export default class userResolver {
         nickname = nickname as string;
         email = email as string;
         password = password as string;
-        //TODO: créer utilisateur.
+
+        if (!this._userData.find(u => u.nickname == nickname || u.email == email)) {
+            let uid = crypto.createHash("SHA-256").update(email + nickname + dayjs.format()).digest("hex");
+            let user : IUser = {
+                uid: uid,
+                hash: password,
+                nickname: nickname,
+                email: email,
+                wishlist: [],
+                totalSales: 0,
+                notation: 0,
+                history: []
+            }
+
+            this._userData.push(user);
+            
+        }
     }
+
+    public updateUser = ({auth, email, password, })
 
     private _saveUserData = () => {
         if (this._modificationCounter < this._modificationThreshold){

@@ -54,12 +54,29 @@ let root = {
     searchProduct: productResolver.instance.searchProduct,
     getProduct: productResolver.instance.getProduct,
     top: productResolver.instance.top,
+
     connect: userResolver.instance.connect,
+    disconnect: userResolver.instance.disconnect,
     isConnected: userResolver.instance.isConnected,
+    getUser: userResolver.instance.getUser,
+    getNickname: userResolver.instance.getNickname,
+    getHistory: userResolver.instance.getHistory,
+    getNotation: userResolver.instance.getNotation,
+
+    getComment: commentsResolver.instance.getComment,
+    getCommentsOfProduct: commentsResolver.instance.getCommentsOfProduct,
 
 
     processOrder: productResolver.instance.processOrder,
     createProduct: productResolver.instance.createProduct,
+    updateProduct: productResolver.instance.updateProduct,
+
+    createComment: commentsResolver.instance.createComment,
+    updateComment: commentsResolver.instance.updateComment,
+    deleteComment: commentsResolver.instance.deleteComment,
+
+    createUser: userResolver.instance.createUser,
+    upateUser: userResolver.instance.updateUser
 }
 
 app.use("/graphql", graphqlHTTP({
