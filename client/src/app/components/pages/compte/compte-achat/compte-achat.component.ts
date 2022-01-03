@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import { ActivatedRoute, Router } from '@angular/router';
+import DataController from '../../../shared/DataController';
 
 @Component({
   selector: 'app-compte-achat',
@@ -8,23 +10,35 @@ import {MatTableDataSource} from '@angular/material/table';
   styleUrls: ['./compte-achat.component.css']
 })
 export class CompteAchatComponent implements OnInit {
-  displayedColumns: string[] = ['p_uid'];
-  dataSource: string[] = [
-    "1",
-    "2"
-  ]
-  constructor() { }
+  product_bought = [];
+  totalCount = 0;
+  constructor(private route: ActivatedRoute, private router: Router)
+	{
+		this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+	}
 
   ngOnInit(): void {
+    this.refreshProducts(0, 20);
   }
 
-}
+  public refreshProducts(pageIndex: number, pageSize: number)
+	{
 
-export interface Objet {
-  p_uid: string;
-}
+		let offset = pageIndex * pageSize;
 
-const ELEMENT_DATA: Objet[] = [
-  {p_uid: '1'},
-  {p_uid: '2'},
-]
+		DataController.searchProduct(this.rech, pageSize, offset, (data) =>
+		{
+			this.totalCount = data.meta.totalCount;
+			this.products = data.results.map(product =>
+			{
+				if (product['description'].length > 40)
+				{
+					product['description'] = product['description'].substring(0, 37) + "...";
+				}
+
+				return product;
+			})
+		});
+	}
+
+}
