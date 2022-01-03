@@ -1,0 +1,57 @@
+h4{
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 1rem;
+    text-align: center;
+}
+
+p {
+    margin-top: 8px;
+    color: black;
+    text-align: center;
+  }
+
+.socials{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.socials li{
+    margin: 0 10px;
+}
+
+.socials a{
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+}
+
+.socials a i{
+    font-size: 1.1rem;
+    width: 20px;
+    transition: color .4s ease;
+}
+
+.socials a:hover i{
+    color: aqua;
+}
+
+.footer-bottom p{
+    background: white;
+    color: #2c2c2c;
+    float:center;
+   font-size: 14px;
+   word-spacing: 2px;
+   text-transform: capitalize;
+}
+
+.foot-content{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+    color: black;
+}

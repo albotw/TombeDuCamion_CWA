@@ -30,6 +30,7 @@
 		"@types/jquery": "^3.5.8",
 		"ajv": "^8.6.3",
 		"concurrently": "^6.3.0",
+		"font-awesome": "^4.7.0",
 		"graphql": "^16.0.1",
 		"graphql-request": "^3.6.1",
 		"rxjs": "~6.6.0",
