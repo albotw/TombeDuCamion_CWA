@@ -105,7 +105,7 @@ export default class userResolver {
         password = password as string;
 
         if (!this._userData.find(u => u.nickname == nickname || u.email == email)) {
-            let uid = crypto.createHash("SHA-256").update(email + nickname + dayjs.format()).digest("hex");
+            let uid = crypto.createHash("SHA-256").update(email + nickname + dayjs().format()).digest("hex");
             let user : IUser = {
                 uid: uid,
                 hash: password,
@@ -117,12 +117,17 @@ export default class userResolver {
                 history: []
             }
 
-            this._userData.push(user);
-            
+            this._userData.unshift(user);
+            this._saveUserData();
+
+            return uid;
         }
+        return "Email / nickname already in use.";
     }
 
-    public updateUser = ({auth, email, password, })
+    public updateUser = ({auth, email, password, }) => {
+
+}
 
     private _saveUserData = () => {
         if (this._modificationCounter < this._modificationThreshold){

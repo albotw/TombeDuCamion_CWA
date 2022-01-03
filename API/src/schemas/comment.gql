@@ -1,7 +1,16 @@
 type Comment {
+    "Identifiant unique du commentaire"
     c_uid: ID!
-    author: String!
+
+    "Identifiant unique de l'auteur"
+    author: ID!
+
+    "Date de publication"
     date: String!
+
+    "Contenu du commentaire"
     message: String!
+
+    "Note du produit"
     note: Float!
 }

@@ -1,15 +1,38 @@
 type Product {
+    "Identifiant unique du produit"
     p_uid: ID!
-    seller: String!
+
+    "Identifiant unique du vendeur"
+    seller: ID!
+
+    "Nom du produit"
     title: String!
+
+    "Stock disponible pour le produit"
     stock: Int!
+
+    "Description du produit"
     description: String!
+
+    "Liste d'images liées au produit"
     images: [String!]!
+
+    "Catégorie du produit"
     category: String!
-    comments: [String!]!
+
+    "Liste des identifiants uniques des commentaires liés au produit"
+    comments: [ID!]!
+
+    "Note du produit"
     notation: Float!
+
+    "Prix du produit"
     price: Float!
+
+    "Nombre de ventes du produit"
     sales: Int!
+
+    "Nombre de vues du produit"
     views: Int!
 }
 
