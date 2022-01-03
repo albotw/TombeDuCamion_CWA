@@ -1,65 +1,74 @@
 type Mutation {
-    "PRODUITS"
+    "Ajouter un produit à la vente"
     createProduct(
-        uid: String,
-        seller: String, 
-        title: String, 
-        stock: Int, 
-        description: String, 
-        category: String, 
-        price: Float,   
-    ) : String "retourne p_uid pour l'upload d'images."
+        auth: AuthInfo!,
+        seller: String!,
+        title: String!,
+        stock: Int!,
+        description: String!,
+        category: String!,
+        price: Float!,
+    ) : String
 
+    "Mettre a jour les informations d'un produit"
     updateProduct(
-        uid: String,
-        p_uid: String,
-        title: String,
-        stock: String,
-        description: String,
-        category: String,
-        price: Float,
+        auth: AuthInfo!,
+        p_uid: ID!,
+        title: String!,
+        stock: String!,
+        description: String!,
+        category: String!,
+        price: Float!,
     ) : String
 
+    "Traiter une commande"
     processOrder(
-        uid: String,
-        items: [Order]
+        auth: AuthInfo!,
+        items: [Order!]!
     ) : String
 
-    "COMMENTAIRES"
+    "Ajouter un commentaire sur un produit"
     createComment(
-        uid: String,
-        p_uid: String,
-        message: String,
-        note: Float
+        auth: AuthInfo!,
+        p_uid: ID!,
+        message: String!,
+        note: Float!
     ) : String
 
+    "Mettre a jour un commentaire"
     updateComment(
-        uid: String,
-        c_uid: String,
-        message: String,
-        note: String,
+        auth: AuthInfo!,
+        c_uid: ID!,
+        message: String!,
+        note: String!,
     ) : String
 
+    "Supprimer un commentaire"
     deleteComment(
-        uid: String,
-        p_uid: String,
-        c_uid: String,
+        auth: AuthInfo!,
+        p_uid: ID!,
+        c_uid: ID!,
     ): Boolean
 
-    "UTILISATEURS"
+    "Créer un compte"
     createUser(
-        nickname: String,
-        email: String,
+        nickname: String!,
+        email: String!,
+        password: String!
     ) : String
 
+    "Mettre a jour les informations d'un utilisateur"
     updateUser(
-        uid: String,
-        email: String,
-        nickname: String,
+        auth: AuthInfo!,
+        email: String!,
+        nickname: String!,
     ) : String
 }
 
 input Order {
-    p_uid: String!,
+    "Identifiant unique du produit a acheter"
+    p_uid: ID!,
+
+    "Quantité du produit à acheter"
     quantity: Int!
 }

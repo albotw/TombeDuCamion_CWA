@@ -4,6 +4,7 @@ import IProduct from "../interfaces/Product";
 import IOrder from "../interfaces/Order";
 import userResolver from "./userResolver";
 import IHistoryElement from "../interfaces/HistoryElement";
+import IAuthData from "../interfaces/AuthData";
 
 export default class productResolver {
     public static instance : productResolver;
@@ -109,14 +110,16 @@ export default class productResolver {
         return filteredTopProducts;
     }
 
-    public createProduct= ({ uid, seller, title, stock, description, category, price }) => {
-        if (userResolver.instance.isConnected({user: uid})){
-            seller = seller as string;
-            title = title as string;
-            stock = stock as number;
-            description = description as string;
-            category = category as string;
-            price = price as number;
+    public createProduct= ({ auth, seller, title, stock, description, category, price }) => {
+        auth = auth as IAuthData;
+        seller = seller as string;
+        title = title as string;
+        stock = stock as number;
+        description = description as string;
+        category = category as string;
+        price = price as number;
+        if (userResolver.instance.isConnected(auth)){
+
 
             //TODO: ajouter import images: placement dans IMG/, hasher nom fichier, ajouter hash dans [images]
             //TODO: vérifier catégorie
@@ -149,23 +152,23 @@ export default class productResolver {
         return undefined;
     }
 
-    public linkComment = ({uid, p_uid, c_uid}) => {
-        uid = uid as string;
+    public linkComment = ({auth, p_uid, c_uid}) => {
+        auth = auth as IAuthData;
         p_uid = p_uid as string;
         c_uid = c_uid as string;
 
-        if (userResolver.instance.isConnected({user: uid})){
+        if (userResolver.instance.isConnected(auth)){
             this.productData.find(p => p.p_uid, p_uid).comments.push(c_uid);
             this._saveProducts();
         }
     }
 
-    public unlinkComment = ({uid, p_uid, c_uid}) => {
-        uid = uid as string;
+    public unlinkComment = ({auth, p_uid, c_uid}) => {
+        auth = auth as IAuthData;
         p_uid = p_uid as string;
         c_uid = c_uid as string;
 
-        if(userResolver.instance.isConnected({user: uid})) {
+        if(userResolver.instance.isConnected(auth)) {
             let index = this.productData.findIndex(p => p.p_uid == p_uid);
             let c_index = this.productData[index].comments.indexOf(c_uid);
 
@@ -175,8 +178,8 @@ export default class productResolver {
         }
 }
 
-    public updateProduct = ({uid, p_uid, title, stock, description, category, price}) => {
-        uid = uid as string;
+    public updateProduct = ({auth, p_uid, title, stock, description, category, price}) => {
+        auth  = auth as IAuthData;
         p_uid = p_uid as string;
         title = title as string;
         stock = stock as number;
@@ -184,7 +187,7 @@ export default class productResolver {
         category = category as string;
         price = price as number;
 
-        if (userResolver.instance.isConnected({user: uid})) {
+        if (userResolver.instance.isConnected(auth)) {
             let index = this.productData.findIndex(p => p.p_uid == p_uid);
 
             this.productData[index].title = title;
@@ -198,11 +201,11 @@ export default class productResolver {
         return "login error";
     }
 
-    public processOrder= ({uid, items}) => {
-        uid = uid as String;
+    public processOrder= ({auth, items}) => {
+        auth = auth as IAuthData;
         items = items as IOrder[];
 
-        if (userResolver.instance.isConnected({user: uid})) {
+        if (userResolver.instance.isConnected(auth)) {
             items.forEach(order => {
                 let index = this.productData.findIndex(p => (p.p_uid == order.p_uid));
                 if (index != -1 && this.productData[index].stock > 0) {
@@ -217,7 +220,7 @@ export default class productResolver {
                         type: "BUY",
                         product: this.productData[index].p_uid
                     }
-                    userResolver.instance.addToHistory({uid: uid, element: buyerHistoryElement});
+                    userResolver.instance.addToHistory({uid: auth.uid, element: buyerHistoryElement});
 
                     let sellerHistoryElement : IHistoryElement = {
                         type: "SELL",

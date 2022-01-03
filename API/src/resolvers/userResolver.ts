@@ -1,5 +1,8 @@
 import * as fs from "fs";
 import IUser from "../interfaces/User";
+import IAuthData from "../interfaces/AuthData";
+import crypto from "crypto";
+import dayjs from "dayjs";
 
 export default class userResolver {
     public static instance: userResolver;
@@ -10,10 +13,10 @@ export default class userResolver {
     private _modificationThreshold: number = 10;
     private _modificationCounter: number = 0;
 
-    private _connectedPool: Map<String, Date>;
+    private _connectedPool: Map<IAuthData, Date>;
 
     public constructor() {
-        this._connectedPool = new Map<String, Date>();
+        this._connectedPool = new Map<IAuthData, Date>();
 
         setInterval(this._purge, this.CHECK_DELAY);
     }
@@ -40,21 +43,26 @@ export default class userResolver {
         nickname = nickname as String;
         hash = hash as String;
 
-        let user = this._userData.find(u => u.nickname == nickname && u.hash == hash);
+        let uid = this._userData.find(u => u.nickname == nickname && u.hash == hash).uid;
 
-        let disconnectTime = new Date(Date.now() + this.ALIVE_DURATION);
-        this._connectedPool.set(user.uid, disconnectTime);
+        if (uid != null) {
+            let auth : IAuthData = {
+                uid: uid,
+                token: crypto.randomBytes(50).toString("hex")
+            }
+            let disconnectTime = new Date(Date.now() + this.ALIVE_DURATION);
+            this._connectedPool.set(auth, disconnectTime);
 
-        return user;
+            return auth;
+        }
     }
 
-    public isConnected = ({user}) : boolean => {
-        user = user as String;
-        return this._connectedPool.has(user);
+    public isConnected = (auth: IAuthData) : boolean => {
+        return this._connectedPool.has(auth);
     }
 
-    public disconnect = ({uid}) => {
-        this._connectedPool.delete(uid);
+    public disconnect = ({auth}) => {
+        this._connectedPool.delete(auth);
 
         return "utilisateur déconnecté";
     }
@@ -66,32 +74,60 @@ export default class userResolver {
         this._saveUserData();
     }
 
-    public getHistory = ({uid}) => {
-        if (this.isConnected({user: uid})) {
-            return this._userData.find(u => u.uid == uid).history;
+    public getHistory = ({auth}) => {
+        auth = auth as IAuthData;
+        if (this.isConnected(auth)) {
+            return this._userData.find(u => u.uid == auth.uid).history;
         }
     }
 
-    public getUser = ({uid}) => {
-        uid = uid as string;
-        if (this.isConnected({user: uid})) {
-            return this._userData.find(u => u.uid == uid);
+    public getUser = ({auth}) => {
+        auth = auth as IAuthData;
+        if (this.isConnected(auth)) {
+            return this._userData.find(u => u.uid == auth.uid);
         }
     }
 
-    public getNotation = ({uid, target_uid}) => {
-        uid = uid as string;
+    public getNotation = ({target_uid}) => {
         target_uid = target_uid as string;
 
-        if (this.isConnected({user : uid})) {
-            return this._userData.find(u => u.uid == target_uid).notation;
-        }
+        return this._userData.find(u => u.uid == target_uid).notation;
     }
 
     public getNickname = ({uid}) => {
         uid = uid as string;
         return this._userData.find(u => u.uid == uid).nickname;
     }
+
+    public createUser = ({nickname, email, password}) => {
+        nickname = nickname as string;
+        email = email as string;
+        password = password as string;
+
+        if (!this._userData.find(u => u.nickname == nickname || u.email == email)) {
+            let uid = crypto.createHash("SHA-256").update(email + nickname + dayjs().format()).digest("hex");
+            let user : IUser = {
+                uid: uid,
+                hash: password,
+                nickname: nickname,
+                email: email,
+                wishlist: [],
+                totalSales: 0,
+                notation: 0,
+                history: []
+            }
+
+            this._userData.unshift(user);
+            this._saveUserData();
+
+            return uid;
+        }
+        return "Email / nickname already in use.";
+    }
+
+    public updateUser = ({auth, email, password, }) => {
+
+}
 
     private _saveUserData = () => {
         if (this._modificationCounter < this._modificationThreshold){

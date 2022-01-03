@@ -1,19 +1,56 @@
 type Query {
-    getProduct(p_uid: ID): Product
+    "Récupérer un produit"
+    getProduct(p_uid: ID!): Product
+!
+    "Récupérer tous les produits"
     getAllProducts: [Product]
-    searchProduct(searchString: String, limit: Int, offset: Int): SearchResult
-    top(categorie: String, champ: String) : [Product]
 
-    "FONCTIONS USER"
-    connect(nickname: String, hash: String) : User
-    disconnect(uid: String) : String
-    isConnected(uid: String) : Boolean
-    getUser(uid: String) : Boolean
-    getNickname(uid: String) : String
-    getHistory(uid: String) : [HistoryElement]
-    getNotation(uid: String, target_uid: String) : Float
+    "Rechercher un produit"
+    searchProduct(searchString: String!, limit: Int!, offset: Int!): SearchResult
 
-    "COMMENTAIRES"
-    getComment(c_uid: String) : Comment
-    getCommentsOfProduct(p_uid: String) : [Comment]
+    "Obtenir les meilleurs produits"
+    top(categorie: String!, champ: String!) : [Product]
+
+    "Connecter un utilisateur"
+    connect(nickname: String!, hash: String!) : AuthData
+
+    "Déconnecter un utilisateur"
+    disconnect(auth: AuthInfo!) : String
+
+    "L'utilisateur est il connecté ?"
+    isConnected(auth: AuthInfo!) : Boolean
+
+    "Récupérer les informations d'un utilisateur"
+    getUser(uid: String!) : User
+
+    "Récupérer le pseudo d'un utilisateur"
+    getNickname(uid: String!) : String
+
+    "Récupérer l'historique de l'utilisateur"
+    getHistory(uid: String!) : [HistoryElement]
+
+    "Récupérer la notation d'un utilisateur"
+    getNotation(target_uid: String!) : Float
+
+    "Récupérer un commentaire"
+    getComment(c_uid: String!) : Comment
+
+    "Récupérer tous les commentaires d'un produit"
+    getCommentsOfProduct(p_uid: String!) : [Comment]
+}
+
+type AuthData {
+    "Identifiant de l'utilisateur"
+    uid: String!
+
+    "Clé unique"
+    token: String!
+}
+
+input AuthInfo {
+    "Identifiant de l'utilisateur"
+    uid: String!
+
+    "Clé unique"
+    token: String!
 }
