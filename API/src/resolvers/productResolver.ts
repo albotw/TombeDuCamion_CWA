@@ -50,6 +50,7 @@ export default class productResolver {
         searchString = searchString as string;
         limit = limit as number;
         offset = offset as number;
+        sort = sort as string;
 
         searchString = this._toUnicode(searchString);
 
@@ -60,21 +61,15 @@ export default class productResolver {
             return unicodeTitle.includes(searchString) || unicodeDescription.includes(searchString);
         });
 
-        // 0 -> Pas de Tris
-        // 1 -> Tri A-Z
-        // 2 -> Tri Z-A
-        // 3 -> Tri Prix Croissant
-        // 4 -> Tri Prix Décroissant
-
         fullResults = fullResults.sort((a, b) => {
             switch (sort){
-                case 1:
+                case "LETTER_ASCENDING":
                     return a.title.localeCompare(b.title);
-                case 2:
+                case "LETTER_DESCENDING":
                     return a.title.localeCompare(b.title)*(-1);
-                case 3:
+                case "PRICE_ASCENDING":
                     return a.price - b.price;
-                case 4:
+                case "PRICE_DESCENDING":
                     return b.price - a.price;
             }
         })
