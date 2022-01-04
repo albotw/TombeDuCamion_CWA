@@ -2,6 +2,9 @@ type Query {
     "Récupérer toutes les catégories"
     getCategories : [String]
 
+    "Récupérer la wishlist de l'utilisateur"
+    getWishlist(auth : AuthInfo) : [ID]
+
     "Récupérer un produit"
     getProduct(p_uid: ID!): Product
 !

@@ -81,6 +81,43 @@ export default class userResolver {
         }
     }
 
+    public getWishlist = ({auth}) => {
+        auth = auth as IAuthData;
+        if (this.isConnected(auth)) {
+            return this._userData.find(u => u.uid == auth.uid).wishlist;
+        }
+    }
+
+    public addToWishlist = ({auth, product}) => {
+        auth = auth as IAuthData;
+        product = product as string;
+
+        if (this.isConnected(auth)) {
+            let index = this._userData.findIndex(u => u.uid == auth.uid);
+            this._userData[index].wishlist.push(product);
+            this._saveUserData();
+            return "Liste de souhaits modifiée";
+        }
+
+        return "Erreur de connexion";
+    }
+
+    public removeFromWishlist = ({auth, product}) => {
+        auth = auth as IAuthData;
+        product = product as string;
+
+        if (this.isConnected(auth)) {
+            let index = this._userData.findIndex(u => u.uid == auth.uid);
+            let productIndex = this._userData[index].wishlist.findIndex(product);
+            this._userData[index].wishlist.slice(productIndex, 1);
+
+            this._saveUserData();
+            return "Liste de souhaits mise a jour";
+        }
+
+        return "Erreur de connexion";
+    }
+
     public getUser = ({auth}) => {
         auth = auth as IAuthData;
         if (this.isConnected(auth)) {
