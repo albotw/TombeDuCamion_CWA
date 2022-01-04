@@ -11,7 +11,7 @@ import { data } from '../../../shared/global'
 @Component({
 	selector: 'app-accueil',
 	templateUrl: './accueil.component.html',
-	styleUrls: ['./accueil.component.css'],
+	styleUrls: ['./accueil.component.scss'],
 })
 export class AccueilComponent implements OnInit
 {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {data} from "../../../shared/global";
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+	darkmode = false;
   constructor() { }
 
   ngOnInit(): void {
   }
-  
+
+   toggleDarkMode() {
+		data.darkmode = !data.darkmode;
+	}
 }

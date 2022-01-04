@@ -1,6 +1,6 @@
 <h2>Tombé du Camion, pas du dropshipping mais presque</h2>
 
-<div *ngFor="let item of meilleurs | keyvalue" style="margin-bottom:20px;">
+<mat-card *ngFor="let item of meilleurs | keyvalue" style="margin-bottom:20px;">
     <h4> {{item.key}} </h4>
 
     <div style="display:flex; justify-content: center; align-items: center;">
@@ -28,4 +28,4 @@
             <mat-icon>chevron_right</mat-icon>
         </button>
     </div>
-</div>
+</mat-card>
