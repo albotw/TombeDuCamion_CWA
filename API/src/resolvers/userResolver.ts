@@ -88,6 +88,12 @@ export default class userResolver {
         }
     }
 
+    //@internal
+    public hasBoughtProduct = (uid: string, p_uid: string) => {
+        let index = this._userData.findIndex(u => u.uid == uid);
+        return this._userData[index].history.includes({product: p_uid, type: "BUY"});
+}
+
     public addToWishlist = ({auth, product}) => {
         auth = auth as IAuthData;
         product = product as string;
@@ -164,7 +170,7 @@ export default class userResolver {
 
     public updateUser = ({auth, email, password, }) => {
 
-}
+    }
 
     private _saveUserData = () => {
         if (this._modificationCounter < this._modificationThreshold){
