@@ -12,7 +12,7 @@ type Query {
     getAllProducts: [Product]
 
     "Rechercher un produit"
-    searchProduct(searchString: String!, limit: Int!, offset: Int!, sort: Int!): SearchResult
+    searchProduct(searchString: String!, limit: Int!, offset: Int!, sort: SortType!): SearchResult
 
     "Obtenir les meilleurs produits"
     top(categorie: String!, champ: String!) : [Product]
@@ -51,6 +51,14 @@ type AuthData {
 
     "Clé unique"
     token: String!
+}
+
+enum SortType {
+    NO_SORT,
+    LETTER_ASCENDING,
+    LETTER_DESCENDING,
+    PRICE_ASCENDING,
+    PRICE_DESCENDING
 }
 
 input AuthInfo {
