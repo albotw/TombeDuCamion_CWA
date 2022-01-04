@@ -5,14 +5,3 @@ body {
     margin: 0;
     font-family: 'IBM Plex Sans', sans-serif;
 }
-
-#content-wrap {
-    padding-bottom: 2.5rem;    /* Footer height */
-}
-
-#footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;           /* Footer height */
-}

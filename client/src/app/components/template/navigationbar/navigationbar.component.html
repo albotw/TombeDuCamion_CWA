@@ -29,14 +29,15 @@
 </mat-toolbar>
 
 <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="panierOuvert">
-	<div class="overlayPanier" style="width:300px">
+	<mat-card class="overlayPanier" style="width:300px">
+		<mat-card-title>Panier</mat-card-title>
 		<ul class="example-list">
 			<li *ngFor="let item of panier;">
 				{{item.product.title}} x{{item.count}} : {{item.count * item.product.price}} €
 			</li>
 		</ul>
 		<p>Total : {{total}} €</p>
-	</div>
+	</mat-card>
 </ng-template>
 
 <div [@routeAnimations]="prepareRoute(outlet)">
