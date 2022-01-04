@@ -146,10 +146,6 @@ export default class productResolver {
         category = category as string;
         price = price as number;
         if (userResolver.instance.isConnected(auth)){
-
-
-            //TODO: ajouter import images: placement dans IMG/, hasher nom fichier, ajouter hash dans [images]
-            //TODO: vérifier catégorie
             title = title.normalize("NFD");
             description = description.normalize("NFD");
 
@@ -177,6 +173,22 @@ export default class productResolver {
             return p_uid;
         }
         return undefined;
+    }
+
+    public addImageToProduct = ({auth, p_uid, image}) => {
+        auth = auth as IAuthData;
+        p_uid = p_uid as string;
+        image = image as string;
+
+        if (userResolver.instance.isConnected(auth)) {
+            let index = this.productData.findIndex(p => p.p_uid == p_uid);
+            this.productData[index].images.push(image);
+            this._saveProducts();
+
+            return "Image ajoutée";
+        }
+
+        return "Erreur de connexion";
     }
 
     public linkComment = ({auth, p_uid, c_uid}) => {

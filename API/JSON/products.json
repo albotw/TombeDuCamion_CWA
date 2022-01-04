@@ -16,22 +16,6 @@
         "views": 1026
     },
     {
-        "p_uid": "7b9adbddaaf29cd8227e09da978e38c2bcc61c07e87bf632bd087c0d918bafe8",
-        "seller": "Prof. Chen",
-        "title": "tm02",
-        "stock": 168,
-        "description": "Teaches Dragon Claw to a compatible Pokémon.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/tm-normal.png"
-        ],
-        "category": "pokemonItems",
-        "comments": [],
-        "notation": 3.369,
-        "price": 10000,
-        "sales": 225,
-        "views": 1009
-    },
-    {
         "p_uid": "c51bad7a2dcbd0c4bcd8f63672fef0198387ccaa9b575df1790a69ab4a33a15b",
         "seller": "Prof. Chen",
         "title": "acro-bike",
@@ -46,6 +30,22 @@
         "price": 0,
         "sales": 9,
         "views": 1010
+    },
+    {
+        "p_uid": "7b9adbddaaf29cd8227e09da978e38c2bcc61c07e87bf632bd087c0d918bafe8",
+        "seller": "Prof. Chen",
+        "title": "tm02",
+        "stock": 168,
+        "description": "Teaches Dragon Claw to a compatible Pokémon.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/tm-normal.png"
+        ],
+        "category": "pokemonItems",
+        "comments": [],
+        "notation": 3.369,
+        "price": 10000,
+        "sales": 225,
+        "views": 1009
     },
     {
         "p_uid": "f094fc04d653152553a65a5defa0e17c4cba74d63fe5bb09b274a768b032a00c",
@@ -1629,7 +1629,7 @@
         "notation": 4.997,
         "price": 0,
         "sales": 92,
-        "views": 889
+        "views": 893
     },
     {
         "p_uid": "be1d00861ddf710478dfc40fca159aacf986f6f564e886fa257fa3719cfb6bc3",
@@ -4928,6 +4928,22 @@
         "views": 665
     },
     {
+        "p_uid": "cbf6eca452fd073c01066de1c5dd7a1d5c4cc301cca0e663fdaad093df7ff3d9",
+        "seller": "Prof. Chen",
+        "title": "mago-berry",
+        "stock": 70,
+        "description": "Held in battle\n:   When the holder has 1/2 its max HP remaining or less, it consumes this item to restore 1/8 its max HP.  If the holder dislikes sweet flavors (i.e., has a nature that lowers Speed), it will also become confused.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/mago-berry.png"
+        ],
+        "category": "pokemonItems",
+        "comments": [],
+        "notation": 4.991,
+        "price": 20,
+        "sales": 65,
+        "views": 663
+    },
+    {
         "p_uid": "83f37ed3890f0a77bf592cf9fe803ee19d3797e46facf3f6af16b690d722fa5e",
         "seller": "Prof. Chen",
         "title": "tm27",
@@ -4974,22 +4990,6 @@
         "price": 1000,
         "sales": 445,
         "views": 661
-    },
-    {
-        "p_uid": "cbf6eca452fd073c01066de1c5dd7a1d5c4cc301cca0e663fdaad093df7ff3d9",
-        "seller": "Prof. Chen",
-        "title": "mago-berry",
-        "stock": 70,
-        "description": "Held in battle\n:   When the holder has 1/2 its max HP remaining or less, it consumes this item to restore 1/8 its max HP.  If the holder dislikes sweet flavors (i.e., has a nature that lowers Speed), it will also become confused.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/mago-berry.png"
-        ],
-        "category": "pokemonItems",
-        "comments": [],
-        "notation": 4.991,
-        "price": 20,
-        "sales": 65,
-        "views": 659
     },
     {
         "p_uid": "98a21d6faf28ab61036d23ff86529be2ae49f63ec78f79412c1b112a3f0578bb",
@@ -12560,6 +12560,22 @@
         "views": 121
     },
     {
+        "p_uid": "4128e56a1905dd7b089509ef0867da57b1e2aabec6ada270b6e536e6091fdd21",
+        "seller": "Prof. Chen",
+        "title": "genius-wing",
+        "stock": 210,
+        "description": "Used on a party Pokémon\n:   Increases the target's Special Attack effort by 1.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/genius-wing.png"
+        ],
+        "category": "pokemonItems",
+        "comments": [],
+        "notation": 4.962,
+        "price": 300,
+        "sales": 82,
+        "views": 120
+    },
+    {
         "p_uid": "8f53dd914ced58d84b4d816958f1442f59387ce7eadb03fa6aed193a512b2e5f",
         "seller": "Prof. Chen",
         "title": "stick",
@@ -12590,22 +12606,6 @@
         "price": 20,
         "sales": 6,
         "views": 118
-    },
-    {
-        "p_uid": "4128e56a1905dd7b089509ef0867da57b1e2aabec6ada270b6e536e6091fdd21",
-        "seller": "Prof. Chen",
-        "title": "genius-wing",
-        "stock": 210,
-        "description": "Used on a party Pokémon\n:   Increases the target's Special Attack effort by 1.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/genius-wing.png"
-        ],
-        "category": "pokemonItems",
-        "comments": [],
-        "notation": 4.962,
-        "price": 300,
-        "sales": 82,
-        "views": 117
     },
     {
         "p_uid": "6105d8625ada3c9bf514062b5696e9d7aa11e4b5e2c3d8629713f0bf2e45f6fd",

@@ -2,9 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a198339e-a7e9-466e-b3e4-5152dd0145f3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/JSON/products.json" beforeDir="false" afterPath="$PROJECT_DIR$/API/JSON/products.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/API/TODO.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/API/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/src/resolvers/productResolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/resolvers/productResolver.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/src/resolvers/userResolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/resolvers/userResolver.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/src/schemas/mutation.gql" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/schemas/mutation.gql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/components/pages/accueil/accueil.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/pages/accueil/accueil.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/components/pages/accueil/accueil.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/pages/accueil/accueil.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/pages/detail-produit/detail-produit.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/pages/detail-produit/detail-produit.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/pages/detail-produit/detail-produit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/pages/detail-produit/detail-produit.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/template/transitionPorte/porte-transition-component.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/template/transitionPorte/porte-transition-component.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,10 +62,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea/runConfigurations" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-    <property name="ts.external.directory.path" value="D:\yannt\CODE\TombeDuCamion_CWA\client\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="E:\Yann\CODE\TombeDuCamion_CWA\client\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReaderModeSettings">
@@ -66,17 +81,8 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="API" type="js.build_tools.npm">
-      <package-json value="$PROJECT_DIR$/API/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="launch" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <list>
+      <item itemvalue="npm.Client" />
       <item itemvalue="npm.Client + API" />
       <item itemvalue="npm.API" />
       <item itemvalue="PowerShell.INSTALL ALL" />
@@ -109,6 +115,10 @@
       <workItem from="1641242128370" duration="1801000" />
       <workItem from="1641283340782" duration="2346000" />
       <workItem from="1641299703407" duration="7177000" />
+      <workItem from="1641316594730" duration="651000" />
+      <workItem from="1641317672216" duration="358000" />
+      <workItem from="1641318179908" duration="1180000" />
+      <workItem from="1641326898388" duration="6558000" />
     </task>
     <servers />
   </component>
