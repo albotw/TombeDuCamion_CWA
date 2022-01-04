@@ -64,6 +64,7 @@ let root = {
     getNickname: userResolver.instance.getNickname,
     getHistory: userResolver.instance.getHistory,
     getNotation: userResolver.instance.getNotation,
+    getWishlist: userResolver.instance.getWishlist,
 
     getComment: commentsResolver.instance.getComment,
     getCommentsOfProduct: commentsResolver.instance.getCommentsOfProduct,
@@ -80,7 +81,9 @@ let root = {
     deleteComment: commentsResolver.instance.deleteComment,
 
     createUser: userResolver.instance.createUser,
-    upateUser: userResolver.instance.updateUser
+    upateUser: userResolver.instance.updateUser,
+    addToWishlist: userResolver.instance.addToWishlist,
+    removeFromWishlist: userResolver.instance.removeFromWishlist
 }
 
 app.use("/graphql", graphqlHTTP({

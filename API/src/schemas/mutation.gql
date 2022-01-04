@@ -69,6 +69,18 @@ type Mutation {
         email: String!,
         nickname: String!,
     ) : String
+
+    "Ajouter un produit à la wishlist"
+    addToWishlist(
+        auth: AuthInfo!
+        product: ID!
+    ) : String
+
+    "Retirer un produit de la wishlist"
+    removeFromWishlist(
+        auth: AuthInfo!
+        product: ID!
+    ) : String
 }
 
 input Order {
