@@ -1,4 +1,7 @@
 type Query {
+    "Récupérer toutes les catégories"
+    getCategories : [String]
+
     "Récupérer un produit"
     getProduct(p_uid: ID!): Product
 !
