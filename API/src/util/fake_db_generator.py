@@ -77,7 +77,6 @@ with open(filePath ,'r+') as file:
                     else:
                         infos_data['best_views'].append(_p_uid)
 
-
                 prod = {
                     'p_uid': _p_uid,
                     'seller': 'Prof. Chen',
@@ -92,7 +91,7 @@ with open(filePath ,'r+') as file:
                     "sales": _sales,
                     "views": _views,
                 }
-                file_data[_p_uid] = prod
+                file_datas= prod
                 
                 #file.seek(0)
                 #infos.seek(0)

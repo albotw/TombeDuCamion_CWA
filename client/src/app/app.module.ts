@@ -47,6 +47,8 @@ import { NewSellComponent } from './components/pages/new-sell/new-sell.component
 import {MatStepperModule} from '@angular/material/stepper';
 import { NewSellAddUrlDialog } from './components/pages/new-sell/new-sell.component';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle'
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
@@ -106,6 +108,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 		FormsModule,
 		MatBottomSheetModule,
 		FlexLayoutModule,
+		MatToolbarModule,
+		MatSlideToggleModule
 	],
 	providers: [
 	],
