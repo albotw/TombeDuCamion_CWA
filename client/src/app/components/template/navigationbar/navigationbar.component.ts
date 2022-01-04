@@ -6,70 +6,13 @@ import Cache, { CacheData } from "../../../shared/cache";
 import { data } from '../../../shared/global'
 
 
-import {
-	trigger,
-	state,
-	style,
-	animate,
-	transition,
-  query,
-	// ...
-  } from '@angular/animations';
+
 
 
 @Component({
   selector: 'navbar',
   templateUrl: './navigationbar.component.html',
   styleUrls: ['./navigationbar.component.css'],
-	animations: [
-		trigger('routeAnimations', [
-      transition('* => transition',[
-        query(':leave', [
-          style({
-            opacity: 1,
-          }),
-        ]),
-        query(':enter', [
-          style({
-            position: 'absolute',
-            opacity: 1,
-            top: -1100,
-            left:0,
-          }),
-        ]),
-        query(':enter', [
-          animate('900ms', style({
-            position: 'absolute',
-            opacity: 1,
-            top: 0,
-            left: 0,
-          })),
-        ]),
-      ]),
-      transition('transition => *', [
-        query(':enter', [
-          style({
-            position: 'absolute',
-            opacity: 1,
-          }),
-        ]),
-        query(':leave', [
-          style({
-            position: 'absolute',
-            zIndex: 1,
-            opacity: 1,
-            top: 0,
-            left: 0,
-          }),
-          animate('900ms', style({
-            opacity: 1,
-            top: -1100,
-            left:0,
-          })),
-        ]),
-      ])
-    ])
-  ]
 })
 export class NavigationbarComponent implements OnInit
 {
@@ -100,10 +43,6 @@ export class NavigationbarComponent implements OnInit
     }
 		this.router.navigate(['recherche'],  navextra);
 	}
-
-  prepareRoute(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
-  }
 
 	get total()
 	{

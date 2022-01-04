@@ -1,44 +1,42 @@
-<div class="background-color-primary">
-	<button mat-button routerLink="{{DATA.redirection}}/accueil"
-		style="margin-left:16px; margin-right:16px; margin-top:16px; width:64px; height:64px; background: url(./assets/img/Camion.png); background-size: 64px 64px;"></button>
-	
-	<mat-form-field floatLabel="never">
-		<mat-select value="Categories"  style="text-transform: capitalize;" [(ngModel)]="cat"> 
+<mat-toolbar color="primary">
+	<button mat-button routerLink="{{DATA.redirection}}/accueil" class="logo"></button>
+	<span>Tombé du Camion</span>
+	<mat-form-field class="navbar-content">
+		<mat-select value="Categories" [(ngModel)]="cat">
 			<mat-option value="Categories">Categories</mat-option>
-			<mat-option *ngFor="let cat_ of CATEGORIES" style="text-transform: capitalize;" [value]="cat_">{{cat_.replaceAll('-', ' ')}}</mat-option>
+			<mat-option *ngFor="let cat of CATEGORIES" [value]="cat">{{cat.replaceAll('-', ' ')}}</mat-option>
 		</mat-select>
-	</mat-form-field>	
-  
-	<mat-form-field>
-		<input matInput id="src_input" placeholder="Rechercher" [(ngModel)]="value" (input)="updateRoute();">
-		<button matSuffix [disabled]="value==''" mat-icon-button aria-label="Clear" [routerLink]="[DATA.redirection ,'/recherche']" [queryParams]="{str: value, cat: cat}">
+	</mat-form-field>
+
+	<mat-form-field class="navbar-content">
+		<input matInput type="search"  id="src_input" placeholder="Rechercher" [(ngModel)]="value" (input)="updateRoute();">
+		<button matSuffix [disabled]="value==''" mat-icon-button aria-label="Clear"  [routerLink]="[DATA.redirection ,'/recherche']" [queryParams]="{str: value, cat: cat}">
 			<mat-icon>send</mat-icon>
 		</button>
 	</mat-form-field>
 
+	<span class="spacer"></span>
 	<!--<button mat-button routerLink="{{DATA.redirection}}/lol">LOL</button>-->
 	<!--<button mat-button routerLink="{{DATA.redirection}}/test-api">test api</button>-->
-	
-	<button mat-button style="position: relative; left: 48vw;" routerLink="{{DATA.redirection}}/newSell">Ajouter une vente</button>
-	<button mat-button style="position: relative; left: 48vw;" routerLink="{{DATA.redirection}}/compte">Compte</button>
-	<button mat-button style="position: relative; left: 48vw;" routerLink="{{DATA.redirection}}/panier" 
+
+	<button mat-button  routerLink="{{DATA.redirection}}/newSell">Ajouter une vente</button>
+	<button mat-button  routerLink="{{DATA.redirection}}/compte">Compte</button>
+	<button mat-button  routerLink="{{DATA.redirection}}/panier"
 		(mouseover)="panierOuvert = true" (mouseout)="panierOuvert = false"
 		cdkOverlayOrigin #trigger="cdkOverlayOrigin">
 		<mat-icon [matBadge]="panier.length" matBadgeColor="accent">shopping_cart</mat-icon>
 	</button>
-</div>
+</mat-toolbar>
 
 <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="panierOuvert">
-	<div class="overlayPanier" style="width:300px">
+	<mat-card class="overlayPanier" style="width:300px">
+		<mat-card-title>Panier</mat-card-title>
 		<ul class="example-list">
 			<li *ngFor="let item of panier;">
 				{{item.product.title}} x{{item.count}} : {{item.count * item.product.price}} €
 			</li>
 		</ul>
 		<p>Total : {{total}} €</p>
-	</div>
+	</mat-card>
 </ng-template>
 
-<div style="margin-left: 10% ; margin-right: 10%;" [@routeAnimations]="prepareRoute(outlet)">
-	<router-outlet #outlet="outlet"></router-outlet>
-</div>
