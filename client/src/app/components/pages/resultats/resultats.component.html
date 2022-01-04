@@ -1,5 +1,17 @@
 <h1>Resultats de recherche pour "{{ rech }}"</h1>
 
+<div style="position: absolute; left: 0;">
+	<mat-form-field>
+		<mat-select value="actualSort">
+			<mat-option *ngFor="let sort of possibleSorts" value=[sort]>
+				{{sort}}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+</div>
+
+
+
 <div *ngFor="let vente of products" style="display: inline-block; align-items: stretch;">
 	<mat-card *ngIf="vente !== undefined" routerLink='/produit/{{vente.p_uid}}'>
 		<mat-card-title-group>

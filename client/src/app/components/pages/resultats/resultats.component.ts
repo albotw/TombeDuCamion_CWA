@@ -12,10 +12,11 @@ import DataController from '../../../shared/DataController';
 })
 export class ResultatsComponent implements OnInit
 {
-
 	rech = "";
 	products = [];
 	totalCount = 0;
+	actualSort = "NO_SORT";
+	possibleSorts = ["NO_SORT", "LETTER_ASCENDING", "LETTER_DESCENDING", "PRICE_ASCENDING", "PRICE_DESCENDING"]
 
 	constructor(private route: ActivatedRoute, private router: Router)
 	{

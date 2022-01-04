@@ -32,7 +32,7 @@ export default class DataController
 	public static top = async (categorie: string, champ: string, callback: (data: any) => void) =>
 	{
 		let query = gql`
-			query top($categorie: String, $champ: String) {
+			query top($categorie: String!, $champ: String!) {
 				top(categorie: $categorie, champ: $champ) {
 					p_uid
 					seller
@@ -92,7 +92,7 @@ export default class DataController
 	public static searchProduct = async (arg: string, limit: number, offset: number, sort: number, callback: (data: any) => void) =>
 	{
 		let query = gql`
-		query searchProducts($text: String, $offset: Int, $limit: Int, $sort: Int) {
+		query searchProducts($text: String!, $offset: Int!, $limit: Int!, $sort: Int!) {
 			searchProduct(searchString: $text, offset: $offset, limit: $limit, sort: $sort) {
 				meta {
 					totalCount
