@@ -44,7 +44,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with :
           name: doc
-          path: api/public
+          path: API/public
 
 
       - uses: browser-actions/setup-chrome@latest
@@ -68,14 +68,14 @@ jobs:
         with:
           name: deploy_dist
           
-      - name: Deploy to GitHub Pages
+      - name: Deploy Angular to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: deploy_dist/TombeDuCamion
   
-      - name: Deploy to GitHub Pages
+      - name: Deploy Doc to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
