@@ -35,7 +35,7 @@ export class ResultatsComponent implements OnInit
 
 		let offset = pageIndex * pageSize;
 
-		DataController.searchProduct(this.rech, pageSize, offset, (data) =>
+		DataController.searchProduct(this.rech, pageSize, offset, 1, (data) =>
 		{
 			this.totalCount = data.meta.totalCount;
 			this.products = data.results.map(product =>

@@ -8,14 +8,14 @@
             <mat-icon>chevron_left</mat-icon>
         </button>
         
-        <div *ngFor="let vente of getVentes(item.key);" style="display: inline-block; align-items: stretch;">
+        <div *ngFor="let vente of getVentes(item.key);">
             <mat-card *ngIf="vente !== undefined" routerLink='{{DATA.redirection}}/produit/{{vente.p_uid}}'> 
                 <mat-card-title-group>
                     <mat-card-title>{{vente.title}}</mat-card-title>
                     <img mat-card-sm-image src="{{vente.images[0]}}" >
                 </mat-card-title-group>
                 <mat-card-content>
-                {{vente.description}}
+                    {{vente.description}}
                 </mat-card-content>
                 <mat-card-actions>
                     Prix de vente : {{vente.price}} €

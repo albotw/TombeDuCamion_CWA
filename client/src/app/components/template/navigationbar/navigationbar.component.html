@@ -3,9 +3,9 @@
 		style="margin-left:16px; margin-right:16px; margin-top:16px; width:64px; height:64px; background: url(./assets/img/Camion.png); background-size: 64px 64px;"></button>
 	
 	<mat-form-field floatLabel="never">
-		<mat-select value="Categories">
+		<mat-select value="Categories"  style="text-transform: capitalize;" > 
 			<mat-option value="Categories">Categories</mat-option>
-			<mat-option *ngFor="let cat of CATEGORIES" [value]="cat">{{cat}}</mat-option>
+			<mat-option *ngFor="let cat of CATEGORIES" style="text-transform: capitalize;" [value]="cat">{{cat.replaceAll('-', ' ')}}</mat-option>
 		</mat-select>
 	</mat-form-field>	
   

@@ -89,11 +89,11 @@ export default class DataController
 	 * @param limit nombre de résultats à récupérer
 	 * @param offset décalage des résultats
 	 */
-	public static searchProduct = async (arg: string, limit: number, offset: number, callback: (data: any) => void) =>
+	public static searchProduct = async (arg: string, limit: number, offset: number, sort: number, callback: (data: any) => void) =>
 	{
 		let query = gql`
-		query searchProducts($text: String, $offset: Int, $limit: Int) {
-			searchProduct(searchString: $text, offset: $offset, limit: $limit) {
+		query searchProducts($text: String, $offset: Int, $limit: Int, $sort: Int) {
+			searchProduct(searchString: $text, offset: $offset, limit: $limit, sort: $sort) {
 				meta {
 					totalCount
 					totalPages
@@ -113,7 +113,8 @@ export default class DataController
 		let variables = {
 			text: arg,
 			offset: offset,
-			limit: limit
+			limit: limit,
+			sort: sort
 		};
 		DataController.grab(query, variables).then(result => result.searchProduct).then(callback);
 	}

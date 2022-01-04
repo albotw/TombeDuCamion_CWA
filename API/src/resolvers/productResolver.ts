@@ -46,7 +46,7 @@ export default class productResolver {
         return this.productData;
     };
 
-    public searchProduct = ({ searchString, limit, offset }) => {
+    public searchProduct = ({ searchString, limit, offset, sort }) => {
         searchString = searchString as string;
         limit = limit as number;
         offset = offset as number;
@@ -59,6 +59,25 @@ export default class productResolver {
 
             return unicodeTitle.includes(searchString) || unicodeDescription.includes(searchString);
         });
+
+        // 0 -> Pas de Tris
+        // 1 -> Tri A-Z
+        // 2 -> Tri Z-A
+        // 3 -> Tri Prix Croissant
+        // 4 -> Tri Prix Décroissant
+
+        fullResults = fullResults.sort((a, b) => {
+            switch (sort){
+                case 1:
+                    return a.title.localeCompare(b.title);
+                case 2:
+                    return a.title.localeCompare(b.title)*(-1);
+                case 3:
+                    return a.price - b.price;
+                case 4:
+                    return b.price - a.price;
+            }
+        })
 
         //TODO: placer les résultats en cache ?
         //HashMap entre clé unique et fullResults. Nettoyé toutes les minutes.

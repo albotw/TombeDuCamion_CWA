@@ -48,7 +48,6 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { NewSellAddUrlDialog } from './components/pages/new-sell/new-sell.component';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 
-
 @NgModule({
 	declarations: [
 		AppComponent,
