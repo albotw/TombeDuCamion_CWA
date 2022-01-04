@@ -4,6 +4,8 @@ import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';//.prod';
 import DataController from '../../../shared/DataController';
+import { data } from '../../../shared/global'
+
 
 @Component({
 	selector: 'app-resultats',
@@ -13,10 +15,15 @@ import DataController from '../../../shared/DataController';
 export class ResultatsComponent implements OnInit
 {
 	rech = "";
+	cat ="";
 	products = [];
 	totalCount = 0;
 	actualSort = "NO_SORT";
-	possibleSorts = ["NO_SORT", "LETTER_ASCENDING", "LETTER_DESCENDING", "PRICE_ASCENDING", "PRICE_DESCENDING"]
+	possibleSorts = ["NO_SORT", "LETTER_ASCENDING", "LETTER_DESCENDING", "PRICE_ASCENDING", "PRICE_DESCENDING"];
+	toTextPossibleSorts = ["---", "A-Z", "Z-A", "Prix Croissant", "Prix Décroissant"];
+	DATA = data;
+	pageIndex = 0;
+	pageSize = 16;
 
 	constructor(private route: ActivatedRoute, private router: Router)
 	{
@@ -32,11 +39,12 @@ export class ResultatsComponent implements OnInit
 	public refreshProducts(pageIndex: number, pageSize: number)
 	{
 
-		this.rech = this.route.snapshot.paramMap.get('str');
-
+		this.rech = this.route.snapshot.queryParams.str;
+		this.cat = this.route.snapshot.queryParams.cat;
+		
 		let offset = pageIndex * pageSize;
 
-		DataController.searchProduct(this.rech, pageSize, offset, 1, (data) =>
+		DataController.searchProduct(this.rech, this.cat, pageSize, offset, this.DATA.actualSort, this.DATA.filter, (data) =>
 		{
 			this.totalCount = data.meta.totalCount;
 			this.products = data.results.map(product =>
@@ -45,7 +53,6 @@ export class ResultatsComponent implements OnInit
 				{
 					product['description'] = product['description'].substring(0, 37) + "...";
 				}
-
 				return product;
 			})
 		});
@@ -53,6 +60,8 @@ export class ResultatsComponent implements OnInit
 
 	public getServerData(event?: PageEvent)
 	{
+		this.pageIndex = event.pageIndex;
+		this.pageSize = event.pageSize;
 		this.refreshProducts(event.pageIndex, event.pageSize);
 	}
 

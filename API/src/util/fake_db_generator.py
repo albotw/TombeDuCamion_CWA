@@ -16,10 +16,9 @@ filePath = os.path.join(scriptDir, "./../../JSON/products.json")
 print(filePath)
 
 scriptDir = os.path.dirname(__file__)
-infoJSON = os.path.join(scriptDir, "./../../JSON/infos.json")
+
 
 with open(filePath ,'r+') as file:
-    infos = open(infoJSON, 'r+')
     infos_data = {}
     file_data = {}
     print("Fetching data...")
@@ -101,9 +100,8 @@ with open(filePath ,'r+') as file:
                 print("added product n°", i, " out of 954")
 
     json.dump(file_data, file, indent = 4)
-    json.dump(infos_data, infos, indent = 4)
+    #json.dump(infos_data, infos, indent = 4)
     
-    infos.close()
     print("Got data, closing file")
     
 

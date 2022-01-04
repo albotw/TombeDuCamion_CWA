@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';//.prod';
-import { Router, RouterOutlet } from '@angular/router';
+import { NavigationExtras, Router, RouterOutlet } from '@angular/router';
 import Cache, { CacheData } from "../../../shared/cache";
 import { data } from '../../../shared/global'
 
@@ -78,6 +78,7 @@ export class NavigationbarComponent implements OnInit
 
 	panierOuvert = false;
 	value = "";
+  cat = "";
   DATA: any;
 
 	constructor(private router: Router)
@@ -90,7 +91,14 @@ export class NavigationbarComponent implements OnInit
 
 	updateRoute(): void
 	{
-		this.router.navigate(['recherche', this.value]);
+    let navextra : NavigationExtras = {
+      queryParams: {
+        str: this.value,
+        cat: this.cat
+      },
+      fragment: 'anchor'
+    }
+		this.router.navigate(['recherche'],  navextra);
 	}
 
   prepareRoute(outlet: RouterOutlet) {

@@ -3,15 +3,15 @@
 		style="margin-left:16px; margin-right:16px; margin-top:16px; width:64px; height:64px; background: url(./assets/img/Camion.png); background-size: 64px 64px;"></button>
 	
 	<mat-form-field floatLabel="never">
-		<mat-select value="Categories"  style="text-transform: capitalize;" > 
+		<mat-select value="Categories"  style="text-transform: capitalize;" [(ngModel)]="cat"> 
 			<mat-option value="Categories">Categories</mat-option>
-			<mat-option *ngFor="let cat of CATEGORIES" style="text-transform: capitalize;" [value]="cat">{{cat.replaceAll('-', ' ')}}</mat-option>
+			<mat-option *ngFor="let cat_ of CATEGORIES" style="text-transform: capitalize;" [value]="cat_">{{cat_.replaceAll('-', ' ')}}</mat-option>
 		</mat-select>
 	</mat-form-field>	
   
 	<mat-form-field>
 		<input matInput id="src_input" placeholder="Rechercher" [(ngModel)]="value" (input)="updateRoute();">
-		<button matSuffix [disabled]="value==''" mat-icon-button aria-label="Clear" routerLink="{{DATA.redirection}}/recherche/{{value}}">
+		<button matSuffix [disabled]="value==''" mat-icon-button aria-label="Clear" [routerLink]="[DATA.redirection ,'/recherche']" [queryParams]="{str: value, cat: cat}">
 			<mat-icon>send</mat-icon>
 		</button>
 	</mat-form-field>

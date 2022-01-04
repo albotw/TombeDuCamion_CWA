@@ -5,6 +5,7 @@ import IOrder from "../interfaces/Order";
 import userResolver from "./userResolver";
 import IHistoryElement from "../interfaces/HistoryElement";
 import IAuthData from "../interfaces/AuthData";
+import IFilterData from "../interfaces/FilterData";
 
 export default class productResolver {
     public static instance : productResolver;
@@ -46,11 +47,13 @@ export default class productResolver {
         return this.productData;
     };
 
-    public searchProduct = ({ searchString, limit, offset, sort }) => {
+    public searchProduct = ({ searchString, cat, limit, offset, sort, filter }) => {
         searchString = searchString as string;
+        cat = cat as string;
         limit = limit as number;
         offset = offset as number;
         sort = sort as string;
+        filter = filter as IFilterData;
 
         searchString = this._toUnicode(searchString);
 
@@ -59,6 +62,15 @@ export default class productResolver {
             let unicodeDescription = this._toUnicode(product.description);
 
             return unicodeTitle.includes(searchString) || unicodeDescription.includes(searchString);
+        });
+
+        fullResults = fullResults.filter(product => {
+            if (cat == 'Categories'){    
+                return product.price >= filter.minPrice && product.price <= filter.maxPrice && product.notation >= filter.minNotation && product.notation <= filter.maxNotation;
+            }
+            else {    
+                return product.category.includes(cat) && product.price >= filter.minPrice && product.price <= filter.maxPrice && product.notation >= filter.minNotation && product.notation <= filter.maxNotation;
+            }
         });
 
         fullResults = fullResults.sort((a, b) => {
@@ -73,6 +85,7 @@ export default class productResolver {
                     return b.price - a.price;
             }
         })
+
 
         //TODO: placer les résultats en cache ?
         //HashMap entre clé unique et fullResults. Nettoyé toutes les minutes.

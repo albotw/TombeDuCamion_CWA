@@ -1,31 +1,71 @@
 <h1>Resultats de recherche pour "{{ rech }}"</h1>
 
-<div style="position: absolute; left: 0;">
-	<mat-form-field>
-		<mat-select value="actualSort">
-			<mat-option *ngFor="let sort of possibleSorts" value=[sort]>
-				{{sort}}
-			</mat-option>
-		</mat-select>
-	</mat-form-field>
+<div style="position: absolute; left: 0; font-size: small;">
+	<form>
+		<mat-form-field>
+			<mat-label>
+				Trier par :
+			</mat-label>
+			<mat-select value="DATA.actualSort" [(ngModel)]="DATA.actualSort" (selectionChange)="refreshProducts(0, pageSize)">
+				<mat-option *ngFor="let sort of possibleSorts; let i = index;" [value]="sort">
+					{{toTextPossibleSorts[i]}}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+	
+		<mat-divider></mat-divider>
+	
+		<mat-form-field>
+			<mat-label>
+				Filtrer par Prix:
+			</mat-label>
+			<p style="display: flex; align-items: baseline">
+				<input matInput type="number" [(ngModel)]="DATA.filter['minPrice']" min="0" [max]="DATA.filter.maxPrice" step="100" name="minP" (input)="refreshProducts(0, pageSize)">
+				<input matInput type="number" [(ngModel)]="DATA.filter['maxPrice']" [min]="DATA.filter.minPrice" max="80000" step="100" name="maxP" (input)="refreshProducts(0, pageSize)">
+			</p>
+		</mat-form-field>
+		
+		<mat-divider></mat-divider>
+		
+		<mat-form-field>
+			<mat-label>
+				Filtrer par Notation:
+			</mat-label>
+			<p style="display: flex; align-items: baseline">
+				<input matInput type="number" [(ngModel)]="DATA.filter['minNotation']" min="0" [max]="DATA.filter.maxNotation" name="minN" (input)="refreshProducts(0, pageSize)">
+				<input matInput type="number" [(ngModel)]="DATA.filter['maxNotation']" [min]="DATA.filter.minNotation" max="5" name="maxN" (input)="refreshProducts(0, pageSize)">
+			</p>
+	
+		</mat-form-field>
+	</form>
 </div>
 
-
-
-<div *ngFor="let vente of products" style="display: inline-block; align-items: stretch;">
-	<mat-card *ngIf="vente !== undefined" routerLink='/produit/{{vente.p_uid}}'>
-		<mat-card-title-group>
-			<mat-card-title>{{vente.title}}</mat-card-title>
-			<img mat-card-sm-image src="{{vente.images[0]}}">
-		</mat-card-title-group>
-		<mat-card-content>
-			{{vente.description}}
-		</mat-card-content>
-		<mat-card-actions>
-			Prix de vente : {{vente.price}} €
-		</mat-card-actions>
-	</mat-card>
+<div fxLayout="row center" style="width: 80vw; height: 80vh;" fxFlexFill>
+	<div *ngFor="let vente of products" fxFlex="25">
+		<mat-card *ngIf="vente !== undefined" routerLink='/produit/{{vente.p_uid}}' style="width: 15vw">
+			<mat-card-title-group>
+				<mat-card-title style="font-size: medium; text-transform: capitalize;">{{vente.title.replace("-"," ")}}</mat-card-title>
+				<mat-card-subtitle>
+					<div *ngFor="let i of [0,1,2,3,4]" style="display: inline-block; align-items: stretch;">
+						<mat-icon *ngIf="i>=vente.notation">star_outline</mat-icon>
+						<mat-icon *ngIf="i<vente.notation">star</mat-icon>
+					</div>
+					<div style="display: inline-block; align-items: stretch;">
+						({{vente.sales}})
+					</div>
+				</mat-card-subtitle>
+				<img mat-card-sm-image src="{{vente.images[0]}}">
+			</mat-card-title-group>
+			<mat-card-content>
+				{{vente.description}}
+			</mat-card-content>
+			<mat-card-actions>
+				Prix de vente : {{vente.price}} €
+			</mat-card-actions>
+		</mat-card>
+	</div>
 </div>
+
 
 <mat-paginator [length]="totalCount" [pageSize]="16" [pageSizeOptions]="[16, 32, 64]" (page)="getServerData($event)"
 	aria-label="Select page">

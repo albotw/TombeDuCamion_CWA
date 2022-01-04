@@ -3,6 +3,13 @@
 export const data = { 
     redirection: '/transition', 
     darkmode: false,
+    actualSort: "NO_SORT",
+	filter: {
+		minPrice: 0,
+		maxPrice: 80000,
+		minNotation: 0,
+		maxNotation: 5
+	},
     categories: [
         "standard-balls",
         "special-balls",
