@@ -1,15 +1,15 @@
-<h1>Tombé du Camion, pas du dropshipping mais presque</h1>
+<h2>Tombé du Camion, pas du dropshipping mais presque</h2>
 
 <div *ngFor="let item of meilleurs | keyvalue" style="margin-bottom:20px;">
-    <h3> {{item.key}} </h3>
+    <h4> {{item.key}} </h4>
 
     <div style="display:flex; justify-content: center; align-items: center;">
         <button (click)="subIndex(item.key);" mat-fab style="display: inline-block;">
             <mat-icon>chevron_left</mat-icon>
         </button>
-        
+
         <div *ngFor="let vente of getVentes(item.key);">
-            <mat-card *ngIf="vente !== undefined" routerLink='{{DATA.redirection}}/produit/{{vente.p_uid}}'> 
+            <mat-card *ngIf="vente !== undefined" routerLink='{{DATA.redirection}}/produit/{{vente.p_uid}}'>
                 <mat-card-title-group>
                     <mat-card-title>{{vente.title}}</mat-card-title>
                     <img mat-card-sm-image src="{{vente.images[0]}}" >
@@ -23,7 +23,7 @@
             </mat-card>
         </div>
         <mat-spinner *ngIf="getVentes(item.key)[0] === undefined"></mat-spinner>
-        
+
         <button (click)="addIndex(item.key);" mat-fab style="display: inline-block; ">
             <mat-icon>chevron_right</mat-icon>
         </button>

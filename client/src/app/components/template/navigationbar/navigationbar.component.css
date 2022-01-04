@@ -1,9 +1,22 @@
-button:hover{
-    color:#EAEAEA;
-}
-
 .overlayPanier {
-    background-color: #EAEAEA; 
+    background-color: #EAEAEA;
     border-radius: 5px;
     border: solid #4F6D7A;
+}
+
+.spacer {
+	flex: 1 1 auto;
+}
+
+.navbar-content {
+	font-size: 14px;
+	margin-top: auto;
+	margin-left: 1%;
+}
+
+.logo {
+	width:64px;
+	height:64px;
+	background-image: url("../../../../assets/img/Camion.png");
+	background-size: 64px 64px;
 }

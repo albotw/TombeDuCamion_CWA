@@ -47,6 +47,7 @@ import { NewSellComponent } from './components/pages/new-sell/new-sell.component
 import {MatStepperModule} from '@angular/material/stepper';
 import { NewSellAddUrlDialog } from './components/pages/new-sell/new-sell.component';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
 	declarations: [
@@ -104,6 +105,7 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 		ReactiveFormsModule,
 		FormsModule,
 		MatBottomSheetModule,
+		MatToolbarModule,
 	],
 	providers: [
 	],
