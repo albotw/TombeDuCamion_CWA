@@ -21,6 +21,12 @@ type Mutation {
         price: Float!,
     ) : String
 
+    "Ajouter une catégorie"
+    pushCategory(
+        auth: AuthInfo!,
+        category: String!
+    ) : String
+
     "Traiter une commande"
     processOrder(
         auth: AuthInfo!,
