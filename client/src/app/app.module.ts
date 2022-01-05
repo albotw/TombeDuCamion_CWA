@@ -45,8 +45,8 @@ import { InformationsComponent } from './components/pages/compte/informations/in
 import {MatSelectModule} from '@angular/material/select';
 import { NewSellComponent } from './components/pages/new-sell/new-sell.component';
 import {MatStepperModule} from '@angular/material/stepper';
-import { NewSellAddUrlDialog } from './components/pages/new-sell/new-sell.component';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import { WishlistComponent } from './components/pages/compte/wishlist/wishlist.component';
 
 @NgModule({
 	declarations: [
@@ -70,8 +70,8 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 		ListeComponent,
 		InformationsComponent,
  		NewSellComponent,
-		NewSellAddUrlDialog,
 		BottomNewCommSheet,
+  WishlistComponent,
 	],
 	imports: [
 		BrowserModule,
