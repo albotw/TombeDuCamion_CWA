@@ -13,6 +13,7 @@ import { switchMap } from 'rxjs/operators';
 export class NewSellComponent implements OnInit {
   CATEGORIES = data.categories;
 
+  image1: string;
   images = [];
 
   titleGroup: FormGroup;
@@ -40,9 +41,18 @@ export class NewSellComponent implements OnInit {
     });
   }
 
+  encodeImageFileAsURL(event: Event) {
+    const element = event.currentTarget as HTMLInputElement;
+    var file = element.files[0];
+    var reader = new FileReader();
+    reader.onloadend =()=> {
+      console.log('RESULT', reader.result);
+      this.images.push(reader.result);
+    }
+    reader.readAsDataURL(file);
+  }
 
   post(): void{
-
     let title = this.titleGroup.get('title');
     let descr = this.descrGroup.get('descr');
     let stock = this.details1.get('stock');
@@ -64,38 +74,5 @@ export class NewSellComponent implements OnInit {
     }
     console.log(product);
     // TODO: Ajouter un post sur l'API
-  }
-
-
-  openDialog(): void {
-    const dialogRef = this.dialog.open(NewSellAddUrlDialog, {
-      width: '250px',
-      data: ''
-    });
-
-    dialogRef.afterClosed()
-      .pipe(switchMap(url => {
-        this.images.push(url);
-        return this.http.get(url, {responseType: 'blob'});
-      }))
-      .subscribe(
-        console.log,
-        error => {this.images.pop();}
-      );
-  }
-}
-
-@Component({
-  selector: 'dialog-overview-example-dialog',
-  templateUrl: './new-sell-addurl.component.html',
-})
-export class NewSellAddUrlDialog {
-  constructor(
-    public dialogRef: MatDialogRef<NewSellAddUrlDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: String,
-  ) {}
-
-  onNoClick(): void {
-    this.dialogRef.close();
   }
 }
