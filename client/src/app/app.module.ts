@@ -47,6 +47,11 @@ import { NewSellComponent } from './components/pages/new-sell/new-sell.component
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { WishlistComponent } from './components/pages/compte/wishlist/wishlist.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle'
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ConnexionComponent } from './components/pages/connexion/connexion.component';
+import { InscriptionComponent } from './components/pages/inscription/inscription.component';
 
 @NgModule({
 	declarations: [
@@ -72,6 +77,8 @@ import { WishlistComponent } from './components/pages/compte/wishlist/wishlist.c
  		NewSellComponent,
 		BottomNewCommSheet,
   WishlistComponent,
+  ConnexionComponent,
+  InscriptionComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -104,6 +111,9 @@ import { WishlistComponent } from './components/pages/compte/wishlist/wishlist.c
 		ReactiveFormsModule,
 		FormsModule,
 		MatBottomSheetModule,
+		FlexLayoutModule,
+		MatToolbarModule,
+		MatSlideToggleModule
 	],
 	providers: [
 	],

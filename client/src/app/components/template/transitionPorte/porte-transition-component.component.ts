@@ -21,10 +21,10 @@ export class PorteTransitionComponentComponent implements OnInit {
       const id = this.route.snapshot.paramMap.get('id');
       const opt = this.route.snapshot.paramMap.get('opt');
       if (opt !== null){
-        this.router.navigate(['/'+id+'/'+opt]);
+        this.router.navigate(['/'+id+'/'+opt], { queryParamsHandling: 'preserve' });
       }
       else{
-        this.router.navigate(['/'+id]);
+        this.router.navigate(['/'+id], { queryParamsHandling: 'preserve' });
       }
     }, 1200);
   }

@@ -1,17 +1,21 @@
 
 
-<div id="page-container" class="{{DATA.darkmode ? 'theme-alternate' : ''}}">
+<div id="page-container " class="{{DATA.darkmode ? 'theme-alternate' : ''}} mat-app-background border">
 
-    <div id="content-wrap">
+    <div id="content-wrap" class="mat-app-background">
 
         <navbar></navbar>
 
-        <app-wassim style="position: fixed; top:90%; left:90%; z-index: 3;"></app-wassim>
+		<div [@routeAnimations]="prepareRoute(outlet)">
+			<router-outlet #outlet="outlet"></router-outlet>
+		</div>
+
+
+		<app-wassim style="position: fixed; top:80%; left:95%; z-index: 3;"></app-wassim>
 
     </div>
 
     <footer id="footer" class="background-color-primary">
         <app-footer></app-footer>
     </footer>
-
 </div>

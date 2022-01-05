@@ -1,31 +1,43 @@
-<h1>Tombé du Camion, pas du dropshipping mais presque</h1>
+<div class="accueil mat-app-background">
+	<h1>Tombé du Camion, pas du dropshipping mais presque</h1>
 
-<div *ngFor="let item of meilleurs | keyvalue" style="margin-bottom:20px;">
-    <h3> {{item.key}} </h3>
+	<div *ngFor="let item of meilleurs | keyvalue" >
+		<h3> {{item.key}} </h3>
 
-    <div style="display:flex; justify-content: center; align-items: center;">
-        <button (click)="subIndex(item.key);" mat-fab style="display: inline-block;">
-            <mat-icon>chevron_left</mat-icon>
-        </button>
-        
-        <div *ngFor="let vente of getVentes(item.key);">
-            <mat-card *ngIf="vente !== undefined" routerLink='{{DATA.redirection}}/produit/{{vente.p_uid}}'> 
-                <mat-card-title-group>
-                    <mat-card-title>{{vente.title}}</mat-card-title>
-                    <img mat-card-sm-image src="{{vente.images[0]}}" >
-                </mat-card-title-group>
-                <mat-card-content>
-                    {{vente.description}}
-                </mat-card-content>
-                <mat-card-actions>
-                    Prix de vente : {{vente.price}} €
-                </mat-card-actions>
-            </mat-card>
-        </div>
-        <mat-spinner *ngIf="getVentes(item.key)[0] === undefined"></mat-spinner>
-        
-        <button (click)="addIndex(item.key);" mat-fab style="display: inline-block; ">
-            <mat-icon>chevron_right</mat-icon>
-        </button>
-    </div>
+		<div class="container">
+			<button (click)="subIndex(item.key);" mat-fab class="bouton">
+				<mat-icon>chevron_left</mat-icon>
+			</button>
+
+			<div *ngFor="let vente of getVentes(item.key);">
+				<mat-card *ngIf="vente !== undefined" routerLink='{{DATA.redirection}}/produit/{{vente.p_uid}}' style="width: 15vw">
+					<mat-card-title-group>
+						<mat-card-title style="font-size: medium;">{{vente.title}}</mat-card-title>
+						<mat-card-subtitle>
+							<div *ngFor="let i of [0,1,2,3,4]" style="display: inline-block; align-items: stretch;">
+								<mat-icon *ngIf="i>=vente.notation">star_outline</mat-icon>
+								<mat-icon *ngIf="i<vente.notation">star</mat-icon>
+							</div>
+							<div style="display: inline-block; align-items: stretch;">
+								({{vente.sales}})
+							</div>
+						</mat-card-subtitle>
+						<img mat-card-sm-image src="{{vente.images[0]}}">
+					</mat-card-title-group>
+					<mat-card-content>
+						{{vente.description}}
+					</mat-card-content>
+					<mat-card-actions>
+						Prix de vente : {{vente.price}} €
+					</mat-card-actions>
+				</mat-card>
+			</div>
+			<mat-spinner *ngIf="getVentes(item.key)[0] === undefined"></mat-spinner>
+
+			<button (click)="addIndex(item.key);" mat-fab class="bouton">
+				<mat-icon>chevron_right</mat-icon>
+			</button>
+		</div>
+	</div>
+
 </div>
