@@ -6,6 +6,7 @@ import { readFileSync } from "fs";
 import productResolver from "./resolvers/productResolver";
 import userResolver from "./resolvers/userResolver";
 import commentsResolver from "./resolvers/commentsResolver";
+import categoryResolver from "./resolvers/categoryResolver";
 
 console.log("CWD: " + process.cwd());
 let app = express();
@@ -46,10 +47,11 @@ let globalSchema = buildSchema(prodSchema_string + userSchema_string + commentsS
 userResolver.create();
 productResolver.create();
 commentsResolver.create();
-
+categoryResolver.create();
 
 // ? mapping resolvers (mutation & query)
 let root = {
+    getCategories: categoryResolver.instance.getCategories,
     getAllProducts: productResolver.instance.getAllProducts,
     searchProduct: productResolver.instance.searchProduct,
     getProduct: productResolver.instance.getProduct,
@@ -62,21 +64,27 @@ let root = {
     getNickname: userResolver.instance.getNickname,
     getHistory: userResolver.instance.getHistory,
     getNotation: userResolver.instance.getNotation,
+    getWishlist: userResolver.instance.getWishlist,
 
     getComment: commentsResolver.instance.getComment,
     getCommentsOfProduct: commentsResolver.instance.getCommentsOfProduct,
 
 
+    pushCategory: categoryResolver.instance.pushCategory,
+
     processOrder: productResolver.instance.processOrder,
     createProduct: productResolver.instance.createProduct,
     updateProduct: productResolver.instance.updateProduct,
+    addImageToProduct: productResolver.instance.addImageToProduct,
 
     createComment: commentsResolver.instance.createComment,
     updateComment: commentsResolver.instance.updateComment,
     deleteComment: commentsResolver.instance.deleteComment,
 
     createUser: userResolver.instance.createUser,
-    upateUser: userResolver.instance.updateUser
+    upateUser: userResolver.instance.updateUser,
+    addToWishlist: userResolver.instance.addToWishlist,
+    removeFromWishlist: userResolver.instance.removeFromWishlist
 }
 
 app.use("/graphql", graphqlHTTP({

@@ -33,6 +33,9 @@
                 <a href="#operation-getallproducts-Queries"> getAllProducts </a>
               </li>
               <li>
+                <a href="#operation-getcategories-Queries"> getCategories </a>
+              </li>
+              <li>
                 <a href="#operation-getcomment-Queries"> getComment </a>
               </li>
               <li>
@@ -54,6 +57,9 @@
                 <a href="#operation-getuser-Queries"> getUser </a>
               </li>
               <li>
+                <a href="#operation-getwishlist-Queries"> getWishlist </a>
+              </li>
+              <li>
                 <a href="#operation-isconnected-Queries"> isConnected </a>
               </li>
               <li>
@@ -68,6 +74,12 @@
             <a href="#tag-Mutations">Mutations</a>
             <ul>
               <li>
+                <a href="#operation-addimagetoproduct-Mutations"> addImageToProduct </a>
+              </li>
+              <li>
+                <a href="#operation-addtowishlist-Mutations"> addToWishlist </a>
+              </li>
+              <li>
                 <a href="#operation-createcomment-Mutations"> createComment </a>
               </li>
               <li>
@@ -81,6 +93,12 @@
               </li>
               <li>
                 <a href="#operation-processorder-Mutations"> processOrder </a>
+              </li>
+              <li>
+                <a href="#operation-pushcategory-Mutations"> pushCategory </a>
+              </li>
+              <li>
+                <a href="#operation-removefromwishlist-Mutations"> removeFromWishlist </a>
               </li>
               <li>
                 <a href="#operation-updatecomment-Mutations"> updateComment </a>
@@ -98,6 +116,7 @@
           <a href="#definition-AuthInfo"> AuthInfo </a>
           <a href="#definition-Boolean"> Boolean </a>
           <a href="#definition-Comment"> Comment </a>
+          <a href="#definition-FilterData"> FilterData </a>
           <a href="#definition-Float"> Float </a>
           <a href="#definition-HistoryElement"> HistoryElement </a>
           <a href="#definition-HistoryElementType"> HistoryElementType </a>
@@ -107,6 +126,7 @@
           <a href="#definition-Product"> Product </a>
           <a href="#definition-SearchResult"> SearchResult </a>
           <a href="#definition-SearchResultMetadata"> SearchResultMetadata </a>
+          <a href="#definition-SortType"> SortType </a>
           <a href="#definition-String"> String </a>
           <a href="#definition-User"> User </a>
         </nav>
@@ -181,7 +201,7 @@
                   <h5>Variables</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"nickname"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"hash"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"nickname"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"hash"</span>: <span class="hljs-string">"xyz789"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -336,9 +356,9 @@
         <span class="hljs-attr">"seller"</span>: <span class="hljs-string">ID</span>,
         <span class="hljs-attr">"title"</span>: <span class="hljs-string">"xyz789"</span>,
         <span class="hljs-attr">"stock"</span>: <span class="hljs-number">123</span>,
-        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"xyz789"</span>,
+        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"abc123"</span>,
         <span class="hljs-attr">"images"</span>: [<span class="hljs-string">"xyz789"</span>],
-        <span class="hljs-attr">"category"</span>: <span class="hljs-string">"xyz789"</span>,
+        <span class="hljs-attr">"category"</span>: <span class="hljs-string">"abc123"</span>,
         <span class="hljs-attr">"comments"</span>: [<span class="hljs-string">ID</span>],
         <span class="hljs-attr">"notation"</span>: <span class="hljs-number">987.65</span>,
         <span class="hljs-attr">"price"</span>: <span class="hljs-number">123.45</span>,
@@ -348,6 +368,56 @@
     ]
   }
 }
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="operation-getcategories-Queries" class="operation panel" data-traverse-target="operation-getcategories-Queries">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-Queries">Queries</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-name "> <code>getCategories</code> </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description operation-description"> Récupérer toutes les catégories </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body"> </section>
+                <section class="swagger-responses"> Returns
+                  <a href="#definition-String"><code>[String]</code></a>
+                </section>
+                <br> </div>
+              <div class="doc-examples">
+                <section>
+                  <h4>Example</h4>
+                  <h5>Query</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> getCategories <span class="hljs-tag">{
+  <span class="hljs-symbol">getCategories</span>
+}</span></span>
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy"> </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Response </h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"data"</span>: {<span class="hljs-attr">"getCategories"</span>: [<span class="hljs-string">"xyz789"</span>]}}
 </code></pre> </body>
                   </html>
                 </section>
@@ -411,7 +481,7 @@
                   <h5>Variables</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"c_uid"</span>: <span class="hljs-string">"abc123"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"c_uid"</span>: <span class="hljs-string">"xyz789"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -498,7 +568,7 @@
                   <h5>Variables</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"p_uid"</span>: <span class="hljs-string">"abc123"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"p_uid"</span>: <span class="hljs-string">"xyz789"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -519,7 +589,7 @@
         <span class="hljs-attr">"author"</span>: <span class="hljs-string">ID</span>,
         <span class="hljs-attr">"date"</span>: <span class="hljs-string">"abc123"</span>,
         <span class="hljs-attr">"message"</span>: <span class="hljs-string">"abc123"</span>,
-        <span class="hljs-attr">"note"</span>: <span class="hljs-number">123.45</span>
+        <span class="hljs-attr">"note"</span>: <span class="hljs-number">987.65</span>
       }
     ]
   }
@@ -600,7 +670,7 @@
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"data"</span>: {
     <span class="hljs-attr">"getHistory"</span>: [
-      {<span class="hljs-attr">"type"</span>: <span class="hljs-string">HistoryElementType</span>, <span class="hljs-attr">"product"</span>: <span class="hljs-string">"xyz789"</span>}
+      {<span class="hljs-attr">"type"</span>: <span class="hljs-string">HistoryElementType</span>, <span class="hljs-attr">"product"</span>: <span class="hljs-string">"abc123"</span>}
     ]
   }
 }
@@ -661,7 +731,7 @@
                   <h5>Variables</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"uid"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"uid"</span>: <span class="hljs-string">"abc123"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -674,7 +744,7 @@
                   <h5>Response </h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"data"</span>: {<span class="hljs-attr">"getNickname"</span>: <span class="hljs-string">"abc123"</span>}}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"data"</span>: {<span class="hljs-attr">"getNickname"</span>: <span class="hljs-string">"xyz789"</span>}}
 </code></pre> </body>
                   </html>
                 </section>
@@ -732,7 +802,7 @@
                   <h5>Variables</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"target_uid"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"target_uid"</span>: <span class="hljs-string">"abc123"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -834,13 +904,13 @@
     <span class="hljs-attr">"getProduct"</span>: {
       <span class="hljs-attr">"p_uid"</span>: <span class="hljs-string">ID</span>,
       <span class="hljs-attr">"seller"</span>: <span class="hljs-string">ID</span>,
-      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"abc123"</span>,
-      <span class="hljs-attr">"stock"</span>: <span class="hljs-number">123</span>,
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"xyz789"</span>,
+      <span class="hljs-attr">"stock"</span>: <span class="hljs-number">987</span>,
       <span class="hljs-attr">"description"</span>: <span class="hljs-string">"xyz789"</span>,
-      <span class="hljs-attr">"images"</span>: [<span class="hljs-string">"abc123"</span>],
-      <span class="hljs-attr">"category"</span>: <span class="hljs-string">"abc123"</span>,
+      <span class="hljs-attr">"images"</span>: [<span class="hljs-string">"xyz789"</span>],
+      <span class="hljs-attr">"category"</span>: <span class="hljs-string">"xyz789"</span>,
       <span class="hljs-attr">"comments"</span>: [<span class="hljs-string">ID</span>],
-      <span class="hljs-attr">"notation"</span>: <span class="hljs-number">123.45</span>,
+      <span class="hljs-attr">"notation"</span>: <span class="hljs-number">987.65</span>,
       <span class="hljs-attr">"price"</span>: <span class="hljs-number">987.65</span>,
       <span class="hljs-attr">"sales"</span>: <span class="hljs-number">987</span>,
       <span class="hljs-attr">"views"</span>: <span class="hljs-number">987</span>
@@ -936,12 +1006,83 @@
       <span class="hljs-attr">"nickname"</span>: <span class="hljs-string">"abc123"</span>,
       <span class="hljs-attr">"email"</span>: <span class="hljs-string">"xyz789"</span>,
       <span class="hljs-attr">"wishlist"</span>: [<span class="hljs-string">ID</span>],
-      <span class="hljs-attr">"totalSales"</span>: <span class="hljs-number">123</span>,
-      <span class="hljs-attr">"notation"</span>: <span class="hljs-number">987.65</span>,
+      <span class="hljs-attr">"totalSales"</span>: <span class="hljs-number">987</span>,
+      <span class="hljs-attr">"notation"</span>: <span class="hljs-number">123.45</span>,
       <span class="hljs-attr">"history"</span>: [<span class="hljs-string">HistoryElement</span>]
     }
   }
 }
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="operation-getwishlist-Queries" class="operation panel" data-traverse-target="operation-getwishlist-Queries">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-Queries">Queries</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-name "> <code>getWishlist</code> </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description operation-description"> Récupérer la wishlist de l'utilisateur </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body"> </section>
+                <section class="swagger-responses"> Returns
+                  <a href="#definition-ID"><code>[ID]</code></a>
+                </section>
+                <br>
+                <section class="swagger-request-params">
+                  <table>
+                    <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>auth</code> -
+                        <a href="#definition-AuthInfo"><code>AuthInfo</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h4>Example</h4>
+                  <h5>Query</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> getWishlist<span class="hljs-tag">(<span class="hljs-code">$auth</span>:<span class="hljs-type"> AuthInfo)</span> {
+  getWishlist(auth: <span class="hljs-code">$auth</span>)</span></span>
+}
+</code></pre> </body>
+                  </html>
+                  <h5>Variables</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"auth"</span>: <span class="hljs-string">AuthInfo</span>}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy"> </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Response </h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"data"</span>: {<span class="hljs-attr">"getWishlist"</span>: [<span class="hljs-string">ID</span>]}}
 </code></pre> </body>
                   </html>
                 </section>
@@ -1012,7 +1153,7 @@
                   <h5>Response </h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"data"</span>: {<span class="hljs-attr">"isConnected"</span>: <span class="hljs-literal">true</span>}}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"data"</span>: {<span class="hljs-attr">"isConnected"</span>: <span class="hljs-literal">false</span>}}
 </code></pre> </body>
                   </html>
                 </section>
@@ -1054,6 +1195,12 @@
                       <td> </td>
                     </tr>
                     <tr>
+                      <td><code>cat</code> -
+                        <a href="#definition-String"><code>String!</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
                       <td><code>limit</code> -
                         <a href="#definition-Int"><code>Int!</code></a>
                       </td>
@@ -1062,6 +1209,18 @@
                     <tr>
                       <td><code>offset</code> -
                         <a href="#definition-Int"><code>Int!</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td><code>sort</code> -
+                        <a href="#definition-SortType"><code>SortType!</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td><code>filter</code> -
+                        <a href="#definition-FilterData"><code>FilterData!</code></a>
                       </td>
                       <td> </td>
                     </tr>
@@ -1074,8 +1233,8 @@
                   <h5>Query</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> searchProduct<span class="hljs-tag">(<span class="hljs-code">$searchString</span>:<span class="hljs-type"> String!</span>, <span class="hljs-code">$limit</span>:<span class="hljs-type"> Int!</span>, <span class="hljs-code">$offset</span>:<span class="hljs-type"> Int!</span>)</span> <span class="hljs-tag">{
-  <span class="hljs-symbol">searchProduct<span class="hljs-tag">(searchString: <span class="hljs-code">$searchString</span>, limit: <span class="hljs-code">$limit</span>, offset: <span class="hljs-code">$offset</span>)</span> <span class="hljs-tag">{
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> searchProduct<span class="hljs-tag">(<span class="hljs-code">$searchString</span>:<span class="hljs-type"> String!</span>, <span class="hljs-code">$cat</span>:<span class="hljs-type"> String!</span>, <span class="hljs-code">$limit</span>:<span class="hljs-type"> Int!</span>, <span class="hljs-code">$offset</span>:<span class="hljs-type"> Int!</span>, <span class="hljs-code">$sort</span>:<span class="hljs-type"> SortType!</span>, <span class="hljs-code">$filter</span>:<span class="hljs-type"> FilterData!</span>)</span> <span class="hljs-tag">{
+  <span class="hljs-symbol">searchProduct<span class="hljs-tag">(searchString: <span class="hljs-code">$searchString</span>, cat: <span class="hljs-code">$cat</span>, limit: <span class="hljs-code">$limit</span>, offset: <span class="hljs-code">$offset</span>, sort: <span class="hljs-code">$sort</span>, filter: <span class="hljs-code">$filter</span>)</span> <span class="hljs-tag">{
     <span class="hljs-symbol">meta <span class="hljs-tag">{
       <span class="hljs-type">...SearchResultMetadataFragment</span>
     }</span></span>
@@ -1089,7 +1248,14 @@
                   <h5>Variables</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"searchString"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"limit"</span>: <span class="hljs-number">987</span>, <span class="hljs-attr">"offset"</span>: <span class="hljs-number">987</span>}
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"searchString"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"cat"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"limit"</span>: <span class="hljs-number">123</span>,
+  <span class="hljs-attr">"offset"</span>: <span class="hljs-number">123</span>,
+  <span class="hljs-attr">"sort"</span>: <span class="hljs-string">SortType</span>,
+  <span class="hljs-attr">"filter"</span>: <span class="hljs-string">FilterData</span>
+}
 </code></pre> </body>
                   </html>
                 </section>
@@ -1186,7 +1352,7 @@
                   <h5>Variables</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"categorie"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"champ"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"categorie"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"champ"</span>: <span class="hljs-string">"abc123"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -1213,8 +1379,8 @@
         <span class="hljs-attr">"comments"</span>: [<span class="hljs-string">ID</span>],
         <span class="hljs-attr">"notation"</span>: <span class="hljs-number">123.45</span>,
         <span class="hljs-attr">"price"</span>: <span class="hljs-number">987.65</span>,
-        <span class="hljs-attr">"sales"</span>: <span class="hljs-number">123</span>,
-        <span class="hljs-attr">"views"</span>: <span class="hljs-number">987</span>
+        <span class="hljs-attr">"sales"</span>: <span class="hljs-number">987</span>,
+        <span class="hljs-attr">"views"</span>: <span class="hljs-number">123</span>
       }
     ]
   }
@@ -1226,7 +1392,171 @@
             </div>
           </div>
           <h1 id="tag-Mutations" class="swagger-summary-tag tag-name" data-traverse-target="tag-Mutations">Mutations</h1>
+          <div id="operation-addimagetoproduct-Mutations" class="operation panel" data-traverse-target="operation-addimagetoproduct-Mutations">
+            <h2 class="operation-name "> <code>addImageToProduct</code> </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description operation-description"> Ajouter une image à un produit </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body"> </section>
+                <section class="swagger-responses"> Returns a
+                  <a href="#definition-String"><code>String</code></a>
+                </section>
+                <br>
+                <section class="swagger-request-params">
+                  <table>
+                    <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>auth</code> -
+                        <a href="#definition-AuthInfo"><code>AuthInfo!</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td><code>p_uid</code> -
+                        <a href="#definition-ID"><code>ID!</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td><code>image</code> -
+                        <a href="#definition-String"><code>String!</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h4>Example</h4>
+                  <h5>Query</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> addImageToProduct<span class="hljs-tag">(<span class="hljs-code">$auth</span>:<span class="hljs-type"> AuthInfo!</span>, <span class="hljs-code">$p_uid</span>: ID!, <span class="hljs-code">$image</span>:<span class="hljs-type"> String!</span>)</span> <span class="hljs-tag">{
+  <span class="hljs-symbol">addImageToProduct<span class="hljs-tag">(auth: <span class="hljs-code">$auth</span>, p_uid: <span class="hljs-code">$p_uid</span>, image: <span class="hljs-code">$image</span>)</span></span>
+}</span></span>
+</code></pre> </body>
+                  </html>
+                  <h5>Variables</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"auth"</span>: <span class="hljs-string">AuthInfo</span>,
+  <span class="hljs-attr">"p_uid"</span>: <span class="hljs-string">ID</span>,
+  <span class="hljs-attr">"image"</span>: <span class="hljs-string">"xyz789"</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy"> </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Response </h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"data"</span>: {<span class="hljs-attr">"addImageToProduct"</span>: <span class="hljs-string">"xyz789"</span>}}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="operation-addtowishlist-Mutations" class="operation panel" data-traverse-target="operation-addtowishlist-Mutations">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-Mutations">Mutations</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-name "> <code>addToWishlist</code> </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description operation-description"> Ajouter un produit à la wishlist </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body"> </section>
+                <section class="swagger-responses"> Returns a
+                  <a href="#definition-String"><code>String</code></a>
+                </section>
+                <br>
+                <section class="swagger-request-params">
+                  <table>
+                    <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>auth</code> -
+                        <a href="#definition-AuthInfo"><code>AuthInfo!</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td><code>product</code> -
+                        <a href="#definition-ID"><code>ID!</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h4>Example</h4>
+                  <h5>Query</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> addToWishlist<span class="hljs-tag">(<span class="hljs-code">$auth</span>:<span class="hljs-type"> AuthInfo!</span>, <span class="hljs-code">$product</span>: ID!)</span> <span class="hljs-tag">{
+  <span class="hljs-symbol">addToWishlist<span class="hljs-tag">(auth: <span class="hljs-code">$auth</span>, product: <span class="hljs-code">$product</span>)</span></span>
+}</span></span>
+</code></pre> </body>
+                  </html>
+                  <h5>Variables</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"auth"</span>: <span class="hljs-string">AuthInfo</span>, <span class="hljs-attr">"product"</span>: <span class="hljs-string">ID</span>}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy"> </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Response </h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"data"</span>: {<span class="hljs-attr">"addToWishlist"</span>: <span class="hljs-string">"abc123"</span>}}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
           <div id="operation-createcomment-Mutations" class="operation panel" data-traverse-target="operation-createcomment-Mutations">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-Mutations">Mutations</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
             <h2 class="operation-name "> <code>createComment</code> </h2>
             <div class="doc-row">
               <div class="doc-copy">
@@ -1291,7 +1621,7 @@
   <span class="hljs-attr">"auth"</span>: <span class="hljs-string">AuthInfo</span>,
   <span class="hljs-attr">"p_uid"</span>: <span class="hljs-string">ID</span>,
   <span class="hljs-attr">"message"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"note"</span>: <span class="hljs-number">123.45</span>
+  <span class="hljs-attr">"note"</span>: <span class="hljs-number">987.65</span>
 }
 </code></pre> </body>
                   </html>
@@ -1401,10 +1731,10 @@
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"auth"</span>: <span class="hljs-string">AuthInfo</span>,
-  <span class="hljs-attr">"seller"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"seller"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"stock"</span>: <span class="hljs-number">987</span>,
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"category"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"price"</span>: <span class="hljs-number">123.45</span>
 }
@@ -1420,7 +1750,7 @@
                   <h5>Response </h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"data"</span>: {<span class="hljs-attr">"createProduct"</span>: <span class="hljs-string">"xyz789"</span>}}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"data"</span>: {<span class="hljs-attr">"createProduct"</span>: <span class="hljs-string">"abc123"</span>}}
 </code></pre> </body>
                   </html>
                 </section>
@@ -1674,6 +2004,160 @@
               </div>
             </div>
           </div>
+          <div id="operation-pushcategory-Mutations" class="operation panel" data-traverse-target="operation-pushcategory-Mutations">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-Mutations">Mutations</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-name "> <code>pushCategory</code> </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description operation-description"> Ajouter une catégorie </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body"> </section>
+                <section class="swagger-responses"> Returns a
+                  <a href="#definition-String"><code>String</code></a>
+                </section>
+                <br>
+                <section class="swagger-request-params">
+                  <table>
+                    <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>auth</code> -
+                        <a href="#definition-AuthInfo"><code>AuthInfo!</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td><code>category</code> -
+                        <a href="#definition-String"><code>String!</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h4>Example</h4>
+                  <h5>Query</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> pushCategory<span class="hljs-tag">(<span class="hljs-code">$auth</span>:<span class="hljs-type"> AuthInfo!</span>, <span class="hljs-code">$category</span>:<span class="hljs-type"> String!</span>)</span> <span class="hljs-tag">{
+  <span class="hljs-symbol">pushCategory<span class="hljs-tag">(auth: <span class="hljs-code">$auth</span>, category: <span class="hljs-code">$category</span>)</span></span>
+}</span></span>
+</code></pre> </body>
+                  </html>
+                  <h5>Variables</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"auth"</span>: <span class="hljs-string">AuthInfo</span>, <span class="hljs-attr">"category"</span>: <span class="hljs-string">"abc123"</span>}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy"> </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Response </h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"data"</span>: {<span class="hljs-attr">"pushCategory"</span>: <span class="hljs-string">"abc123"</span>}}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="operation-removefromwishlist-Mutations" class="operation panel" data-traverse-target="operation-removefromwishlist-Mutations">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-Mutations">Mutations</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-name "> <code>removeFromWishlist</code> </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description operation-description"> Retirer un produit de la wishlist </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body"> </section>
+                <section class="swagger-responses"> Returns a
+                  <a href="#definition-String"><code>String</code></a>
+                </section>
+                <br>
+                <section class="swagger-request-params">
+                  <table>
+                    <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>auth</code> -
+                        <a href="#definition-AuthInfo"><code>AuthInfo!</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td><code>product</code> -
+                        <a href="#definition-ID"><code>ID!</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h4>Example</h4>
+                  <h5>Query</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> removeFromWishlist<span class="hljs-tag">(<span class="hljs-code">$auth</span>:<span class="hljs-type"> AuthInfo!</span>, <span class="hljs-code">$product</span>: ID!)</span> <span class="hljs-tag">{
+  <span class="hljs-symbol">removeFromWishlist<span class="hljs-tag">(auth: <span class="hljs-code">$auth</span>, product: <span class="hljs-code">$product</span>)</span></span>
+}</span></span>
+</code></pre> </body>
+                  </html>
+                  <h5>Variables</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"auth"</span>: <span class="hljs-string">AuthInfo</span>, <span class="hljs-attr">"product"</span>: <span class="hljs-string">ID</span>}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy"> </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Response </h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"data"</span>: {<span class="hljs-attr">"removeFromWishlist"</span>: <span class="hljs-string">"xyz789"</span>}}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
           <div id="operation-updatecomment-Mutations" class="operation panel" data-traverse-target="operation-updatecomment-Mutations">
             <!-- <section class="operation-tags row"> -->
             <!-- <div class="doc-copy"> -->
@@ -1859,9 +2343,9 @@
   <span class="hljs-attr">"auth"</span>: <span class="hljs-string">AuthInfo</span>,
   <span class="hljs-attr">"p_uid"</span>: <span class="hljs-string">ID</span>,
   <span class="hljs-attr">"title"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"stock"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"stock"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"description"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"category"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"category"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"price"</span>: <span class="hljs-number">987.65</span>
 }
 </code></pre> </body>
@@ -1876,7 +2360,7 @@
                   <h5>Response </h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"data"</span>: {<span class="hljs-attr">"updateProduct"</span>: <span class="hljs-string">"abc123"</span>}}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"data"</span>: {<span class="hljs-attr">"updateProduct"</span>: <span class="hljs-string">"xyz789"</span>}}
 </code></pre> </body>
                   </html>
                 </section>
@@ -2005,7 +2489,7 @@
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"uid"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"token"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"uid"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"token"</span>: <span class="hljs-string">"abc123"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -2152,6 +2636,69 @@
               </div>
             </div>
           </div>
+          <div id="definition-FilterData" class="definition panel" data-traverse-target="definition-FilterData">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/FilterData"></a>
+              <p><code>FilterData</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Input Field</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>minPrice</code> -
+                        <a href="#definition-Int"><code>Int!</code></a>
+                      </td>
+                      <td>
+                        <p>Prix Minimum</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>maxPrice</code> -
+                        <a href="#definition-Int"><code>Int!</code></a>
+                      </td>
+                      <td>
+                        <p>Prix Maximum</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>minNotation</code> -
+                        <a href="#definition-Int"><code>Int!</code></a>
+                      </td>
+                      <td>
+                        <p>Notation Minimum</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>maxNotation</code> -
+                        <a href="#definition-Int"><code>Int!</code></a>
+                      </td>
+                      <td>
+                        <p>Notation Maximum</p>
+                      </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"minPrice"</span>: <span class="hljs-number">987</span>, <span class="hljs-attr">"maxPrice"</span>: <span class="hljs-number">987</span>, <span class="hljs-attr">"minNotation"</span>: <span class="hljs-number">123</span>, <span class="hljs-attr">"maxNotation"</span>: <span class="hljs-number">987</span>}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
           <div id="definition-Float" class="definition panel" data-traverse-target="definition-Float">
             <div class="definition-tags">
               <a class="label" href="#tag-types">Types</a>
@@ -2242,13 +2789,13 @@
                       <td>
                         <p><code>BUY</code></p>
                       </td>
-                      <td> </td>
+                      <td> L'élément de l'historique est un achat </td>
                     </tr>
                     <tr>
                       <td>
                         <p><code>SELL</code></p>
                       </td>
-                      <td> </td>
+                      <td> L'élément de l'historique est une vente </td>
                     </tr>
                   </table>
                 </section>
@@ -2300,7 +2847,7 @@
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">123</span>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">987</span>
 </code></pre> </body>
                   </html>
                 </section>
@@ -2453,14 +3000,14 @@
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"p_uid"</span>: <span class="hljs-string">ID</span>,
   <span class="hljs-attr">"seller"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"stock"</span>: <span class="hljs-number">987</span>,
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"images"</span>: [<span class="hljs-string">"xyz789"</span>],
   <span class="hljs-attr">"category"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"comments"</span>: [<span class="hljs-string">ID</span>],
   <span class="hljs-attr">"notation"</span>: <span class="hljs-number">987.65</span>,
-  <span class="hljs-attr">"price"</span>: <span class="hljs-number">987.65</span>,
+  <span class="hljs-attr">"price"</span>: <span class="hljs-number">123.45</span>,
   <span class="hljs-attr">"sales"</span>: <span class="hljs-number">123</span>,
   <span class="hljs-attr">"views"</span>: <span class="hljs-number">123</span>
 }
@@ -2559,6 +3106,57 @@
               </div>
             </div>
           </div>
+          <div id="definition-SortType" class="definition panel" data-traverse-target="definition-SortType">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/SortType"></a>
+              <p><code>SortType</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Enum Value</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>NO_SORT</code></p>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>LETTER_ASCENDING</code></p>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>LETTER_DESCENDING</code></p>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>PRICE_ASCENDING</code></p>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>PRICE_DESCENDING</code></p>
+                      </td>
+                      <td> </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+            </div>
+          </div>
           <div id="definition-String" class="definition panel" data-traverse-target="definition-String">
             <div class="definition-tags">
               <a class="label" href="#tag-types">Types</a>
@@ -2650,11 +3248,11 @@
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"uid"</span>: <span class="hljs-string">ID</span>,
   <span class="hljs-attr">"hash"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"nickname"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"nickname"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"wishlist"</span>: [<span class="hljs-string">ID</span>],
   <span class="hljs-attr">"totalSales"</span>: <span class="hljs-number">987</span>,
-  <span class="hljs-attr">"notation"</span>: <span class="hljs-number">987.65</span>,
+  <span class="hljs-attr">"notation"</span>: <span class="hljs-number">123.45</span>,
   <span class="hljs-attr">"history"</span>: [<span class="hljs-string">HistoryElement</span>]
 }
 </code></pre> </body>

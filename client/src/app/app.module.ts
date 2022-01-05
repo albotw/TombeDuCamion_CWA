@@ -49,6 +49,11 @@ import { NewSellAddUrlDialog } from './components/pages/new-sell/new-sell.compon
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { CompteAchatComponent } from './components/pages/compte/compte-achat/compte-achat.component';
 
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle'
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ConnexionComponent } from './components/pages/connexion/connexion.component';
+import { InscriptionComponent } from './components/pages/inscription/inscription.component';
 
 @NgModule({
 	declarations: [
@@ -75,6 +80,8 @@ import { CompteAchatComponent } from './components/pages/compte/compte-achat/com
 		NewSellAddUrlDialog,
 		BottomNewCommSheet,
   CompteAchatComponent,
+  ConnexionComponent,
+  InscriptionComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -107,6 +114,9 @@ import { CompteAchatComponent } from './components/pages/compte/compte-achat/com
 		ReactiveFormsModule,
 		FormsModule,
 		MatBottomSheetModule,
+		FlexLayoutModule,
+		MatToolbarModule,
+		MatSlideToggleModule
 	],
 	providers: [
 	],

@@ -10,6 +10,13 @@ type Mutation {
         price: Float!,
     ) : String
 
+    "Ajouter une image à un produit"
+    addImageToProduct(
+        auth: AuthInfo!,
+        p_uid: ID!,
+        image: String!
+    ) : String
+
     "Mettre a jour les informations d'un produit"
     updateProduct(
         auth: AuthInfo!,
@@ -19,6 +26,12 @@ type Mutation {
         description: String!,
         category: String!,
         price: Float!,
+    ) : String
+
+    "Ajouter une catégorie"
+    pushCategory(
+        auth: AuthInfo!,
+        category: String!
     ) : String
 
     "Traiter une commande"
@@ -62,6 +75,18 @@ type Mutation {
         auth: AuthInfo!,
         email: String!,
         nickname: String!,
+    ) : String
+
+    "Ajouter un produit à la wishlist"
+    addToWishlist(
+        auth: AuthInfo!
+        product: ID!
+    ) : String
+
+    "Retirer un produit de la wishlist"
+    removeFromWishlist(
+        auth: AuthInfo!
+        product: ID!
     ) : String
 }
 

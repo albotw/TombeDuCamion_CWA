@@ -1,9 +1,16 @@
 cd client
 npm install
+echo "installation des packages du client terminée"
+
 cd ../API
 npm install
 npm install -g gulp
-npm install -g @angular/cli
 
+echo "installation des packages de l'API terminée"
+
+npm install -g @angular/cli
+npm install -g spectaql
+
+echo "installation des packages supplémentaires terminée"
 echo "Installation finie"
-Read-Host -Prompt "Press enter to close"
+Read-Host -Prompt "Entree pour fermer"

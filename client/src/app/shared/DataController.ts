@@ -1,6 +1,15 @@
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 import { request, gql } from "graphql-request";
+
+
+interface FilterData{
+	minPrice: number
+	maxPrice: number
+	minNotation: number,
+	maxNotation: number
+}
+
 export default class DataController
 {
 	// * fonction pour tester si l'API fonctionne, a supprimer
@@ -32,7 +41,7 @@ export default class DataController
 	public static top = async (categorie: string, champ: string, callback: (data: any) => void) =>
 	{
 		let query = gql`
-			query top($categorie: String, $champ: String) {
+			query top($categorie: String!, $champ: String!) {
 				top(categorie: $categorie, champ: $champ) {
 					p_uid
 					seller
@@ -42,6 +51,8 @@ export default class DataController
 					description
 					images
 					comments
+					sales
+					notation
 				}
 			}
 		`
@@ -62,7 +73,7 @@ export default class DataController
 	public static getProduct = async (id: string, callback: (data: any) => void) =>
 	{
 		let query = gql`
-			query getProduct($id: ID) {
+			query getProduct($id: ID!) {
 				getProduct(p_uid: $id) {
 					p_uid
 					seller
@@ -71,7 +82,9 @@ export default class DataController
 					stock
 					description
 					images
+					notation
 					comments
+					sales
 				}
 			}
 		`;
@@ -82,6 +95,7 @@ export default class DataController
 
 		DataController.grab(query, variables).then(result => result.getProduct).then(callback);
 	}
+	
 
 	/**
 	 * fonction pour rechercher un produit avec pagination intégrée.
@@ -89,11 +103,11 @@ export default class DataController
 	 * @param limit nombre de résultats à récupérer
 	 * @param offset décalage des résultats
 	 */
-	public static searchProduct = async (arg: string, limit: number, offset: number, callback: (data: any) => void) =>
+	public static searchProduct = async (arg: string, cat: string, limit: number, offset: number, sort: String, filter: FilterData, callback: (data: any) => void) =>
 	{
 		let query = gql`
-		query searchProducts($text: String, $offset: Int, $limit: Int) {
-			searchProduct(searchString: $text, offset: $offset, limit: $limit) {
+		query searchProducts($text: String!, $cat: String!, $offset: Int!, $limit: Int!, $sort: SortType!, $filter: FilterData!) {
+			searchProduct(searchString: $text, cat: $cat, offset: $offset, limit: $limit, sort: $sort, filter: $filter) {
 				meta {
 					totalCount
 					totalPages
@@ -106,14 +120,18 @@ export default class DataController
 					category
 					notation
 					price
+					sales
 				}
 			}
 		}
 		`
 		let variables = {
 			text: arg,
+			cat: cat,
 			offset: offset,
-			limit: limit
+			limit: limit,
+			sort: sort,
+			filter: filter
 		};
 		DataController.grab(query, variables).then(result => result.searchProduct).then(callback);
 	}
