@@ -16,16 +16,17 @@ export class InformationsComponent implements OnInit {
   constructor() { }
 
   async ngOnInit() {
-    this.getUser("001").then(nickname => {this.pseudo=nickname});
+    let auth = {uid: "001", token: "123456"};
+    this.getUser(auth).then(nickname => {this.pseudo=nickname});
     this.email = 'axel.axel@';
     this.moyenne = 4.6;
   }
 
-  public getUser = async (id: string) =>
+  public getUser = async (auth: any) =>
 	{
 		let query = gql`
-			query getUser($id: String!) {
-        getUser(uid: $id) {
+			query getUser($auth: AuthInfo!) {
+        getUser(auth: $auth) {
           uid
           nickname
           email
@@ -35,10 +36,10 @@ export class InformationsComponent implements OnInit {
       }
 		`
     let variables = {
-      id: id
+      auth: auth
     }
     let user : any = await request(environment.API + "/graphql", query, variables, { "Content-Type": "application/json" });
     console.log(user);
-    //return user.nickname;
+    return user.getUser.nickname;
 	}
 }
