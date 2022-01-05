@@ -1,8 +1,17 @@
 <h2> Historique d'achat</h2>
-<div *ngFor="let achat of dataSource">
-    <mat-card-title-group>
-        <mat-card-title>{{achat.p_uid}}</mat-card-title>
-    </mat-card-title-group>
+<div *ngFor="let vente of product_bought" style="display: inline-block; align-items: stretch;">
+	<mat-card *ngIf="vente !== undefined" routerLink='/produit/{{vente.p_uid}}'>
+		<mat-card-title-group>
+			<mat-card-title>{{vente.title}}</mat-card-title>
+			<img mat-card-sm-image src="{{vente.images[0]}}">
+		</mat-card-title-group>
+		<mat-card-content>
+			{{vente.description}}
+		</mat-card-content>
+		<mat-card-actions>
+			Prix de vente : {{vente.price}} €
+		</mat-card-actions>
+	</mat-card>
 </div>
 <mat-paginator [length]="100"
               [pageSize]="20"
