@@ -50,6 +50,8 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle'
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ConnexionComponent } from './components/pages/connexion/connexion.component';
+import { InscriptionComponent } from './components/pages/inscription/inscription.component';
 
 @NgModule({
 	declarations: [
@@ -75,6 +77,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
  		NewSellComponent,
 		NewSellAddUrlDialog,
 		BottomNewCommSheet,
+  ConnexionComponent,
+  InscriptionComponent,
 	],
 	imports: [
 		BrowserModule,
