@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a198339e-a7e9-466e-b3e4-5152dd0145f3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/app/shared/State.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/src/resolvers/userResolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/resolvers/userResolver.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/pages/connexion/connexion.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/pages/connexion/connexion.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/pages/detail-produit/detail-produit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/pages/detail-produit/detail-produit.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/pages/panier/panier.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/pages/panier/panier.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/template/navigationbar/navigationbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/template/navigationbar/navigationbar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/shared/cache.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +54,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea/runConfigurations" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-    <property name="ts.external.directory.path" value="E:\Yann\CODE\TombeDuCamion_CWA\API\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="D:\yannt\CODE\TombeDuCamion_CWA\API\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReaderModeSettings">

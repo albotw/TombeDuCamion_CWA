@@ -1,7 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 import { request, gql } from "graphql-request";
-import { SelectMultipleControlValueAccessor } from "@angular/forms";
+import sha256 from "crypto-js/sha256";
+import * as CryptoJS from "crypto-js/core";
 
 interface FilterData{
 	minPrice: number
@@ -12,6 +13,25 @@ interface FilterData{
 
 export default class DataController
 {
+	public static connect = (nickname: string, password: string, callback: (data: any) => void) => {
+		let query = gql`
+			query connect($nickname: String!, $hash: String!) {
+				connect(nickname: $nickname, hash: $hash) {
+					uid
+					token
+				}
+			}
+		`;
+
+		let variables = {
+			nickname: nickname,
+			hash: sha256(password).toString(CryptoJS.enc.Hex)
+		};
+
+		console.log(variables);
+
+		DataController.grab(query, variables).then(data => data.connect).then(data => callback(data));
+	}
 	// * fonction pour tester si l'API fonctionne, a supprimer
 	public static testApi = async (callback: (data: any) => void) =>
 	{
@@ -132,7 +152,7 @@ export default class DataController
 
 		DataController.grab(query, variables).then(result => result.getProduct).then(callback);
 	}
-	
+
 
 	/**
 	 * fonction pour rechercher un produit avec pagination intégrée.

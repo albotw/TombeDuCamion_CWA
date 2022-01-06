@@ -54,6 +54,7 @@ export default class userResolver {
 
             return auth;
         }
+        else return "Identifiant inconnu";
     }
 
     public isConnected = (auth: IAuthData) : boolean => {
