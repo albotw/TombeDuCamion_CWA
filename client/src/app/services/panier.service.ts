@@ -1,6 +1,7 @@
 import { isNgTemplate } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import State, { CacheData } from '../shared/State';
 
 @Injectable({
   providedIn: 'root'
@@ -11,16 +12,19 @@ TabProduits = []; //Tableau des objets ajouté
 TotalPanier; // Somme des différents objets du panier
 ProductCount;
 
-  constructor(private router : Router) { }
+  constructor(private router : Router) { 
+    this.TabProduits = State.get(CacheData.Panier);
+  }
 
   addProductsToTab = (product) => { // methode permettant d'ajouter les produits dans le panier
+    this.TabProduits = State.get(CacheData.Panier);
     let productExists = false;
     for ( let i in this.TabProduits) {
       if (this.TabProduits[i].puid === product.puid) {
         this.TabProduits[i].stock++;
         productExists = true;
         this.getTotalPanier();
-        //break;
+        break;
       }
     }
     if(!productExists){
@@ -34,9 +38,11 @@ ProductCount;
       });
     }
     this.getTotalPanier();
+    State.set(CacheData.Panier, this.TabProduits);
   }
 
- getTotalPanier(){ // compte le nombre de produit dans le panier
+ getTotalPanier(){ 
+  this.TabProduits = State.get(CacheData.Panier);// compte le nombre de produit dans le panier
   if(this.TabProduits){
     this.TotalPanier = 0;
     this.TabProduits.forEach((product)=> {
@@ -44,15 +50,18 @@ ProductCount;
     });
     return this.TotalPanier;
     };
+
   }
 
 
-getProductFromTab = () => { // nombre total de produit dans le panier
+getProductFromTab = () => {
+  this.TabProduits = State.get(CacheData.Panier); // nombre total de produit dans le panier
   return this.TabProduits;
+  
 }
 
 getProductCount = () => { 
-
+  this.TabProduits = State.get(CacheData.Panier);
   if(this.TabProduits) {
     this.ProductCount = 0;
     this.TabProduits.forEach((product) => {
@@ -60,22 +69,28 @@ getProductCount = () => {
     });
     return this.ProductCount;
   }
+  State.set(CacheData.Panier, this.TabProduits);
 }
 
-ClearTab = () => { //efface le panier 
+ClearTab = () => {
+  this.TabProduits = State.get(CacheData.Panier); //efface le panier 
   this.TabProduits = [];
   this.router.navigate(['']);
+  State.set(CacheData.Panier, this.TabProduits);
 }
 
 RemoveFromTab = (product) => {
+this.TabProduits = State.get(CacheData.Panier);
 this.TabProduits = this.TabProduits.filter((item) => item.puid ! == product.puid);
   if(this.TabProduits.length === 0) {
     this.router.navigate(['']);
   }
   this.getTotalPanier();
+  State.set(CacheData.Panier, this.TabProduits);
 }
 
-MoinsFromTab = (product) => { // methode pour décrémenter la quantité de l'objet dans le panier 
+MoinsFromTab = (product) => {
+this.TabProduits = State.get(CacheData.Panier); // methode pour décrémenter la quantité de l'objet dans le panier 
 for ( let i in this.TabProduits) {
   if(this.TabProduits[i].puid === product.puid) {
     if(this.TabProduits[i].stock === 0 ){
@@ -88,22 +103,10 @@ for ( let i in this.TabProduits) {
   }
 }
 this.getTotalPanier();
-}
-
-getProductList = () => {
-  return [
-    {
-      "puid" : "1",
-      "title": "Pokeball",
-      "prix" : 400,
-      "url" : "assets/img/camion.png"
-    }
-    ]
-  }
+State.set(CacheData.Panier, this.TabProduits);
 }
 
 
 
 
-
-
+}
