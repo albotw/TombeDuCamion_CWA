@@ -7,7 +7,7 @@
 				<mat-label>
 					Trier par :
 				</mat-label>
-				<mat-select value="DATA.actualSort" [(ngModel)]="DATA.actualSort" (selectionChange)="refreshProducts(0, pageSize)">
+				<mat-select value="DATA.actualSort" [(ngModel)]="DATA.actualSort" (selectionChange)="refreshProducts(0, pageSize, true)">
 					<mat-option *ngFor="let sort of possibleSorts; let i = index;" [value]="sort">
 						{{toTextPossibleSorts[i]}}
 					</mat-option>
@@ -22,8 +22,8 @@
 					Filtrer par Prix:
 				</mat-label>
 				<p style="display: flex; align-items: baseline">
-					<input matInput type="number" [(ngModel)]="DATA.filter['minPrice']" min="0" [max]="DATA.filter.maxPrice" step="100" name="minP" (input)="refreshProducts(0, pageSize)">
-					<input matInput type="number" [(ngModel)]="DATA.filter['maxPrice']" [min]="DATA.filter.minPrice" max="80000" step="100" name="maxP" (input)="refreshProducts(0, pageSize)">
+					<input matInput type="number" [(ngModel)]="DATA.filter['minPrice']" min="0" [max]="DATA.filter.maxPrice" step="100" name="minP" (input)="refreshProducts(0, pageSize, true)">
+					<input matInput type="number" [(ngModel)]="DATA.filter['maxPrice']" [min]="DATA.filter.minPrice" max="80000" step="100" name="maxP" (input)="refreshProducts(0, pageSize, true)">
 				</p>
 			</mat-form-field>
 		</div>
@@ -35,8 +35,8 @@
 					Filtrer par Notation:
 				</mat-label>
 				<p style="display: flex; align-items: baseline">
-					<input matInput type="number" [(ngModel)]="DATA.filter['minNotation']" min="0" [max]="DATA.filter.maxNotation" name="minN" (input)="refreshProducts(0, pageSize)">
-					<input matInput type="number" [(ngModel)]="DATA.filter['maxNotation']" [min]="DATA.filter.minNotation" max="5" name="maxN" (input)="refreshProducts(0, pageSize)">
+					<input matInput type="number" [(ngModel)]="DATA.filter['minNotation']" min="0" [max]="DATA.filter.maxNotation" name="minN" (input)="refreshProducts(0, pageSize, true)">
+					<input matInput type="number" [(ngModel)]="DATA.filter['maxNotation']" [min]="DATA.filter.minNotation" max="5" name="maxN" (input)="refreshProducts(0, pageSize, true)">
 				</p>
 			</mat-form-field>
 		</div>
@@ -70,6 +70,6 @@
 </div>
 
 
-<mat-paginator [length]="totalCount" [pageSize]="16" [pageSizeOptions]="[16, 32, 64]" (page)="getServerData($event)"
+<mat-paginator #paginator [length]="totalCount" [pageSize]="16" [pageSizeOptions]="[16, 32, 64]" (page)="getServerData($event)"
 	aria-label="Select page">
 </mat-paginator>

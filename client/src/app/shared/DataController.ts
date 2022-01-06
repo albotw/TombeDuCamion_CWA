@@ -66,7 +66,7 @@ export default class DataController
 			message: message,
 			note: note,
 		}
-		DataController.grab(query, variables).then(result => result.createProduct).then(callback);
+		DataController.grab(query, variables).then(result => result.createComment).then(callback);
 	}
 
 	
@@ -140,6 +140,26 @@ export default class DataController
 		DataController.grab(query, variables).then(result => result.top).then(callback);
 	}
 
+	public static getCommentsOfProduct = async (p_uid: string, callback: (data: any) => void) =>
+	{
+		let query = gql`
+			query getCommentsOfProduct($p_uid: String!) {
+				getCommentsOfProduct(p_uid: $p_uid) {
+				c_uid
+				author
+				date
+				message
+				note
+				}
+			}
+		`;
+
+		let variables = {
+			p_uid: p_uid
+		}
+
+		DataController.grab(query, variables).then(result => result.getCommentsOfProduct).then(callback);
+	}
 
 	/**
 	 * fonction pour récupérer un produit.
