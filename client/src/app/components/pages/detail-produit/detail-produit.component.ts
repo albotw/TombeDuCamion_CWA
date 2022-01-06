@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';//.prod';
 import DataController from '../../../shared/DataController';
-import Cache, { CacheData } from "../../../shared/cache";
+import Cache, { CacheData } from "../../../shared/Cache";
 import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -57,7 +57,7 @@ export class DetailProduitComponent implements OnInit
 				}
 				panier.push(toCache);
 			}
-	
+
 			Cache.set(CacheData.Panier, panier);
 			return true;
 		}

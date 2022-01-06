@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';//.prod';
 import { NavigationExtras, Router, RouterOutlet } from '@angular/router';
-import Cache, { CacheData } from "../../../shared/cache";
+import Cache, { CacheData } from "../../../shared/Cache";
 import { data } from '../../../shared/global'
 
 

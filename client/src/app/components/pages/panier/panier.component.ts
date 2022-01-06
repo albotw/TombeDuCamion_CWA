@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CacheData } from '../../../shared/cache';
-import Cache from "../../../shared/cache";
+import { CacheData } from '../../../shared/Cache';
+import Cache from "../../../shared/Cache";
 import DataController from '../../../shared/DataController';
 
 @Component({
