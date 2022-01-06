@@ -1,4 +1,4 @@
-export default class Cache
+export default class State
 {
 	// ! cache simple avec opérations CRUD
 	// * voir si cache simple avec sessionStorage

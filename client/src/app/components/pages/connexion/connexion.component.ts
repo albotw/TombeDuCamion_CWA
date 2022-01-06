@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import DataController from "../../../shared/DataController";
-import Cache, {CacheData} from "../../../shared/Cache";
+import State, {CacheData} from "../../../shared/State";
 
 @Component({
   selector: 'app-connexion',
@@ -17,7 +17,7 @@ export class ConnexionComponent implements OnInit {
 
   connect = () => {
 	DataController.connect(this.nickname, this.password, (data => {
-		Cache.set(CacheData.Auth, data);
+		State.set(CacheData.Auth, data);
 	}))
   }
 }

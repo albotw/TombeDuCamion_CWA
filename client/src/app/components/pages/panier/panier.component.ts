@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CacheData } from '../../../shared/Cache';
-import Cache from "../../../shared/Cache";
+import State, { CacheData } from '../../../shared/State';
 import DataController from '../../../shared/DataController';
 
 @Component({
@@ -17,7 +16,7 @@ export class PanierComponent implements OnInit
 
 	ngOnInit(): void
 	{
-		this.panier = Cache.get(CacheData.Panier);
+		this.panier = State.get(CacheData.Panier);
 	}
 
 	addItem(index: number): void
@@ -31,14 +30,14 @@ export class PanierComponent implements OnInit
 		if (this.panier[index].count == 0)
 		{
 			this.panier.splice(index, 1);
-			Cache.set(CacheData.Panier, this.panier);
+			State.set(CacheData.Panier, this.panier);
 		}
 	}
 
 	delItem(index: number): void
 	{
 		this.panier.splice(index, 1);
-		Cache.set(CacheData.Panier, this.panier);
+		State.set(CacheData.Panier, this.panier);
 	}
 
 	acheter(): void
