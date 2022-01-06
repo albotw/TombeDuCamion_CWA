@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PanierComponent } from './panier.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('PanierComponent', () => {
   let component: PanierComponent;
@@ -8,6 +9,9 @@ describe('PanierComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+      ],
       declarations: [ PanierComponent ]
     })
     .compileComponents();
