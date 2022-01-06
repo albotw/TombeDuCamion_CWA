@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';//.prod';
 import { NavigationExtras, Router, RouterOutlet } from '@angular/router';
-import Cache, { CacheData } from "../../../shared/cache";
+import State, { CacheData } from "../../../shared/State";
 import { data } from '../../../shared/global'
 
 
@@ -46,7 +46,7 @@ export class NavigationbarComponent implements OnInit
 
 	get total()
 	{
-		let panier = Cache.get(CacheData.Panier);
+		let panier = State.get(CacheData.Panier);
 		let t = 0;
 		for (let i = 0; i < panier.length; i++)
 		{
@@ -57,7 +57,7 @@ export class NavigationbarComponent implements OnInit
 
 	get panier()
 	{
-		return Cache.get(CacheData.Panier);
+		return State.get(CacheData.Panier);
 	}
 
 }
