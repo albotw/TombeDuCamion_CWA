@@ -1008,6 +1008,22 @@
         "views": 930
     },
     {
+        "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
+        "seller": "Prof. Chen",
+        "title": "shell-bell",
+        "stock": 156,
+        "description": "Held: Heals the holder by 1/8 of any damage it inflicts.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
+        ],
+        "category": "pokemonItems",
+        "comments": [],
+        "notation": 4.871,
+        "price": 4000,
+        "sales": 499,
+        "views": 939
+    },
+    {
         "p_uid": "0dc3c68a7c760b8d07699291b45ef55a30b423d46ebceb05a3466c21547b6247",
         "seller": "Prof. Chen",
         "title": "liberty-pass",
@@ -2126,22 +2142,6 @@
         "price": 0,
         "sales": 398,
         "views": 865
-    },
-    {
-        "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
-        "seller": "Prof. Chen",
-        "title": "shell-bell",
-        "stock": 156,
-        "description": "Held: Heals the holder by 1/8 of any damage it inflicts.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
-        ],
-        "category": "pokemonItems",
-        "comments": [],
-        "notation": 4.871,
-        "price": 4000,
-        "sales": 499,
-        "views": 862
     },
     {
         "p_uid": "f9799d82747a3327f001deeb2c9a5014699fa63faa023ac9b1cf24aad9e6576f",

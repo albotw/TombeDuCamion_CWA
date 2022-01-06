@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';//.prod';
@@ -17,6 +17,7 @@ export class DetailProduitComponent implements OnInit
 
 	public product: any = {};
 	public p_uid: string = "";
+
 
 	constructor(private http: HttpClient, private route: ActivatedRoute, private _bottomSheet: MatBottomSheet)
 	{
@@ -57,13 +58,18 @@ export class DetailProduitComponent implements OnInit
 				}
 				panier.push(toCache);
 			}
-	
+
 			Cache.set(CacheData.Panier, panier);
 			return true;
 		}
 		else{
 			return false;
 		}
+	}
+
+	addToWishList(): boolean
+	{
+		return false;
 	}
 
 }
@@ -75,7 +81,8 @@ export class DetailProduitComponent implements OnInit
 export class BottomNewCommSheet {
 	stars = 5;
 	commentaryGroup: FormGroup;
-	constructor(private _formBuilder: FormBuilder) {}
+	constructor(private _formBuilder: FormBuilder) {
+	}
 
 	ngOnInit(): void {
 		this.commentaryGroup = this._formBuilder.group({
@@ -93,6 +100,9 @@ export class BottomNewCommSheet {
 	}
 
 	post(): void{
+		//this.commentaryGroup;
+		//this.p_uid
+		//this.stars
 		//TODO poster le commentaire
 	}
 

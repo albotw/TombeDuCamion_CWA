@@ -1,15 +1,15 @@
 <mat-nav-list>
 
-    <h4>Commentaire de $USERNAME$ : </h4>
+    <h4>Commentaire de $user.nickname : </h4>
 
     <form [formGroup]="commentaryGroup">
         <textarea formControlName="commentary"
-            matInput 
+            matInput
             placeholder="Ex. wow really good would buy again"
             style="height: 100px; margin-bottom: 10px;">
         </textarea>
     </form>
-    
+
     <button mat-icon-button *ngFor="let i of [0,1,2,3,4]" (click)="updateStars(i+1)">
         <mat-icon *ngIf="i>=stars">star_outline</mat-icon>
         <mat-icon *ngIf="i<stars">star</mat-icon>
