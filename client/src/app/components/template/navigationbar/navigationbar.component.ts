@@ -16,17 +16,17 @@ import { data } from '../../../shared/global'
 })
 export class NavigationbarComponent implements OnInit
 {
-
-  CATEGORIES = data.categories;
-
+  	CATEGORIES = data.categories;
 	panierOuvert = false;
 	value = "";
-  cat = "";
-  DATA: any;
+  	cat = "";
+ 	DATA: any;
+	connected : boolean;
 
 	constructor(private router: Router)
 	{
-    this.DATA = data;
+    	this.DATA = data;
+		this.connected = State.has(CacheData.Auth);
 	}
 
 	ngOnInit(): void{
@@ -34,13 +34,13 @@ export class NavigationbarComponent implements OnInit
 
 	updateRoute(): void
 	{
-    let navextra : NavigationExtras = {
-      queryParams: {
-        str: this.value,
-        cat: this.cat
-      },
-      fragment: 'anchor'
-    }
+		let navextra : NavigationExtras = {
+		  queryParams: {
+			str: this.value,
+			cat: this.cat
+		  },
+		  fragment: 'anchor'
+		}
 		this.router.navigate(['recherche'],  navextra);
 	}
 

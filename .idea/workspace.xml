@@ -3,13 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="a198339e-a7e9-466e-b3e4-5152dd0145f3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/components/pages/resultats/resultats.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/pages/resultats/resultats.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/pages/resultats/resultats.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/pages/resultats/resultats.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/template/navigationbar/navigationbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/template/navigationbar/navigationbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/template/navigationbar/navigationbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/template/navigationbar/navigationbar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/shared/State.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/State.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EditorConfigPreviewManager">
+    <editorConfig file="$PROJECT_DIR$/client/.editorconfig" previewFile="$PROJECT_DIR$/client/src/app/components/template/navigationbar/navigationbar.component.ts" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">

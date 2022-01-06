@@ -14,4 +14,5 @@
 .produit {
 	width: 15vw;
 	margin: 2%;
+	min-height: 15vh;
 }
