@@ -51,6 +51,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle'
 import { ConnexionComponent } from './components/pages/connexion/connexion.component';
 import { InscriptionComponent } from './components/pages/inscription/inscription.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
 	declarations: [
@@ -75,9 +76,9 @@ import { InscriptionComponent } from './components/pages/inscription/inscription
 		InformationsComponent,
  		NewSellComponent,
 		BottomNewCommSheet,
-  WishlistComponent,
-  ConnexionComponent,
-  InscriptionComponent,
+	WishlistComponent,
+	ConnexionComponent,
+	InscriptionComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -111,7 +112,8 @@ import { InscriptionComponent } from './components/pages/inscription/inscription
 		FormsModule,
 		MatBottomSheetModule,
 		MatToolbarModule,
-		MatSlideToggleModule
+		MatSlideToggleModule,
+		FlexLayoutModule,
 	],
 	providers: [
 	],
