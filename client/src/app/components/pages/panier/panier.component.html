@@ -1,59 +1,25 @@
-<h1>Votre Panier : </h1>
-
-<div style="width: 65%; float:left">
-	<mat-card *ngFor="let item of panier; let i = index;">
-		<mat-card-title-group>
-			<mat-card-title>{{item.product.title}}</mat-card-title>
-			<mat-card-subtitle>x{{item.count}}</mat-card-subtitle>
-			<img mat-card-sm-image src="{{item.product.images[0]}}">
-		</mat-card-title-group>
-		<mat-card-actions align="end">
-			<button mat-button (click)="delItem(i)">DEL</button>
-			<button mat-button (click)="subItem(i)">-</button>
-			<button mat-button (click)="addItem(i)">+</button>
-		</mat-card-actions>
-	</mat-card>
+<h4 *ngIf="panier.TabProduits.length === 0" class="TabHeaderml-4"  >Votre panier est vide.</h4>
+<h4 *ngIf="panier.TabProduits.length >=1" class="TabHeader ml-4"  >Votre panier contient {{panier.TabProduits.lenght}} articles.</h4>
+<div *ngIf="panier.TabProduits.length !== 0" class="cart-overlay">
+  <div class="product" style="display: flex;">
+    <div class="cart-content">
+   
+      <div class="cart-item" *ngFor="let item of cartItems">
+        <img  src="{{product.url}}" class="product-img" alt="item">
+        <div>
+          <h4>{{product.title}}</h4>
+          <h4 style="padding-top: 15px;">{{product.price}}
+            <span class="discPrice ml-4">{{product.description}}</span>
+          </h4>
+        </div>
+        <div class="counter mx-auto my-auto">
+          <i class="fa fa-plus mt-4" aria-hidden="true" (click)="ControlIncrement(product)"></i> // bouton +
+          <p class="item-amount mt-4">{{product.stock}}</p>
+          <i class="fa fa-minus mt-4" aria-hidden="true" (click)="ControlDecrement(product)"></i> // bouton - 
+        </div>
+        <span class="remove-item" class="makebold" style="cursor:pointer" (click)="ControlRemoveProduct(product)" >Remove</span> //bouton supprimer le bloc dans le panier
+      </div>
+      
+    </div>
 </div>
-
-
-<div style="width: 30%; float:right;">
-
-	<mat-form-field>
-		<mat-label>Nom & Prénom</mat-label>
-		<input matInput #input maxlength="10">
-	</mat-form-field>
-
-	<mat-form-field>
-		<mat-label>CP</mat-label>
-		<input matInput #input maxlength="5">
-	</mat-form-field>
-
-	<mat-form-field>
-		<mat-label>Addresse</mat-label>
-		<input matInput #input>
-	</mat-form-field>
-
-	<mat-divider></mat-divider>
-
-	<mat-form-field>
-		<mat-label>Nom & Prénom</mat-label>
-		<input matInput #input maxlength="10">
-	</mat-form-field>
-
-	<mat-form-field>
-		<mat-label>Code</mat-label>
-		<input matInput #input maxlength="5">
-	</mat-form-field>
-
-	<mat-form-field>
-		<mat-label>Date exp.</mat-label>
-		<input matInput #input>
-	</mat-form-field>
-
-	<mat-divider></mat-divider>
-
-	<button mat-raised-button color="warn" (click)="acheter()">
-		PAYER ;)
-	</button>
-
 </div>
