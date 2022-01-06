@@ -52,6 +52,24 @@ export default class DataController
 		DataController.grab(query, null).then(callback);
 	}
 
+	public static postComment = async (auth, p_uid: string, message: string, note: number, callback: (data: any) => void) =>
+	{
+		let query = gql`
+			mutation createComment($auth: AuthInfo!, $p_uid: ID!, $message: String!, $note: Float!) {
+				createComment(auth: $auth, p_uid: $p_uid, message: $message, note: $note)
+			}
+		`
+
+		let variables = {
+			auth: auth,
+			p_uid: p_uid,
+			message: message,
+			note: note,
+		}
+		DataController.grab(query, variables).then(result => result.createProduct).then(callback);
+	}
+
+	
 	public static postProduct = async (auth, seller: string, title: string, stock: number, description: string, category: string, price: number, callback: (data: any) => void) =>
 	{
 		let query = gql`
