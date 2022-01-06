@@ -14,18 +14,15 @@ export class PanierComponent implements OnInit
 	ProductTotalValeur;
 	products;
 
-	constructor(public panier: PanierService) { 
-		
+	constructor(public panier: PanierService) {
+
 		this.TabProducts = this.panier.getProductFromTab();
 		this.products = this.panier.getProductCount();
 	}
 
 	ngOnInit(): void
 	{
-		setInterval(() => {
-			this.products = this.panier.getProductCount();
-			console.log("Le nombre de produit dans le panier est de :", this.panier);
-		}, 30);
+
 	}
 
 	ControlRemoveProduct = (product) => {
