@@ -45,10 +45,12 @@ import { InformationsComponent } from './components/pages/compte/informations/in
 import {MatSelectModule} from '@angular/material/select';
 import { NewSellComponent } from './components/pages/new-sell/new-sell.component';
 import {MatStepperModule} from '@angular/material/stepper';
-import { NewSellAddUrlDialog } from './components/pages/new-sell/new-sell.component';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import { WishlistComponent } from './components/pages/compte/wishlist/wishlist.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle'
+import { ConnexionComponent } from './components/pages/connexion/connexion.component';
+import { InscriptionComponent } from './components/pages/inscription/inscription.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
@@ -73,8 +75,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 		ListeComponent,
 		InformationsComponent,
  		NewSellComponent,
-		NewSellAddUrlDialog,
 		BottomNewCommSheet,
+	WishlistComponent,
+	ConnexionComponent,
+	InscriptionComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -107,9 +111,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 		ReactiveFormsModule,
 		FormsModule,
 		MatBottomSheetModule,
-		FlexLayoutModule,
 		MatToolbarModule,
-		MatSlideToggleModule
+		MatSlideToggleModule,
+		FlexLayoutModule,
 	],
 	providers: [
 	],

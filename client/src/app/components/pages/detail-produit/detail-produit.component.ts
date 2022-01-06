@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';//.prod';
 import DataController from '../../../shared/DataController';
-import Cache, { CacheData } from "../../../shared/cache";
+import State, { CacheData } from "../../../shared/State";
 import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -41,7 +41,7 @@ export class DetailProduitComponent implements OnInit
 	{
 		if (this.product.stock > 0){
 			let alreadyExists = false;
-			let panier = Cache.get(CacheData.Panier);
+			let panier = State.get(CacheData.Panier);
 			for (let item of panier)
 			{
 				if (item.product.p_uid == this.product.p_uid)
@@ -59,7 +59,7 @@ export class DetailProduitComponent implements OnInit
 				panier.push(toCache);
 			}
 
-			Cache.set(CacheData.Panier, panier);
+			State.set(CacheData.Panier, panier);
 			return true;
 		}
 		else{

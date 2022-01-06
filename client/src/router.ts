@@ -10,12 +10,16 @@ import { PorteTransitionComponentComponent } from "./app/components/template/tra
 import { ResultatsComponent } from "./app/components/pages/resultats/resultats.component";
 import { TestApiComponent } from "./app/components/pages/test-api/test-api.component";
 import { NewSellComponent } from "./app/components/pages/new-sell/new-sell.component";
+import {ConnexionComponent} from "./app/components/pages/connexion/connexion.component";
+import {InscriptionComponent} from "./app/components/pages/inscription/inscription.component";
 
 
 const routes: Routes = [
 	{ path: '', component: AccueilComponent, data: { animation: 'accueil' } },
 	{ path: 'accueil', component: AccueilComponent, data: { animation: 'accueil' } },
 	{ path: 'newSell', component: NewSellComponent, data: { animation: 'new-sell' } },
+	{ path: "connexion", component: ConnexionComponent, data: {animation: "connexion"}},
+	{ path: "inscription", component: InscriptionComponent, data: {animation: "inscription"}},
 	//{ path: 'transition/:id/:opt1/:opt2', component: PorteTransitionComponentComponent, data: { animation: 'transition' } },
 	{ path: 'transition/:id/:opt', component: PorteTransitionComponentComponent, data: { animation: 'transition' } },
 	{ path: 'transition/:id', component: PorteTransitionComponentComponent, data: { animation: 'transition' } },

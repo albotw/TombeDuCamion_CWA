@@ -1,4 +1,4 @@
-export default class Cache
+export default class State
 {
 	// ! cache simple avec opérations CRUD
 	// * voir si cache simple avec sessionStorage
@@ -49,5 +49,6 @@ export const CacheData = Object.freeze(
 	{
 		//TODO: ajouter type d'informations à stocker dans le cache ici
 		Panier: { id: "panier", isJson: true },
+		Auth: {id: "auth", isJson: true}
 	});
 
