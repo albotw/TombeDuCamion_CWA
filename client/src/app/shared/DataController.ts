@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 import { request, gql } from "graphql-request";
-
+import { SelectMultipleControlValueAccessor } from "@angular/forms";
 
 interface FilterData{
 	minPrice: number
@@ -31,6 +31,43 @@ export default class DataController
 
 		DataController.grab(query, null).then(callback);
 	}
+
+	public static postProduct = async (auth, seller: string, title: string, stock: number, description: string, category: string, price: number, callback: (data: any) => void) =>
+	{
+		let query = gql`
+			mutation createProduct($auth: AuthInfo!, $seller: String!, $title: String!, $stock: Int!, $description: String!, $category: String!, $price: Float!){
+				createProduct(auth: $auth, seller: $seller, title: $title, stock: $stock, description: $description, category: $category, price: $price)
+			}
+		`
+
+		let variables = {
+			auth: auth,
+			seller: seller,
+			title: title,
+			stock: stock,
+			description: description,
+			category: category,
+			price: price
+		}
+		DataController.grab(query, variables).then(result => result.createProduct).then(callback);
+	}
+
+	public static addImageToProduct = async(auth, p_uid: string, image: string, callback: (data: any) => void) => 
+	{
+		let query = gql`
+			mutation addImageToProduct($auth: AuthInfo!,	$p_uid: ID!,	$image: String!){
+				addImageToProduct(auth: $auth,p_uid: $p_uid, image: $image)
+			}
+		`
+
+		let variables = {
+			auth: auth,
+			p_uid: p_uid,
+			image: image
+		}
+		DataController.grab(query, variables).then(result => result.addImageToProduct).then(callback);
+	}
+
 
 	/**
 	 * fonction pour récupérer les meilleurs éléments dans leur domaine.

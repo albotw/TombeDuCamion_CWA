@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { data } from '../../../shared/global'
 import { switchMap } from 'rxjs/operators';
+import DataController from 'src/app/shared/DataController';
 
 @Component({
   selector: 'app-new-sell',
@@ -73,6 +74,13 @@ export class NewSellComponent implements OnInit {
         views: 0
     }
     console.log(product);
+		DataController.postProduct({uid: "bjour", token: "lol"}, 'Jacques', title.value, stock.value, descr.value, category.value, price.value, (data) =>{
+      console.log(data);
+      DataController.addImageToProduct({uid: "bjour", token: "lol"}, data, this.images[0], (data2) =>{
+        console.log(data2);
+      });
+    });
+		
     // TODO: Ajouter un post sur l'API
   }
 }
