@@ -66,6 +66,10 @@ export class DetailProduitComponent implements OnInit
 		}
 	}
 
+	addToWishlist() : boolean{
+		return true;
+	}
+
 }
 
 @Component({

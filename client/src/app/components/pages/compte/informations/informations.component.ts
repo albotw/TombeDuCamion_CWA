@@ -9,17 +9,18 @@ import { environment } from "src/environments/environment";
 })
 export class InformationsComponent implements OnInit {
   pseudo: string;
-  email!: string;
+  mail!: string;
   moyenne!: number;
-  totalSales !: string;
+  ventes !: string;
 
   constructor() { }
 
   async ngOnInit() {
     let auth = {uid: "001", token: "123456"};
-    this.getUser(auth).then(nickname => {this.pseudo=nickname});
-    this.email = 'axel.axel@';
-    this.moyenne = 4.6;
+    this.getUser(auth).then(tab => {this.pseudo=tab[0]});
+    this.getUser(auth).then(tab => {this.mail=tab[1]});
+    this.getUser(auth).then(tab => {this.moyenne=tab[2]});
+    this.getUser(auth).then(tab => {this.ventes=tab[3]});
   }
 
   public getUser = async (auth: any) =>
@@ -40,6 +41,8 @@ export class InformationsComponent implements OnInit {
     }
     let user : any = await request(environment.API + "/graphql", query, variables, { "Content-Type": "application/json" });
     console.log(user);
-    return user.getUser.nickname;
+    var tab = [user.getUser.nickname, user.getUser.email, user.getUser.totalSales, user.getUser.notation];
+    console.log(tab);
+    return tab;
 	}
 }
