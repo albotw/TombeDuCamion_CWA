@@ -23,10 +23,5 @@ describe('PanierComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should remove item if stock is <= 0', () => {
-    component.panier = [{count: 1}] // create item with stock 1 
-    component.subItem(0);           // sub 1 stock of item at position 0
-    expect(component.panier.length).toEqual(0); //  item should be removed
-  });
 
 });
