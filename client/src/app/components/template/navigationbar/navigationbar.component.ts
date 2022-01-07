@@ -26,10 +26,10 @@ export class NavigationbarComponent implements OnInit
 	constructor(private router: Router)
 	{
     	this.DATA = data;
-		this.connected = State.has(CacheData.Auth);
 	}
 
 	ngOnInit(): void{
+		this.connected = State.has(CacheData.Auth);
 	}
 
 	updateRoute(): void

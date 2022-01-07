@@ -105,7 +105,6 @@ import {Router} from "@angular/router";
 		MatDividerModule,
 		MatProgressSpinnerModule,
 		MatFormFieldModule,
-		FormsModule,
 		MatPaginatorModule,
 		MatSelectModule,
 		MatStepperModule,
