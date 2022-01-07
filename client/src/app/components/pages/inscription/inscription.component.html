@@ -1,1 +1,29 @@
-<p>inscription works!</p>
+
+
+
+<form [formGroup]="createUserGroup">
+    <mat-form-field style="width: 75%;" appearance="fill">
+      <mat-label>Surnom : </mat-label>
+      <input matInput placeholder="Nom du produit" formControlName="nickname" required>
+    </mat-form-field>
+
+    <mat-form-field style="width: 75%;" appearance="fill">
+      <mat-label>E-Mail : </mat-label>
+      <input matInput placeholder="Nom du produit" formControlName="email" required>
+    </mat-form-field>
+
+    <mat-form-field style="width: 75%;" appearance="fill">
+      <mat-label>Mot de Passe : </mat-label>
+      <input matInput placeholder="Nom du produit" formControlName="password" required>
+    </mat-form-field>
+</form>
+
+<button mat-button (click)="createUser()">Créer l'utilisateur </button>
+
+<div *ngIf="state=='ALREADY_EXIST'">
+    <h2>Erreur l'identifiant ou l'email est déjà utilisé ! </h2>
+</div>
+
+<div *ngIf="state=='CREATED'">
+    <h2>Félicitation, votre compte a bien été créé ! </h2>
+</div>

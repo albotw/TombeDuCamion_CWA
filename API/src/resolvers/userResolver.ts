@@ -10,7 +10,7 @@ export default class userResolver {
     private CHECK_DELAY = 30000; // vérification toutes les 30 sec.
 
     private _userData : IUser[] = require("../../JSON/users.json");
-    private _modificationThreshold: number = 10;
+    private _modificationThreshold: number = 0;
     private _modificationCounter: number = 0;
 
     private _connectedPool: Map<IAuthData, dayjs.Dayjs>;
@@ -41,10 +41,10 @@ export default class userResolver {
     public connect = ({nickname, hash}) => {
         nickname = nickname as String;
         hash = hash as String;
-
-        let uid = this._userData.find(u => u.nickname == nickname && u.hash == hash).uid;
-
-        if (uid != null) {
+        let user = this._userData.find(u => u.nickname == nickname && u.hash == hash);
+        
+        if (user !== undefined) {
+            let uid = user.uid;
             let auth : IAuthData = {
                 uid: uid,
                 token: crypto.randomBytes(50).toString("hex")
@@ -54,7 +54,7 @@ export default class userResolver {
 
             return auth;
         }
-        else return "Identifiant inconnu";
+        else return {uid: "NOT_FOUND", token: "NOT_FOUND"};
     }
 
     public isConnected = (auth: IAuthData) : boolean => {
@@ -147,12 +147,13 @@ export default class userResolver {
         nickname = nickname as string;
         email = email as string;
         password = password as string;
-
+        
         if (!this._userData.find(u => u.nickname == nickname || u.email == email)) {
-            let uid = crypto.createHash("SHA-256").update(email + nickname + dayjs().format()).digest("hex");
+            let uid = crypto.createHash("sha256").update(email + nickname + dayjs().format()).digest("hex");
+            let pass_hash = crypto.createHash("sha256").update(password).digest("hex");
             let user : IUser = {
                 uid: uid,
-                hash: password,
+                hash: pass_hash,
                 nickname: nickname,
                 email: email,
                 wishlist: [],
@@ -166,7 +167,7 @@ export default class userResolver {
 
             return uid;
         }
-        return "Email / nickname already in use.";
+        return "ALREADY_EXIST";
     }
 
     public updateUser = ({auth, email, password, }) => {
@@ -179,8 +180,8 @@ export default class userResolver {
         }
         else {
             let userDataString = JSON.stringify(this._userData, null, 4);
-            fs.writeFileSync("JSON/user.json", userDataString, {encoding: "utf-8", flag: "w"});
-            console.log("--- Saved users");
+            fs.writeFileSync("JSON/users.json", userDataString, {encoding: "utf-8", flag: "w"});
+            console.log("--- Saved users", this._userData);
             this._modificationCounter = 0;
         }
     }

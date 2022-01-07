@@ -103,7 +103,6 @@ import { InscriptionComponent } from './components/pages/inscription/inscription
 		MatDividerModule,
 		MatProgressSpinnerModule,
 		MatFormFieldModule,
-		FormsModule,
 		MatPaginatorModule,
 		MatSelectModule,
 		MatStepperModule,

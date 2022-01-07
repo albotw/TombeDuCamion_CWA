@@ -11,3 +11,11 @@
 	</mat-form-field>
 	<button mat-raised-button color="primary" (click)="connect()">Se connecter</button>
 </mat-card>
+
+<div *ngIf="state == 'WRONG_IDENTIFIER'">
+	<h1>Identifiants inconnus !</h1>
+</div>
+
+<div>
+	<h3 routerLink="{{DATA.redirection}}/inscription">Pas de compte ? Inscrivez-vous</h3>
+</div>

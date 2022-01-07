@@ -6,6 +6,7 @@ import { data } from '../../../shared/global'
 import { switchMap } from 'rxjs/operators';
 import DataController from 'src/app/shared/DataController';
 import { Router } from '@angular/router';
+import State, { CacheData } from 'src/app/shared/State';
 
 @Component({
   selector: 'app-new-sell',
@@ -24,10 +25,17 @@ export class NewSellComponent implements OnInit {
   categoryGroup: FormGroup;
 
   posted = false;
+  connected : boolean;
 
   constructor(private _formBuilder: FormBuilder,
               public dialog: MatDialog,
-              private router: Router) { }
+              private router: Router) {
+      this.connected = State.has(CacheData.Auth);
+      if (!this.connected){
+        this.router.navigate(['connexion']);
+      }
+  }
+
 
   ngOnInit(): void {
     this.titleGroup = this._formBuilder.group({
