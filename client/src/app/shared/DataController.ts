@@ -13,7 +13,7 @@ interface FilterData{
 
 export default class DataController
 {
-	public static connect = (nickname: string, password: string, callback: (data: any) => void) => {
+	public static connect = (nickname: string, password: string) => {
 		let query = gql`
 			query connect($nickname: String!, $hash: String!) {
 				connect(nickname: $nickname, hash: $hash) {
@@ -28,9 +28,23 @@ export default class DataController
 			hash: sha256(password).toString(CryptoJS.enc.Hex)
 		};
 
-		console.log(variables);
+		return DataController.grab(query, variables);
+	}
 
-		DataController.grab(query, variables).then(data => data.connect).then(data => callback(data));
+	public static createUser = (nickname: string, email: string, password: string) => {
+		let query = gql`
+			mutation createUser($nickname: String!, $email: String!, $password: String!) {
+				createUser(nickname: $nickname, email: $email, password: $password)
+			}
+		`;
+
+		let variables = {
+			nickname: nickname,
+			email: email,
+			password: sha256(password).toString(CryptoJS.enc.Hex)
+		}
+
+		return DataController.grab(query, variables);
 	}
 	// * fonction pour tester si l'API fonctionne, a supprimer
 	public static testApi = async (callback: (data: any) => void) =>
@@ -38,15 +52,6 @@ export default class DataController
 		console.log(environment.API);
 		let query = gql`
 		{
-			product(p_uid: "000") {
-				p_uid
-				seller
-				title
-				stock
-				description
-				images
-				comments
-			}
 		}`
 
 		DataController.grab(query, null).then(callback);
@@ -69,7 +74,7 @@ export default class DataController
 		DataController.grab(query, variables).then(result => result.createComment).then(callback);
 	}
 
-	
+
 	public static postProduct = async (auth, seller: string, title: string, stock: number, description: string, category: string, price: number, callback: (data: any) => void) =>
 	{
 		let query = gql`
@@ -90,7 +95,7 @@ export default class DataController
 		DataController.grab(query, variables).then(result => result.createProduct).then(callback);
 	}
 
-	public static addImageToProduct = async(auth, p_uid: string, image: string, callback: (data: any) => void) => 
+	public static addImageToProduct = async(auth, p_uid: string, image: string, callback: (data: any) => void) =>
 	{
 		let query = gql`
 			mutation addImageToProduct($auth: AuthInfo!,	$p_uid: ID!,	$image: String!){

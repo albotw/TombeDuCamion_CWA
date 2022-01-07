@@ -16,6 +16,7 @@ import { data } from '../../../shared/global'
 })
 export class NavigationbarComponent implements OnInit
 {
+	public static instance;
   	CATEGORIES = data.categories;
 	panierOuvert = false;
 	value = "";
@@ -26,10 +27,11 @@ export class NavigationbarComponent implements OnInit
 	constructor(private router: Router)
 	{
     	this.DATA = data;
-		this.connected = State.has(CacheData.Auth);
+		NavigationbarComponent.instance = this;
 	}
 
 	ngOnInit(): void{
+		this.connected = State.has(CacheData.Auth);
 	}
 
 	updateRoute(): void

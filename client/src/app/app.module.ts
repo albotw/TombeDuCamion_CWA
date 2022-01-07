@@ -53,6 +53,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle'
 import { ConnexionComponent } from './components/pages/connexion/connexion.component';
 import { InscriptionComponent } from './components/pages/inscription/inscription.component';
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from "@angular/router";
 import { CompteVenteComponent } from './components/pages/compte/compte-vente/compte-vente.component';
 
 @NgModule({
@@ -108,7 +110,6 @@ import { CompteVenteComponent } from './components/pages/compte/compte-vente/com
 		MatDividerModule,
 		MatProgressSpinnerModule,
 		MatFormFieldModule,
-		FormsModule,
 		MatPaginatorModule,
 		MatSelectModule,
 		MatStepperModule,
@@ -119,6 +120,7 @@ import { CompteVenteComponent } from './components/pages/compte/compte-vente/com
 		MatSlideToggleModule,
 	],
 	providers: [
+		MatSnackBar,
 	],
 	bootstrap: [AppComponent]
 })
