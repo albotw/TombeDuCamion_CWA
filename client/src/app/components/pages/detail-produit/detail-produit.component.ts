@@ -7,6 +7,7 @@ import State, { CacheData } from "../../../shared/State";
 import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+
 @Component({
 	selector: 'app-detail-produit',
 	templateUrl: './detail-produit.component.html',
