@@ -16,6 +16,7 @@ import { data } from '../../../shared/global'
 })
 export class NavigationbarComponent implements OnInit
 {
+	public static instance;
   	CATEGORIES = data.categories;
 	panierOuvert = false;
 	value = "";
@@ -26,6 +27,7 @@ export class NavigationbarComponent implements OnInit
 	constructor(private router: Router)
 	{
     	this.DATA = data;
+		NavigationbarComponent.instance = this;
 	}
 
 	ngOnInit(): void{
