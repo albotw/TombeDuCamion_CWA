@@ -3,13 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="a198339e-a7e9-466e-b3e4-5152dd0145f3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/src/resolvers/userResolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/resolvers/userResolver.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/JSON/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/API/JSON/users.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/pages/connexion/connexion.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/pages/connexion/connexion.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/pages/inscription/inscription.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/pages/inscription/inscription.component.spec.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EditorConfigPreviewManager">
+    <editorConfig file="$PROJECT_DIR$/client/.editorconfig" previewFile="$PROJECT_DIR$/client/src/app/components/template/navigationbar/navigationbar.component.ts" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -50,7 +54,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea/runConfigurations" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-    <property name="ts.external.directory.path" value="E:\Yann\CODE\TombeDuCamion_CWA\API\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="E:\Yann\CODE\TombeDuCamion_CWA\client\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReaderModeSettings">
@@ -107,6 +111,8 @@
       <workItem from="1641318179908" duration="1180000" />
       <workItem from="1641326898388" duration="7320000" />
       <workItem from="1641404946712" duration="305000" />
+      <workItem from="1641544555367" duration="6805000" />
+      <workItem from="1641560851608" duration="6555000" />
     </task>
     <servers />
   </component>

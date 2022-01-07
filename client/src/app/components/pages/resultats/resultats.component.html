@@ -1,51 +1,51 @@
 <h1>Resultats de recherche pour "{{ rech }}"</h1>
 
-<div fxLayout="row" fxLayoutAlign="space-around center" >
-	<form>
-		<div style="width: 300px;" fxFlex="400">
+<div>
+	<form class="controles">
+		<div style="width: 300px;">
 			<mat-form-field>
 				<mat-label>
 					Trier par :
 				</mat-label>
-				<mat-select value="DATA.actualSort" [(ngModel)]="DATA.actualSort" (selectionChange)="refreshProducts(0, pageSize)">
+				<mat-select value="DATA.actualSort" [(ngModel)]="DATA.actualSort" (selectionChange)="refreshProducts(0, pageSize, true)">
 					<mat-option *ngFor="let sort of possibleSorts; let i = index;" [value]="sort">
 						{{toTextPossibleSorts[i]}}
 					</mat-option>
 				</mat-select>
 			</mat-form-field>
 		</div>
-		
-	
-		<div style="width: 300px;" fxFlex="400">
+
+
+		<div style="width: 300px;">
 			<mat-form-field>
 				<mat-label>
 					Filtrer par Prix:
 				</mat-label>
 				<p style="display: flex; align-items: baseline">
-					<input matInput type="number" [(ngModel)]="DATA.filter['minPrice']" min="0" [max]="DATA.filter.maxPrice" step="100" name="minP" (input)="refreshProducts(0, pageSize)">
-					<input matInput type="number" [(ngModel)]="DATA.filter['maxPrice']" [min]="DATA.filter.minPrice" max="80000" step="100" name="maxP" (input)="refreshProducts(0, pageSize)">
+					<input matInput type="number" [(ngModel)]="DATA.filter['minPrice']" min="0" [max]="DATA.filter.maxPrice" step="100" name="minP" (input)="refreshProducts(0, pageSize, true)">
+					<input matInput type="number" [(ngModel)]="DATA.filter['maxPrice']" [min]="DATA.filter.minPrice" max="80000" step="100" name="maxP" (input)="refreshProducts(0, pageSize, true)">
 				</p>
 			</mat-form-field>
 		</div>
-		
-	
-		<div style="width: 300px;" fxFlex="400">
+
+
+		<div style="width: 300px;">
 			<mat-form-field>
 				<mat-label>
 					Filtrer par Notation:
 				</mat-label>
 				<p style="display: flex; align-items: baseline">
-					<input matInput type="number" [(ngModel)]="DATA.filter['minNotation']" min="0" [max]="DATA.filter.maxNotation" name="minN" (input)="refreshProducts(0, pageSize)">
-					<input matInput type="number" [(ngModel)]="DATA.filter['maxNotation']" [min]="DATA.filter.minNotation" max="5" name="maxN" (input)="refreshProducts(0, pageSize)">
+					<input matInput type="number" [(ngModel)]="DATA.filter['minNotation']" min="0" [max]="DATA.filter.maxNotation" name="minN" (input)="refreshProducts(0, pageSize, true)">
+					<input matInput type="number" [(ngModel)]="DATA.filter['maxNotation']" [min]="DATA.filter.minNotation" max="5" name="maxN" (input)="refreshProducts(0, pageSize, true)">
 				</p>
 			</mat-form-field>
 		</div>
 	</form>
 </div>
 
-<div fxLayout="row center" style="width: 80vw; height: 80vh;" fxFlexFill>
-	<div *ngFor="let vente of products" fxFlex="25">
-		<mat-card *ngIf="vente !== undefined" routerLink='/produit/{{vente.p_uid}}' style="width: 15vw">
+<div class="resultats">
+	<div *ngFor="let vente of products">
+		<mat-card *ngIf="vente !== undefined" routerLink='/produit/{{vente.p_uid}}' class="produit">
 			<mat-card-title-group>
 				<mat-card-title style="font-size: medium; text-transform: capitalize;">{{vente.title.replace("-"," ")}}</mat-card-title>
 				<mat-card-subtitle>
@@ -70,6 +70,6 @@
 </div>
 
 
-<mat-paginator [length]="totalCount" [pageSize]="16" [pageSizeOptions]="[16, 32, 64]" (page)="getServerData($event)"
+<mat-paginator #paginator [length]="totalCount" [pageSize]="16" [pageSizeOptions]="[16, 32, 64]" (page)="getServerData($event)"
 	aria-label="Select page">
 </mat-paginator>

@@ -51,6 +51,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle'
 import { ConnexionComponent } from './components/pages/connexion/connexion.component';
 import { InscriptionComponent } from './components/pages/inscription/inscription.component';
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from "@angular/router";
 
 @NgModule({
 	declarations: [
@@ -75,9 +77,9 @@ import { InscriptionComponent } from './components/pages/inscription/inscription
 		InformationsComponent,
  		NewSellComponent,
 		BottomNewCommSheet,
-  WishlistComponent,
-  ConnexionComponent,
-  InscriptionComponent,
+		WishlistComponent,
+		ConnexionComponent,
+		InscriptionComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -103,7 +105,6 @@ import { InscriptionComponent } from './components/pages/inscription/inscription
 		MatDividerModule,
 		MatProgressSpinnerModule,
 		MatFormFieldModule,
-		FormsModule,
 		MatPaginatorModule,
 		MatSelectModule,
 		MatStepperModule,
@@ -111,9 +112,10 @@ import { InscriptionComponent } from './components/pages/inscription/inscription
 		FormsModule,
 		MatBottomSheetModule,
 		MatToolbarModule,
-		MatSlideToggleModule
+		MatSlideToggleModule,
 	],
 	providers: [
+		MatSnackBar,
 	],
 	bootstrap: [AppComponent]
 })

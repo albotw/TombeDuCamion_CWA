@@ -1,59 +1,62 @@
-<h1>Votre Panier : </h1>
+<h4 *ngIf="panier.getProductFromTab().length === 0" class="TabHeaderml-4"  >Votre panier est vide.</h4>
+<h4 *ngIf="panier.getProductFromTab().length >=1" class="TabHeader ml-4"  >Votre panier contient {{panier.getProductFromTab().length}} articles.</h4>
+<div *ngIf="panier.getProductFromTab().length !== 0" class="cart-overlay">
+  <div class="product" style="display: flex;">
+    <div class="cart-content">
+      <div class="cart-item" style="width: 65%; float:left">
+        <mat-card *ngFor="let item of panier.getProductFromTab(); let i = index;">
+          <mat-card-title-group>
+            <mat-card-title>{{item.product.title}}</mat-card-title>
+            <mat-card-subtitle>x{{item.count}}</mat-card-subtitle>
+            <img mat-card-sm-image src="{{item.product.images[0]}}">
+          </mat-card-title-group>
+          <mat-card-actions align="end">
+            <button mat-button (click)="ControlRemoveProduct(item)">DEL</button>
+            <button mat-button (click)="ControlDecrement(item)">-</button>
+            <button mat-button (click)="ControlIncrement(item)">+</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <div style="width: 30%; float:right;">
 
-<div style="width: 65%; float:left">
-	<mat-card *ngFor="let item of panier; let i = index;">
-		<mat-card-title-group>
-			<mat-card-title>{{item.product.title}}</mat-card-title>
-			<mat-card-subtitle>x{{item.count}}</mat-card-subtitle>
-			<img mat-card-sm-image src="{{item.product.images[0]}}">
-		</mat-card-title-group>
-		<mat-card-actions align="end">
-			<button mat-button (click)="delItem(i)">DEL</button>
-			<button mat-button (click)="subItem(i)">-</button>
-			<button mat-button (click)="addItem(i)">+</button>
-		</mat-card-actions>
-	</mat-card>
+        <mat-form-field>
+          <mat-label>Nom & Prénom</mat-label>
+          <input matInput #input maxlength="10">
+        </mat-form-field>
+      
+        <mat-form-field>
+          <mat-label>CP</mat-label>
+          <input matInput #input maxlength="5">
+        </mat-form-field>
+      
+        <mat-form-field>
+          <mat-label>Addresse</mat-label>
+          <input matInput #input>
+        </mat-form-field>
+      
+        <mat-divider></mat-divider>
+      
+        <mat-form-field>
+          <mat-label>Nom & Prénom</mat-label>
+          <input matInput #input maxlength="10">
+        </mat-form-field>
+      
+        <mat-form-field>
+          <mat-label>Code</mat-label>
+          <input matInput #input maxlength="5">
+        </mat-form-field>
+      
+        <mat-form-field>
+          <mat-label>Date exp.</mat-label>
+          <input matInput #input>
+        </mat-form-field>
+      
+        <mat-divider></mat-divider>
+      
+        <button mat-raised-button color="warn" (click)="acheter()">
+          PAYER ;)
+        </button>
+      
+      </div>
 </div>
-
-
-<div style="width: 30%; float:right;">
-
-	<mat-form-field>
-		<mat-label>Nom & Prénom</mat-label>
-		<input matInput #input maxlength="10">
-	</mat-form-field>
-
-	<mat-form-field>
-		<mat-label>CP</mat-label>
-		<input matInput #input maxlength="5">
-	</mat-form-field>
-
-	<mat-form-field>
-		<mat-label>Addresse</mat-label>
-		<input matInput #input>
-	</mat-form-field>
-
-	<mat-divider></mat-divider>
-
-	<mat-form-field>
-		<mat-label>Nom & Prénom</mat-label>
-		<input matInput #input maxlength="10">
-	</mat-form-field>
-
-	<mat-form-field>
-		<mat-label>Code</mat-label>
-		<input matInput #input maxlength="5">
-	</mat-form-field>
-
-	<mat-form-field>
-		<mat-label>Date exp.</mat-label>
-		<input matInput #input>
-	</mat-form-field>
-
-	<mat-divider></mat-divider>
-
-	<button mat-raised-button color="warn" (click)="acheter()">
-		PAYER ;)
-	</button>
-
 </div>

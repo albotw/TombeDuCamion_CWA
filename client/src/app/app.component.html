@@ -2,9 +2,10 @@
 
 <div id="page-container " class="{{DATA.darkmode ? 'theme-alternate' : ''}} mat-app-background border">
 
+    <navbar></navbar>
+
     <div id="content-wrap" class="mat-app-background">
 
-        <navbar></navbar>
 
 		<div [@routeAnimations]="prepareRoute(outlet)">
 			<router-outlet #outlet="outlet"></router-outlet>

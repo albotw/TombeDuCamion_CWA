@@ -1,4 +1,4 @@
-export default class Cache
+export default class State
 {
 	// ! cache simple avec opérations CRUD
 	// * voir si cache simple avec sessionStorage
@@ -43,6 +43,10 @@ export default class Cache
 	{
 		sessionStorage.removeItem(cacheElement.id);
 	}
+
+	public static has(cacheElement: {id, isJson}) : boolean {
+		return sessionStorage.getItem(cacheElement.id) != null;
+	}
 }
 
 export const CacheData = Object.freeze(
@@ -51,5 +55,6 @@ export const CacheData = Object.freeze(
 		Panier: { id: "panier", isJson: true },
 		
 		Wishlist: { id: "wishlist", isJson: true },
+		Auth: {id: "auth", isJson: true}
 	});
 

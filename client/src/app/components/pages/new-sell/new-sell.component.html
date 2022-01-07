@@ -1,95 +1,106 @@
-<mat-stepper orientation="vertical" [linear]="true" #stepper>
+  
+<div *ngIf="posted==false">
+  <mat-stepper orientation="vertical" [linear]="true" #stepper>
 
-  <!-- intitulé -->
-    <mat-step [stepControl]="titleGroup">
-      <form [formGroup]="titleGroup">
-        <ng-template matStepLabel>Nom du produit</ng-template>
-        <mat-form-field style="width: 75%;" appearance="fill">
-          <mat-label>Produit</mat-label>
-          <input matInput placeholder="Nom du produit" formControlName="title" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperNext>Suivant</button>
-        </div>
-      </form>
-    </mat-step>
+    <!-- intitulé -->
+      <mat-step [stepControl]="titleGroup">
+        <form [formGroup]="titleGroup">
+          <ng-template matStepLabel>Nom du produit</ng-template>
+          <mat-form-field style="width: 75%;" appearance="fill">
+            <mat-label>Produit</mat-label>
+            <input matInput placeholder="Nom du produit" formControlName="title" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext>Suivant</button>
+          </div>
+        </form>
+      </mat-step>
 
-    <!-- description -->
-    <mat-step [stepControl]="descrGroup">
-      <form [formGroup]="descrGroup">
-        <ng-template matStepLabel>Description</ng-template>
-        <mat-form-field style="width: 75%;" appearance="fill">
-          <mat-label>Description</mat-label>
-          <textarea matInput formControlName="descr" placeholder="Ajouter une description..." required></textarea>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Précédent</button>
-          <button mat-button matStepperNext>Suivant</button>
-        </div>
-      </form>
-    </mat-step>
+      <!-- description -->
+      <mat-step [stepControl]="descrGroup">
+        <form [formGroup]="descrGroup">
+          <ng-template matStepLabel>Description</ng-template>
+          <mat-form-field style="width: 75%;" appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="descr" placeholder="Ajouter une description..." required></textarea>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Précédent</button>
+            <button mat-button matStepperNext>Suivant</button>
+          </div>
+        </form>
+      </mat-step>
 
-    <!-- choix de la catégorie -->
-    <mat-step [stepControl]="categoryGroup">
-      <form [formGroup]="categoryGroup">
-        <ng-template matStepLabel>Categorie</ng-template>
-        <mat-form-field style="width: 75%;" appearance="fill">
-          <mat-label>Categorie</mat-label>
-          <mat-select formControlName="category">
-            <mat-option *ngFor="let cat of CATEGORIES" [value]="cat">{{cat}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Précédent</button>
-          <button mat-button matStepperNext>Suivant</button>
-        </div>
-      </form>
-    </mat-step>
+      <!-- choix de la catégorie -->
+      <mat-step [stepControl]="categoryGroup">
+        <form [formGroup]="categoryGroup">
+          <ng-template matStepLabel>Categorie</ng-template>
+          <mat-form-field style="width: 75%;" appearance="fill">
+            <mat-label>Categorie</mat-label>
+            <mat-select formControlName="category">
+              <mat-option *ngFor="let cat of CATEGORIES" [value]="cat">{{cat}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Précédent</button>
+            <button mat-button matStepperNext>Suivant</button>
+          </div>
+        </form>
+      </mat-step>
 
-    <mat-step>
-      <form name="imgform" method="post1">
-      <ng-template matStepLabel>Images</ng-template>
-      <!-- pour upload les images souhaitées -->
-      <input type="file" id="imgproduit" name="imgproduit" accept=".png, .jpeg, .jpg" (change)="encodeImageFileAsURL($event)"/>
-      <!-- affichage des photos -->
-      <mat-card *ngFor="let image of images" style="max-width: 250px;">
-        <img mat-card-xl-image src="{{image}}">
-      </mat-card>
-      <div>
-        <button mat-button matStepperPrevious>Précédent</button>
-        <button mat-button matStepperNext>Suivant</button>
-      </div>
-    </form>
-    </mat-step>
-
-    <!-- stock et prix -->
-    <mat-step [stepControl]="details1">
-      <form [formGroup]="details1">
-        <ng-template matStepLabel>Details</ng-template>
-        <mat-form-field style="width: 75%;" appearance="fill">
-          <mat-label>Stock</mat-label>
-          <input matInput type="number" formControlName="stock" required>
-        </mat-form-field>
-        <mat-form-field style="width: 75%;" appearance="fill">
-          <mat-label>Prix</mat-label>
-          <input matInput type="number" formControlName="price" required>
-        </mat-form-field>
+      <mat-step>
+        <form name="imgform" method="post1">
+        <ng-template matStepLabel>Images</ng-template>
+        <!-- pour upload les images souhaitées -->
+        <input type="file" id="imgproduit" name="imgproduit" accept=".png, .jpeg, .jpg" (change)="encodeImageFileAsURL($event)"/>
+        <!-- affichage des photos -->
+        <mat-card *ngFor="let image of images" style="max-width: 250px;">
+          <img mat-card-xl-image src="{{image}}">
+        </mat-card>
         <div>
           <button mat-button matStepperPrevious>Précédent</button>
           <button mat-button matStepperNext>Suivant</button>
         </div>
       </form>
-    </mat-step>
+      </mat-step>
 
-    <!-- publication de l'annonce -->
-    <mat-step>
-      <ng-template matStepLabel>Fini</ng-template>
-      <p>Tout à l'air bon, vous pouvez désormais publier votre annonce en ligne !</p>
-      <div>
-        <button mat-button matStepperPrevious>Précédent</button>
-        <button mat-button id="post_btn" (click)="post()">Publier</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
-      </div>
-    </mat-step>
-    
-  </mat-stepper>
+      <!-- stock et prix -->
+      <mat-step [stepControl]="details1">
+        <form [formGroup]="details1">
+          <ng-template matStepLabel>Details</ng-template>
+          <mat-form-field style="width: 75%;" appearance="fill">
+            <mat-label>Stock</mat-label>
+            <input matInput type="number" formControlName="stock" required>
+          </mat-form-field>
+          <mat-form-field style="width: 75%;" appearance="fill">
+            <mat-label>Prix</mat-label>
+            <input matInput type="number" formControlName="price" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Précédent</button>
+            <button mat-button matStepperNext>Suivant</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <!-- publication de l'annonce -->
+      <mat-step>
+        <ng-template matStepLabel>Fini</ng-template>
+        <p>Tout à l'air bon, vous pouvez désormais publier votre annonce en ligne !</p>
+        <div>
+          <button mat-button matStepperPrevious>Précédent</button>
+          <button mat-button id="post_btn" (click)="post()">Publier</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+      </mat-step>
+      
+    </mat-stepper>
+  
+  </div>
+
+
+<div *ngIf="posted">
+  <h1>Nous venons de publier votre annonce !</h1>
+  <p>Un instant, vous allez être redirigé à l'acceuil</p>
+  <mat-spinner></mat-spinner>
+</div>

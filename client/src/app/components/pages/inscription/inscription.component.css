@@ -1,0 +1,17 @@
+.center {
+	height: 50vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.inscription {
+	display: flex;
+	flex-direction: column;
+	min-height: 30vh;
+	min-width: 30vw;
+}
+
+button {
+	margin: 2%;
+}

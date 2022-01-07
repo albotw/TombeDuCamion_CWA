@@ -5,6 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AccueilComponent } from './components/pages/accueil/accueil.component';
 import { AppComponent } from './app.component';
 import { DetailProduitComponent } from './components/pages/detail-produit/detail-produit.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('AppComponent', () => {
   let httpClient: HttpClient;
@@ -12,7 +13,8 @@ describe('AppComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        ReactiveFormsModule
       ],
       declarations: [
         AppComponent,

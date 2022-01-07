@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import State, { CacheData } from 'src/app/shared/State';
 
 @Component({
   selector: 'app-compte',
@@ -7,7 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompteComponent implements OnInit {
 
-  constructor() { }
+  connected : boolean;
+
+  constructor(private router: Router) {
+		this.connected = State.has(CacheData.Auth);
+    if (!this.connected){
+      this.router.navigate(['connexion']);
+    }
+  }
 
   ngOnInit(): void {
   }

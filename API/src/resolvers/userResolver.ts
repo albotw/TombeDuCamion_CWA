@@ -4,25 +4,29 @@ import IAuthData from "../interfaces/AuthData";
 import crypto from "crypto";
 import dayjs from "dayjs";
 
-export default class userResolver {
+export default class userResolver
+{
     public static instance: userResolver;
-    private ALIVE_DURATION =  3600000; // 1 heure de connection max
+    private ALIVE_DURATION = 3600000; // 1 heure de connection max
     private CHECK_DELAY = 30000; // vérification toutes les 30 sec.
 
-    private _userData : IUser[] = require("../../JSON/users.json");
-    private _modificationThreshold: number = 10;
+    private _userData: IUser[] = require("../../JSON/users.json");
+    private _modificationThreshold: number = 0;
     private _modificationCounter: number = 0;
 
     private _connectedPool: Map<IAuthData, dayjs.Dayjs>;
 
-    public constructor() {
+    public constructor()
+    {
         this._connectedPool = new Map<IAuthData, dayjs.Dayjs>();
 
         setInterval(this._purge, this.CHECK_DELAY);
     }
 
-    public static create() : userResolver{
-        if (userResolver.instance == null) {
+    public static create(): userResolver
+    {
+        if (userResolver.instance == null)
+        {
             userResolver.instance = new userResolver();
         }
 
@@ -30,22 +34,27 @@ export default class userResolver {
     }
 
     // @Internal
-    private _purge = () => {
-        this._connectedPool.forEach((disconnectTime, user) => {
-            if (disconnectTime.isAfter(dayjs())) {
+    private _purge = () =>
+    {
+        this._connectedPool.forEach((disconnectTime, user) =>
+        {
+            if (disconnectTime.isAfter(dayjs()))
+            {
                 this._connectedPool.delete(user);
             }
         });
     }
 
-    public connect = ({nickname, hash}) => {
+    public connect = ({ nickname, hash }) =>
+    {
         nickname = nickname as String;
         hash = hash as String;
+        let user = this._userData.find(u => u.nickname == nickname && u.hash == hash);
 
-        let uid = this._userData.find(u => u.nickname == nickname && u.hash == hash).uid;
-
-        if (uid != null) {
-            let auth : IAuthData = {
+        if (user !== undefined)
+        {
+            let uid = user.uid;
+            let auth: IAuthData = {
                 uid: uid,
                 token: crypto.randomBytes(50).toString("hex")
             }
@@ -54,51 +63,62 @@ export default class userResolver {
 
             return auth;
         }
+        else return { uid: "NOT_FOUND", token: "NOT_FOUND" };
     }
 
-    public isConnected = (auth: IAuthData) : boolean => {
+    public isConnected = (auth: IAuthData): boolean =>
+    {
         let bypass = true;
         return this._connectedPool.has(auth) || bypass;
     }
 
-    public disconnect = ({auth}) => {
+    public disconnect = ({ auth }) =>
+    {
         this._connectedPool.delete(auth);
 
         return "utilisateur déconnecté";
     }
 
     // @internal
-    public addToHistory = ({uid, element}) => {
+    public addToHistory = ({ uid, element }) =>
+    {
         let index = this._userData.findIndex(u => u.uid == uid);
         this._userData[index].history.push(element);
         this._saveUserData();
     }
 
-    public getHistory = ({auth}) => {
+    public getHistory = ({ auth }) =>
+    {
         auth = auth as IAuthData;
-        if (this.isConnected(auth)) {
+        if (this.isConnected(auth))
+        {
             return this._userData.find(u => u.uid == auth.uid).history;
         }
     }
 
-    public getWishlist = ({auth}) => {
+    public getWishlist = ({ auth }) =>
+    {
         auth = auth as IAuthData;
-        if (this.isConnected(auth)) {
+        if (this.isConnected(auth))
+        {
             return this._userData.find(u => u.uid == auth.uid).wishlist;
         }
     }
 
     //@internal
-    public hasBoughtProduct = (uid: string, p_uid: string) => {
+    public hasBoughtProduct = (uid: string, p_uid: string) =>
+    {
         let index = this._userData.findIndex(u => u.uid == uid);
-        return this._userData[index].history.includes({product: p_uid, type: "BUY"});
-}
+        return this._userData[index].history.includes({ product: p_uid, type: "BUY" });
+    }
 
-    public addToWishlist = ({auth, product}) => {
+    public addToWishlist = ({ auth, product }) =>
+    {
         auth = auth as IAuthData;
         product = product as string;
 
-        if (this.isConnected(auth)) {
+        if (this.isConnected(auth))
+        {
             let index = this._userData.findIndex(u => u.uid == auth.uid);
             this._userData[index].wishlist.push(product);
             this._saveUserData();
@@ -108,11 +128,13 @@ export default class userResolver {
         return "Erreur de connexion";
     }
 
-    public removeFromWishlist = ({auth, product}) => {
+    public removeFromWishlist = ({ auth, product }) =>
+    {
         auth = auth as IAuthData;
         product = product as string;
 
-        if (this.isConnected(auth)) {
+        if (this.isConnected(auth))
+        {
             let index = this._userData.findIndex(u => u.uid == auth.uid);
             let productIndex = this._userData[index].wishlist.findIndex(product);
             this._userData[index].wishlist.slice(productIndex, 1);
@@ -124,32 +146,39 @@ export default class userResolver {
         return "Erreur de connexion";
     }
 
-    public getUser = ({auth}) => {
+    public getUser = ({ auth }) =>
+    {
         auth = auth as IAuthData;
-        if (this.isConnected(auth)) {
+        if (this.isConnected(auth))
+        {
             return this._userData.find(u => u.uid == auth.uid);
         }
     }
 
-    public getNotation = ({target_uid}) => {
+    public getNotation = ({ target_uid }) =>
+    {
         target_uid = target_uid as string;
 
         return this._userData.find(u => u.uid == target_uid).notation;
     }
 
-    public getNickname = ({uid}) => {
+    public getNickname = ({ uid }) =>
+    {
         uid = uid as string;
         return this._userData.find(u => u.uid == uid).nickname;
     }
 
-    public createUser = ({nickname, email, password}) => {
+    public createUser = ({ nickname, email, password }) =>
+    {
         nickname = nickname as string;
         email = email as string;
         password = password as string;
 
-        if (!this._userData.find(u => u.nickname == nickname || u.email == email)) {
-            let uid = crypto.createHash("SHA-256").update(email + nickname + dayjs().format()).digest("hex");
-            let user : IUser = {
+        if (!this._userData.find(u => u.nickname == nickname || u.email == email))
+        {
+            let uid = crypto.createHash("sha256").update(email + nickname).digest("hex");
+            console.log(uid);
+            let user: IUser = {
                 uid: uid,
                 hash: password,
                 nickname: nickname,
@@ -165,21 +194,25 @@ export default class userResolver {
 
             return uid;
         }
-        return "Email / nickname already in use.";
+        throw "Erreur, identifiants déja utilisés";
     }
 
-    public updateUser = ({auth, email, password, }) => {
+    public updateUser = ({ auth, email, password, }) =>
+    {
 
     }
 
-    private _saveUserData = () => {
-        if (this._modificationCounter < this._modificationThreshold){
+    private _saveUserData = () =>
+    {
+        if (this._modificationCounter < this._modificationThreshold)
+        {
             this._modificationCounter++;
         }
-        else {
+        else
+        {
             let userDataString = JSON.stringify(this._userData, null, 4);
-            fs.writeFileSync("JSON/user.json", userDataString, {encoding: "utf-8", flag: "w"});
-            console.log("--- Saved users");
+            fs.writeFileSync("JSON/users.json", userDataString, { encoding: "utf-8", flag: "w" });
+            console.log("--- Saved users", this._userData);
             this._modificationCounter = 0;
         }
     }
