@@ -53,8 +53,6 @@ export const CacheData = Object.freeze(
 	{
 		//TODO: ajouter type d'informations à stocker dans le cache ici
 		Panier: { id: "panier", isJson: true },
-		
-		Wishlist: { id: "wishlist", isJson: true },
 		Auth: {id: "auth", isJson: true}
 	});
 

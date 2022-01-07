@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CacheData } from '../../../../shared/cache';
-import Cache from "../../../../shared/cache";
 
 @Component({
   selector: 'app-wishlist',
@@ -14,7 +12,7 @@ export class WishlistComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.wishlist = Cache.get(CacheData.Wishlist);
+    
   }
 
 }
