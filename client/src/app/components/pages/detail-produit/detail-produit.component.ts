@@ -66,7 +66,7 @@ export class DetailProduitComponent implements OnInit
 		}
 	}
 
-	addToWishlist() : boolean{
+	/*addToWishlist() : boolean{
 		if (this.product.stock > 0){
 			let alreadyExists = false;
 			let wishlist = Cache.get(CacheData.Wishlist);
@@ -92,7 +92,7 @@ export class DetailProduitComponent implements OnInit
 		else{
 			return false;
 		}
-	}
+	}*/
 
 }
 
