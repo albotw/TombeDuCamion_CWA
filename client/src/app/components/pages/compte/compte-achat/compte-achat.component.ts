@@ -41,10 +41,6 @@ export class CompteAchatComponent implements OnInit {
 			this.totalCount = data.meta.totalCount;
 			this.products = data.results.filter((product) => product['price'] > 100.0).map(product =>
 			{
-				if (product['description'].length > 40)
-				{
-					product['description'] = product['description'].substring(0, 37) + "...";
-				}
 				return product;
 			})
 		});
