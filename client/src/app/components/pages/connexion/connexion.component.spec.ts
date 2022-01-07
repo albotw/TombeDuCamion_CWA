@@ -5,6 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { ConnexionComponent } from './connexion.component';
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {Overlay, OverlayModule} from "@angular/cdk/overlay";
 
 describe('ConnexionComponent', () => {
   let component: ConnexionComponent;
@@ -16,7 +17,8 @@ describe('ConnexionComponent', () => {
         BrowserDynamicTestingModule,
         RouterTestingModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+          OverlayModule,
       ],
       declarations: [ ConnexionComponent ],
       providers: [MatSnackBar]
