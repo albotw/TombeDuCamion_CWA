@@ -1,25 +1,32 @@
 <div class="resultats">
 	<div *ngFor="let vente of products">
-		<mat-card *ngIf="vente !== undefined" routerLink='/produit/{{vente.p_uid}}' class="produit">
-			<mat-card-title-group>
-				<mat-card-title style="font-size: medium; text-transform: capitalize;">{{vente.title.replace("-"," ")}}</mat-card-title>
-				<mat-card-subtitle>
-					<div *ngFor="let i of [0,1,2,3,4]" style="display: inline-block; align-items: stretch;">
+		<mat-card class="produit">
+			<mat-card-header class="mat-card-head">
+				<mat-card-title-group>
+					<mat-card-title *ngIf="vente !== undefined" routerLink='/produit/{{vente.p_uid}}' class="title">{{vente.title.replace("-"," ")}}</mat-card-title>
+					<mat-card-subtitle class="mat-card-subtitle">
+						<mat-card-content>
+							{{vente.description}}
+						</mat-card-content>
+					</mat-card-subtitle>
+					<img mat-card-sm-image src="{{vente.images[0]}}">
+				</mat-card-title-group>
+			</mat-card-header>
+
+			<mat-divider inset></mat-divider>
+
+			<div style="display: flex;">
+				<mat-card class="mat-card-vente" style="flex: 1 1 auto;">Total : {{vente.price}} €</mat-card>
+				<mat-card class="mat-card-vente" style="flex: 1 1 auto;">
+					<div *ngFor="let i of [0,1,2,3,4]" class="stars">
 						<mat-icon *ngIf="i>=vente.notation-1">star_outline</mat-icon>
 						<mat-icon *ngIf="i<vente.notation-1">star</mat-icon>
 					</div>
 					<div style="display: inline-block; align-items: stretch;">
 						({{vente.sales}})
 					</div>
-				</mat-card-subtitle>
-				<img mat-card-sm-image src="{{vente.images[0]}}">
-			</mat-card-title-group>
-			<mat-card-content>
-				{{vente.description}}
-			</mat-card-content>
-			<mat-card-actions>
-				Prix de vente : {{vente.price}} €
-			</mat-card-actions>
+				</mat-card>
+			</div>
 		</mat-card>
 	</div>
 </div>
