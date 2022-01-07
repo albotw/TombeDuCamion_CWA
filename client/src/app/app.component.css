@@ -1,4 +1,5 @@
 .border {
 	min-height: 100%;
-	display: block;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
 }

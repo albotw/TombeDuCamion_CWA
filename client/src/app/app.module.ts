@@ -114,7 +114,7 @@ import { InscriptionComponent } from './components/pages/inscription/inscription
 		FormsModule,
 		MatBottomSheetModule,
 		MatToolbarModule,
-		MatSlideToggleModule
+		MatSlideToggleModule,
 	],
 	providers: [
 	],

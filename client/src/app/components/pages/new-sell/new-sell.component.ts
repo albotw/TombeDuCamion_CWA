@@ -4,6 +4,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { data } from '../../../shared/global'
 import { switchMap } from 'rxjs/operators';
+import DataController from 'src/app/shared/DataController';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-sell',
@@ -21,9 +23,11 @@ export class NewSellComponent implements OnInit {
   details1: FormGroup;
   categoryGroup: FormGroup;
 
+  posted = false;
+
   constructor(private _formBuilder: FormBuilder,
               public dialog: MatDialog,
-              private http: HttpClient) { }
+              private router: Router) { }
 
   ngOnInit(): void {
     this.titleGroup = this._formBuilder.group({
@@ -58,21 +62,18 @@ export class NewSellComponent implements OnInit {
     let stock = this.details1.get('stock');
     let price = this.details1.get('price');
     let category = this.categoryGroup.get('category');
-    let product = {
-        p_uid: "00e21440870f4c17e2301c9fe5e9f2fcefc0f2e7621982c23f2e9ecc20a24ab9",
-        seller: "Prof. Chen", // TODO: Variable global définissant l'utilisateur connecté
-        title: title.value,
-        stock: stock.value,
-        description: descr.value,
-        images: this.images,
-        category: category.value,
-        comments: [],
-        notation: -1,
-        price: price.value,
-        sales: 0,
-        views: 0
-    }
-    console.log(product);
+    
+    
+		DataController.postProduct({uid: "bjour", token: "lol"}, 'Jacques', title.value, stock.value, descr.value, category.value, price.value, (data) =>{
+      
+      for (let i=0; i<this.images.length; i++){
+        DataController.addImageToProduct({uid: "bjour", token: "lol"}, data, this.images[i], () =>{
+          this.posted = (this.images.length-1 == i);
+          setTimeout(() => {this.router.navigate(['accueil'])}, 2000);
+        });
+      }
+    });
+		
     // TODO: Ajouter un post sur l'API
   }
 }
