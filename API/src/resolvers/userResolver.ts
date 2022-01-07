@@ -148,8 +148,11 @@ export default class userResolver {
         email = email as string;
         password = password as string;
 
+        console.log(password);
+
         if (!this._userData.find(u => u.nickname == nickname || u.email == email)) {
-            let uid = crypto.createHash("SHA-256").update(email + nickname + dayjs().format()).digest("hex");
+            let uid = crypto.createHash("sha256").update(email + nickname).digest("hex");
+            console.log(uid);
             let user : IUser = {
                 uid: uid,
                 hash: password,
@@ -166,7 +169,7 @@ export default class userResolver {
 
             return uid;
         }
-        return "Email / nickname already in use.";
+        throw "Erreur, identifiants déja utilisés";
     }
 
     public updateUser = ({auth, email, password, }) => {

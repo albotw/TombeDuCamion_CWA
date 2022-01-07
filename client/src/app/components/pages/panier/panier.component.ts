@@ -15,7 +15,6 @@ export class PanierComponent implements OnInit
 	products;
 
 	constructor(public panier: PanierService) {
-
 		this.TabProducts = this.panier.getProductFromTab();
 		this.products = this.panier.getProductCount();
 	}

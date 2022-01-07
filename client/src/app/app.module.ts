@@ -51,6 +51,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle'
 import { ConnexionComponent } from './components/pages/connexion/connexion.component';
 import { InscriptionComponent } from './components/pages/inscription/inscription.component';
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from "@angular/router";
 
 @NgModule({
 	declarations: [
@@ -114,6 +116,7 @@ import { InscriptionComponent } from './components/pages/inscription/inscription
 		MatSlideToggleModule,
 	],
 	providers: [
+		MatSnackBar,
 	],
 	bootstrap: [AppComponent]
 })
