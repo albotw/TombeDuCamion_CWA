@@ -25,7 +25,7 @@ export class InscriptionComponent implements OnInit {
     createUser() : void {
         DataController.createUser(this.nickname, this.email, this.password)
             .then(data => {
-                this.snackbar.open("Votre compte a été crée. Vous allez être redirigé vers la page de connexion");
+                this.snackbar.open("Votre compte a été crée. Vous allez être redirigé vers la page de connexion", "", {duration: 2000});
                 setTimeout(() => {this.router.navigate(["/connexion"])}, 2000);
             })
             .catch(error => {

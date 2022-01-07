@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { MatToolbar } from '@angular/material/toolbar';
 import {data} from "../../../shared/global";
+
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
 
@@ -13,8 +15,4 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-   toggleDarkMode() {
-		data.darkmode = !data.darkmode;
-	}
 }

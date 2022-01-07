@@ -20,37 +20,31 @@ ProductCount;
     this.TabProduits = State.get(CacheData.Panier);
     let productExists = false;
     for ( let i in this.TabProduits) {
-      if (this.TabProduits[i].puid === product.puid) {
-        this.TabProduits[i].stock++;
+      if (this.TabProduits[i].product.puid === product.puid) {
+        this.TabProduits[i].count++;
         productExists = true;
-        this.getTotalPanier();
         break;
       }
     }
     if(!productExists){
       this.TabProduits.push({
-        puid: product.puid,
-        nom: product.title,
-        prix: product.price,
-        description: product.description,
-        stock: 1,
-        url: product.url
+        count: 1,
+        product: product
       });
     }
-    this.getTotalPanier();
     State.set(CacheData.Panier, this.TabProduits);
+    this.getTotalPanier();
   }
 
  getTotalPanier(){ 
   this.TabProduits = State.get(CacheData.Panier);// compte le nombre de produit dans le panier
   if(this.TabProduits){
     this.TotalPanier = 0;
-    this.TabProduits.forEach((product)=> {
-      this.TotalPanier += (product.stock * product.price);
+    this.TabProduits.forEach((item)=> {
+      this.TotalPanier += (item.count * item.product.price);
     });
     return this.TotalPanier;
     };
-
   }
 
 
@@ -64,12 +58,12 @@ getProductCount = () => {
   this.TabProduits = State.get(CacheData.Panier);
   if(this.TabProduits) {
     this.ProductCount = 0;
-    this.TabProduits.forEach((product) => {
-      this.ProductCount += product.stock;
+    this.TabProduits.forEach((item) => {
+      this.ProductCount += item.product.count;
     });
+    State.set(CacheData.Panier, this.TabProduits);
     return this.ProductCount;
   }
-  State.set(CacheData.Panier, this.TabProduits);
 }
 
 ClearTab = () => {
@@ -80,33 +74,30 @@ ClearTab = () => {
 }
 
 RemoveFromTab = (product) => {
-this.TabProduits = State.get(CacheData.Panier);
-this.TabProduits = this.TabProduits.filter((item) => item.puid ! == product.puid);
+  this.TabProduits = State.get(CacheData.Panier);
+  this.TabProduits = this.TabProduits.filter((item) => item.product.puid !== product.puid);
+  State.set(CacheData.Panier, this.TabProduits);
+
   if(this.TabProduits.length === 0) {
     this.router.navigate(['']);
   }
   this.getTotalPanier();
-  State.set(CacheData.Panier, this.TabProduits);
 }
 
 MoinsFromTab = (product) => {
-this.TabProduits = State.get(CacheData.Panier); // methode pour décrémenter la quantité de l'objet dans le panier 
-for ( let i in this.TabProduits) {
-  if(this.TabProduits[i].puid === product.puid) {
-    if(this.TabProduits[i].stock === 0 ){
-      this.RemoveFromTab(product);
+  this.TabProduits = State.get(CacheData.Panier); // methode pour décrémenter la quantité de l'objet dans le panier 
+  for ( let i in this.TabProduits) {
+    if(this.TabProduits[i].product.puid === product.puid) {
+      if(this.TabProduits[i].count === 0 ){
+        this.RemoveFromTab(product);
+      }
+      else { this.TabProduits[i].count--;
+      }
+    break;
     }
-    else { this.TabProduits[i].stock--;
-    }
-  this.getTotalPanier();
-  break;
   }
+  State.set(CacheData.Panier, this.TabProduits);
+  this.getTotalPanier();
 }
-this.getTotalPanier();
-State.set(CacheData.Panier, this.TabProduits);
-}
-
-
-
 
 }

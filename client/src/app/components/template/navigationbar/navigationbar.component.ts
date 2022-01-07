@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';//.prod';
 import { NavigationExtras, Router, RouterOutlet } from '@angular/router';
 import State, { CacheData } from "../../../shared/State";
-import { data } from '../../../shared/global'
+import { data } from '../../../shared/global';
 
 
 
@@ -16,6 +16,7 @@ import { data } from '../../../shared/global'
 })
 export class NavigationbarComponent implements OnInit
 {
+	public static instance;
   	CATEGORIES = data.categories;
 	panierOuvert = false;
 	value = "";
@@ -26,6 +27,7 @@ export class NavigationbarComponent implements OnInit
 	constructor(private router: Router)
 	{
     	this.DATA = data;
+		NavigationbarComponent.instance = this;
 	}
 
 	ngOnInit(): void{
@@ -43,6 +45,10 @@ export class NavigationbarComponent implements OnInit
 		}
 		this.router.navigate(['recherche'],  navextra);
 	}
+
+	toggleDarkMode() {
+        data.darkmode = !data.darkmode;
+    }
 
 	get total()
 	{

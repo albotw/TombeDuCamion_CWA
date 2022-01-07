@@ -37,7 +37,6 @@ export class PanierComponent implements OnInit
 	}
 
 	ControlDecrement (product) : void {
-		console.log("jfgerf");
 		this.panier.MoinsFromTab(product);
 		this.TabProducts = this.panier.getProductFromTab();
 		this.ProductTotalValeur = this.panier.getTotalPanier();
