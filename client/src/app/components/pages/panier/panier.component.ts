@@ -25,22 +25,24 @@ export class PanierComponent implements OnInit
 
 	}
 
-	ControlRemoveProduct = (product) => {
+	ControlRemoveProduct (product) : void {
 		this.panier.RemoveFromTab(product);
 		this.TabProducts = this.panier.getProductFromTab();
 		this.ProductTotalValeur = this.panier.getTotalPanier();
 	}
 
-	ControlIncrement = (product) => {
+	ControlIncrement (product) : void  {
 		this.panier.addProductsToTab(product);
 		this.TabProducts = this.panier.getProductFromTab();
 		this.ProductTotalValeur = this.panier.getTotalPanier();
 	}
 
-	ControlDecrement = (product) => {
+	ControlDecrement (product) : void {
+		console.log("jfgerf");
 		this.panier.MoinsFromTab(product);
 		this.TabProducts = this.panier.getProductFromTab();
 		this.ProductTotalValeur = this.panier.getTotalPanier();
+		
 	}
 
 

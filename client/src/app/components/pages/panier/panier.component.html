@@ -3,27 +3,60 @@
 <div *ngIf="panier.getProductFromTab().length !== 0" class="cart-overlay">
   <div class="product" style="display: flex;">
     <div class="cart-content">
-   
-      <div class="cart-item" *ngFor="let item of panier.getProductFromTab()">
-        <img  src="{{product.url}}" class="product-img" alt="item">
-        <div>
-          <h4>{{product.title}}</h4>
-          <h4 style="padding-top: 15px;">{{product.price}}
-            <span class="discPrice ml-4">{{product.description}}</span>
-          </h4>
-        </div>
-        <div class="counter mx-auto my-auto">
-          <i class="fa fa-plus mt-4" aria-hidden="true" (click)="ControlIncrement(product)"></i>
-          <p class="item-amount mt-4">{{product.stock}}</p>
-          <i class="fa fa-minus mt-4" aria-hidden="true" (click)="ControlDecrement(product)"></i> 
-        </div>
-        <div class="example-label">DELETE PANIER</div>
-          <div class="example-flex-container">
-            <div class="example-button-container">
-              <button mat-fab color="primary" aria-label="Button DELETE" (click)="ControlRemoveProduct(product)">
-                <mat-icon>delete</mat-icon>
-              </button>
+      <div class="cart-item" style="width: 65%; float:left">
+        <mat-card *ngFor="let item of panier.getProductFromTab(); let i = index;">
+          <mat-card-title-group>
+            <mat-card-title>{{item.product.title}}</mat-card-title>
+            <mat-card-subtitle>x{{item.count}}</mat-card-subtitle>
+            <img mat-card-sm-image src="{{item.product.images[0]}}">
+          </mat-card-title-group>
+          <mat-card-actions align="end">
+            <button mat-button (click)="ControlRemoveProduct(item)">DEL</button>
+            <button mat-button (click)="ControlDecrement(item)">-</button>
+            <button mat-button (click)="ControlIncrement(item)">+</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <div style="width: 30%; float:right;">
+
+        <mat-form-field>
+          <mat-label>Nom & Prénom</mat-label>
+          <input matInput #input maxlength="10">
+        </mat-form-field>
       
-    </div>
+        <mat-form-field>
+          <mat-label>CP</mat-label>
+          <input matInput #input maxlength="5">
+        </mat-form-field>
+      
+        <mat-form-field>
+          <mat-label>Addresse</mat-label>
+          <input matInput #input>
+        </mat-form-field>
+      
+        <mat-divider></mat-divider>
+      
+        <mat-form-field>
+          <mat-label>Nom & Prénom</mat-label>
+          <input matInput #input maxlength="10">
+        </mat-form-field>
+      
+        <mat-form-field>
+          <mat-label>Code</mat-label>
+          <input matInput #input maxlength="5">
+        </mat-form-field>
+      
+        <mat-form-field>
+          <mat-label>Date exp.</mat-label>
+          <input matInput #input>
+        </mat-form-field>
+      
+        <mat-divider></mat-divider>
+      
+        <button mat-raised-button color="warn" (click)="acheter()">
+          PAYER ;)
+        </button>
+      
+      </div>
 </div>
 </div>
