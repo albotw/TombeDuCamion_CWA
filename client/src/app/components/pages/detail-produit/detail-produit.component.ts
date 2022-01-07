@@ -67,7 +67,31 @@ export class DetailProduitComponent implements OnInit
 	}
 
 	addToWishlist() : boolean{
-		return true;
+		if (this.product.stock > 0){
+			let alreadyExists = false;
+			let wishlist = Cache.get(CacheData.Wishlist);
+			for (let item of wishlist)
+			{
+				if (item.product.p_uid == this.product.p_uid)
+				{
+					item.count += 1;
+					alreadyExists = true;
+				}
+			}
+			if (!alreadyExists)
+			{
+				let toCache = {
+					count: 1,
+					product: this.product,
+				}
+				wishlist.push(toCache);
+			}
+			Cache.set(CacheData.Wishlist, wishlist);
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
 }
