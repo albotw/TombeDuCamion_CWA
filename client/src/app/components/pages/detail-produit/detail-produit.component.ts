@@ -70,7 +70,8 @@ export class DetailProduitComponent implements OnInit
 	/*addToWishlist() : boolean{
 		if (this.product.stock > 0){
 			let alreadyExists = false;
-			let wishlist = Cache.get(CacheData.Wishlist);
+			let userCo = State.get(CacheData.Auth);
+			let id1 = userCo.id;
 			for (let item of wishlist)
 			{
 				if (item.product.p_uid == this.product.p_uid)
@@ -85,16 +86,13 @@ export class DetailProduitComponent implements OnInit
 					count: 1,
 					product: this.product,
 				}
-				wishlist.push(toCache);
 			}
-			Cache.set(CacheData.Wishlist, wishlist);
 			return true;
 		}
 		else{
 			return false;
 		}
 	}*/
-
 }
 
 @Component({
