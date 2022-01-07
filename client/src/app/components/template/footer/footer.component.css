@@ -31,7 +31,7 @@ p {
 
 .socials a{
     text-decoration: none;
-    color: #fff;
+    color: black;
     padding: 10px;
 }
 
@@ -42,7 +42,7 @@ p {
 }
 
 .socials a:hover i{
-    color: aqua;
+    color: gray;
 }
 
 .footer-bottom p{

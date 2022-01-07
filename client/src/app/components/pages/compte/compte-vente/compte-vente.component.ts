@@ -7,13 +7,13 @@ import DataController from '../../../../shared/DataController';
 import { data } from '../../../../shared/global'
 
 @Component({
-  selector: 'app-compte-achat',
-  templateUrl: './compte-achat.component.html',
-  styleUrls: ['./compte-achat.component.css']
+  selector: 'app-compte-vente',
+  templateUrl: './compte-vente.component.html',
+  styleUrls: ['./compte-vente.component.css']
 })
+export class CompteVenteComponent implements OnInit {
 
-export class CompteAchatComponent implements OnInit {
-	products = [];
+  products = [];
 	totalCount = 0;
 	actualSort = "NO_SORT";
 	DATA = data;
@@ -28,25 +28,27 @@ export class CompteAchatComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.refreshProducts(this.pageIndex, this.pageSize);
-		console.log("le produit : ",this.products);
 	}
 
 	public refreshProducts(pageIndex: number, pageSize: number)
 	{
-		
+	
 		let offset = pageIndex * pageSize;
 
 		DataController.searchProduct("", "", pageSize, offset, this.DATA.actualSort, this.DATA.filter, (data) =>
 		{
 			this.totalCount = data.meta.totalCount;
-			this.products = data.results.filter((product) => product['price'] > 100.0).map(product =>
+      //TODO ajouter le filtre pour la vente
+			this.products = data.results.filter((product) => product['price'] > 100.0).
+      map(product =>
 			{
 				if (product['description'].length > 40)
 				{
 					product['description'] = product['description'].substring(0, 37) + "...";
 				}
-				return product;
+				return product
 			})
+      console.log("les produits : ",this.products);
 		});
 	}
 
