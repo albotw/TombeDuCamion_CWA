@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';//.prod';
 import { NavigationExtras, Router, RouterOutlet } from '@angular/router';
 import State, { CacheData } from "../../../shared/State";
-import { data } from '../../../shared/global'
+import { data } from '../../../shared/global';
 
 
 
@@ -45,6 +45,10 @@ export class NavigationbarComponent implements OnInit
 		}
 		this.router.navigate(['recherche'],  navextra);
 	}
+
+	toggleDarkMode() {
+        data.darkmode = !data.darkmode;
+    }
 
 	get total()
 	{
