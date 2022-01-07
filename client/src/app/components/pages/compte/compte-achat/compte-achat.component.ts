@@ -30,7 +30,7 @@ export class CompteAchatComponent implements OnInit {
 	public refreshProducts(pageIndex: number, pageSize: number)
 	{
 		let offset = pageIndex * pageSize;
-
+		console.log(this.products);
 		DataController.searchProduct("","", pageSize, offset, this.DATA.actualSort, this.DATA.filter, (data) =>
 		{
 			this.totalCount = data.meta.totalCount;
