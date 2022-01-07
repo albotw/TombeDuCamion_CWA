@@ -4,6 +4,7 @@ import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/t
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { ConnexionComponent } from './connexion.component';
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 describe('ConnexionComponent', () => {
   let component: ConnexionComponent;
@@ -17,7 +18,8 @@ describe('ConnexionComponent', () => {
         ReactiveFormsModule,
         FormsModule
       ],
-      declarations: [ ConnexionComponent ]
+      declarations: [ ConnexionComponent ],
+      providers: [MatSnackBar]
     })
     .compileComponents();
   });
