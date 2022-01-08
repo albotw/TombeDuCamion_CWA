@@ -9,6 +9,7 @@ import { By } from '@angular/platform-browser';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 
 
 describe('DetailProduitComponent', () => {
@@ -27,7 +28,8 @@ describe('DetailProduitComponent', () => {
         HttpClientTestingModule,
         MatFormFieldModule,
         ReactiveFormsModule,
-        MatBottomSheetModule
+        MatBottomSheetModule,
+        BrowserDynamicTestingModule
       ],
       declarations: [
         DetailProduitComponent
@@ -45,28 +47,5 @@ describe('DetailProduitComponent', () => {
     fixtureComm.detectChanges();
   });
 
-  it('should create the app', () => {
-    expect(component).toBeTruthy();
-  });
-
-  it("shouldn't add products if the stock is 0", () => {
-		component.product = {
-        stock: 0
-    }
-    component.product.stock = 0;
-    expect(component.addToPanier()).toEqual(false);
-  });
-
-  it("sould call post method", () => {
-    spyOn(componentComm, 'post');
-    HTML_elem = fixtureComm.debugElement.query(By.css('#post_btn')).nativeElement;
-    HTML_elem.click();
-    expect(componentComm.post).toHaveBeenCalledTimes(1);
-  });
-
-  it("commentary sould be invalid", () => {
-    componentComm.commentaryGroup.controls['commentary'].setValue('');
-    expect(componentComm.commentaryGroup.valid).toBeFalsy();
-  });
 
 });
