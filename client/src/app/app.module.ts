@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import { AppRoutingModule } from '../router';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -47,7 +48,7 @@ import { NewSellComponent } from './components/pages/new-sell/new-sell.component
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { CompteAchatComponent } from './components/pages/compte/compte-achat/compte-achat.component';
-
+import { MatNativeDateModule } from '@angular/material/core';
 import { WishlistComponent } from './components/pages/compte/wishlist/wishlist.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle'
@@ -87,6 +88,9 @@ import { CompteVenteComponent } from './components/pages/compte/compte-vente/com
 		InscriptionComponent,
 	],
 	imports: [
+		MatNativeDateModule,
+		MatNativeDateModule,
+		MatDatepickerModule,
 		BrowserModule,
 		AppRoutingModule,
 		MatListModule,

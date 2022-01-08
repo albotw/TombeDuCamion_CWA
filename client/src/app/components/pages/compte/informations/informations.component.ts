@@ -14,8 +14,6 @@ export class InformationsComponent implements OnInit {
   mail!: string;
   moyenne!: number;
   ventes !: string;
-  onlineUser = State.get(CacheData.Auth);
-  userID = this.onlineUser.uid;
 
   constructor() { }
 
@@ -23,8 +21,8 @@ export class InformationsComponent implements OnInit {
     let auth = State.get(CacheData.Auth);
     this.getUser(auth).then(tab => {this.pseudo=tab[0]});
     this.getUser(auth).then(tab => {this.mail=tab[1]});
-    this.getUser(auth).then(tab => {this.moyenne=tab[2]});
-    this.getUser(auth).then(tab => {this.ventes=tab[3]});
+    this.getUser(auth).then(tab => {this.moyenne=tab[3]});
+    this.getUser(auth).then(tab => {this.ventes=tab[2]});
   }
 
   public getUser = async (auth: any) =>	{
