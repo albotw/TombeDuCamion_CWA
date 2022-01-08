@@ -1,11 +1,16 @@
 <div class="resultats">
+	<div *ngIf="products.length === 0" class="produitsVide">
+		<h4>Vous n'avez pas encore vendu de produits</h4>
+		<p routerLink='/newSell' class="vendre">Vendre des produits</p>
+	</div>
+
 	<div *ngFor="let vente of products">
 		<mat-card class="produit">
 			<mat-card-header class="mat-card-head">
 				<mat-card-title-group>
 					<mat-card-title *ngIf="vente !== undefined" routerLink='/produit/{{vente.p_uid}}' class="title">{{vente.title.replace("-"," ")}}</mat-card-title>
 					<mat-card-subtitle class="mat-card-subtitle">
-						<mat-card-content>
+						<mat-card-content class="desc">
 							{{vente.description}}
 						</mat-card-content>
 					</mat-card-subtitle>
@@ -22,20 +27,8 @@
 						<mat-icon *ngIf="i>=vente.notation-1">star_outline</mat-icon>
 						<mat-icon *ngIf="i<vente.notation-1">star</mat-icon>
 					</div>
-					<div style="display: inline-block; align-items: stretch;">
-						({{vente.sales}})
-					</div>
 				</mat-card>
 			</div>
 		</mat-card>
 	</div>
 </div>
-
-<mat-paginator #paginator [length]="totalCount"
-              [pageSize]="20"
-              [hidePageSize]="true"
-              [showFirstLastButtons] ="true"
-              [pageSizeOptions]=""
-			  (page)="getServerData($event)"
-              aria-label="Select page">
-</mat-paginator>
