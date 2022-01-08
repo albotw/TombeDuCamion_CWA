@@ -191,15 +191,11 @@ export default class productResolver {
     }
 
     public linkComment = ({auth, p_uid, c_uid}) => {
-        auth = auth as IAuthData;
         p_uid = p_uid as string;
         c_uid = c_uid as string;
 
-        if (userResolver.instance.isConnected(auth)){
-            this.productData.find(p => p.p_uid, p_uid).comments.push(c_uid);
-            this._saveProducts();
-        }
-        else throw new Error("Connexion invalide");
+        this.productData.find(p => p.p_uid == p_uid).comments.push(c_uid);
+        this._saveProducts();
     }
 
     public unlinkComment = ({auth, p_uid, c_uid}) => {
