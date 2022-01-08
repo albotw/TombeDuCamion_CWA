@@ -13,7 +13,7 @@
         "notation": 2.702,
         "price": 7000,
         "sales": 317,
-        "views": 1026
+        "views": 1090
     },
     {
         "p_uid": "c51bad7a2dcbd0c4bcd8f63672fef0198387ccaa9b575df1790a69ab4a33a15b",
@@ -29,7 +29,7 @@
         "notation": 2.064,
         "price": 0,
         "sales": 9,
-        "views": 1010
+        "views": 1073
     },
     {
         "p_uid": "7b9adbddaaf29cd8227e09da978e38c2bcc61c07e87bf632bd087c0d918bafe8",
@@ -1536,6 +1536,22 @@
         "views": 894
     },
     {
+        "p_uid": "85441a43c7cb9f242a5c20c6648026689c795ad4e8321e215bf68d48fc9a4b1c",
+        "seller": "Prof. Chen",
+        "title": "permit",
+        "stock": 172,
+        "description": "",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/permit.png"
+        ],
+        "category": "pokemonItems",
+        "comments": [],
+        "notation": 4.997,
+        "price": 0,
+        "sales": 92,
+        "views": 893
+    },
+    {
         "p_uid": "a3c6fdba300835d28e0c3fb1c03db22ecb8175504b4ab800ee7799ee0311b2aa",
         "seller": "Prof. Chen",
         "title": "power-bracer",
@@ -1614,22 +1630,6 @@
         "price": 1000,
         "sales": 4,
         "views": 890
-    },
-    {
-        "p_uid": "85441a43c7cb9f242a5c20c6648026689c795ad4e8321e215bf68d48fc9a4b1c",
-        "seller": "Prof. Chen",
-        "title": "permit",
-        "stock": 172,
-        "description": "",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/permit.png"
-        ],
-        "category": "pokemonItems",
-        "comments": [],
-        "notation": 4.997,
-        "price": 0,
-        "sales": 92,
-        "views": 893
     },
     {
         "p_uid": "be1d00861ddf710478dfc40fca159aacf986f6f564e886fa257fa3719cfb6bc3",
@@ -1984,6 +1984,22 @@
         "views": 872
     },
     {
+        "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
+        "seller": "Prof. Chen",
+        "title": "shell-bell",
+        "stock": 156,
+        "description": "Held: Heals the holder by 1/8 of any damage it inflicts.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
+        ],
+        "category": "pokemonItems",
+        "comments": [],
+        "notation": 4.871,
+        "price": 4000,
+        "sales": 499,
+        "views": 999
+    },
+    {
         "p_uid": "03d4bbe0dc7a40f16a12d34e95c68da683a337aa83e0c89481383adf5f28e66a",
         "seller": "Prof. Chen",
         "title": "spelon-berry",
@@ -2126,22 +2142,6 @@
         "price": 0,
         "sales": 398,
         "views": 865
-    },
-    {
-        "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
-        "seller": "Prof. Chen",
-        "title": "shell-bell",
-        "stock": 156,
-        "description": "Held: Heals the holder by 1/8 of any damage it inflicts.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
-        ],
-        "category": "pokemonItems",
-        "comments": [],
-        "notation": 4.871,
-        "price": 4000,
-        "sales": 499,
-        "views": 862
     },
     {
         "p_uid": "f9799d82747a3327f001deeb2c9a5014699fa63faa023ac9b1cf24aad9e6576f",
