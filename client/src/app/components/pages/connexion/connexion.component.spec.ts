@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { ConnexionComponent } from './connexion.component';
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {Overlay, OverlayModule} from "@angular/cdk/overlay";
 
 describe('ConnexionComponent', () => {
   let component: ConnexionComponent;
@@ -8,7 +13,15 @@ describe('ConnexionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConnexionComponent ]
+      imports: [
+        BrowserDynamicTestingModule,
+        RouterTestingModule,
+        ReactiveFormsModule,
+        FormsModule,
+          OverlayModule,
+      ],
+      declarations: [ ConnexionComponent ],
+      providers: [MatSnackBar]
     })
     .compileComponents();
   });

@@ -43,6 +43,10 @@ export default class State
 	{
 		sessionStorage.removeItem(cacheElement.id);
 	}
+
+	public static has(cacheElement: {id, isJson}) : boolean {
+		return sessionStorage.getItem(cacheElement.id) != null;
+	}
 }
 
 export const CacheData = Object.freeze(

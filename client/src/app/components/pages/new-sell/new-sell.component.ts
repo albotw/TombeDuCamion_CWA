@@ -6,6 +6,7 @@ import { data } from '../../../shared/global'
 import { switchMap } from 'rxjs/operators';
 import DataController from 'src/app/shared/DataController';
 import { Router } from '@angular/router';
+import State, { CacheData } from 'src/app/shared/State';
 
 @Component({
   selector: 'app-new-sell',
@@ -24,10 +25,17 @@ export class NewSellComponent implements OnInit {
   categoryGroup: FormGroup;
 
   posted = false;
+  connected : boolean;
 
   constructor(private _formBuilder: FormBuilder,
               public dialog: MatDialog,
-              private router: Router) { }
+              private router: Router) {
+      this.connected = State.has(CacheData.Auth);
+      if (!this.connected){
+        this.router.navigate(['connexion']);
+      }
+  }
+
 
   ngOnInit(): void {
     this.titleGroup = this._formBuilder.group({
@@ -56,23 +64,28 @@ export class NewSellComponent implements OnInit {
     reader.readAsDataURL(file);
   }
 
-  post(): void{
+  post = async () => {
     let title = this.titleGroup.get('title');
     let descr = this.descrGroup.get('descr');
     let stock = this.details1.get('stock');
     let price = this.details1.get('price');
     let category = this.categoryGroup.get('category');
-    
-    
-		DataController.postProduct({uid: "bjour", token: "lol"}, 'Jacques', title.value, stock.value, descr.value, category.value, price.value, (data) =>{
-      
+
+    let auth = State.get(CacheData.Auth);
+
+    let name = await DataController.getUser(auth)['nickname'];
+
+    DataController.postProduct(auth, name, title.value, stock.value, descr.value, category.value, price.value, (data) =>{
       for (let i=0; i<this.images.length; i++){
-        DataController.addImageToProduct({uid: "bjour", token: "lol"}, data, this.images[i], () =>{
+        DataController.addImageToProduct(auth, data, this.images[i], () =>{
           this.posted = (this.images.length-1 == i);
           setTimeout(() => {this.router.navigate(['accueil'])}, 2000);
         });
       }
     });
+    
+    
+		
 		
     // TODO: Ajouter un post sur l'API
   }

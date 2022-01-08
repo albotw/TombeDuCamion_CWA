@@ -1,13 +1,17 @@
-<mat-card class="connexion">
-	<mat-card-title>Accès a l'espace membre</mat-card-title>
+<div class="center">
+	<mat-card class="connexion">
+		<mat-card-title>Accès a l'espace membre</mat-card-title>
 
-	<mat-form-field>
-		<mat-label>Pseudo</mat-label>
-		<input matInput type="text" [(ngModel)]="nickname">
-	</mat-form-field>
-	<mat-form-field>
-		<mat-label>Mot de passe</mat-label>
-		<input matInput type="password" [(ngModel)]="password">
-	</mat-form-field>
-	<button mat-raised-button color="primary" (click)="connect()">Se connecter</button>
-</mat-card>
+		<mat-form-field>
+			<mat-label>Pseudo</mat-label>
+			<input matInput type="text" [(ngModel)]="nickname">
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label>Mot de passe</mat-label>
+			<input matInput type="password" [(ngModel)]="password">
+		</mat-form-field>
+		<button mat-raised-button color="primary" (click)="connect()">Se connecter</button>
+		<button mat-raised-button color="accent" [routerLink]="['/inscription']">S'inscrire</button>
+	</mat-card>
+
+</div>

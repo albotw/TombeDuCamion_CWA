@@ -1,15 +1,120 @@
 [
-	{
-		"uid": "001",
-		"hash": "9834876dcfb05cb167a5c24953eba58c4ac89b1adf57f28f2f9d09af107ee8f0",
-		"nickname": "ianzer",
-		"email": "aaa@aaa.ca",
-		"wishlist": [
-			"123",
-			"456"
-		],
-		"totalSales": "5",
-		"notation": "2.4",
-		"history": []
-	}
+    {
+        "uid": "37268335dd6931045bdcdf92623ff819a64244b53d0e746d438797349d4da578",
+        "hash": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+        "nickname": "test",
+        "email": "test",
+        "wishlist": [],
+        "totalSales": 0,
+        "notation": 0,
+        "history": [
+            {
+                "type": "BUY",
+                "product": "62c7da2eeece29c4f0ce4d4eba90eab863f25ed6338b37123d966356dc2eb582"
+            },
+            {
+                "type": "BUY",
+                "product": "c51bad7a2dcbd0c4bcd8f63672fef0198387ccaa9b575df1790a69ab4a33a15b"
+            },
+            {
+                "type": "BUY",
+                "product": "7b9adbddaaf29cd8227e09da978e38c2bcc61c07e87bf632bd087c0d918bafe8"
+            },
+            {
+                "type": "SELL",
+                "product": "f094fc04d653152553a65a5defa0e17c4cba74d63fe5bb09b274a768b032a00c"
+            },
+            {
+                "type": "SELL",
+                "product": "f93fe641b8b69ed0b262f1f0a750f876a7212fdd7a247c2956c48e84566c2cc2"
+            },
+            {
+                "type": "SELL",
+                "product": "7d40e1aab8ec90350dbc98f30651c836eced5d71492ea9893f1ae74fa3bcc072"
+            }
+        ]
+    },
+    {
+        "uid": "70457186f178a7f9c3107789f08186c51b7a643b0ae39f355005f41b7737d643",
+        "hash": "300859e050ee53855c5f12c72ff69bb0bbcd1d9415d4b4e7a076249fca6a2511",
+        "nickname": "deed",
+        "email": "ad",
+        "wishlist": [],
+        "totalSales": 0,
+        "notation": 0,
+        "history": []
+    },
+    {
+        "uid": "53db9496e1640f150592e502fb727164728bbc0c282c512247d3f557cc6cde6f",
+        "hash": "91fc86fe12f3cc60dd3f40c6cbf9ac23babe9827a78a1282647c4413bcc5fabb",
+        "nickname": "Hahiro",
+        "email": "theneophithahiro@gmail.com",
+        "wishlist": [],
+        "totalSales": 0,
+        "notation": 0,
+        "history": [
+            {
+                "type": "BUY",
+                "product": "62c7da2eeece29c4f0ce4d4eba90eab863f25ed6338b37123d966356dc2eb582"
+            },
+            {
+                "type": "BUY",
+                "product": "c51bad7a2dcbd0c4bcd8f63672fef0198387ccaa9b575df1790a69ab4a33a15b"
+            },
+            {
+                "type": "BUY",
+                "product": "7b9adbddaaf29cd8227e09da978e38c2bcc61c07e87bf632bd087c0d918bafe8"
+            },
+            {
+                "type": "SELL",
+                "product": "f094fc04d653152553a65a5defa0e17c4cba74d63fe5bb09b274a768b032a00c"
+            },
+            {
+                "type": "SELL",
+                "product": "f93fe641b8b69ed0b262f1f0a750f876a7212fdd7a247c2956c48e84566c2cc2"
+            },
+            {
+                "type": "SELL",
+                "product": "7d40e1aab8ec90350dbc98f30651c836eced5d71492ea9893f1ae74fa3bcc072"
+            }
+        ]
+    },
+    {
+        "uid": "001",
+        "hash": "9834876dcfb05cb167a5c24953eba58c4ac89b1adf57f28f2f9d09af107ee8f0",
+        "nickname": "ianzer",
+        "email": "aaa@aaa.ca",
+        "wishlist": [
+            "62c7da2eeece29c4f0ce4d4eba90eab863f25ed6338b37123d966356dc2eb582",
+            "c51bad7a2dcbd0c4bcd8f63672fef0198387ccaa9b575df1790a69ab4a33a15b"
+        ],
+        "totalSales": "5",
+        "notation": "2.4",
+        "history": [
+            {
+                "type": "BUY",
+                "product": "62c7da2eeece29c4f0ce4d4eba90eab863f25ed6338b37123d966356dc2eb582"
+            },
+            {
+                "type": "BUY",
+                "product": "c51bad7a2dcbd0c4bcd8f63672fef0198387ccaa9b575df1790a69ab4a33a15b"
+            },
+            {
+                "type": "BUY",
+                "product": "7b9adbddaaf29cd8227e09da978e38c2bcc61c07e87bf632bd087c0d918bafe8"
+            },
+            {
+                "type": "SELL",
+                "product": "f094fc04d653152553a65a5defa0e17c4cba74d63fe5bb09b274a768b032a00c"
+            },
+            {
+                "type": "SELL",
+                "product": "f93fe641b8b69ed0b262f1f0a750f876a7212fdd7a247c2956c48e84566c2cc2"
+            },
+            {
+                "type": "SELL",
+                "product": "7d40e1aab8ec90350dbc98f30651c836eced5d71492ea9893f1ae74fa3bcc072"
+            }
+        ]
+    }
 ]

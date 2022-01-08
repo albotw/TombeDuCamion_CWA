@@ -13,7 +13,7 @@ interface FilterData{
 
 export default class DataController
 {
-	public static connect = (nickname: string, password: string, callback: (data: any) => void) => {
+	public static connect = (nickname: string, password: string) => {
 		let query = gql`
 			query connect($nickname: String!, $hash: String!) {
 				connect(nickname: $nickname, hash: $hash) {
@@ -28,9 +28,41 @@ export default class DataController
 			hash: sha256(password).toString(CryptoJS.enc.Hex)
 		};
 
-		console.log(variables);
+		return DataController.grab(query, variables);
+	}
 
-		DataController.grab(query, variables).then(data => data.connect).then(data => callback(data));
+	public static getUser = (auth: any) =>	{
+		let query = gql`
+			query getUser($auth: AuthInfo!) {
+				getUser(auth: $auth) {
+					uid
+					nickname
+					email
+					totalSales
+					notation
+				}
+			}
+			`
+		let variables = {
+			auth: auth
+		}
+		return DataController.grab(query, variables);
+	}
+
+	public static createUser = (nickname: string, email: string, password: string) => {
+		let query = gql`
+			mutation createUser($nickname: String!, $email: String!, $password: String!) {
+				createUser(nickname: $nickname, email: $email, password: $password)
+			}
+		`;
+
+		let variables = {
+			nickname: nickname,
+			email: email,
+			password: sha256(password).toString(CryptoJS.enc.Hex)
+		}
+
+		return DataController.grab(query, variables);
 	}
 	// * fonction pour tester si l'API fonctionne, a supprimer
 	public static testApi = async (callback: (data: any) => void) =>
@@ -38,15 +70,6 @@ export default class DataController
 		console.log(environment.API);
 		let query = gql`
 		{
-			product(p_uid: "000") {
-				p_uid
-				seller
-				title
-				stock
-				description
-				images
-				comments
-			}
 		}`
 
 		DataController.grab(query, null).then(callback);
@@ -66,10 +89,10 @@ export default class DataController
 			message: message,
 			note: note,
 		}
-		DataController.grab(query, variables).then(result => result.createProduct).then(callback);
+		DataController.grab(query, variables).then(result => result.createComment).then(callback);
 	}
 
-	
+
 	public static postProduct = async (auth, seller: string, title: string, stock: number, description: string, category: string, price: number, callback: (data: any) => void) =>
 	{
 		let query = gql`
@@ -90,7 +113,7 @@ export default class DataController
 		DataController.grab(query, variables).then(result => result.createProduct).then(callback);
 	}
 
-	public static addImageToProduct = async(auth, p_uid: string, image: string, callback: (data: any) => void) => 
+	public static addImageToProduct = async(auth, p_uid: string, image: string, callback: (data: any) => void) =>
 	{
 		let query = gql`
 			mutation addImageToProduct($auth: AuthInfo!,	$p_uid: ID!,	$image: String!){
@@ -140,6 +163,26 @@ export default class DataController
 		DataController.grab(query, variables).then(result => result.top).then(callback);
 	}
 
+	public static getCommentsOfProduct = async (p_uid: string, callback: (data: any) => void) =>
+	{
+		let query = gql`
+			query getCommentsOfProduct($p_uid: String!) {
+				getCommentsOfProduct(p_uid: $p_uid) {
+				c_uid
+				author
+				date
+				message
+				note
+				}
+			}
+		`;
+
+		let variables = {
+			p_uid: p_uid
+		}
+
+		DataController.grab(query, variables).then(result => result.getCommentsOfProduct).then(callback);
+	}
 
 	/**
 	 * fonction pour récupérer un produit.
@@ -211,8 +254,35 @@ export default class DataController
 		DataController.grab(query, variables).then(result => result.searchProduct).then(callback);
 	}
 
+	/**
+	 * fonction pour la récupération de l'historique.
+	 * @param arg texte de la recherche.
+	 * @param limit nombre de résultats à récupérer
+	 * @param offset décalage des résultats
+	 */
+	 public static getHistory = async (auth, callback: (data: any) => void) =>
+	 {
+		let query = gql`
+		query getHistory($auth: AuthInfo!) {
+			getHistory(auth: $auth) {
+				type,
+				product
+			}
+		}
+		`
+
+		let variables = {
+			auth: auth
+		}
+
+		DataController.grab(query, variables).then(result => result.getHistory).then(callback);
+	 }
+ 
+
 	public static grab = async (query: any, variables: any | null) =>
 	{
 		return request(environment.API + "/graphql", query, variables, { "Content-Type": "application/json" });
 	}
+
+
 }

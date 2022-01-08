@@ -1,0 +1,17 @@
+.connexion {
+	display: flex;
+	flex-direction: column;
+	min-width: 30vw;
+	min-height: 30vh;
+}
+
+.center{
+	height: 40vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+button {
+	margin: 2%;
+}

@@ -33,7 +33,7 @@ type Query {
     getNickname(uid: String!) : String
 
     "Récupérer l'historique de l'utilisateur"
-    getHistory(uid: String!) : [HistoryElement]
+    getHistory(auth: AuthInfo!) : [HistoryElement]
 
     "Récupérer la notation d'un utilisateur"
     getNotation(target_uid: String!) : Float

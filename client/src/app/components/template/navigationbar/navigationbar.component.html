@@ -2,6 +2,7 @@
 	<button mat-button routerLink="{{DATA.redirection}}/accueil" class="logo"></button>
 	<span>Tombé du Camion</span>
 	<mat-form-field class="navbar-content">
+		<mat-label>Catégorie</mat-label>
 		<mat-select value="Categories" [(ngModel)]="cat">
 			<mat-option value="Categories">Categories</mat-option>
 			<mat-option *ngFor="let cat of CATEGORIES" [value]="cat">{{cat.replaceAll('-', ' ')}}</mat-option>
@@ -19,8 +20,11 @@
 	<!--<button mat-button routerLink="{{DATA.redirection}}/lol">LOL</button>-->
 	<!--<button mat-button routerLink="{{DATA.redirection}}/test-api">test api</button>-->
 
+	<mat-slide-toggle class="darkmode" color="accent" (click)="toggleDarkMode()"><i class="fa fa-moon"></i></mat-slide-toggle>
+
 	<button mat-button  routerLink="{{DATA.redirection}}/newSell">Ajouter une vente</button>
-	<button mat-button  routerLink="{{DATA.redirection}}/compte">Compte</button>
+	<button mat-button  routerLink="{{DATA.redirection}}/compte" *ngIf="connected">Compte</button>
+	<button mat-button 	routerLink="{{DATA.redirection}}/connexion" *ngIf="!connected">Connexion</button>
 	<button mat-button  routerLink="{{DATA.redirection}}/panier"
 		(mouseover)="panierOuvert = true" (mouseout)="panierOuvert = false"
 		cdkOverlayOrigin #trigger="cdkOverlayOrigin">

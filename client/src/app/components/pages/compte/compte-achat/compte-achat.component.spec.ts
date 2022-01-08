@@ -1,24 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { PanierComponent } from './panier.component';
 import { RouterTestingModule } from '@angular/router/testing';
 
-describe('PanierComponent', () => {
-  let component: PanierComponent;
-  let fixture: ComponentFixture<PanierComponent>;
+import { CompteAchatComponent } from './compte-achat.component';
+
+describe('CompteAchatComponent', () => {
+  let component: CompteAchatComponent;
+  let fixture: ComponentFixture<CompteAchatComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-      ],
-      declarations: [ PanierComponent ]
+      imports: [RouterTestingModule],
+      declarations: [ CompteAchatComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PanierComponent);
+    fixture = TestBed.createComponent(CompteAchatComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -26,6 +24,4 @@ describe('PanierComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-
 });

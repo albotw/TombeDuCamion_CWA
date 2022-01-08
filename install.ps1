@@ -1,5 +1,6 @@
 cd client
 npm install
+npm install font-awesome --save-dev
 echo "installation des packages du client terminée"
 
 cd ../API
