@@ -10,14 +10,13 @@
         ],
         "category": "pokemonItems",
         "comments": [
-            {},
-            {},
-            {}
+            "4c3754aab70f3f76067e55dd743344fe52ea98586e52eee3196275ba1aa8040c",
+            "e56d8d4cc62bf3962ee32ac8efca387f5f0e59f7fdc0ce68c6ce36bf57b0bcfb"
         ],
         "notation": 4.871,
         "price": 4000,
         "sales": 499,
-        "views": 1047
+        "views": 1132
     },
     {
         "p_uid": "62c7da2eeece29c4f0ce4d4eba90eab863f25ed6338b37123d966356dc2eb582",
@@ -4180,6 +4179,22 @@
         "views": 723
     },
     {
+        "p_uid": "cbf6eca452fd073c01066de1c5dd7a1d5c4cc301cca0e663fdaad093df7ff3d9",
+        "seller": "Prof. Chen",
+        "title": "mago-berry",
+        "stock": 70,
+        "description": "Held in battle\n:   When the holder has 1/2 its max HP remaining or less, it consumes this item to restore 1/8 its max HP.  If the holder dislikes sweet flavors (i.e., has a nature that lowers Speed), it will also become confused.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/mago-berry.png"
+        ],
+        "category": "picky-healing",
+        "comments": [],
+        "notation": 4.991,
+        "price": 20,
+        "sales": 65,
+        "views": 718
+    },
+    {
         "p_uid": "1ffe92a09c55de5d752ca8e97ea093a3f2e3b61af7f65af76e9dc03013cd9157",
         "seller": "Prof. Chen",
         "title": "tm79",
@@ -4868,6 +4883,22 @@
         "views": 671
     },
     {
+        "p_uid": "98a21d6faf28ab61036d23ff86529be2ae49f63ec78f79412c1b112a3f0578bb",
+        "seller": "Prof. Chen",
+        "title": "smoke-ball",
+        "stock": 181,
+        "description": "Held: In wild battles, attempts to run away on the holder's turn will always succeed.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/smoke-ball.png"
+        ],
+        "category": "held-items",
+        "comments": [],
+        "notation": 4.986,
+        "price": 4000,
+        "sales": 271,
+        "views": 668
+    },
+    {
         "p_uid": "4834b974ff285ecc3d001d6cff75a36c464921840dbb498f3ca30e0453d59fcb",
         "seller": "Prof. Chen",
         "title": "banettite",
@@ -4948,22 +4979,6 @@
         "views": 665
     },
     {
-        "p_uid": "cbf6eca452fd073c01066de1c5dd7a1d5c4cc301cca0e663fdaad093df7ff3d9",
-        "seller": "Prof. Chen",
-        "title": "mago-berry",
-        "stock": 70,
-        "description": "Held in battle\n:   When the holder has 1/2 its max HP remaining or less, it consumes this item to restore 1/8 its max HP.  If the holder dislikes sweet flavors (i.e., has a nature that lowers Speed), it will also become confused.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/mago-berry.png"
-        ],
-        "category": "picky-healing",
-        "comments": [],
-        "notation": 4.991,
-        "price": 20,
-        "sales": 65,
-        "views": 718
-    },
-    {
         "p_uid": "83f37ed3890f0a77bf592cf9fe803ee19d3797e46facf3f6af16b690d722fa5e",
         "seller": "Prof. Chen",
         "title": "tm27",
@@ -5010,22 +5025,6 @@
         "price": 1000,
         "sales": 445,
         "views": 661
-    },
-    {
-        "p_uid": "98a21d6faf28ab61036d23ff86529be2ae49f63ec78f79412c1b112a3f0578bb",
-        "seller": "Prof. Chen",
-        "title": "smoke-ball",
-        "stock": 181,
-        "description": "Held: In wild battles, attempts to run away on the holder's turn will always succeed.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/smoke-ball.png"
-        ],
-        "category": "held-items",
-        "comments": [],
-        "notation": 4.986,
-        "price": 4000,
-        "sales": 271,
-        "views": 666
     },
     {
         "p_uid": "ca1e94fd7354a7e01080f33d56331ebebf799eea0b14044befc110de405b2448",
@@ -8692,6 +8691,22 @@
         "views": 393
     },
     {
+        "p_uid": "053d89c239cdb53f759a64dd8ef7f6b3012e1a37f4eeb8ded2ea3d27070d7c42",
+        "seller": "Prof. Chen",
+        "title": "hm08",
+        "stock": 197,
+        "description": "Teaches Rock Climb to a compatible Pokémon.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/hm-normal.png"
+        ],
+        "category": "all-machines",
+        "comments": [],
+        "notation": 0.521,
+        "price": 0,
+        "sales": 499,
+        "views": 390
+    },
+    {
         "p_uid": "9c72d671ef19d4155c2d3eeece84e0475d3e4d22123bf6c6068d5d77b51a22d4",
         "seller": "Prof. Chen",
         "title": "tm90",
@@ -8929,22 +8944,6 @@
         "notation": 1.545,
         "price": 1000,
         "sales": 446,
-        "views": 378
-    },
-    {
-        "p_uid": "053d89c239cdb53f759a64dd8ef7f6b3012e1a37f4eeb8ded2ea3d27070d7c42",
-        "seller": "Prof. Chen",
-        "title": "hm08",
-        "stock": 197,
-        "description": "Teaches Rock Climb to a compatible Pokémon.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/hm-normal.png"
-        ],
-        "category": "all-machines",
-        "comments": [],
-        "notation": 0.521,
-        "price": 0,
-        "sales": 499,
         "views": 378
     },
     {
@@ -10225,7 +10224,7 @@
         "notation": 4.799,
         "price": 0,
         "sales": 499,
-        "views": 307
+        "views": 309
     },
     {
         "p_uid": "36400887f5dd40e8585c2c887d607e4065b7d32874af38f76d176413b46b6edb",

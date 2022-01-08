@@ -18,12 +18,14 @@ export class DetailProduitComponent implements OnInit
 	public comments: any = [];
 	public product: any = {};
 	public p_uid: string = "";
+	public wishlist: any = [];
 	public static instance : DetailProduitComponent;
 
 	constructor(private http: HttpClient, private route: ActivatedRoute, private _bottomSheet: MatBottomSheet)
 	{
 		this.p_uid = this.route.snapshot.paramMap.get('id');
 		console.log(this.p_uid);
+
 		DetailProduitComponent.instance = this;
 		DataController.getProduct(this.p_uid, (data) =>
 		{
@@ -78,9 +80,8 @@ export class DetailProduitComponent implements OnInit
 		if (this.product.stock > 0){
 			let alreadyExists = false;
 			let userCo = State.get(CacheData.Auth);
-			let wishlist;
-			DataController.getWishList(userCo, (dataW) => {wishlist=dataW});
-			for (let item of wishlist)
+			DataController.getWishList(userCo, (dataW) => {this.wishlist=dataW});
+			for (let item of this.wishlist)
 			{
 				if (item.p_uid == this.p_uid)
 				{
@@ -107,8 +108,13 @@ export class BottomNewCommSheet{
 	stars = 5;
 	commentaryGroup: FormGroup;
 	p_uid : string;
+	auth: string;
+
 	constructor(private _formBuilder: FormBuilder, private _bottomSheetRef: MatBottomSheetRef<BottomNewCommSheet>) {
 		this.p_uid = DetailProduitComponent.instance.p_uid;
+		DataController.getNickname(State.get(CacheData.Auth).uid, (data) => {
+			this.auth = data;
+		});
 	}
 
 	ngOnInit(): void {
@@ -128,7 +134,12 @@ export class BottomNewCommSheet{
 
 	post(): void{
 		let auth = State.get(CacheData.Auth);
-		DataController.postComment(auth, this.p_uid, this.commentaryGroup.value.commentary, this.stars,  (data) =>{});
+		let pcommentary = this.commentaryGroup.get('commentary');
+		DataController.postComment(auth, this.p_uid, pcommentary.value, this.stars,  (data) =>{});
+		DataController.getCommentsOfProduct(this.p_uid, (dataC) =>
+		{
+			DetailProduitComponent.instance.comments = dataC
+		})
 		this._bottomSheetRef.dismiss();
 		//TODO poster le commentaire
 	}
