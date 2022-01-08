@@ -20,9 +20,8 @@ ProductCount;
     this.TabProduits = State.get(CacheData.Panier);
     let productExists = false;
     for ( let i of this.TabProduits) {
-      console.log(i);
       if (i.product.p_uid === product.product.p_uid) {
-        i.count++;
+        i.count++;                       
         productExists = true;
         break;
       }
