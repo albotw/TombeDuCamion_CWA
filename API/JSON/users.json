@@ -7,7 +7,32 @@
         "wishlist": [],
         "totalSales": 0,
         "notation": 0,
-        "history": []
+        "history": [
+            {
+                "type": "BUY",
+                "product": "62c7da2eeece29c4f0ce4d4eba90eab863f25ed6338b37123d966356dc2eb582"
+            },
+            {
+                "type": "BUY",
+                "product": "c51bad7a2dcbd0c4bcd8f63672fef0198387ccaa9b575df1790a69ab4a33a15b"
+            },
+            {
+                "type": "BUY",
+                "product": "7b9adbddaaf29cd8227e09da978e38c2bcc61c07e87bf632bd087c0d918bafe8"
+            },
+            {
+                "type": "SELL",
+                "product": "f094fc04d653152553a65a5defa0e17c4cba74d63fe5bb09b274a768b032a00c"
+            },
+            {
+                "type": "SELL",
+                "product": "f93fe641b8b69ed0b262f1f0a750f876a7212fdd7a247c2956c48e84566c2cc2"
+            },
+            {
+                "type": "SELL",
+                "product": "7d40e1aab8ec90350dbc98f30651c836eced5d71492ea9893f1ae74fa3bcc072"
+            }
+        ]
     },
     {
         "uid": "001",

@@ -236,8 +236,35 @@ export default class DataController
 		DataController.grab(query, variables).then(result => result.searchProduct).then(callback);
 	}
 
+	/**
+	 * fonction pour la récupération de l'historique.
+	 * @param arg texte de la recherche.
+	 * @param limit nombre de résultats à récupérer
+	 * @param offset décalage des résultats
+	 */
+	 public static getHistory = async (auth, callback: (data: any) => void) =>
+	 {
+		let query = gql`
+		query getHistory($auth: AuthInfo!) {
+			getHistory(auth: $auth) {
+				type,
+				product
+			}
+		}
+		`
+
+		let variables = {
+			auth: auth
+		}
+
+		DataController.grab(query, variables).then(result => result.getHistory).then(callback);
+	 }
+ 
+
 	public static grab = async (query: any, variables: any | null) =>
 	{
 		return request(environment.API + "/graphql", query, variables, { "Content-Type": "application/json" });
 	}
+
+
 }
