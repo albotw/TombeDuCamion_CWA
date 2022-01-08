@@ -41,19 +41,22 @@ export default class commentsResolver {
         p_uid = p_uid as string;
         message = message as string;
         note = note as number;
-        if (userResolver.instance.isConnected(auth) && userResolver.instance.hasBoughtProduct(auth.uid, p_uid)) {
-            let c_uid = crypto.createHash("sha256").update(message + note + dayjs().format);
-            let comment : IComment = {
-                author: auth.uid,
-                c_uid: c_uid.digest("hex"),
-                date: dayjs().format("DD/MM/YYYY"),
-                message: message,
-                note: note
-            }
+        if (userResolver.instance.isConnected(auth)) {
+            if ( userResolver.instance.hasBoughtProduct(auth.uid, p_uid) && false) {
+                let c_uid = crypto.createHash("sha256").update(message + note + dayjs().format);
+                let comment: IComment = {
+                    author: auth.uid,
+                    c_uid: c_uid.digest("hex"),
+                    date: dayjs().format("DD/MM/YYYY"),
+                    message: message,
+                    note: note
+                }
 
-            this.commentsData.push(comment);
-            productResolver.instance.linkComment({auth, p_uid, c_uid});
-            this._saveComments();
+                this.commentsData.push(comment);
+                productResolver.instance.linkComment({auth, p_uid, c_uid});
+                this._saveComments();
+            }
+            else throw new Error("Produit non acheté");
         }
         else throw new Error("Connexion invalide");
     }
