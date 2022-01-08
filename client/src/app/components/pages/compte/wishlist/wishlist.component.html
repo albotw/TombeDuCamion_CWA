@@ -1,6 +1,35 @@
-<div id=act>
-    <p>Titre : </p>
-    <p>Description : </p>
-    <p>Date d'ajout : </p>
-    <p>Prix : </p>
+<div class="resultats">
+    <div *ngFor="let item of products">
+      <mat-card class="produit">
+        <mat-card-header class="mat-card-head">
+          <mat-card-title-group>
+            <mat-card-title *ngIf="item !== undefined" routerLink='/produit/{{item.p_uid}}' class="title">{{item.title.replace("-"," ")}}</mat-card-title>
+            <mat-card-subtitle class="mat-card-subtitle">
+              <mat-card-content>
+                {{item.description}}
+              </mat-card-content>
+            </mat-card-subtitle>
+            <img mat-card-sm-image src="{{item.images[0]}}">
+          </mat-card-title-group>
+        </mat-card-header>
+
+        <mat-divider inset></mat-divider>
+
+        <div style="display: flex;">
+        <mat-card-actions id=bouton align="end">
+          <!--button mat-button (click)="removeWish()">DEL</button-->
+        </mat-card-actions>
+          <mat-card class="mat-card-vente" style="flex: 1 1 auto;">Total : {{item.price}} €</mat-card>
+          <mat-card class="mat-card-vente" style="flex: 1 1 auto;">
+            <div *ngFor="let i of [0,1,2,3,4]" class="stars">
+              <mat-icon *ngIf="i>=item.notation-1">star_outline</mat-icon>
+              <mat-icon *ngIf="i<item.notation-1">star</mat-icon>
+            </div>
+            <div style="display: inline-block; align-items: stretch;">
+              ({{item.sales}})
+            </div>
+          </mat-card>
+        </div>
+      </mat-card>
+    </div>
 </div>

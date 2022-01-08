@@ -1,24 +1,5 @@
 [
     {
-        "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
-        "seller": "Prof. Chen",
-        "title": "shell-bell",
-        "stock": 156,
-        "description": "Held: Heals the holder by 1/8 of any damage it inflicts.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
-        ],
-        "category": "pokemonItems",
-        "comments": [
-            "4c3754aab70f3f76067e55dd743344fe52ea98586e52eee3196275ba1aa8040c",
-            "e56d8d4cc62bf3962ee32ac8efca387f5f0e59f7fdc0ce68c6ce36bf57b0bcfb"
-        ],
-        "notation": 4.871,
-        "price": 4000,
-        "sales": 499,
-        "views": 1134
-    },
-    {
         "p_uid": "62c7da2eeece29c4f0ce4d4eba90eab863f25ed6338b37123d966356dc2eb582",
         "seller": "Prof. Chen",
         "title": "armor-fossil",
@@ -32,7 +13,7 @@
         "notation": 2.702,
         "price": 7000,
         "sales": 317,
-        "views": 1026
+        "views": 1090
     },
     {
         "p_uid": "c51bad7a2dcbd0c4bcd8f63672fef0198387ccaa9b575df1790a69ab4a33a15b",
@@ -48,7 +29,23 @@
         "notation": 2.064,
         "price": 0,
         "sales": 9,
-        "views": 1010
+        "views": 1073
+    },
+    {
+        "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
+        "seller": "Prof. Chen",
+        "title": "shell-bell",
+        "stock": 156,
+        "description": "Held: Heals the holder by 1/8 of any damage it inflicts.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
+        ],
+        "category": "pokemonItems",
+        "comments": [],
+        "notation": 4.871,
+        "price": 4000,
+        "sales": 499,
+        "views": 1051
     },
     {
         "p_uid": "7b9adbddaaf29cd8227e09da978e38c2bcc61c07e87bf632bd087c0d918bafe8",
@@ -65,6 +62,22 @@
         "price": 10000,
         "sales": 225,
         "views": 1009
+    },
+    {
+        "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
+        "seller": "Prof. Chen",
+        "title": "shell-bell",
+        "stock": 156,
+        "description": "Held: Heals the holder by 1/8 of any damage it inflicts.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
+        ],
+        "category": "pokemonItems",
+        "comments": [],
+        "notation": 4.871,
+        "price": 4000,
+        "sales": 499,
+        "views": 999
     },
     {
         "p_uid": "f094fc04d653152553a65a5defa0e17c4cba74d63fe5bb09b274a768b032a00c",
@@ -1569,6 +1582,22 @@
         "price": 0,
         "sales": 463,
         "views": 894
+    },
+    {
+        "p_uid": "85441a43c7cb9f242a5c20c6648026689c795ad4e8321e215bf68d48fc9a4b1c",
+        "seller": "Prof. Chen",
+        "title": "permit",
+        "stock": 172,
+        "description": "",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/permit.png"
+        ],
+        "category": "pokemonItems",
+        "comments": [],
+        "notation": 4.997,
+        "price": 0,
+        "sales": 92,
+        "views": 893
     },
     {
         "p_uid": "a3c6fdba300835d28e0c3fb1c03db22ecb8175504b4ab800ee7799ee0311b2aa",
@@ -4192,7 +4221,7 @@
         "notation": 4.991,
         "price": 20,
         "sales": 65,
-        "views": 718
+        "views": 720
     },
     {
         "p_uid": "1ffe92a09c55de5d752ca8e97ea093a3f2e3b61af7f65af76e9dc03013cd9157",
@@ -4929,6 +4958,22 @@
         "price": 0,
         "sales": 31,
         "views": 667
+    },
+    {
+        "p_uid": "98a21d6faf28ab61036d23ff86529be2ae49f63ec78f79412c1b112a3f0578bb",
+        "seller": "Prof. Chen",
+        "title": "smoke-ball",
+        "stock": 181,
+        "description": "Held: In wild battles, attempts to run away on the holder's turn will always succeed.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/smoke-ball.png"
+        ],
+        "category": "held-items",
+        "comments": [],
+        "notation": 4.986,
+        "price": 4000,
+        "sales": 271,
+        "views": 666
     },
     {
         "p_uid": "df9e772cec2c767da7763cd54a8badbec704083fdb8625cafa4d2bc38d04b444",

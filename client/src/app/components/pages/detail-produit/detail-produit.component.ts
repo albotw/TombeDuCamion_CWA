@@ -6,6 +6,7 @@ import DataController from '../../../shared/DataController';
 import State, { CacheData } from "../../../shared/State";
 import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { request, gql } from "graphql-request";
 
 
 @Component({
@@ -76,6 +77,21 @@ export class DetailProduitComponent implements OnInit
 		}
 	}
 
+	//partie wishlist
+	addToWishlist() : any {
+		let auth = State.get(CacheData.Auth);
+		let alreadyExists = false;
+		let wishlist;
+		this.getWishlist(auth).then(wish => {wishlist=wish});
+
+		/*for (let item of wishlist)
+		{
+			if (item.p_uid != this.p_uid)
+			{*/
+				this.addWish(auth, this.p_uid);
+			/*}
+			else{
+				console.log('déjà présent dans la wishlist');
 	addToWishlist() : boolean{
 		if (this.product.stock > 0){
 			let alreadyExists = false;
@@ -92,12 +108,39 @@ export class DetailProduitComponent implements OnInit
 			{
 				DataController.addWishList(userCo, this.p_uid,  (data) =>{});
 			}
-			return true;
-		}
-		else{
-			return false;
-		}
+		}*/
 	}
+
+	public getWishlist = async (auth: any) =>
+	{
+		let query = gql`
+		query getWishlist($auth: AuthInfo) {
+			getWishlist(auth: $auth)
+		}
+	`
+    let variables = {
+      auth: auth
+    }
+    let wish : any = await request(environment.API + "/graphql", query, variables, { "Content-Type": "application/json" });
+    console.log(wish);
+    return wish;
+	}
+
+	public addWish = async (auth: any, product: string) =>
+	{
+		let mutation = gql`
+		mutation addWish($auth: AuthInfo!, $product: ID!) {
+			addToWishlist(auth: $auth, product: $product)
+		}
+		`
+		let variables = {
+		auth: auth,
+		product: product
+		}
+		let wish : any = await request(environment.API + "/graphql", mutation, variables, { "Content-Type": "application/json" });
+		return wish.addWish;
+	}
+	//fin wishlist
 }
 
 @Component({
