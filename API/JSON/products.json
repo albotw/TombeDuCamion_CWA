@@ -1,69 +1,5 @@
 [
     {
-        "p_uid": "62c7da2eeece29c4f0ce4d4eba90eab863f25ed6338b37123d966356dc2eb582",
-        "seller": "Prof. Chen",
-        "title": "armor-fossil",
-        "stock": 91,
-        "description": "Give to a scientist in the mining museum in oreburgh city or the Museum of Science in pewter city to receive a shieldon.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/armor-fossil.png"
-        ],
-        "category": "dex-completion",
-        "comments": [],
-        "notation": 2.702,
-        "price": 7000,
-        "sales": 317,
-        "views": 1074
-    },
-    {
-        "p_uid": "c51bad7a2dcbd0c4bcd8f63672fef0198387ccaa9b575df1790a69ab4a33a15b",
-        "seller": "Prof. Chen",
-        "title": "acro-bike",
-        "stock": 149,
-        "description": "Increases movement speed outside or in caves.  Slower than the mach bike.  Can perform various tricks, allowing the trainer to reach certain special areas.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/acro-bike.png"
-        ],
-        "category": "gameplay",
-        "comments": [],
-        "notation": 2.064,
-        "price": 0,
-        "sales": 9,
-        "views": 1054
-    },
-    {
-        "p_uid": "7b9adbddaaf29cd8227e09da978e38c2bcc61c07e87bf632bd087c0d918bafe8",
-        "seller": "Prof. Chen",
-        "title": "tm02",
-        "stock": 168,
-        "description": "Teaches Dragon Claw to a compatible Pokémon.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/tm-normal.png"
-        ],
-        "category": "all-machines",
-        "comments": [],
-        "notation": 3.369,
-        "price": 10000,
-        "sales": 225,
-        "views": 1053
-    },
-    {
-        "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
-        "seller": "Prof. Chen",
-        "title": "shell-bell",
-        "stock": 156,
-        "description": "Held: Heals the holder by 1/8 of any damage it inflicts.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
-        ],
-        "category": "pokemonItems",
-        "comments": [],
-        "notation": 4.871,
-        "price": 4000,
-        "sales": 499,
-        "views": 1047
-    },
-    {
         "p_uid": "f094fc04d653152553a65a5defa0e17c4cba74d63fe5bb09b274a768b032a00c",
         "seller": "Prof. Chen",
         "title": "dragon-scale",
@@ -77,7 +13,23 @@
         "notation": 1.277,
         "price": 2000,
         "sales": 393,
-        "views": 1036
+        "views": 1086
+    },
+    {
+        "p_uid": "62c7da2eeece29c4f0ce4d4eba90eab863f25ed6338b37123d966356dc2eb582",
+        "seller": "Prof. Chen",
+        "title": "armor-fossil",
+        "stock": 91,
+        "description": "Give to a scientist in the mining museum in oreburgh city or the Museum of Science in pewter city to receive a shieldon.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/armor-fossil.png"
+        ],
+        "category": "dex-completion",
+        "comments": [],
+        "notation": 2.702,
+        "price": 7000,
+        "sales": 317,
+        "views": 1086
     },
     {
         "p_uid": "f93fe641b8b69ed0b262f1f0a750f876a7212fdd7a247c2956c48e84566c2cc2",
@@ -93,7 +45,7 @@
         "notation": 1.101,
         "price": 1000,
         "sales": 418,
-        "views": 1031
+        "views": 1083
     },
     {
         "p_uid": "7d40e1aab8ec90350dbc98f30651c836eced5d71492ea9893f1ae74fa3bcc072",
@@ -109,7 +61,55 @@
         "notation": 3.867,
         "price": 20,
         "sales": 62,
-        "views": 1029
+        "views": 1079
+    },
+    {
+        "p_uid": "c51bad7a2dcbd0c4bcd8f63672fef0198387ccaa9b575df1790a69ab4a33a15b",
+        "seller": "Prof. Chen",
+        "title": "acro-bike",
+        "stock": 149,
+        "description": "Increases movement speed outside or in caves.  Slower than the mach bike.  Can perform various tricks, allowing the trainer to reach certain special areas.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/acro-bike.png"
+        ],
+        "category": "gameplay",
+        "comments": [],
+        "notation": 2.064,
+        "price": 0,
+        "sales": 9,
+        "views": 1064
+    },
+    {
+        "p_uid": "7b9adbddaaf29cd8227e09da978e38c2bcc61c07e87bf632bd087c0d918bafe8",
+        "seller": "Prof. Chen",
+        "title": "tm02",
+        "stock": 168,
+        "description": "Teaches Dragon Claw to a compatible Pokémon.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/tm-normal.png"
+        ],
+        "category": "all-machines",
+        "comments": [],
+        "notation": 3.369,
+        "price": 10000,
+        "sales": 225,
+        "views": 1063
+    },
+    {
+        "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
+        "seller": "Prof. Chen",
+        "title": "shell-bell",
+        "stock": 156,
+        "description": "Held: Heals the holder by 1/8 of any damage it inflicts.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
+        ],
+        "category": "pokemonItems",
+        "comments": [],
+        "notation": 4.871,
+        "price": 4000,
+        "sales": 499,
+        "views": 1049
     },
     {
         "p_uid": "e02d613f7cbac5f8d2fd202d61f2672f88bb60d8525ec1f4955509d4eaf3c29e",
