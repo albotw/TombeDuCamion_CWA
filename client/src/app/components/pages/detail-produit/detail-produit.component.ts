@@ -15,18 +15,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class DetailProduitComponent implements OnInit
 {
-
+	public comments: any = {};
 	public product: any = {};
 	public p_uid: string = "";
-
+	public static instance : DetailProduitComponent;
 
 	constructor(private http: HttpClient, private route: ActivatedRoute, private _bottomSheet: MatBottomSheet)
 	{
 		this.p_uid = this.route.snapshot.paramMap.get('id');
-
+		console.log(this.p_uid);
+		DetailProduitComponent.instance = this;
 		DataController.getProduct(this.p_uid, (data) =>
 		{
 			this.product = data
+		})
+
+		DataController.getCommentsOfProduct(this.p_uid, (dataC) =>
+		{
+			this.comments = dataC
 		})
 	}
 
@@ -68,7 +74,8 @@ export class DetailProduitComponent implements OnInit
 		}
 	}
 
-	/*addToWishlist() : boolean{
+	addToWishlist() : boolean{
+		/*
 		if (this.product.stock > 0){
 			let alreadyExists = false;
 			let userCo = State.get(CacheData.Auth);
@@ -91,9 +98,10 @@ export class DetailProduitComponent implements OnInit
 			return true;
 		}
 		else{
+			*/
 			return false;
-		}
-	}*/
+		//}
+	}
 }
 
 @Component({
@@ -103,7 +111,9 @@ export class DetailProduitComponent implements OnInit
 export class BottomNewCommSheet {
 	stars = 5;
 	commentaryGroup: FormGroup;
-	constructor(private _formBuilder: FormBuilder) {
+	p_uid : string;
+	constructor(private _formBuilder: FormBuilder, private _bottomSheetRef: MatBottomSheetRef<BottomNewCommSheet>) {
+		this.p_uid = DetailProduitComponent.instance.p_uid;
 	}
 
 	ngOnInit(): void {
@@ -122,9 +132,9 @@ export class BottomNewCommSheet {
 	}
 
 	post(): void{
-		//this.commentaryGroup;
-		//this.p_uid
-		//this.stars
+		let auth = State.get(CacheData.Auth);
+		DataController.postComment(auth, this.p_uid, this.commentaryGroup.value.commentary, this.stars,  (data) =>{});
+		this._bottomSheetRef.dismiss();
 		//TODO poster le commentaire
 	}
 

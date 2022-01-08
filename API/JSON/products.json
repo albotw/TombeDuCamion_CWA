@@ -1,5 +1,21 @@
 [
     {
+        "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
+        "seller": "Prof. Chen",
+        "title": "shell-bell",
+        "stock": 156,
+        "description": "Held: Heals the holder by 1/8 of any damage it inflicts.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
+        ],
+        "category": "pokemonItems",
+        "comments": [],
+        "notation": 4.871,
+        "price": 4000,
+        "sales": 499,
+        "views": 1041
+    },
+    {
         "p_uid": "62c7da2eeece29c4f0ce4d4eba90eab863f25ed6338b37123d966356dc2eb582",
         "seller": "Prof. Chen",
         "title": "armor-fossil",
@@ -1008,22 +1024,6 @@
         "views": 930
     },
     {
-        "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
-        "seller": "Prof. Chen",
-        "title": "shell-bell",
-        "stock": 156,
-        "description": "Held: Heals the holder by 1/8 of any damage it inflicts.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
-        ],
-        "category": "pokemonItems",
-        "comments": [],
-        "notation": 4.871,
-        "price": 4000,
-        "sales": 499,
-        "views": 939
-    },
-    {
         "p_uid": "0dc3c68a7c760b8d07699291b45ef55a30b423d46ebceb05a3466c21547b6247",
         "seller": "Prof. Chen",
         "title": "liberty-pass",
@@ -1408,6 +1408,22 @@
         "views": 903
     },
     {
+        "p_uid": "85441a43c7cb9f242a5c20c6648026689c795ad4e8321e215bf68d48fc9a4b1c",
+        "seller": "Prof. Chen",
+        "title": "permit",
+        "stock": 172,
+        "description": "",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/permit.png"
+        ],
+        "category": "gameplay",
+        "comments": [],
+        "notation": 4.997,
+        "price": 0,
+        "sales": 92,
+        "views": 901
+    },
+    {
         "p_uid": "8afe1a27ee63917ba4e79fc5d5b759aacb7d9ca92f47b3cd14ee65f411bc2cf5",
         "seller": "Prof. Chen",
         "title": "town-map",
@@ -1630,22 +1646,6 @@
         "price": 1000,
         "sales": 4,
         "views": 890
-    },
-    {
-        "p_uid": "85441a43c7cb9f242a5c20c6648026689c795ad4e8321e215bf68d48fc9a4b1c",
-        "seller": "Prof. Chen",
-        "title": "permit",
-        "stock": 172,
-        "description": "",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/permit.png"
-        ],
-        "category": "gameplay",
-        "comments": [],
-        "notation": 4.997,
-        "price": 0,
-        "sales": 92,
-        "views": 893
     },
     {
         "p_uid": "be1d00861ddf710478dfc40fca159aacf986f6f564e886fa257fa3719cfb6bc3",

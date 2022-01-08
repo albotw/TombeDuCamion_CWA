@@ -277,7 +277,7 @@ export default class DataController
 
 		DataController.grab(query, variables).then(result => result.getHistory).then(callback);
 	 }
- 
+
 
 	public static grab = async (query: any, variables: any | null) =>
 	{

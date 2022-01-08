@@ -33,23 +33,12 @@
 			</p>
 		</div>
 
-
-
-
-			<button mat-flat-button color="warn" (click)="addToPanier();">
-				Ajouter au panier
-				<mat-icon>add_shopping_cart</mat-icon>
-			</button>
-			<button mat-flat-button color="warn">
-				Ajouter à la wishlist
-				<mat-icon>assignment_turned_in</mat-icon>
-			</button>
 		</div>
 	</div>
 
 	<div style="width: 58%; float:right; border: 1px solid; padding: 5px;">
 		<h2>Commentaires : </h2>
-		<div>
+		<div style="margin: 20px;">
 			<mat-card *ngFor="let com of product.comments">
 				<mat-card-title>{{com.title}}</mat-card-title>
 				<mat-card-subtitle>{{com.note}}</mat-card-subtitle>
