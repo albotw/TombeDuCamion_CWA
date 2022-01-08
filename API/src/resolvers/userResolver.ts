@@ -14,11 +14,11 @@ export default class userResolver
     private _modificationThreshold: number = 10;
     private _modificationCounter: number = 0;
 
-    private _connectedPool: Map<IAuthData, dayjs.Dayjs>;
+    private _connectedPool: Map<string, dayjs.Dayjs>;
 
     public constructor()
     {
-        this._connectedPool = new Map<IAuthData, dayjs.Dayjs>();
+        this._connectedPool = new Map<string, dayjs.Dayjs>();
 
         setInterval(this._purge, this.CHECK_DELAY);
     }
@@ -60,8 +60,7 @@ export default class userResolver
                 token: crypto.randomBytes(50).toString("hex")
             }
             let disconnectTime = dayjs().add(this.ALIVE_DURATION, "ms");
-            this._connectedPool.set(auth, disconnectTime);
-
+            this._connectedPool.set(auth.token, disconnectTime);
             return auth;
         }
         else throw new Error("NOT_FOUND");
@@ -70,7 +69,9 @@ export default class userResolver
     public isConnected = (auth: IAuthData): boolean =>
     {
         let bypass = false;
-        return this._connectedPool.has(auth) || bypass;
+        console.log(auth);
+        console.log(this._connectedPool.has(auth.token) || bypass);
+        return this._connectedPool.has(auth.token);
     }
 
     public disconnect = ({ auth }) =>

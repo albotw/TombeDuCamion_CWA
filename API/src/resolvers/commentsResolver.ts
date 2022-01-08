@@ -42,7 +42,7 @@ export default class commentsResolver {
         message = message as string;
         note = note as number;
         if (userResolver.instance.isConnected(auth)) {
-            if ( userResolver.instance.hasBoughtProduct(auth.uid, p_uid) && false) {
+            if ( userResolver.instance.hasBoughtProduct(auth.uid, p_uid) || true) {
                 let c_uid = crypto.createHash("sha256").update(message + note + dayjs().format);
                 let comment: IComment = {
                     author: auth.uid,
