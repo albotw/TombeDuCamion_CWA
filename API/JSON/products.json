@@ -9,11 +9,15 @@
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
         ],
         "category": "pokemonItems",
-        "comments": [],
+        "comments": [
+            {},
+            {},
+            {}
+        ],
         "notation": 4.871,
         "price": 4000,
         "sales": 499,
-        "views": 1041
+        "views": 1047
     },
     {
         "p_uid": "62c7da2eeece29c4f0ce4d4eba90eab863f25ed6338b37123d966356dc2eb582",
@@ -1376,6 +1380,22 @@
         "views": 908
     },
     {
+        "p_uid": "85441a43c7cb9f242a5c20c6648026689c795ad4e8321e215bf68d48fc9a4b1c",
+        "seller": "Prof. Chen",
+        "title": "permit",
+        "stock": 172,
+        "description": "",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/permit.png"
+        ],
+        "category": "gameplay",
+        "comments": [],
+        "notation": 4.997,
+        "price": 0,
+        "sales": 92,
+        "views": 907
+    },
+    {
         "p_uid": "8a86d6aab65eb3c9cfc70685791c97a764f47059d8e52c6927817c8ab8627539",
         "seller": "Prof. Chen",
         "title": "fab-mail",
@@ -1406,22 +1426,6 @@
         "price": 20,
         "sales": 92,
         "views": 903
-    },
-    {
-        "p_uid": "85441a43c7cb9f242a5c20c6648026689c795ad4e8321e215bf68d48fc9a4b1c",
-        "seller": "Prof. Chen",
-        "title": "permit",
-        "stock": 172,
-        "description": "",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/permit.png"
-        ],
-        "category": "gameplay",
-        "comments": [],
-        "notation": 4.997,
-        "price": 0,
-        "sales": 92,
-        "views": 901
     },
     {
         "p_uid": "8afe1a27ee63917ba4e79fc5d5b759aacb7d9ca92f47b3cd14ee65f411bc2cf5",
@@ -3904,6 +3908,22 @@
         "views": 749
     },
     {
+        "p_uid": "0d10db30856883cef441fc20fe9a4336ecc45eb73c7c541108520015d48ee0a4",
+        "seller": "Prof. Chen",
+        "title": "pidgeotite",
+        "stock": 137,
+        "description": "Held: Allows Pidgeot to Mega Evolve into Mega Pidgeot.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/pidgeotite.png"
+        ],
+        "category": "mega-stones",
+        "comments": [],
+        "notation": 4.986,
+        "price": 0,
+        "sales": 368,
+        "views": 748
+    },
+    {
         "p_uid": "a55fe2727c41485a938fe9e73b0491e8c8fa5868a520ee6e88d6b6ee4111087d",
         "seller": "Prof. Chen",
         "title": "normalium-z--bag",
@@ -3998,22 +4018,6 @@
         "price": 20,
         "sales": 291,
         "views": 741
-    },
-    {
-        "p_uid": "0d10db30856883cef441fc20fe9a4336ecc45eb73c7c541108520015d48ee0a4",
-        "seller": "Prof. Chen",
-        "title": "pidgeotite",
-        "stock": 137,
-        "description": "Held: Allows Pidgeot to Mega Evolve into Mega Pidgeot.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/pidgeotite.png"
-        ],
-        "category": "mega-stones",
-        "comments": [],
-        "notation": 4.986,
-        "price": 0,
-        "sales": 368,
-        "views": 739
     },
     {
         "p_uid": "99980548a3d6fb3ab3c099deb64b924369ad0f6af524a406402c8a910b09ba55",
@@ -5021,7 +5025,7 @@
         "notation": 4.986,
         "price": 4000,
         "sales": 271,
-        "views": 657
+        "views": 666
     },
     {
         "p_uid": "ca1e94fd7354a7e01080f33d56331ebebf799eea0b14044befc110de405b2448",

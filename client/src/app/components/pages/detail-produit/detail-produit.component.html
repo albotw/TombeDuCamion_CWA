@@ -21,7 +21,7 @@
 					<mat-icon>add_shopping_cart</mat-icon>
 				</button>
 
-				<button style="align-self: center; width: 200px; height: 60px;" mat-flat-button color="warn" (click)="addToPanier();">
+				<button style="align-self: center; width: 200px; height: 60px;" mat-flat-button color="warn" (click)="addToWishlist();">
 					Ajouter a la wishlist
 					<mat-icon>add_shopping_cart</mat-icon>
 				</button>
@@ -39,7 +39,7 @@
 	<div style="width: 58%; float:right; border: 1px solid; padding: 5px;">
 		<h2>Commentaires : </h2>
 		<div style="margin: 20px;">
-			<mat-card *ngFor="let com of product.comments">
+			<mat-card *ngFor="let com of comments">
 				<mat-card-title>{{com.title}}</mat-card-title>
 				<mat-card-subtitle>{{com.note}}</mat-card-subtitle>
 				<mat-card-content>{{com.content}}</mat-card-content>

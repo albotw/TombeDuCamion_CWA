@@ -199,6 +199,21 @@ export default class DataController
 		DataController.grab(query, variables).then(result => result.getCommentsOfProduct).then(callback);
 	}
 
+	public static getWishList = async (auth, callback: (data: any) => void) =>
+	{
+		let query = gql`
+			query getWishlist($auth: AuthInfo) {
+				getWishlist(auth: $auth)
+			}
+		`;
+
+		let variables = {
+			auth: auth
+		}
+
+		DataController.grab(query, variables).then(result => result.getWishList).then(callback);
+	}
+
 	/**
 	 * fonction pour récupérer un produit.
 	 * @param id identifiant unique du produit

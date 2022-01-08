@@ -15,7 +15,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class DetailProduitComponent implements OnInit
 {
-	public comments: any = {};
+	public comments: any = [];
 	public product: any = {};
 	public p_uid: string = "";
 	public static instance : DetailProduitComponent;
@@ -75,32 +75,27 @@ export class DetailProduitComponent implements OnInit
 	}
 
 	addToWishlist() : boolean{
-		/*
 		if (this.product.stock > 0){
 			let alreadyExists = false;
 			let userCo = State.get(CacheData.Auth);
-			let id1 = userCo.id;
+			let wishlist;
+			DataController.getWishList(userCo, (dataW) => {wishlist=dataW});
 			for (let item of wishlist)
 			{
-				if (item.product.p_uid == this.product.p_uid)
+				if (item.p_uid == this.p_uid)
 				{
-					item.count += 1;
 					alreadyExists = true;
 				}
 			}
 			if (!alreadyExists)
 			{
-				let toCache = {
-					count: 1,
-					product: this.product,
-				}
+				DataController.addWishList(userCo, this.p_uid,  (data) =>{});
 			}
 			return true;
 		}
 		else{
-			*/
 			return false;
-		//}
+		}
 	}
 }
 
@@ -108,7 +103,7 @@ export class DetailProduitComponent implements OnInit
 	selector: 'new-commentary',
 	templateUrl: './new-commentary.component.html',
 })
-export class BottomNewCommSheet {
+export class BottomNewCommSheet{
 	stars = 5;
 	commentaryGroup: FormGroup;
 	p_uid : string;
