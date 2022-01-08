@@ -11,7 +11,7 @@ export default class userResolver
     private CHECK_DELAY = 30000; // vérification toutes les 30 sec.
 
     private _userData: IUser[] = require("../../JSON/users.json");
-    private _modificationThreshold: number = 0;
+    private _modificationThreshold: number = 10;
     private _modificationCounter: number = 0;
 
     private _connectedPool: Map<IAuthData, dayjs.Dayjs>;
@@ -41,6 +41,7 @@ export default class userResolver
             if (disconnectTime.isAfter(dayjs()))
             {
                 this._connectedPool.delete(user);
+                console.log("disconnected: " + user);
             }
         });
     }
