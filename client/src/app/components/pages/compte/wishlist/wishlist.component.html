@@ -17,7 +17,7 @@
 
         <div style="display: flex;">
         <mat-card-actions id=bouton align="end">
-          <!--button mat-button (click)="removeWish()">DEL</button-->
+          <button mat-button (click)="removeFromWishlist(item.p_uid)">DEL</button>
         </mat-card-actions>
           <mat-card class="mat-card-vente" style="flex: 1 1 auto;">Total : {{item.price}} €</mat-card>
           <mat-card class="mat-card-vente" style="flex: 1 1 auto;">
