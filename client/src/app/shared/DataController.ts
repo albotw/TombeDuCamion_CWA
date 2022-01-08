@@ -92,6 +92,21 @@ export default class DataController
 		DataController.grab(query, variables).then(result => result.createComment).then(callback);
 	}
 
+	public static addWishList = async (auth, product: string, callback: (data: any) => void) =>
+	{
+		let query = gql`
+				mutation addToWishlist($auth: AuthInfo!, $product: ID!) {
+					addToWishlist(auth: $auth, product: $product)
+				}
+		`
+
+		let variables = {
+			auth: auth,
+			product: product,
+		}
+		DataController.grab(query, variables).then(result => result.addToWishlist).then(callback);
+	}
+
 
 	public static postProduct = async (auth, seller: string, title: string, stock: number, description: string, category: string, price: number, callback: (data: any) => void) =>
 	{
@@ -182,6 +197,21 @@ export default class DataController
 		}
 
 		DataController.grab(query, variables).then(result => result.getCommentsOfProduct).then(callback);
+	}
+
+	public static getWishList = async (auth, callback: (data: any) => void) =>
+	{
+		let query = gql`
+			query getWishlist($auth: AuthInfo) {
+				getWishlist(auth: $auth)
+			}
+		`;
+
+		let variables = {
+			auth: auth
+		}
+
+		DataController.grab(query, variables).then(result => result.getWishList).then(callback);
 	}
 
 	/**
@@ -277,7 +307,7 @@ export default class DataController
 
 		DataController.grab(query, variables).then(result => result.getHistory).then(callback);
 	 }
- 
+
 
 	public static grab = async (query: any, variables: any | null) =>
 	{

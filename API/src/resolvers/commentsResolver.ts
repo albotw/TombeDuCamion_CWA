@@ -11,7 +11,7 @@ export default class commentsResolver {
     public static instance: commentsResolver;
 
     private commentsData : IComment[] = require("../../JSON/comments.json");
-    private modificationThreshold: number = 10;
+    private modificationThreshold: number = 0;
     private modificationCounter : number = 0;
 
     public static create() {
@@ -42,7 +42,7 @@ export default class commentsResolver {
         message = message as string;
         note = note as number;
         if (userResolver.instance.isConnected(auth)) {
-            if ( userResolver.instance.hasBoughtProduct(auth.uid, p_uid) && false) {
+            if ( userResolver.instance.hasBoughtProduct(auth.uid, p_uid) || true) {
                 let c_uid = crypto.createHash("sha256").update(message + note + dayjs().format);
                 let comment: IComment = {
                     author: auth.uid,
@@ -55,6 +55,8 @@ export default class commentsResolver {
                 this.commentsData.push(comment);
                 productResolver.instance.linkComment({auth, p_uid, c_uid});
                 this._saveComments();
+
+                return "Commentaire publié";
             }
             else throw new Error("Produit non acheté");
         }

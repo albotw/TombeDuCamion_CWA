@@ -11,7 +11,7 @@ export default class productResolver {
     public static instance : productResolver;
 
     private productData : IProduct[] = require("../../JSON/products.json");
-    private modificationThreshold : number = 10;
+    private modificationThreshold : number = 0;
     private modificationCounter : number = 0;
 
     public static create() {
