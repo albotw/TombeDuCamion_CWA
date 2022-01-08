@@ -45,7 +45,7 @@
         "notation": 4.871,
         "price": 4000,
         "sales": 499,
-        "views": 1051
+        "views": 1055
     },
     {
         "p_uid": "7b9adbddaaf29cd8227e09da978e38c2bcc61c07e87bf632bd087c0d918bafe8",
@@ -3949,7 +3949,7 @@
         "notation": 4.986,
         "price": 0,
         "sales": 368,
-        "views": 748
+        "views": 750
     },
     {
         "p_uid": "a55fe2727c41485a938fe9e73b0491e8c8fa5868a520ee6e88d6b6ee4111087d",
@@ -4221,7 +4221,7 @@
         "notation": 4.991,
         "price": 20,
         "sales": 65,
-        "views": 720
+        "views": 722
     },
     {
         "p_uid": "1ffe92a09c55de5d752ca8e97ea093a3f2e3b61af7f65af76e9dc03013cd9157",
@@ -8864,6 +8864,22 @@
         "views": 382
     },
     {
+        "p_uid": "053d89c239cdb53f759a64dd8ef7f6b3012e1a37f4eeb8ded2ea3d27070d7c42",
+        "seller": "Prof. Chen",
+        "title": "hm08",
+        "stock": 197,
+        "description": "Teaches Rock Climb to a compatible Pokémon.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/hm-normal.png"
+        ],
+        "category": "all-machines",
+        "comments": [],
+        "notation": 0.521,
+        "price": 0,
+        "sales": 499,
+        "views": 382
+    },
+    {
         "p_uid": "4e7fdb3245b074ad2913ac92f92caf34125b7606be312ff6c2becc72eb6e8844",
         "seller": "Prof. Chen",
         "title": "shadow-mail",
@@ -8957,22 +8973,6 @@
         "notation": 1.545,
         "price": 1000,
         "sales": 446,
-        "views": 378
-    },
-    {
-        "p_uid": "053d89c239cdb53f759a64dd8ef7f6b3012e1a37f4eeb8ded2ea3d27070d7c42",
-        "seller": "Prof. Chen",
-        "title": "hm08",
-        "stock": 197,
-        "description": "Teaches Rock Climb to a compatible Pokémon.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/hm-normal.png"
-        ],
-        "category": "all-machines",
-        "comments": [],
-        "notation": 0.521,
-        "price": 0,
-        "sales": 499,
         "views": 378
     },
     {
