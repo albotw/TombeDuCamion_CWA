@@ -13,7 +13,7 @@
         "notation": 2.702,
         "price": 7000,
         "sales": 317,
-        "views": 1092
+        "views": 1093
     },
     {
         "p_uid": "c51bad7a2dcbd0c4bcd8f63672fef0198387ccaa9b575df1790a69ab4a33a15b",
@@ -29,7 +29,7 @@
         "notation": 2.064,
         "price": 0,
         "sales": 9,
-        "views": 1075
+        "views": 1076
     },
     {
         "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
@@ -41,11 +41,13 @@
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
         ],
         "category": "pokemonItems",
-        "comments": [],
+        "comments": [
+            "6ba684cdbdadb46b49066cddc56fa3d60e2106ea0abfd48e855350ae1156cc03"
+        ],
         "notation": 4.871,
         "price": 4000,
         "sales": 499,
-        "views": 1053
+        "views": 1081
     },
     {
         "p_uid": "7b9adbddaaf29cd8227e09da978e38c2bcc61c07e87bf632bd087c0d918bafe8",
@@ -8749,7 +8751,7 @@
         "notation": 0.521,
         "price": 0,
         "sales": 499,
-        "views": 390
+        "views": 393
     },
     {
         "p_uid": "9c72d671ef19d4155c2d3eeece84e0475d3e4d22123bf6c6068d5d77b51a22d4",

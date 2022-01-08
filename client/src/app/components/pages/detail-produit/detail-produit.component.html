@@ -33,25 +33,7 @@
 			</p>
 		</div>
 
-			<img *ngIf="product.images !== undefined"  src="{{product.images[0]}}">
-			<mat-spinner *ngIf="product.images === undefined"></mat-spinner>
 
-			<p>
-				{{product.price}} €
-			</p>
-
-			<p>
-				Stock : {{product.stock}}
-			</p>
-
-			<button mat-flat-button color="warn" (click)="addToPanier();">
-				Ajouter au panier
-				<mat-icon>add_shopping_cart</mat-icon>
-			</button>
-			<button mat-flat-button color="warn" (click)="addToWishlist();">
-				Ajouter à la wishlist
-				<mat-icon>assignment_turned_in</mat-icon>
-			</button>
 		</div>
 	</div>
 
