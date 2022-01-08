@@ -13,8 +13,9 @@
 .resultats {
 	justify-content: space-evenly;
 	flex-wrap: wrap;
-	width: 80vw;
+	width: 79vw;
 	min-height: 80vh;
+	overflow: hidden;
 }
 
 .title {

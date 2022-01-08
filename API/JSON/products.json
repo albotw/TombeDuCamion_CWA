@@ -1,25 +1,5 @@
 [
     {
-        "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
-        "seller": "Prof. Chen",
-        "title": "shell-bell",
-        "stock": 156,
-        "description": "Held: Heals the holder by 1/8 of any damage it inflicts.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
-        ],
-        "category": "pokemonItems",
-        "comments": [
-            {},
-            {},
-            {}
-        ],
-        "notation": 4.871,
-        "price": 4000,
-        "sales": 499,
-        "views": 1047
-    },
-    {
         "p_uid": "62c7da2eeece29c4f0ce4d4eba90eab863f25ed6338b37123d966356dc2eb582",
         "seller": "Prof. Chen",
         "title": "armor-fossil",
@@ -33,7 +13,7 @@
         "notation": 2.702,
         "price": 7000,
         "sales": 317,
-        "views": 1026
+        "views": 1074
     },
     {
         "p_uid": "c51bad7a2dcbd0c4bcd8f63672fef0198387ccaa9b575df1790a69ab4a33a15b",
@@ -49,7 +29,7 @@
         "notation": 2.064,
         "price": 0,
         "sales": 9,
-        "views": 1010
+        "views": 1054
     },
     {
         "p_uid": "7b9adbddaaf29cd8227e09da978e38c2bcc61c07e87bf632bd087c0d918bafe8",
@@ -65,7 +45,23 @@
         "notation": 3.369,
         "price": 10000,
         "sales": 225,
-        "views": 1009
+        "views": 1053
+    },
+    {
+        "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
+        "seller": "Prof. Chen",
+        "title": "shell-bell",
+        "stock": 156,
+        "description": "Held: Heals the holder by 1/8 of any damage it inflicts.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
+        ],
+        "category": "pokemonItems",
+        "comments": [],
+        "notation": 4.871,
+        "price": 4000,
+        "sales": 499,
+        "views": 1047
     },
     {
         "p_uid": "f094fc04d653152553a65a5defa0e17c4cba74d63fe5bb09b274a768b032a00c",
@@ -81,7 +77,7 @@
         "notation": 1.277,
         "price": 2000,
         "sales": 393,
-        "views": 998
+        "views": 1036
     },
     {
         "p_uid": "f93fe641b8b69ed0b262f1f0a750f876a7212fdd7a247c2956c48e84566c2cc2",
@@ -97,7 +93,7 @@
         "notation": 1.101,
         "price": 1000,
         "sales": 418,
-        "views": 993
+        "views": 1031
     },
     {
         "p_uid": "7d40e1aab8ec90350dbc98f30651c836eced5d71492ea9893f1ae74fa3bcc072",
@@ -113,7 +109,7 @@
         "notation": 3.867,
         "price": 20,
         "sales": 62,
-        "views": 991
+        "views": 1029
     },
     {
         "p_uid": "e02d613f7cbac5f8d2fd202d61f2672f88bb60d8525ec1f4955509d4eaf3c29e",
@@ -4180,6 +4176,22 @@
         "views": 723
     },
     {
+        "p_uid": "cbf6eca452fd073c01066de1c5dd7a1d5c4cc301cca0e663fdaad093df7ff3d9",
+        "seller": "Prof. Chen",
+        "title": "mago-berry",
+        "stock": 70,
+        "description": "Held in battle\n:   When the holder has 1/2 its max HP remaining or less, it consumes this item to restore 1/8 its max HP.  If the holder dislikes sweet flavors (i.e., has a nature that lowers Speed), it will also become confused.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/mago-berry.png"
+        ],
+        "category": "picky-healing",
+        "comments": [],
+        "notation": 4.991,
+        "price": 20,
+        "sales": 65,
+        "views": 718
+    },
+    {
         "p_uid": "1ffe92a09c55de5d752ca8e97ea093a3f2e3b61af7f65af76e9dc03013cd9157",
         "seller": "Prof. Chen",
         "title": "tm79",
@@ -4900,6 +4912,22 @@
         "views": 667
     },
     {
+        "p_uid": "98a21d6faf28ab61036d23ff86529be2ae49f63ec78f79412c1b112a3f0578bb",
+        "seller": "Prof. Chen",
+        "title": "smoke-ball",
+        "stock": 181,
+        "description": "Held: In wild battles, attempts to run away on the holder's turn will always succeed.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/smoke-ball.png"
+        ],
+        "category": "held-items",
+        "comments": [],
+        "notation": 4.986,
+        "price": 4000,
+        "sales": 271,
+        "views": 666
+    },
+    {
         "p_uid": "df9e772cec2c767da7763cd54a8badbec704083fdb8625cafa4d2bc38d04b444",
         "seller": "Prof. Chen",
         "title": "poke-doll",
@@ -4948,22 +4976,6 @@
         "views": 665
     },
     {
-        "p_uid": "cbf6eca452fd073c01066de1c5dd7a1d5c4cc301cca0e663fdaad093df7ff3d9",
-        "seller": "Prof. Chen",
-        "title": "mago-berry",
-        "stock": 70,
-        "description": "Held in battle\n:   When the holder has 1/2 its max HP remaining or less, it consumes this item to restore 1/8 its max HP.  If the holder dislikes sweet flavors (i.e., has a nature that lowers Speed), it will also become confused.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/mago-berry.png"
-        ],
-        "category": "picky-healing",
-        "comments": [],
-        "notation": 4.991,
-        "price": 20,
-        "sales": 65,
-        "views": 718
-    },
-    {
         "p_uid": "83f37ed3890f0a77bf592cf9fe803ee19d3797e46facf3f6af16b690d722fa5e",
         "seller": "Prof. Chen",
         "title": "tm27",
@@ -5010,22 +5022,6 @@
         "price": 1000,
         "sales": 445,
         "views": 661
-    },
-    {
-        "p_uid": "98a21d6faf28ab61036d23ff86529be2ae49f63ec78f79412c1b112a3f0578bb",
-        "seller": "Prof. Chen",
-        "title": "smoke-ball",
-        "stock": 181,
-        "description": "Held: In wild battles, attempts to run away on the holder's turn will always succeed.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/smoke-ball.png"
-        ],
-        "category": "held-items",
-        "comments": [],
-        "notation": 4.986,
-        "price": 4000,
-        "sales": 271,
-        "views": 666
     },
     {
         "p_uid": "ca1e94fd7354a7e01080f33d56331ebebf799eea0b14044befc110de405b2448",

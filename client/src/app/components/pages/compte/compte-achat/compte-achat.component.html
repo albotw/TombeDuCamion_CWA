@@ -22,20 +22,8 @@
 						<mat-icon *ngIf="i>=vente.notation-1">star_outline</mat-icon>
 						<mat-icon *ngIf="i<vente.notation-1">star</mat-icon>
 					</div>
-					<div style="display: inline-block; align-items: stretch;">
-						({{vente.sales}})
-					</div>
 				</mat-card>
 			</div>
 		</mat-card>
 	</div>
 </div>
-
-<mat-paginator #paginator [length]="totalCount"
-              [pageSize]="20"
-              [hidePageSize]="true"
-              [showFirstLastButtons] ="true"
-              [pageSizeOptions]=""
-			  (page)="getServerData($event)"
-              aria-label="Select page">
-</mat-paginator>

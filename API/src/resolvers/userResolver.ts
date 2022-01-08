@@ -68,9 +68,6 @@ export default class userResolver
 
     public isConnected = (auth: IAuthData): boolean =>
     {
-        let bypass = false;
-        console.log(auth);
-        console.log(this._connectedPool.has(auth.token) || bypass);
         return this._connectedPool.has(auth.token);
     }
 
