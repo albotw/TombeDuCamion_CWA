@@ -55,6 +55,8 @@ export default class commentsResolver {
                 this.commentsData.push(comment);
                 productResolver.instance.linkComment({auth, p_uid, c_uid});
                 this._saveComments();
+
+                return "Commentaire publié";
             }
             else throw new Error("Produit non acheté");
         }
