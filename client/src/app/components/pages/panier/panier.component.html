@@ -1,10 +1,10 @@
-<h4 *ngIf="TabProducts.length === 0" class="TabHeaderml-4"  >Votre panier est vide.</h4>
-<h4 *ngIf="TabProducts.length >=1" class="TabHeader ml-4"  >Votre panier contient {{panier.getProductFromTab().length}} articles.</h4>
-<div *ngIf="TabProducts.length !== 0" class="cart-overlay">
+<h4 *ngIf="panier.getProductFromTab().length === 0" class="TabHeaderml-4"  >Votre panier est vide.</h4>
+<h4 *ngIf="panier.getProductFromTab().length >=1" class="TabHeader ml-4"  >Votre panier contient {{panier.getProductFromTab().length}} articles.</h4>
+<div *ngIf="panier.getProductFromTab().length !== 0" class="cart-overlay">
   <div class="product" style="display: flex;">
     <div class="cart-content">
       <div class="cart-item" style="width: 65%; float:left">
-        <mat-card *ngFor="let item of TabProducts">
+        <mat-card *ngFor="let item of TabProducts ; let i = index;">
           <mat-card-title-group>
             <mat-card-title>{{item.product.title}}</mat-card-title>
             <mat-card-subtitle>x{{item.count}}</mat-card-subtitle>
@@ -47,8 +47,8 @@
         </mat-form-field>
       
         <mat-form-field>
-          <mat-label>Date exp.</mat-label>
-          <input matInput #input>
+          <mat-label>Code</mat-label>
+          <input matInput #input maxlength="5">
         </mat-form-field>
       
         <mat-divider></mat-divider>
