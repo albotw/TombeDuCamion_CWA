@@ -140,7 +140,8 @@ export default class userResolver
         {
             let index = this._userData.findIndex(u => u.uid == auth.uid);
             let productIndex = this._userData[index].wishlist.findIndex(p => p == product);
-            this._userData[index].wishlist.slice(productIndex, 1);
+
+            delete this._userData[index].wishlist[productIndex];
 
             this._saveUserData();
             return "Liste de souhaits mise a jour";
