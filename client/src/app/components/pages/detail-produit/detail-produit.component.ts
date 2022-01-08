@@ -140,7 +140,6 @@ export class DetailProduitComponent implements OnInit
 		return wish.addWish;
 	}
 	//fin wishlist
-	}
 }
 
 @Component({
