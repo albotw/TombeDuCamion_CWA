@@ -6,16 +6,6 @@
         "stock": 185,
         "description": "Held by Seadra: Evolves the holder into Kingdra when traded.",
         "images": [
-<<<<<<< HEAD
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/dragon-scale.png"
-        ],
-        "category": "evolution",
-        "comments": [],
-        "notation": 1.277,
-        "price": 2000,
-        "sales": 393,
-        "views": 1086
-=======
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
         ],
         "category": "pokemonItems",
@@ -26,7 +16,6 @@
         "price": 4000,
         "sales": 499,
         "views": 1135
->>>>>>> main
     },
     {
         "p_uid": "62c7da2eeece29c4f0ce4d4eba90eab863f25ed6338b37123d966356dc2eb582",
@@ -42,43 +31,7 @@
         "notation": 2.702,
         "price": 7000,
         "sales": 317,
-<<<<<<< HEAD
-        "views": 1086
-    },
-    {
-        "p_uid": "f93fe641b8b69ed0b262f1f0a750f876a7212fdd7a247c2956c48e84566c2cc2",
-        "seller": "Prof. Chen",
-        "title": "twisted-spoon",
-        "stock": 188,
-        "description": "Held: Increases the power of the holder's Psychic moves by 20%.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/twisted-spoon.png"
-        ],
-        "category": "type-enhancement",
-        "comments": [],
-        "notation": 1.101,
-        "price": 1000,
-        "sales": 418,
-        "views": 1083
-    },
-    {
-        "p_uid": "7d40e1aab8ec90350dbc98f30651c836eced5d71492ea9893f1ae74fa3bcc072",
-        "seller": "Prof. Chen",
-        "title": "ganlon-berry",
-        "stock": 196,
-        "description": "Held in battle\n:   When the holder has 1/4 its max HP remaining or less, it consumes this item to raise its Defense by one stage.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/ganlon-berry.png"
-        ],
-        "category": "in-a-pinch",
-        "comments": [],
-        "notation": 3.867,
-        "price": 20,
-        "sales": 62,
-        "views": 1079
-=======
         "views": 1104
->>>>>>> main
     },
     {
         "p_uid": "c51bad7a2dcbd0c4bcd8f63672fef0198387ccaa9b575df1790a69ab4a33a15b",
@@ -94,11 +47,7 @@
         "notation": 2.064,
         "price": 0,
         "sales": 9,
-<<<<<<< HEAD
-        "views": 1064
-=======
         "views": 1091
->>>>>>> main
     },
     {
         "p_uid": "7b9adbddaaf29cd8227e09da978e38c2bcc61c07e87bf632bd087c0d918bafe8",
@@ -114,9 +63,6 @@
         "notation": 3.369,
         "price": 10000,
         "sales": 225,
-<<<<<<< HEAD
-        "views": 1063
-=======
         "views": 1011
     },
     {
@@ -134,7 +80,6 @@
         "price": 4000,
         "sales": 499,
         "views": 999
->>>>>>> main
     },
     {
         "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
@@ -4246,11 +4191,7 @@
         "notation": 4.991,
         "price": 20,
         "sales": 65,
-<<<<<<< HEAD
-        "views": 718
-=======
         "views": 720
->>>>>>> main
     },
     {
         "p_uid": "1ffe92a09c55de5d752ca8e97ea093a3f2e3b61af7f65af76e9dc03013cd9157",
