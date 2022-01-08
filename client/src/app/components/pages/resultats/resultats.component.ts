@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { PageEvent } from '@angular/material/paginator';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';//.prod';
 import DataController from '../../../shared/DataController';
@@ -22,6 +22,8 @@ export class ResultatsComponent implements OnInit
 	possibleSorts = ["NO_SORT", "LETTER_ASCENDING", "LETTER_DESCENDING", "PRICE_ASCENDING", "PRICE_DESCENDING"];
 	toTextPossibleSorts = ["---", "A-Z", "Z-A", "Prix Croissant", "Prix Décroissant"];
 	DATA = data;
+	@ViewChild('paginator') paginator: MatPaginator;
+
 	pageIndex = 0;
 	pageSize = 16;
 
@@ -33,11 +35,16 @@ export class ResultatsComponent implements OnInit
 	ngOnInit(): void
 	{
 		console.log(this.rech);
-		this.refreshProducts(0, 16);
+		this.refreshProducts(0, 16, false);
 	}
 
-	public refreshProducts(pageIndex: number, pageSize: number)
+	public refreshProducts(pageIndex: number, pageSize: number, reset: boolean)
 	{
+
+		if (reset){
+			this.paginator.pageIndex = 0;
+			this.paginator.pageSize = pageSize;
+		}
 
 		this.rech = this.route.snapshot.queryParams.str;
 		this.cat = this.route.snapshot.queryParams.cat;
@@ -62,7 +69,7 @@ export class ResultatsComponent implements OnInit
 	{
 		this.pageIndex = event.pageIndex;
 		this.pageSize = event.pageSize;
-		this.refreshProducts(event.pageIndex, event.pageSize);
+		this.refreshProducts(event.pageIndex, event.pageSize, false);
 	}
 
 }

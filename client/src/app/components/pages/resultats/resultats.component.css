@@ -1,0 +1,18 @@
+.controles {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.resultats {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	width: 80vw;
+	min-height: 80vh;
+}
+
+.produit {
+	width: 15vw;
+	margin: 2%;
+	min-height: 15vh;
+}

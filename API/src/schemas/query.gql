@@ -27,13 +27,13 @@ type Query {
     isConnected(auth: AuthInfo!) : Boolean
 
     "Récupérer les informations d'un utilisateur"
-    getUser(uid: String!) : User
+    getUser(auth: AuthInfo!) : User
 
     "Récupérer le pseudo d'un utilisateur"
     getNickname(uid: String!) : String
 
     "Récupérer l'historique de l'utilisateur"
-    getHistory(uid: String!) : [HistoryElement]
+    getHistory(auth: AuthInfo!) : [HistoryElement]
 
     "Récupérer la notation d'un utilisateur"
     getNotation(target_uid: String!) : Float

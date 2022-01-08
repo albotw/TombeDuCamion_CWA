@@ -75,6 +75,7 @@ let root = {
     processOrder: productResolver.instance.processOrder,
     createProduct: productResolver.instance.createProduct,
     updateProduct: productResolver.instance.updateProduct,
+    addImageToProduct: productResolver.instance.addImageToProduct,
 
     createComment: commentsResolver.instance.createComment,
     updateComment: commentsResolver.instance.updateComment,

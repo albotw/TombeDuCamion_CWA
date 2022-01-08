@@ -12,7 +12,7 @@ export default class commentsResolver {
 
     private commentsData : IComment[] = require("../../JSON/comments.json");
     private modificationThreshold: number = 10;
-    private modificationCounter : number = 10;
+    private modificationCounter : number = 0;
 
     public static create() {
         if (commentsResolver.instance == null) {
@@ -55,6 +55,7 @@ export default class commentsResolver {
             productResolver.instance.linkComment({auth, p_uid, c_uid});
             this._saveComments();
         }
+        else throw new Error("Connexion invalide");
     }
 
     public updateComment = ({auth, c_uid, message, note}) => {
@@ -72,7 +73,7 @@ export default class commentsResolver {
 
             return "Comment updated";
         }
-        return "Login error";
+        else throw new Error("Connexion invalide");
     }
 
     public deleteComment = ({auth, p_uid, c_uid}) => {
@@ -90,8 +91,7 @@ export default class commentsResolver {
 
             return "Comment deleted";
         }
-
-        return "login error"
+        else throw new Error("Connexion invalide");
     }
 
     private _saveComments = () => {

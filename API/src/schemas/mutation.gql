@@ -10,6 +10,13 @@ type Mutation {
         price: Float!,
     ) : String
 
+    "Ajouter une image à un produit"
+    addImageToProduct(
+        auth: AuthInfo!,
+        p_uid: ID!,
+        image: String!
+    ) : String
+
     "Mettre a jour les informations d'un produit"
     updateProduct(
         auth: AuthInfo!,

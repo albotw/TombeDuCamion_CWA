@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { NewSellComponent } from './new-sell.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClient } from '@angular/common/http';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
@@ -25,6 +26,7 @@ describe('NewSellComponent', () => {
       imports : [
         ReactiveFormsModule,
         MatDialogModule,
+        RouterTestingModule,
         MatSelectModule,
         MatFormFieldModule,
         MatInputModule,

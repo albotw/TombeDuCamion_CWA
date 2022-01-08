@@ -45,11 +45,17 @@ import { InformationsComponent } from './components/pages/compte/informations/in
 import {MatSelectModule} from '@angular/material/select';
 import { NewSellComponent } from './components/pages/new-sell/new-sell.component';
 import {MatStepperModule} from '@angular/material/stepper';
-import { NewSellAddUrlDialog } from './components/pages/new-sell/new-sell.component';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import { CompteAchatComponent } from './components/pages/compte/compte-achat/compte-achat.component';
+
+import { WishlistComponent } from './components/pages/compte/wishlist/wishlist.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle'
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { ConnexionComponent } from './components/pages/connexion/connexion.component';
+import { InscriptionComponent } from './components/pages/inscription/inscription.component';
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from "@angular/router";
+import { CompteVenteComponent } from './components/pages/compte/compte-vente/compte-vente.component';
 
 @NgModule({
 	declarations: [
@@ -73,8 +79,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 		ListeComponent,
 		InformationsComponent,
  		NewSellComponent,
-		NewSellAddUrlDialog,
 		BottomNewCommSheet,
+		CompteAchatComponent,
+		CompteVenteComponent,
+		WishlistComponent,
+		ConnexionComponent,
+		InscriptionComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -100,18 +110,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 		MatDividerModule,
 		MatProgressSpinnerModule,
 		MatFormFieldModule,
-		FormsModule,
 		MatPaginatorModule,
 		MatSelectModule,
 		MatStepperModule,
 		ReactiveFormsModule,
 		FormsModule,
 		MatBottomSheetModule,
-		FlexLayoutModule,
 		MatToolbarModule,
-		MatSlideToggleModule
+		MatSlideToggleModule,
 	],
 	providers: [
+		MatSnackBar,
 	],
 	bootstrap: [AppComponent]
 })

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PanierComponent } from './panier.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('PanierComponent', () => {
   let component: PanierComponent;
@@ -8,6 +9,9 @@ describe('PanierComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+      ],
       declarations: [ PanierComponent ]
     })
     .compileComponents();
@@ -23,10 +27,5 @@ describe('PanierComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should remove item if stock is <= 0', () => {
-    component.panier = [{count: 1}] // create item with stock 1 
-    component.subItem(0);           // sub 1 stock of item at position 0
-    expect(component.panier.length).toEqual(0); //  item should be removed
-  });
 
 });

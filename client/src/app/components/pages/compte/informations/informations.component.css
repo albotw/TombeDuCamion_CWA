@@ -1,0 +1,27 @@
+table
+{
+    border-collapse: collapse;
+}
+th, td
+{
+    border: 1px solid black;
+    padding: 10px 60px;
+}
+th{
+    background-color : #DD6E42;
+}
+#infos{
+    margin-top: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#act{
+    margin-top: 4%;
+    margin-left: 35%;
+    margin-right: 35%;
+    padding-left: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border: 1px solid black;
+}

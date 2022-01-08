@@ -1,0 +1,20 @@
+<div class="center">
+	<mat-card class="inscription">
+		<mat-card-title>Devenir membre</mat-card-title>
+		<mat-form-field>
+			<mat-label>Pseudo</mat-label>
+			<input matInput type="text" [(ngModel)]="nickname"/>
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label>E-mail</mat-label>
+			<input matInput type="email" [(ngModel)]="email"/>
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label>Mot de passe</mat-label>
+			<input matInput type="password" [(ngModel)]="password"/>
+		</mat-form-field>
+
+		<button mat-raised-button color="primary" (click)="createUser()">S'inscrire</button>
+		<button mat-raised-button color="accent">Se connecter</button>
+	</mat-card>
+</div>

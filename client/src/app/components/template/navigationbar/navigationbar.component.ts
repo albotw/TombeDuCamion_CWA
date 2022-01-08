@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';//.prod';
 import { NavigationExtras, Router, RouterOutlet } from '@angular/router';
-import Cache, { CacheData } from "../../../shared/cache";
-import { data } from '../../../shared/global'
+import State, { CacheData } from "../../../shared/State";
+import { data } from '../../../shared/global';
 
 
 
@@ -16,37 +16,43 @@ import { data } from '../../../shared/global'
 })
 export class NavigationbarComponent implements OnInit
 {
-
-  CATEGORIES = data.categories;
-
+	public static instance;
+  	CATEGORIES = data.categories;
 	panierOuvert = false;
 	value = "";
-  cat = "";
-  DATA: any;
+  	cat = "";
+ 	DATA: any;
+	connected : boolean;
 
 	constructor(private router: Router)
 	{
-    this.DATA = data;
+    	this.DATA = data;
+		NavigationbarComponent.instance = this;
 	}
 
 	ngOnInit(): void{
+		this.connected = State.has(CacheData.Auth);
 	}
 
 	updateRoute(): void
 	{
-    let navextra : NavigationExtras = {
-      queryParams: {
-        str: this.value,
-        cat: this.cat
-      },
-      fragment: 'anchor'
-    }
+		let navextra : NavigationExtras = {
+		  queryParams: {
+			str: this.value,
+			cat: this.cat
+		  },
+		  fragment: 'anchor'
+		}
 		this.router.navigate(['recherche'],  navextra);
 	}
 
+	toggleDarkMode() {
+        data.darkmode = !data.darkmode;
+    }
+
 	get total()
 	{
-		let panier = Cache.get(CacheData.Panier);
+		let panier = State.get(CacheData.Panier);
 		let t = 0;
 		for (let i = 0; i < panier.length; i++)
 		{
@@ -57,7 +63,7 @@ export class NavigationbarComponent implements OnInit
 
 	get panier()
 	{
-		return Cache.get(CacheData.Panier);
+		return State.get(CacheData.Panier);
 	}
 
 }
