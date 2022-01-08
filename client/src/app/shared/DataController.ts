@@ -31,6 +31,24 @@ export default class DataController
 		return DataController.grab(query, variables);
 	}
 
+	public static getUser = (auth: any) =>	{
+		let query = gql`
+			query getUser($auth: AuthInfo!) {
+				getUser(auth: $auth) {
+					uid
+					nickname
+					email
+					totalSales
+					notation
+				}
+			}
+			`
+		let variables = {
+			auth: auth
+		}
+		return DataController.grab(query, variables);
+	}
+
 	public static createUser = (nickname: string, email: string, password: string) => {
 		let query = gql`
 			mutation createUser($nickname: String!, $email: String!, $password: String!) {

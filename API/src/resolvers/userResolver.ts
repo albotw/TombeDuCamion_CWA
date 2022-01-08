@@ -63,7 +63,7 @@ export default class userResolver
 
             return auth;
         }
-        else return { uid: "NOT_FOUND", token: "NOT_FOUND" };
+        else throw new Error("NOT_FOUND");
     }
 
     public isConnected = (auth: IAuthData): boolean =>
@@ -177,7 +177,6 @@ export default class userResolver
         if (!this._userData.find(u => u.nickname == nickname || u.email == email))
         {
             let uid = crypto.createHash("sha256").update(email + nickname).digest("hex");
-            console.log(uid);
             let user: IUser = {
                 uid: uid,
                 hash: password,
