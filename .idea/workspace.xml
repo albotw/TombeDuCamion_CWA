@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a198339e-a7e9-466e-b3e4-5152dd0145f3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/API/src/resolvers/commentsResolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/resolvers/commentsResolver.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/JSON/products.json" beforeDir="false" afterPath="$PROJECT_DIR$/API/JSON/products.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/template/navigationbar/navigationbar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/template/navigationbar/navigationbar.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/template/navigationbar/navigationbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/template/navigationbar/navigationbar.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
