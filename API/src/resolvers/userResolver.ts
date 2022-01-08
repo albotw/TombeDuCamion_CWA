@@ -68,7 +68,7 @@ export default class userResolver
 
     public isConnected = (auth: IAuthData): boolean =>
     {
-        let bypass = true;
+        let bypass = false;
         return this._connectedPool.has(auth) || bypass;
     }
 
@@ -94,6 +94,7 @@ export default class userResolver
         {
             return this._userData.find(u => u.uid == auth.uid).history;
         }
+        else throw new Error("Connexion invalide");
     }
 
     public getWishlist = ({ auth }) =>
@@ -103,6 +104,7 @@ export default class userResolver
         {
             return this._userData.find(u => u.uid == auth.uid).wishlist;
         }
+        else throw new Error("Connexion invalide");
     }
 
     //@internal
@@ -124,8 +126,7 @@ export default class userResolver
             this._saveUserData();
             return "Liste de souhaits modifiée";
         }
-
-        return "Erreur de connexion";
+        else throw new Error("Connexion invalide");
     }
 
     public removeFromWishlist = ({ auth, product }) =>
@@ -142,8 +143,7 @@ export default class userResolver
             this._saveUserData();
             return "Liste de souhaits mise a jour";
         }
-
-        return "Erreur de connexion";
+        else throw new Error("Connexion invalide");
     }
 
     public getUser = ({ auth }) =>
@@ -153,8 +153,10 @@ export default class userResolver
         {
             return this._userData.find(u => u.uid == auth.uid);
         }
+        else throw new Error("Connexion invalide");
     }
 
+    //méthode open, pas besoin de connexion
     public getNotation = ({ target_uid }) =>
     {
         target_uid = target_uid as string;
@@ -162,6 +164,7 @@ export default class userResolver
         return this._userData.find(u => u.uid == target_uid).notation;
     }
 
+    //méthode open, pas besoin de connexion
     public getNickname = ({ uid }) =>
     {
         uid = uid as string;
@@ -193,12 +196,12 @@ export default class userResolver
 
             return uid;
         }
-        throw "Erreur, identifiants déja utilisés";
+        else throw new Error("Identifiants déjà utilisés");
     }
 
     public updateUser = ({ auth, email, password, }) =>
     {
-
+        //TODO ?
     }
 
     private _saveUserData = () =>

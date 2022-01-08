@@ -30,7 +30,7 @@ type Query {
     getUser(auth: AuthInfo!) : User
 
     "Récupérer le pseudo d'un utilisateur"
-    getNickname(auth: AuthInfo!) : String
+    getNickname(uid: String!) : String
 
     "Récupérer l'historique de l'utilisateur"
     getHistory(auth: AuthInfo!) : [HistoryElement]

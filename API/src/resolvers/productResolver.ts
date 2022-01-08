@@ -172,7 +172,7 @@ export default class productResolver {
 
             return p_uid;
         }
-        return undefined;
+        else throw new Error("Connexion invalide");
     }
 
     public addImageToProduct = ({auth, p_uid, image}) => {
@@ -187,8 +187,7 @@ export default class productResolver {
 
             return "Image ajoutée";
         }
-
-        return "Erreur de connexion";
+        else throw new Error("Connexion invalide");
     }
 
     public linkComment = ({auth, p_uid, c_uid}) => {
@@ -200,6 +199,7 @@ export default class productResolver {
             this.productData.find(p => p.p_uid, p_uid).comments.push(c_uid);
             this._saveProducts();
         }
+        else throw new Error("Connexion invalide");
     }
 
     public unlinkComment = ({auth, p_uid, c_uid}) => {
@@ -215,6 +215,7 @@ export default class productResolver {
 
             this._saveProducts();
         }
+        else throw new Error("Connexion invalide");
 }
 
     public updateProduct = ({auth, p_uid, title, stock, description, category, price}) => {
@@ -235,9 +236,9 @@ export default class productResolver {
             this.productData[index].category = category;
             this.productData[index].price = price;
 
-            return "product updated";
+            return "Produit mis a jour";
         }
-        return "login error";
+        else throw new Error("Connexion invalide");
     }
 
     public processOrder= ({auth, items}) => {
@@ -274,8 +275,8 @@ export default class productResolver {
 
             this._saveProducts();
 
-            return "order completed";
+            return "Commande Validée";
         }
-        return "login error";
+        else throw new Error("Connexion invalide");
     }
 }
