@@ -92,6 +92,21 @@ export default class DataController
 		DataController.grab(query, variables).then(result => result.createComment).then(callback);
 	}
 
+	public static addWishList = async (auth, product: string, callback: (data: any) => void) =>
+	{
+		let query = gql`
+				mutation addToWishlist($auth: AuthInfo!, $product: ID!) {
+					addToWishlist(auth: $auth, product: $product)
+				}
+		`
+
+		let variables = {
+			auth: auth,
+			product: product,
+		}
+		DataController.grab(query, variables).then(result => result.addToWishlist).then(callback);
+	}
+
 
 	public static postProduct = async (auth, seller: string, title: string, stock: number, description: string, category: string, price: number, callback: (data: any) => void) =>
 	{
