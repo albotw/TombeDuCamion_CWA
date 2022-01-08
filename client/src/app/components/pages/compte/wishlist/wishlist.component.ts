@@ -46,12 +46,8 @@ export class WishlistComponent implements OnInit {
     return wish.getWishlist;
 	}
 
-  public removeWish(){
-    this.removeFromWishlist(this.auth, this.product.p_uid);
-  }
-
   //supprimer un élément de la wishlist
-  public removeFromWishlist = async (auth: any, product: string) =>
+  public removeFromWishlist = async (product: string) =>
 	{
     console.log(product);
 		let query = gql`
@@ -60,7 +56,7 @@ export class WishlistComponent implements OnInit {
     }
 	  `
     let variables = {
-      auth: auth,
+      auth: this.auth,
       product: product
     }
     let wish : any = await request(environment.API + "/graphql", query, variables, { "Content-Type": "application/json" });
