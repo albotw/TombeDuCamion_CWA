@@ -38,7 +38,7 @@ export default class userResolver
     {
         this._connectedPool.forEach((disconnectTime, user) =>
         {
-            if (disconnectTime.isAfter(dayjs()))
+            if (disconnectTime.isBefore(dayjs()))
             {
                 this._connectedPool.delete(user);
                 console.log("disconnected: " + user);
