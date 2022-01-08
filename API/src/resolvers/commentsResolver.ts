@@ -11,7 +11,7 @@ export default class commentsResolver {
     public static instance: commentsResolver;
 
     private commentsData : IComment[] = require("../../JSON/comments.json");
-    private modificationThreshold: number = 10;
+    private modificationThreshold: number = 0;
     private modificationCounter : number = 0;
 
     public static create() {
