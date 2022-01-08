@@ -19,6 +19,11 @@ export class PanierComponent implements OnInit
 		this.products = this.panier.getProductCount();
 	}
 
+	
+	/*public trackItem (index: number, item: Item) {
+		return item.trackId;
+	  }*/
+
 	ngOnInit(): void
 	{
 
