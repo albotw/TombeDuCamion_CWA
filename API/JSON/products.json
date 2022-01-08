@@ -1,37 +1,5 @@
 [
     {
-        "p_uid": "62c7da2eeece29c4f0ce4d4eba90eab863f25ed6338b37123d966356dc2eb582",
-        "seller": "Prof. Chen",
-        "title": "armor-fossil",
-        "stock": 91,
-        "description": "Give to a scientist in the mining museum in oreburgh city or the Museum of Science in pewter city to receive a shieldon.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/armor-fossil.png"
-        ],
-        "category": "dex-completion",
-        "comments": [],
-        "notation": 2.702,
-        "price": 7000,
-        "sales": 317,
-        "views": 1093
-    },
-    {
-        "p_uid": "c51bad7a2dcbd0c4bcd8f63672fef0198387ccaa9b575df1790a69ab4a33a15b",
-        "seller": "Prof. Chen",
-        "title": "acro-bike",
-        "stock": 149,
-        "description": "Increases movement speed outside or in caves.  Slower than the mach bike.  Can perform various tricks, allowing the trainer to reach certain special areas.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/acro-bike.png"
-        ],
-        "category": "gameplay",
-        "comments": [],
-        "notation": 2.064,
-        "price": 0,
-        "sales": 9,
-        "views": 1076
-    },
-    {
         "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
         "seller": "Prof. Chen",
         "title": "shell-bell",
@@ -47,7 +15,39 @@
         "notation": 4.871,
         "price": 4000,
         "sales": 499,
-        "views": 1081
+        "views": 1135
+    },
+    {
+        "p_uid": "62c7da2eeece29c4f0ce4d4eba90eab863f25ed6338b37123d966356dc2eb582",
+        "seller": "Prof. Chen",
+        "title": "armor-fossil",
+        "stock": 91,
+        "description": "Give to a scientist in the mining museum in oreburgh city or the Museum of Science in pewter city to receive a shieldon.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/armor-fossil.png"
+        ],
+        "category": "dex-completion",
+        "comments": [],
+        "notation": 2.702,
+        "price": 7000,
+        "sales": 317,
+        "views": 1104
+    },
+    {
+        "p_uid": "c51bad7a2dcbd0c4bcd8f63672fef0198387ccaa9b575df1790a69ab4a33a15b",
+        "seller": "Prof. Chen",
+        "title": "acro-bike",
+        "stock": 149,
+        "description": "Increases movement speed outside or in caves.  Slower than the mach bike.  Can perform various tricks, allowing the trainer to reach certain special areas.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/acro-bike.png"
+        ],
+        "category": "gameplay",
+        "comments": [],
+        "notation": 2.064,
+        "price": 0,
+        "sales": 9,
+        "views": 1091
     },
     {
         "p_uid": "7b9adbddaaf29cd8227e09da978e38c2bcc61c07e87bf632bd087c0d918bafe8",
@@ -63,7 +63,7 @@
         "notation": 3.369,
         "price": 10000,
         "sales": 225,
-        "views": 1009
+        "views": 1011
     },
     {
         "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
@@ -3951,7 +3951,7 @@
         "notation": 4.986,
         "price": 0,
         "sales": 368,
-        "views": 750
+        "views": 748
     },
     {
         "p_uid": "a55fe2727c41485a938fe9e73b0491e8c8fa5868a520ee6e88d6b6ee4111087d",
@@ -4223,7 +4223,7 @@
         "notation": 4.991,
         "price": 20,
         "sales": 65,
-        "views": 722
+        "views": 720
     },
     {
         "p_uid": "1ffe92a09c55de5d752ca8e97ea093a3f2e3b61af7f65af76e9dc03013cd9157",
@@ -8258,6 +8258,22 @@
         "views": 428
     },
     {
+        "p_uid": "053d89c239cdb53f759a64dd8ef7f6b3012e1a37f4eeb8ded2ea3d27070d7c42",
+        "seller": "Prof. Chen",
+        "title": "hm08",
+        "stock": 197,
+        "description": "Teaches Rock Climb to a compatible Pokémon.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/hm-normal.png"
+        ],
+        "category": "all-machines",
+        "comments": [],
+        "notation": 0.521,
+        "price": 0,
+        "sales": 499,
+        "views": 427
+    },
+    {
         "p_uid": "2babae8d647cbb731ccb51a85599e468af25ce2aed4d0c973aa06bf05e923455",
         "seller": "Prof. Chen",
         "title": "focus-sash",
@@ -8738,22 +8754,6 @@
         "views": 393
     },
     {
-        "p_uid": "053d89c239cdb53f759a64dd8ef7f6b3012e1a37f4eeb8ded2ea3d27070d7c42",
-        "seller": "Prof. Chen",
-        "title": "hm08",
-        "stock": 197,
-        "description": "Teaches Rock Climb to a compatible Pokémon.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/hm-normal.png"
-        ],
-        "category": "all-machines",
-        "comments": [],
-        "notation": 0.521,
-        "price": 0,
-        "sales": 499,
-        "views": 393
-    },
-    {
         "p_uid": "9c72d671ef19d4155c2d3eeece84e0475d3e4d22123bf6c6068d5d77b51a22d4",
         "seller": "Prof. Chen",
         "title": "tm90",
@@ -8895,22 +8895,6 @@
         "notation": 4.344,
         "price": 0,
         "sales": 497,
-        "views": 382
-    },
-    {
-        "p_uid": "053d89c239cdb53f759a64dd8ef7f6b3012e1a37f4eeb8ded2ea3d27070d7c42",
-        "seller": "Prof. Chen",
-        "title": "hm08",
-        "stock": 197,
-        "description": "Teaches Rock Climb to a compatible Pokémon.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/hm-normal.png"
-        ],
-        "category": "all-machines",
-        "comments": [],
-        "notation": 0.521,
-        "price": 0,
-        "sales": 499,
         "views": 382
     },
     {

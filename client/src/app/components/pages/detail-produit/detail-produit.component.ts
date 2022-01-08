@@ -83,25 +83,22 @@ export class DetailProduitComponent implements OnInit
 	}
 
 	//partie wishlist
-	addToWishlist() : boolean{
-		if (this.product.stock > 0){
-			let alreadyExists = false;
-			let userCo = State.get(CacheData.Auth);
-			DataController.getWishList(userCo, (dataW) => {this.wishlist=dataW});
-			for (let item of this.wishlist)
+	addToWishlist() : void{
+		let alreadyExists = false;
+		let userCo = State.get(CacheData.Auth);
+		DataController.getWishList(userCo, (dataW) => {this.wishlist=dataW});
+		for (let item of this.wishlist)
+		{
+			if (item.p_uid == this.p_uid)
 			{
-				if (item.p_uid == this.p_uid)
-				{
-					alreadyExists = true;
-				}
+				alreadyExists = true;
 			}
-			if (!alreadyExists)
-			{
-				DataController.addWishList(userCo, this.p_uid,  (data) =>{});
-			}
-			return true;
 		}
-		return false;
+		if (!alreadyExists)
+		{
+			DataController.addWishList(userCo, this.p_uid,  (data) =>{});
+		}
+
 	}
 
 	//fin wishlist
