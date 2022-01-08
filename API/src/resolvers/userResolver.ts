@@ -139,7 +139,7 @@ export default class userResolver
         if (this.isConnected(auth))
         {
             let index = this._userData.findIndex(u => u.uid == auth.uid);
-            let productIndex = this._userData[index].wishlist.findIndex(product);
+            let productIndex = this._userData[index].wishlist.findIndex(p => p == product);
             this._userData[index].wishlist.slice(productIndex, 1);
 
             this._saveUserData();
