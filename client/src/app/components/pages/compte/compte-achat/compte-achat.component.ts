@@ -4,18 +4,22 @@ import {MatTableDataSource} from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
 import DataController from '../../../../shared/DataController';
-import { data } from '../../../../shared/global'
-
+import { data } from '../../../../shared/global';
+import IAuthData from '../../../../../../../API/src/interfaces/AuthData'; 
+import State, { CacheData } from "../../../../shared/State";
 @Component({
+
   selector: 'app-compte-achat',
   templateUrl: './compte-achat.component.html',
   styleUrls: ['./compte-achat.component.css']
 })
 
 export class CompteAchatComponent implements OnInit {
+	auth = State.get(CacheData.Auth);
 	products = [];
 	totalCount = 0;
 	actualSort = "NO_SORT";
+	history = [] ;
 	DATA = data;
 	pageIndex = 0;
 	pageSize = 16;	
@@ -27,8 +31,16 @@ export class CompteAchatComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		this.getHistory();
 		this.refreshProducts(this.pageIndex, this.pageSize);
-		console.log("le produit : ",this.products);
+	}
+
+	public getHistory(){
+		DataController.getHistory(this.auth, (data) =>
+		{
+			this.history = data;
+		});
+		console.log("historique : ", this.history);
 	}
 
 	public refreshProducts(pageIndex: number, pageSize: number)

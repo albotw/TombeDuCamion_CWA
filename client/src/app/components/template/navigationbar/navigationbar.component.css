@@ -16,6 +16,10 @@
 }
 
 .darkmode{
-	font-size:14px;
-	margin-right: 2%;
+	margin-right: 1%;
+}
+
+.icon {
+	width: 2vw;
+	padding-left: 30%;
 }

@@ -11,8 +11,8 @@ export default class commentsResolver {
     public static instance: commentsResolver;
 
     private commentsData : IComment[] = require("../../JSON/comments.json");
-    private modificationThreshold: number = 10;
-    private modificationCounter : number = 10;
+    private modificationThreshold: number = 0;
+    private modificationCounter : number = 0;
 
     public static create() {
         if (commentsResolver.instance == null) {
@@ -41,20 +41,26 @@ export default class commentsResolver {
         p_uid = p_uid as string;
         message = message as string;
         note = note as number;
-        if (userResolver.instance.isConnected(auth) && userResolver.instance.hasBoughtProduct(auth.uid, p_uid)) {
-            let c_uid = crypto.createHash("sha256").update(message + note + dayjs().format);
-            let comment : IComment = {
-                author: auth.uid,
-                c_uid: c_uid.digest("hex"),
-                date: dayjs().format("DD/MM/YYYY"),
-                message: message,
-                note: note
-            }
+        if (userResolver.instance.isConnected(auth)) {
+            if ( userResolver.instance.hasBoughtProduct(auth.uid, p_uid) || true) {
+                let c_uid = crypto.createHash("sha256").update(message + note + dayjs().format).digest("hex");
+                let comment: IComment = {
+                    author: auth.uid,
+                    c_uid: c_uid,
+                    date: dayjs().format("DD/MM/YYYY"),
+                    message: message,
+                    note: note
+                }
 
-            this.commentsData.push(comment);
-            productResolver.instance.linkComment({auth, p_uid, c_uid});
-            this._saveComments();
+                this.commentsData.push(comment);
+                productResolver.instance.linkComment({auth, p_uid, c_uid});
+                this._saveComments();
+
+                return "Commentaire publié";
+            }
+            else throw new Error("Produit non acheté");
         }
+        else throw new Error("Connexion invalide");
     }
 
     public updateComment = ({auth, c_uid, message, note}) => {
@@ -72,7 +78,7 @@ export default class commentsResolver {
 
             return "Comment updated";
         }
-        return "Login error";
+        else throw new Error("Connexion invalide");
     }
 
     public deleteComment = ({auth, p_uid, c_uid}) => {
@@ -90,8 +96,7 @@ export default class commentsResolver {
 
             return "Comment deleted";
         }
-
-        return "login error"
+        else throw new Error("Connexion invalide");
     }
 
     private _saveComments = () => {

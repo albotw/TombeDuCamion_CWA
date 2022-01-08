@@ -14,11 +14,11 @@ export default class userResolver
     private _modificationThreshold: number = 0;
     private _modificationCounter: number = 0;
 
-    private _connectedPool: Map<IAuthData, dayjs.Dayjs>;
+    private _connectedPool: Map<string, dayjs.Dayjs>;
 
     public constructor()
     {
-        this._connectedPool = new Map<IAuthData, dayjs.Dayjs>();
+        this._connectedPool = new Map<string, dayjs.Dayjs>();
 
         setInterval(this._purge, this.CHECK_DELAY);
     }
@@ -38,9 +38,10 @@ export default class userResolver
     {
         this._connectedPool.forEach((disconnectTime, user) =>
         {
-            if (disconnectTime.isAfter(dayjs()))
+            if (disconnectTime.isBefore(dayjs()))
             {
                 this._connectedPool.delete(user);
+                console.log("disconnected: " + user);
             }
         });
     }
@@ -59,17 +60,18 @@ export default class userResolver
                 token: crypto.randomBytes(50).toString("hex")
             }
             let disconnectTime = dayjs().add(this.ALIVE_DURATION, "ms");
-            this._connectedPool.set(auth, disconnectTime);
-
+            this._connectedPool.set(auth.token, disconnectTime);
             return auth;
         }
-        else return { uid: "NOT_FOUND", token: "NOT_FOUND" };
+        else throw new Error("NOT_FOUND");
     }
 
     public isConnected = (auth: IAuthData): boolean =>
     {
-        let bypass = true;
-        return this._connectedPool.has(auth) || bypass;
+        let bypass = false;
+        console.log(auth);
+        console.log(this._connectedPool.has(auth.token) || bypass);
+        return this._connectedPool.has(auth.token);
     }
 
     public disconnect = ({ auth }) =>
@@ -94,6 +96,7 @@ export default class userResolver
         {
             return this._userData.find(u => u.uid == auth.uid).history;
         }
+        else throw new Error("Connexion invalide");
     }
 
     public getWishlist = ({ auth }) =>
@@ -103,6 +106,7 @@ export default class userResolver
         {
             return this._userData.find(u => u.uid == auth.uid).wishlist;
         }
+        else throw new Error("Connexion invalide");
     }
 
     //@internal
@@ -124,8 +128,7 @@ export default class userResolver
             this._saveUserData();
             return "Liste de souhaits modifiée";
         }
-
-        return "Erreur de connexion";
+        else throw new Error("Connexion invalide");
     }
 
     public removeFromWishlist = ({ auth, product }) =>
@@ -136,14 +139,13 @@ export default class userResolver
         if (this.isConnected(auth))
         {
             let index = this._userData.findIndex(u => u.uid == auth.uid);
-            let productIndex = this._userData[index].wishlist.findIndex(product);
+            let productIndex = this._userData[index].wishlist.findIndex(p => p == product);
             this._userData[index].wishlist.slice(productIndex, 1);
 
             this._saveUserData();
             return "Liste de souhaits mise a jour";
         }
-
-        return "Erreur de connexion";
+        else throw new Error("Connexion invalide");
     }
 
     public getUser = ({ auth }) =>
@@ -153,8 +155,10 @@ export default class userResolver
         {
             return this._userData.find(u => u.uid == auth.uid);
         }
+        else throw new Error("Connexion invalide");
     }
 
+    //méthode open, pas besoin de connexion
     public getNotation = ({ target_uid }) =>
     {
         target_uid = target_uid as string;
@@ -162,6 +166,7 @@ export default class userResolver
         return this._userData.find(u => u.uid == target_uid).notation;
     }
 
+    //méthode open, pas besoin de connexion
     public getNickname = ({ uid }) =>
     {
         uid = uid as string;
@@ -177,7 +182,6 @@ export default class userResolver
         if (!this._userData.find(u => u.nickname == nickname || u.email == email))
         {
             let uid = crypto.createHash("sha256").update(email + nickname).digest("hex");
-            console.log(uid);
             let user: IUser = {
                 uid: uid,
                 hash: password,
@@ -194,12 +198,12 @@ export default class userResolver
 
             return uid;
         }
-        throw "Erreur, identifiants déja utilisés";
+        else throw new Error("Identifiants déjà utilisés");
     }
 
     public updateUser = ({ auth, email, password, }) =>
     {
-
+        //TODO ?
     }
 
     private _saveUserData = () =>

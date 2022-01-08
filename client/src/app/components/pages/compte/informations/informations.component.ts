@@ -25,26 +25,13 @@ export class InformationsComponent implements OnInit {
     this.getUser(auth).then(tab => {this.ventes=tab[2]});
   }
 
-  public getUser = async (auth: any) =>
-	{
-		let query = gql`
-			query getUser($auth: AuthInfo!) {
-        getUser(auth: $auth) {
-          uid
-          nickname
-          email
-          totalSales
-          notation
-        }
-      }
-		`
-    let variables = {
-      auth: auth
-    }
-    let user : any = await request(environment.API + "/graphql", query, variables, { "Content-Type": "application/json" });
-    console.log(user);
-    var tab = [user.getUser.nickname, user.getUser.email, user.getUser.totalSales, user.getUser.notation];
-    console.log(tab);
-    return tab;
-	}
+  public getUser = async (auth: any) =>	{
+    
+		let user : any = await DataController.getUser(auth);
+		console.log(user);
+		var tab = [user.getUser.nickname, user.getUser.email, user.getUser.totalSales, user.getUser.notation];
+		console.log(tab);
+		return tab;
+  }
+
 }

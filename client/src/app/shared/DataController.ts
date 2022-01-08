@@ -31,6 +31,24 @@ export default class DataController
 		return DataController.grab(query, variables);
 	}
 
+	public static getUser = (auth: any) =>	{
+		let query = gql`
+			query getUser($auth: AuthInfo!) {
+				getUser(auth: $auth) {
+					uid
+					nickname
+					email
+					totalSales
+					notation
+				}
+			}
+			`
+		let variables = {
+			auth: auth
+		}
+		return DataController.grab(query, variables);
+	}
+
 	public static createUser = (nickname: string, email: string, password: string) => {
 		let query = gql`
 			mutation createUser($nickname: String!, $email: String!, $password: String!) {
@@ -72,6 +90,21 @@ export default class DataController
 			note: note,
 		}
 		DataController.grab(query, variables).then(result => result.createComment).then(callback);
+	}
+
+	public static addWishList = async (auth, product: string, callback: (data: any) => void) =>
+	{
+		let query = gql`
+				mutation addToWishlist($auth: AuthInfo!, $product: ID!) {
+					addToWishlist(auth: $auth, product: $product)
+				}
+		`
+
+		let variables = {
+			auth: auth,
+			product: product,
+		}
+		DataController.grab(query, variables).then(result => result.addToWishlist).then(callback);
 	}
 
 
@@ -166,6 +199,21 @@ export default class DataController
 		DataController.grab(query, variables).then(result => result.getCommentsOfProduct).then(callback);
 	}
 
+	public static getWishList = async (auth, callback: (data: any) => void) =>
+	{
+		let query = gql`
+			query getWishlist($auth: AuthInfo) {
+				getWishlist(auth: $auth)
+			}
+		`;
+
+		let variables = {
+			auth: auth
+		}
+
+		DataController.grab(query, variables).then(result => result.getWishList).then(callback);
+	}
+
 	/**
 	 * fonction pour récupérer un produit.
 	 * @param id identifiant unique du produit
@@ -236,22 +284,35 @@ export default class DataController
 		DataController.grab(query, variables).then(result => result.searchProduct).then(callback);
 	}
 
-	public static getWishList = async (auth, callback: (data: any) => void) =>
-    {
-        let query = gql`
-            query getWishlist($auth: AuthInfo) {
-                getWishlist(auth: $auth)
-            }
-        `;
+	/**
+	 * fonction pour la récupération de l'historique.
+	 * @param arg texte de la recherche.
+	 * @param limit nombre de résultats à récupérer
+	 * @param offset décalage des résultats
+	 */
+	 public static getHistory = async (auth, callback: (data: any) => void) =>
+	 {
+		let query = gql`
+		query getHistory($auth: AuthInfo!) {
+			getHistory(auth: $auth) {
+				type,
+				product
+			}
+		}
+		`
 
-        let variables = {
-            auth: auth
-        }
-		DataController.grab(query, variables).then(result => result.getWishList).then(callback);
-    }
+		let variables = {
+			auth: auth
+		}
+
+		DataController.grab(query, variables).then(result => result.getHistory).then(callback);
+	 }
+
 
 	public static grab = async (query: any, variables: any | null) =>
 	{
 		return request(environment.API + "/graphql", query, variables, { "Content-Type": "application/json" });
 	}
+
+
 }

@@ -11,7 +11,7 @@
 			<input matInput type="password" [(ngModel)]="password">
 		</mat-form-field>
 		<button mat-raised-button color="primary" (click)="connect()">Se connecter</button>
-		<button mat-raised-button color="accent">S'inscrire</button>
+		<button mat-raised-button color="accent" [routerLink]="['/inscription']">S'inscrire</button>
 	</mat-card>
 
 </div>
