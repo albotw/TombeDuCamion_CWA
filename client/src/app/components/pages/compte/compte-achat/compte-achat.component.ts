@@ -33,16 +33,14 @@ export class CompteAchatComponent implements OnInit {
 	ngOnInit(): void {
 		this.getHistory();
 		this.refreshProducts(this.pageIndex, this.pageSize);
-		console.log("le produit : ",this.products);
 	}
 
 	public getHistory(){
-		console.log("this auth uid : ",this.auth);
 		DataController.getHistory(this.auth, (data) =>
 		{
-			this.history = data.results;
+			this.history = data;
 		});
-		console.log(this.history);
+		console.log("historique : ", this.history);
 	}
 
 	public refreshProducts(pageIndex: number, pageSize: number)

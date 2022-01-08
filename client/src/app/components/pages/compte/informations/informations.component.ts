@@ -20,7 +20,7 @@ export class InformationsComponent implements OnInit {
   constructor() { }
 
   async ngOnInit() {
-    let auth = {uid: "userID", token: "123456"};
+    let auth = State.get(CacheData.Auth);
     this.getUser(auth).then(tab => {this.pseudo=tab[0]});
     this.getUser(auth).then(tab => {this.mail=tab[1]});
     this.getUser(auth).then(tab => {this.moyenne=tab[2]});
