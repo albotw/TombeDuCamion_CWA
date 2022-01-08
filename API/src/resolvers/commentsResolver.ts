@@ -43,10 +43,10 @@ export default class commentsResolver {
         note = note as number;
         if (userResolver.instance.isConnected(auth)) {
             if ( userResolver.instance.hasBoughtProduct(auth.uid, p_uid) || true) {
-                let c_uid = crypto.createHash("sha256").update(message + note + dayjs().format);
+                let c_uid = crypto.createHash("sha256").update(message + note + dayjs().format).digest("hex");
                 let comment: IComment = {
                     author: auth.uid,
-                    c_uid: c_uid.digest("hex"),
+                    c_uid: c_uid,
                     date: dayjs().format("DD/MM/YYYY"),
                     message: message,
                     note: note
