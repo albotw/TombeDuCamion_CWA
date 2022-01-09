@@ -3,6 +3,7 @@ import { environment } from "src/environments/environment";
 import DataController from '../../../../shared/DataController';
 import State, { CacheData } from "../../../../shared/State";
 import { request, gql } from "graphql-request";
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-wishlist',
@@ -19,6 +20,7 @@ export class WishlistComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth = State.get(CacheData.Auth);   //utilisateur connecté
+
     this.getWishlist(this.auth).then (wish => {
       this.wishlist=wish;
       for(let item of this.wishlist){
@@ -57,8 +59,17 @@ export class WishlistComponent implements OnInit {
       product: product
     }
     let wish : any = await request(environment.API + "/graphql", query, variables, { "Content-Type": "application/json" });
-    window.location.reload();
-    return wish.removeFromWishlist;
+
+    this.getWishlist(this.auth).then (wish => {
+      this.products = [];
+      this.wishlist=wish;
+      for(let item of this.wishlist){
+        DataController.getProduct(item, (product) => {this.product=product;
+          this.products.push(this.product);
+        });
+      }
+    });
+
 	}
 
 }

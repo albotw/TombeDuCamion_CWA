@@ -210,7 +210,7 @@ export default class DataController
 			auth: auth
 		}
 
-		DataController.grab(query, variables).then(result => result.getWishList).then(callback);
+		DataController.grab(query, variables).then(result => result.getWishlist).then(callback);
 	}
 
 	/**

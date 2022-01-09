@@ -18,7 +18,7 @@ export class DetailProduitComponent implements OnInit
 	public comments: any = [];
 	public product: any = {};
 	public p_uid: string = "";
-	public wishlist: any = [];
+	
 	public static instance : DetailProduitComponent;
 
 	constructor(private http: HttpClient, private route: ActivatedRoute, private _bottomSheet: MatBottomSheet)
@@ -87,20 +87,21 @@ export class DetailProduitComponent implements OnInit
 
 	//partie wishlist
 	addToWishlist() : void{
-		let alreadyExists = false;
 		let userCo = State.get(CacheData.Auth);
-		DataController.getWishList(userCo, (dataW) => {this.wishlist=dataW});
-		for (let item of this.wishlist)
-		{
-			if (item.p_uid == this.p_uid)
-			{
-				alreadyExists = true;
+		DataController.getWishList(userCo, (dataW) => {
+			let alreadyExists = false;
+			for (let item of dataW)	{
+				if (item == this.p_uid)
+				{
+					alreadyExists = true;
+				}
 			}
-		}
-		if (!alreadyExists)
-		{
-			DataController.addWishList(userCo, this.p_uid,  (data) =>{});
-		}
+			if (!alreadyExists)
+			{
+				DataController.addWishList(userCo, this.p_uid,  (data) =>{});
+			}
+		});
+		
 
 	}
 

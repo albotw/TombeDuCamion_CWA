@@ -45,7 +45,6 @@ export class AbstractListeComponent implements OnInit {
             else{
               this.history = data.filter(item => item.type == 'SELL');
             }
-            console.log("historique : ", this.history);
             this.getProducts();
         });
 	}
@@ -58,7 +57,6 @@ export class AbstractListeComponent implements OnInit {
 			DataController.getProduct(this.history[product].product, (data) =>
 			{
 				this.products.push(data);
-				console.log(this.products);
 			});
 		}
 	}

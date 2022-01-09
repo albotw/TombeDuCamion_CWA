@@ -41,7 +41,6 @@ import { PanierComponent } from './components/pages/panier/panier.component';
 import { PorteTransitionComponentComponent } from './components/template/transitionPorte/porte-transition-component.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CompteComponent } from './components/pages/compte/compte.component';
-import { ListeComponent } from './components/pages/compte/liste/liste.component';
 import { InformationsComponent } from './components/pages/compte/informations/informations.component';
 import {MatSelectModule} from '@angular/material/select';
 import { NewSellComponent } from './components/pages/new-sell/new-sell.component';
@@ -77,7 +76,6 @@ import { AbstractListeComponent } from './components/pages/compte/abstract-liste
 		PanierComponent,
 		PorteTransitionComponentComponent,
 		CompteComponent,
-		ListeComponent,
 		InformationsComponent,
  		NewSellComponent,
 		BottomNewCommSheet,
