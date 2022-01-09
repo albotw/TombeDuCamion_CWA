@@ -31,6 +31,10 @@ export class DetailProduitComponent implements OnInit
 			this.product = data
 		})
 
+		this.grabComments();
+	}
+
+	grabComments() : void {
 		DataController.getCommentsOfProduct(this.p_uid, (dataC) =>
 		{
 			this.comments = dataC
@@ -139,10 +143,7 @@ export class BottomNewCommSheet{
 		let auth = State.get(CacheData.Auth);
 		let pcommentary = this.commentaryGroup.get('commentary');
 		DataController.postComment(auth, this.p_uid, pcommentary.value, this.stars,  (data) =>{});
-		DataController.getCommentsOfProduct(this.p_uid, (dataC) =>
-		{
-			DetailProduitComponent.instance.comments = dataC
-		})
+		DetailProduitComponent.instance.grabComments();
 		this._bottomSheetRef.dismiss();
 		//TODO poster le commentaire
 	}
