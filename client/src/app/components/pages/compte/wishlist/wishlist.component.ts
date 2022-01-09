@@ -60,6 +60,7 @@ export class WishlistComponent implements OnInit {
       product: product
     }
     let wish : any = await request(environment.API + "/graphql", query, variables, { "Content-Type": "application/json" });
+    window.location.reload();
     return wish.removeFromWishlist;
 	}
 
