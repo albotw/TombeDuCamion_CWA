@@ -19,9 +19,9 @@ ProductCount;
   addProductsToTab = (product) => { // methode permettant d'ajouter les produits dans le panier
     this.TabProduits = State.get(CacheData.Panier);
     let productExists = false;
-    for ( let i in this.TabProduits) {
-      if (this.TabProduits[i].product.puid === product.puid) {
-        this.TabProduits[i].count++;
+    for ( let i of this.TabProduits) {
+      if (i.product.p_uid === product.product.p_uid) {
+        i.count++;                       
         productExists = true;
         break;
       }
@@ -75,7 +75,7 @@ ClearTab = () => {
 
 RemoveFromTab = (product) => {
   this.TabProduits = State.get(CacheData.Panier);
-  this.TabProduits = this.TabProduits.filter((item) => item.product.puid !== product.puid);
+  this.TabProduits = this.TabProduits.filter((item) => item.product.p_uid !== product.product.p_uid);
   State.set(CacheData.Panier, this.TabProduits);
 
   if(this.TabProduits.length === 0) {
@@ -86,12 +86,12 @@ RemoveFromTab = (product) => {
 
 MoinsFromTab = (product) => {
   this.TabProduits = State.get(CacheData.Panier); // methode pour décrémenter la quantité de l'objet dans le panier 
-  for ( let i in this.TabProduits) {
-    if(this.TabProduits[i].product.puid === product.puid) {
-      if(this.TabProduits[i].count === 0 ){
+  for ( let i of this.TabProduits) {
+    if(i.product.p_uid === product.product.p_uid) {
+      if(i.count === 0 ){
         this.RemoveFromTab(product);
       }
-      else { this.TabProduits[i].count--;
+      else { i.count--;
       }
     break;
     }

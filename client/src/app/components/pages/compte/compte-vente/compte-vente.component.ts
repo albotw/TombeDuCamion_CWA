@@ -1,10 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PageEvent } from '@angular/material/paginator';
 import DataController from '../../../../shared/DataController';
-import { data } from '../../../../shared/global'
+import { data } from '../../../../shared/global';
+import State, { CacheData } from "../../../../shared/State";
 
 @Component({
   selector: 'app-compte-vente',
@@ -12,14 +10,11 @@ import { data } from '../../../../shared/global'
   styleUrls: ['./compte-vente.component.css']
 })
 export class CompteVenteComponent implements OnInit {
-
-  products = [];
-	totalCount = 0;
+	auth = State.get(CacheData.Auth);
+	products = [];
 	actualSort = "NO_SORT";
+	history = [] ;
 	DATA = data;
-	pageIndex = 0;
-	pageSize = 16;	
-	@ViewChild('paginator') paginator: MatPaginator;
 
 	constructor(private route: ActivatedRoute, private router: Router)
 	{
@@ -27,36 +22,29 @@ export class CompteVenteComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.refreshProducts(this.pageIndex, this.pageSize);
+		this.getHistory();
 	}
 
-	public refreshProducts(pageIndex: number, pageSize: number)
-	{
-	
-		let offset = pageIndex * pageSize;
-
-		DataController.searchProduct("", "", pageSize, offset, this.DATA.actualSort, this.DATA.filter, (data) =>
+	public getHistory(){
+		DataController.getHistory(this.auth, (data) =>
 		{
-			this.totalCount = data.meta.totalCount;
-      //TODO ajouter le filtre pour la vente
-			this.products = data.results.filter((product) => product['price'] > 100.0).
-      map(product =>
+			this.history = data.filter((data) => data.type == "SELL").map((data) => 
 			{
-				if (product['description'].length > 40)
-				{
-					product['description'] = product['description'].substring(0, 37) + "...";
-				}
-				return product
-			})
-      console.log("les produits : ",this.products);
+				return data.product;
+			});
+
+			this.getProducts();
 		});
 	}
 
-	public getServerData(event?: PageEvent)
+	public getProducts()
 	{
-		this.pageIndex = event.pageIndex;
-		this.pageSize = event.pageSize;
-		this.refreshProducts(event.pageIndex, event.pageSize);
+		for(const product in this.history)
+		{
+			DataController.getProduct(this.history[product] ,(data) =>
+			{
+				this.products.push(data)
+			});
+		}
 	}
-
 }

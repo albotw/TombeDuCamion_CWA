@@ -6,7 +6,6 @@ import DataController from '../../../shared/DataController';
 import State, { CacheData } from "../../../shared/State";
 import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { request, gql } from "graphql-request";
 
 
 @Component({
@@ -19,12 +18,14 @@ export class DetailProduitComponent implements OnInit
 	public comments: any = [];
 	public product: any = {};
 	public p_uid: string = "";
+	public wishlist: any = [];
 	public static instance : DetailProduitComponent;
 
 	constructor(private http: HttpClient, private route: ActivatedRoute, private _bottomSheet: MatBottomSheet)
 	{
 		this.p_uid = this.route.snapshot.paramMap.get('id');
 		console.log(this.p_uid);
+
 		DetailProduitComponent.instance = this;
 		DataController.getProduct(this.p_uid, (data) =>
 		{
@@ -34,6 +35,12 @@ export class DetailProduitComponent implements OnInit
 		DataController.getCommentsOfProduct(this.p_uid, (dataC) =>
 		{
 			this.comments = dataC
+			this.comments.forEach(element => {
+				DataController.getNickname(element.author, (data)=> {
+					element.author = data;
+				});
+
+			});
 		})
 	}
 
@@ -76,69 +83,24 @@ export class DetailProduitComponent implements OnInit
 	}
 
 	//partie wishlist
-	addToWishlist() : any {
-		let auth = State.get(CacheData.Auth);
+	addToWishlist() : void{
 		let alreadyExists = false;
-		let wishlist;
-		this.getWishlist(auth).then(wish => {wishlist=wish});
-
-		/*for (let item of wishlist)
+		let userCo = State.get(CacheData.Auth);
+		DataController.getWishList(userCo, (dataW) => {this.wishlist=dataW});
+		for (let item of this.wishlist)
 		{
-			if (item.p_uid != this.p_uid)
-			{*/
-				this.addWish(auth, this.p_uid);
-			/*}
-			else{
-				console.log('déjà présent dans la wishlist');
-	addToWishlist() : boolean{
-		if (this.product.stock > 0){
-			let alreadyExists = false;
-			let userCo = State.get(CacheData.Auth);
-			let wishlist;
-			DataController.getWishList(userCo, (dataW) => {wishlist=dataW});
-			for (let item of wishlist)
+			if (item.p_uid == this.p_uid)
 			{
-				if (item.p_uid == this.p_uid)
-				{
-					alreadyExists = true;
-				}
+				alreadyExists = true;
 			}
-			if (!alreadyExists)
-			{
-				DataController.addWishList(userCo, this.p_uid,  (data) =>{});
-			}
-		}*/
+		}
+		if (!alreadyExists)
+		{
+			DataController.addWishList(userCo, this.p_uid,  (data) =>{});
+		}
+
 	}
 
-	public getWishlist = async (auth: any) =>
-	{
-		let query = gql`
-		query getWishlist($auth: AuthInfo) {
-			getWishlist(auth: $auth)
-		}
-	`
-    let variables = {
-      auth: auth
-    }
-    let wish : any = await request(environment.API + "/graphql", query, variables, { "Content-Type": "application/json" });
-    console.log(wish);
-    return wish;
-	}
-
-	public addWish = async (auth: any, product: string) =>
-	{
-		let mutation = gql`
-		mutation addWish($auth: AuthInfo!, $product: ID!) {
-			addToWishlist(auth: $auth, product: $product)
-		}
-		`
-		let variables = {
-		auth: auth,
-		product: product
-		}
-		let wish : any = await request(environment.API + "/graphql", mutation, variables, { "Content-Type": "application/json" });
-		return wish.addWish;
-	}
 	//fin wishlist
 }
 
@@ -150,8 +112,13 @@ export class BottomNewCommSheet{
 	stars = 5;
 	commentaryGroup: FormGroup;
 	p_uid : string;
+	auth: string;
+
 	constructor(private _formBuilder: FormBuilder, private _bottomSheetRef: MatBottomSheetRef<BottomNewCommSheet>) {
 		this.p_uid = DetailProduitComponent.instance.p_uid;
+		DataController.getNickname(State.get(CacheData.Auth).uid, (data) => {
+			this.auth = data;
+		});
 	}
 
 	ngOnInit(): void {
@@ -171,7 +138,12 @@ export class BottomNewCommSheet{
 
 	post(): void{
 		let auth = State.get(CacheData.Auth);
-		DataController.postComment(auth, this.p_uid, this.commentaryGroup.value.commentary, this.stars,  (data) =>{});
+		let pcommentary = this.commentaryGroup.get('commentary');
+		DataController.postComment(auth, this.p_uid, pcommentary.value, this.stars,  (data) =>{});
+		DataController.getCommentsOfProduct(this.p_uid, (dataC) =>
+		{
+			DetailProduitComponent.instance.comments = dataC
+		})
 		this._bottomSheetRef.dismiss();
 		//TODO poster le commentaire
 	}

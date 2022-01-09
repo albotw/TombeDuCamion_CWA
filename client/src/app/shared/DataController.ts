@@ -308,6 +308,21 @@ export default class DataController
 		DataController.grab(query, variables).then(result => result.getHistory).then(callback);
 	 }
 
+	 public static getNickname = async (uid, callback: (data: any) => void) =>
+	 {
+		let query = gql`
+			query getNickname($uid: String!) {
+				getNickname(uid: $uid)
+			}
+		`
+
+		let variables = {
+			uid: uid
+		}
+
+		DataController.grab(query, variables).then(result => result.getNickname).then(callback);
+	 }
+
 
 	public static grab = async (query: any, variables: any | null) =>
 	{
