@@ -11,7 +11,7 @@
 
 	<mat-form-field class="navbar-content">
 		<input matInput type="search"  id="src_input" placeholder="Rechercher" [(ngModel)]="value" (input)="updateRoute();">
-		<button matSuffix [disabled]="value==''" mat-icon-button aria-label="Clear"  [routerLink]="[DATA.redirection ,'/recherche']" [queryParams]="{str: value, cat: cat}">
+		<button matSuffix [disabled]="value==''" mat-icon-button aria-label="Clear"  [routerLink]="[DATA.redirection ,'recherche']" [queryParams]="{str: value, cat: cat}">
 			<mat-icon>send</mat-icon>
 		</button>
 	</mat-form-field>

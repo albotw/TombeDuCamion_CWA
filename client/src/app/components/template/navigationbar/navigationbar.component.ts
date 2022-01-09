@@ -40,8 +40,7 @@ export class NavigationbarComponent implements OnInit
 		  queryParams: {
 			str: this.value,
 			cat: this.cat
-		  },
-		  fragment: 'anchor'
+		  }
 		}
 		this.router.navigate(['recherche'],  navextra);
 	}
