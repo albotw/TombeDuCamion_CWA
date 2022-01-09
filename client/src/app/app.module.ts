@@ -57,7 +57,7 @@ import { InscriptionComponent } from './components/pages/inscription/inscription
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
 import { CompteVenteComponent } from './components/pages/compte/compte-vente/compte-vente.component';
-
+import { AbstractListeComponent } from './components/pages/compte/abstract-liste/abstract-liste.component';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -86,6 +86,7 @@ import { CompteVenteComponent } from './components/pages/compte/compte-vente/com
 		WishlistComponent,
 		ConnexionComponent,
 		InscriptionComponent,
+  AbstractListeComponent,
 	],
 	imports: [
 		MatDatepickerModule,

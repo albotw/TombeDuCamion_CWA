@@ -1,7 +1,7 @@
 
 
 export const data = { 
-    redirection: '/transition', 
+    redirection: '', 
     darkmode: false,
     actualSort: "NO_SORT",
 	filter: {

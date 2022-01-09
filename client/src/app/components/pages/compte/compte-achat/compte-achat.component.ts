@@ -7,62 +7,22 @@ import DataController from '../../../../shared/DataController';
 import { data } from '../../../../shared/global';
 import IAuthData from '../../../../../../../API/src/interfaces/AuthData'; 
 import State, { CacheData } from "../../../../shared/State";
-@Component({
+import { AbstractListeComponent } from '../abstract-liste/abstract-liste.component';
 
+@Component({
   selector: 'app-compte-achat',
-  templateUrl: './compte-achat.component.html',
-  styleUrls: ['./compte-achat.component.css']
+  templateUrl: '../abstract-liste/abstract-liste.component.html',
+  styleUrls: ['../abstract-liste/abstract-liste.component.css']
 })
 
-export class CompteAchatComponent implements OnInit {
+export class CompteAchatComponent extends AbstractListeComponent {
+
 	auth = State.get(CacheData.Auth);
-	products = [];
-	totalCount = 0;
-	actualSort = "NO_SORT";
-	history = [] ;
-	DATA = data;
-	pageIndex = 0;
-	pageSize = 16;	
-	@ViewChild('paginator') paginator: MatPaginator;
+	
+	achat = true;
 
-	constructor(private route: ActivatedRoute, private router: Router)
-	{
-		this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-	}
-
-	ngOnInit(): void {
-		this.getHistory();
-		this.refreshProducts(this.pageIndex, this.pageSize);
-	}
-
-	public getHistory(){
-		DataController.getHistory(this.auth, (data) =>
-		{
-			this.history = data;
-		});
-		console.log("historique : ", this.history);
-	}
-
-	public refreshProducts(pageIndex: number, pageSize: number)
-	{
-		
-		let offset = pageIndex * pageSize;
-
-		DataController.searchProduct("", "", pageSize, offset, this.DATA.actualSort, this.DATA.filter, (data) =>
-		{
-			this.totalCount = data.meta.totalCount;
-			this.products = data.results.filter((product) => product['price'] > 100.0).map(product =>
-			{
-				return product;
-			})
-		});
-	}
-
-	public getServerData(event?: PageEvent)
-	{
-		this.pageIndex = event.pageIndex;
-		this.pageSize = event.pageSize;
-		this.refreshProducts(event.pageIndex, event.pageSize);
+	constructor(route: ActivatedRoute, router: Router){
+		super(route, router);
 	}
 
 }
