@@ -34,7 +34,6 @@ export class ResultatsComponent implements OnInit
 
 	ngOnInit(): void
 	{
-		console.log(this.rech);
 		this.refreshProducts(0, 16, false);
 	}
 

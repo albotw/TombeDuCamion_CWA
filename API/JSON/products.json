@@ -15,7 +15,7 @@
         "notation": 4.871,
         "price": 4000,
         "sales": 499,
-        "views": 1135
+        "views": 1159
     },
     {
         "p_uid": "62c7da2eeece29c4f0ce4d4eba90eab863f25ed6338b37123d966356dc2eb582",
@@ -31,7 +31,7 @@
         "notation": 2.702,
         "price": 7000,
         "sales": 317,
-        "views": 1104
+        "views": 1128
     },
     {
         "p_uid": "c51bad7a2dcbd0c4bcd8f63672fef0198387ccaa9b575df1790a69ab4a33a15b",
@@ -47,7 +47,23 @@
         "notation": 2.064,
         "price": 0,
         "sales": 9,
-        "views": 1091
+        "views": 1115
+    },
+    {
+        "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
+        "seller": "Prof. Chen",
+        "title": "shell-bell",
+        "stock": 156,
+        "description": "Held: Heals the holder by 1/8 of any damage it inflicts.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
+        ],
+        "category": "pokemonItems",
+        "comments": [],
+        "notation": 4.871,
+        "price": 4000,
+        "sales": 499,
+        "views": 1053
     },
     {
         "p_uid": "7b9adbddaaf29cd8227e09da978e38c2bcc61c07e87bf632bd087c0d918bafe8",
@@ -63,7 +79,7 @@
         "notation": 3.369,
         "price": 10000,
         "sales": 225,
-        "views": 1011
+        "views": 1035
     },
     {
         "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
@@ -80,22 +96,6 @@
         "price": 4000,
         "sales": 499,
         "views": 999
-    },
-    {
-        "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
-        "seller": "Prof. Chen",
-        "title": "shell-bell",
-        "stock": 156,
-        "description": "Held: Heals the holder by 1/8 of any damage it inflicts.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
-        ],
-        "category": "pokemonItems",
-        "comments": [],
-        "notation": 4.871,
-        "price": 4000,
-        "sales": 499,
-        "views": 1049
     },
     {
         "p_uid": "e02d613f7cbac5f8d2fd202d61f2672f88bb60d8525ec1f4955509d4eaf3c29e",
@@ -2143,7 +2143,7 @@
         "notation": 2.4,
         "price": 0,
         "sales": 398,
-        "views": 865
+        "views": 867
     },
     {
         "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
@@ -6495,7 +6495,7 @@
         "notation": 4.402,
         "price": 0,
         "sales": 145,
-        "views": 550
+        "views": 552
     },
     {
         "p_uid": "bb46e8e44fc5d281bdcb02dfd1086537ed516d8240ae2b876118feeb52b799f9",
@@ -13007,7 +13007,7 @@
         "notation": 0.154,
         "price": 3000,
         "sales": 223,
-        "views": 93
+        "views": 95
     },
     {
         "p_uid": "6aa6cd666df918ecbb178f734ad525b12ec0b6400d6a674b0451b620db2684ef",

@@ -24,7 +24,6 @@ export class DetailProduitComponent implements OnInit
 	constructor(private http: HttpClient, private route: ActivatedRoute, private _bottomSheet: MatBottomSheet)
 	{
 		this.p_uid = this.route.snapshot.paramMap.get('id');
-		console.log(this.p_uid);
 
 		DetailProduitComponent.instance = this;
 		DataController.getProduct(this.p_uid, (data) =>

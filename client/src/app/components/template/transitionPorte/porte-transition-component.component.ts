@@ -17,7 +17,6 @@ export class PorteTransitionComponentComponent implements OnInit {
 
   ngOnInit(): void {
     setTimeout( () => {
-      console.log("test", this.route);
       const id = this.route.snapshot.paramMap.get('id');
       const opt = this.route.snapshot.paramMap.get('opt');
       if (opt !== null){

@@ -34,7 +34,6 @@ export class AbstractListeComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.getHistory();
-		//this.refreshProducts(this.pageIndex, this.pageSize);
 	}
 
 	public getHistory(){
@@ -47,29 +46,21 @@ export class AbstractListeComponent implements OnInit {
               this.history = data.filter(item => item.type == 'SELL');
             }
             console.log("historique : ", this.history);
+            this.getProducts();
         });
 	}
 
-	public refreshProducts(pageIndex: number, pageSize: number)
+	public getProducts()
 	{
-		
-		let offset = pageIndex * pageSize;
-
-		DataController.searchProduct("", "", pageSize, offset, this.DATA.actualSort, this.DATA.filter, (data) =>
+    	this.products = [];
+		for(const product in this.history)
 		{
-			this.totalCount = data.meta.totalCount;
-			this.products = data.results.filter((product) => product['price'] > 100.0).map(product =>
+			DataController.getProduct(this.history[product].product, (data) =>
 			{
-				return product;
-			})
-		});
-	}
-
-	public getServerData(event?: PageEvent)
-	{
-		this.pageIndex = event.pageIndex;
-		this.pageSize = event.pageSize;
-		this.refreshProducts(event.pageIndex, event.pageSize);
+				this.products.push(data);
+				console.log(this.products);
+			});
+		}
 	}
 
 }

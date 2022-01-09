@@ -1,8 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import DataController from '../../../../shared/DataController';
-import { data } from '../../../../shared/global';
-import IAuthData from '../../../../../../../API/src/interfaces/AuthData'; 
 import State, { CacheData } from "../../../../shared/State";
 import { AbstractListeComponent } from '../abstract-liste/abstract-liste.component';
 

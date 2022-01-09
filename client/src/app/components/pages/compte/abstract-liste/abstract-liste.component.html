@@ -1,7 +1,9 @@
 <div class="resultats">
 	<div *ngIf="products.length === 0" class="produitsVide">
-		<h4>Vous n'avez pas encore acheté de produits</h4>
-		<p routerLink='/accueil' class="achetez">Achetez des produits</p>
+		<h4 *ngIf="achat">Vous n'avez pas encore acheté de produits</h4>
+		<h4 *ngIf="!achat">Vous n'avez pas encore vendu de produits</h4>
+		<p *ngIf="achat" routerLink='/accueil' class="achetez">Achetez des produits</p>
+		<p *ngIf="!achat" routerLink='/newSell' class="achetez">Vendez des produits</p>
 	</div>
 
 	<div *ngFor="let vente of products">

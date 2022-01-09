@@ -36,7 +36,6 @@ export class PanierComponent implements OnInit
 	}
 
 	ControlIncrement (product) : void  {
-		console.log(product);
 		this.panier.addProductsToTab(product);
 		this.TabProducts = this.panier.getProductFromTab();
 		this.ProductTotalValeur = this.panier.getTotalPanier();

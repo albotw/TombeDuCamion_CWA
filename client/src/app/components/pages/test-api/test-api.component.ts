@@ -42,7 +42,6 @@ export class TestApiComponent implements OnInit
 
 		DataController.testApi((data) =>
 		{
-			console.log(data);
 			this.product = data.product;
 
 		});

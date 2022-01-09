@@ -19,14 +19,13 @@ export class WishlistComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth = State.get(CacheData.Auth);   //utilisateur connecté
-    this.getWishlist(this.auth).then (wish => {this.wishlist=wish;
-      console.log(this.wishlist);
+    this.getWishlist(this.auth).then (wish => {
+      this.wishlist=wish;
       for(let item of this.wishlist){
         DataController.getProduct(item, (product) => {this.product=product;
           this.products.push(this.product);
         });
       }
-      console.log(this.products);
     });
   }
 
@@ -42,14 +41,12 @@ export class WishlistComponent implements OnInit {
       auth: auth
     }
     let wish : any = await request(environment.API + "/graphql", query, variables, { "Content-Type": "application/json" });
-    console.log(wish);
     return wish.getWishlist;
 	}
 
   //supprimer un élément de la wishlist
   public removeFromWishlist = async (product: string) =>
 	{
-    console.log(product);
 		let query = gql`
 		mutation removeFromWishlist($auth: AuthInfo!, $product: ID!) {
       removeFromWishlist(auth: $auth, product: $product)
