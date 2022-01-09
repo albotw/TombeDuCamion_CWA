@@ -1,5 +1,23 @@
 [
     {
+        "p_uid": "f094fc04d653152553a65a5defa0e17c4cba74d63fe5bb09b274a768b032a00c",
+        "seller": "Prof. Chen",
+        "title": "dragon-scale",
+        "stock": 185,
+        "description": "Held by Seadra: Evolves the holder into Kingdra when traded.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
+        ],
+        "category": "pokemonItems",
+        "comments": [
+            "6ba684cdbdadb46b49066cddc56fa3d60e2106ea0abfd48e855350ae1156cc03"
+        ],
+        "notation": 4.871,
+        "price": 4000,
+        "sales": 499,
+        "views": 1135
+    },
+    {
         "p_uid": "62c7da2eeece29c4f0ce4d4eba90eab863f25ed6338b37123d966356dc2eb582",
         "seller": "Prof. Chen",
         "title": "armor-fossil",
@@ -13,7 +31,7 @@
         "notation": 2.702,
         "price": 7000,
         "sales": 317,
-        "views": 1092
+        "views": 1104
     },
     {
         "p_uid": "c51bad7a2dcbd0c4bcd8f63672fef0198387ccaa9b575df1790a69ab4a33a15b",
@@ -29,23 +47,7 @@
         "notation": 2.064,
         "price": 0,
         "sales": 9,
-        "views": 1075
-    },
-    {
-        "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
-        "seller": "Prof. Chen",
-        "title": "shell-bell",
-        "stock": 156,
-        "description": "Held: Heals the holder by 1/8 of any damage it inflicts.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
-        ],
-        "category": "pokemonItems",
-        "comments": [],
-        "notation": 4.871,
-        "price": 4000,
-        "sales": 499,
-        "views": 1053
+        "views": 1091
     },
     {
         "p_uid": "7b9adbddaaf29cd8227e09da978e38c2bcc61c07e87bf632bd087c0d918bafe8",
@@ -61,7 +63,7 @@
         "notation": 3.369,
         "price": 10000,
         "sales": 225,
-        "views": 1009
+        "views": 1011
     },
     {
         "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
@@ -80,52 +82,20 @@
         "views": 999
     },
     {
-        "p_uid": "f094fc04d653152553a65a5defa0e17c4cba74d63fe5bb09b274a768b032a00c",
+        "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
         "seller": "Prof. Chen",
-        "title": "dragon-scale",
-        "stock": 185,
-        "description": "Held by Seadra: Evolves the holder into Kingdra when traded.",
+        "title": "shell-bell",
+        "stock": 156,
+        "description": "Held: Heals the holder by 1/8 of any damage it inflicts.",
         "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/dragon-scale.png"
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
         ],
-        "category": "evolution",
+        "category": "pokemonItems",
         "comments": [],
-        "notation": 1.277,
-        "price": 2000,
-        "sales": 393,
-        "views": 998
-    },
-    {
-        "p_uid": "f93fe641b8b69ed0b262f1f0a750f876a7212fdd7a247c2956c48e84566c2cc2",
-        "seller": "Prof. Chen",
-        "title": "twisted-spoon",
-        "stock": 188,
-        "description": "Held: Increases the power of the holder's Psychic moves by 20%.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/twisted-spoon.png"
-        ],
-        "category": "type-enhancement",
-        "comments": [],
-        "notation": 1.101,
-        "price": 1000,
-        "sales": 418,
-        "views": 993
-    },
-    {
-        "p_uid": "7d40e1aab8ec90350dbc98f30651c836eced5d71492ea9893f1ae74fa3bcc072",
-        "seller": "Prof. Chen",
-        "title": "ganlon-berry",
-        "stock": 196,
-        "description": "Held in battle\n:   When the holder has 1/4 its max HP remaining or less, it consumes this item to raise its Defense by one stage.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/ganlon-berry.png"
-        ],
-        "category": "in-a-pinch",
-        "comments": [],
-        "notation": 3.867,
-        "price": 20,
-        "sales": 62,
-        "views": 991
+        "notation": 4.871,
+        "price": 4000,
+        "sales": 499,
+        "views": 1049
     },
     {
         "p_uid": "e02d613f7cbac5f8d2fd202d61f2672f88bb60d8525ec1f4955509d4eaf3c29e",
@@ -3949,7 +3919,7 @@
         "notation": 4.986,
         "price": 0,
         "sales": 368,
-        "views": 750
+        "views": 748
     },
     {
         "p_uid": "a55fe2727c41485a938fe9e73b0491e8c8fa5868a520ee6e88d6b6ee4111087d",
@@ -4221,7 +4191,7 @@
         "notation": 4.991,
         "price": 20,
         "sales": 65,
-        "views": 722
+        "views": 720
     },
     {
         "p_uid": "1ffe92a09c55de5d752ca8e97ea093a3f2e3b61af7f65af76e9dc03013cd9157",
@@ -4910,6 +4880,22 @@
         "price": 1000,
         "sales": 457,
         "views": 671
+    },
+    {
+        "p_uid": "98a21d6faf28ab61036d23ff86529be2ae49f63ec78f79412c1b112a3f0578bb",
+        "seller": "Prof. Chen",
+        "title": "smoke-ball",
+        "stock": 181,
+        "description": "Held: In wild battles, attempts to run away on the holder's turn will always succeed.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/smoke-ball.png"
+        ],
+        "category": "held-items",
+        "comments": [],
+        "notation": 4.986,
+        "price": 4000,
+        "sales": 271,
+        "views": 668
     },
     {
         "p_uid": "4834b974ff285ecc3d001d6cff75a36c464921840dbb498f3ca30e0453d59fcb",
@@ -8240,6 +8226,22 @@
         "views": 428
     },
     {
+        "p_uid": "053d89c239cdb53f759a64dd8ef7f6b3012e1a37f4eeb8ded2ea3d27070d7c42",
+        "seller": "Prof. Chen",
+        "title": "hm08",
+        "stock": 197,
+        "description": "Teaches Rock Climb to a compatible Pokémon.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/hm-normal.png"
+        ],
+        "category": "all-machines",
+        "comments": [],
+        "notation": 0.521,
+        "price": 0,
+        "sales": 499,
+        "views": 427
+    },
+    {
         "p_uid": "2babae8d647cbb731ccb51a85599e468af25ce2aed4d0c973aa06bf05e923455",
         "seller": "Prof. Chen",
         "title": "focus-sash",
@@ -8861,22 +8863,6 @@
         "notation": 4.344,
         "price": 0,
         "sales": 497,
-        "views": 382
-    },
-    {
-        "p_uid": "053d89c239cdb53f759a64dd8ef7f6b3012e1a37f4eeb8ded2ea3d27070d7c42",
-        "seller": "Prof. Chen",
-        "title": "hm08",
-        "stock": 197,
-        "description": "Teaches Rock Climb to a compatible Pokémon.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/hm-normal.png"
-        ],
-        "category": "all-machines",
-        "comments": [],
-        "notation": 0.521,
-        "price": 0,
-        "sales": 499,
         "views": 382
     },
     {
@@ -10253,7 +10239,7 @@
         "notation": 4.799,
         "price": 0,
         "sales": 499,
-        "views": 307
+        "views": 309
     },
     {
         "p_uid": "36400887f5dd40e8585c2c887d607e4065b7d32874af38f76d176413b46b6edb",

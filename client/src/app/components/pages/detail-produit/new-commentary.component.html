@@ -1,6 +1,6 @@
 <mat-nav-list>
 
-    <h4>Commentaire de $user.nickname : </h4>
+    <h4>Commentaire de {{auth}} : </h4>
 
     <form [formGroup]="commentaryGroup">
         <textarea formControlName="commentary"

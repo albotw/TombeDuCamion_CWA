@@ -33,35 +33,17 @@
 			</p>
 		</div>
 
-			<img *ngIf="product.images !== undefined"  src="{{product.images[0]}}">
-			<mat-spinner *ngIf="product.images === undefined"></mat-spinner>
 
-			<p>
-				{{product.price}} €
-			</p>
-
-			<p>
-				Stock : {{product.stock}}
-			</p>
-
-			<button mat-flat-button color="warn" (click)="addToPanier();">
-				Ajouter au panier
-				<mat-icon>add_shopping_cart</mat-icon>
-			</button>
-			<button mat-flat-button color="warn" (click)="addToWishlist();">
-				Ajouter à la wishlist
-				<mat-icon>assignment_turned_in</mat-icon>
-			</button>
 		</div>
 	</div>
 
-	<div style="width: 58%; float:right; border: 1px solid; padding: 5px;">
+	<mat-card style="width: 58%; float:right; border: 1px solid; padding: 5px;">
 		<h2>Commentaires : </h2>
-		<div style="margin: 20px;">
-			<mat-card *ngFor="let com of comments">
-				<mat-card-title>{{com.title}}</mat-card-title>
-				<mat-card-subtitle>{{com.note}}</mat-card-subtitle>
-				<mat-card-content>{{com.content}}</mat-card-content>
+		<div style="margin: 30px;">
+			<mat-card style="border: 1px solid;margin: 20px;" *ngFor="let com of comments">
+				<mat-card-title>{{ com.author }}</mat-card-title>
+				<mat-card-subtitle>note: {{com.note}}/5  |  date: {{com.date}}</mat-card-subtitle>
+				<mat-card-content>{{com.message}}</mat-card-content>
 			</mat-card>
 		</div>
 
@@ -70,7 +52,7 @@
 		<button style="float: right;" mat-flat-button color="warn" (click)="openBottomSheet()">
 			Ajouter un commentaire
 		</button>
-	</div>
+	</mat-card>
 
 </div>
 </body>
