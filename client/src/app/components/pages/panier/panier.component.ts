@@ -8,8 +8,7 @@ import { PanierService } from 'src/app/services/panier.service';
 	templateUrl: './panier.component.html',
 	styleUrls: ['./panier.component.css']
 })
-export class PanierComponent implements OnInit
-{
+export class PanierComponent implements OnInit {
 	TabProducts = [];
 	ProductTotalValeur;
 	products;
@@ -19,35 +18,39 @@ export class PanierComponent implements OnInit
 		this.products = this.panier.getProductCount();
 	}
 
-	
+
 	/*public trackItem (index: number, item: Item) {
 		return item.trackId;
 	  }*/
 
-	ngOnInit(): void
-	{
+	ngOnInit(): void {
 
 	}
 
-	ControlRemoveProduct (product) : void {
+	ControlRemoveProduct(product): void {
 		this.panier.RemoveFromTab(product);
 		this.TabProducts = this.panier.getProductFromTab();
 		this.ProductTotalValeur = this.panier.getTotalPanier();
 	}
 
-	ControlIncrement (product) : void  {
+	ControlIncrement(product): void {
 		console.log(product);
 		this.panier.addProductsToTab(product);
 		this.TabProducts = this.panier.getProductFromTab();
 		this.ProductTotalValeur = this.panier.getTotalPanier();
 	}
 
-	ControlDecrement (product) : void {
+	ControlDecrement(product): void {
 		this.panier.MoinsFromTab(product);
 		this.TabProducts = this.panier.getProductFromTab();
 		this.ProductTotalValeur = this.panier.getTotalPanier();
-		
+
 	}
+
+	acheter() : void {
+
+	}
+
 
 
 

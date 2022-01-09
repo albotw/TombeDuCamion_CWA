@@ -15,7 +15,7 @@
         "notation": 4.871,
         "price": 4000,
         "sales": 499,
-        "views": 1135
+        "views": 1157
     },
     {
         "p_uid": "62c7da2eeece29c4f0ce4d4eba90eab863f25ed6338b37123d966356dc2eb582",
@@ -50,6 +50,22 @@
         "views": 1091
     },
     {
+        "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
+        "seller": "Prof. Chen",
+        "title": "shell-bell",
+        "stock": 156,
+        "description": "Held: Heals the holder by 1/8 of any damage it inflicts.",
+        "images": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
+        ],
+        "category": "pokemonItems",
+        "comments": [],
+        "notation": 4.871,
+        "price": 4000,
+        "sales": 499,
+        "views": 1051
+    },
+    {
         "p_uid": "7b9adbddaaf29cd8227e09da978e38c2bcc61c07e87bf632bd087c0d918bafe8",
         "seller": "Prof. Chen",
         "title": "tm02",
@@ -80,22 +96,6 @@
         "price": 4000,
         "sales": 499,
         "views": 999
-    },
-    {
-        "p_uid": "6013c322a235f3f71dcaf7db61af62896878767c50513b1c293c3f5d2f9a7962",
-        "seller": "Prof. Chen",
-        "title": "shell-bell",
-        "stock": 156,
-        "description": "Held: Heals the holder by 1/8 of any damage it inflicts.",
-        "images": [
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png"
-        ],
-        "category": "pokemonItems",
-        "comments": [],
-        "notation": 4.871,
-        "price": 4000,
-        "sales": 499,
-        "views": 1049
     },
     {
         "p_uid": "e02d613f7cbac5f8d2fd202d61f2672f88bb60d8525ec1f4955509d4eaf3c29e",
@@ -4191,7 +4191,7 @@
         "notation": 4.991,
         "price": 20,
         "sales": 65,
-        "views": 720
+        "views": 722
     },
     {
         "p_uid": "1ffe92a09c55de5d752ca8e97ea093a3f2e3b61af7f65af76e9dc03013cd9157",
