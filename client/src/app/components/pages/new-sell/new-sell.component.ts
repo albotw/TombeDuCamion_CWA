@@ -58,7 +58,6 @@ export class NewSellComponent implements OnInit {
     var file = element.files[0];
     var reader = new FileReader();
     reader.onloadend =()=> {
-      console.log('RESULT', reader.result);
       this.images.push(reader.result);
     }
     reader.readAsDataURL(file);

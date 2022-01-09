@@ -50,7 +50,6 @@ export class WassimComponent implements OnInit {
   }
 
   onSubmit(): void{
-    console.log(this.inpstr);
     if (this.inpstr == '/animation off'){
       data.redirection = '';
       this.msgs.push('Les animations ont été supprimés');

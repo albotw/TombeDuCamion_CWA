@@ -29,7 +29,6 @@ export class InscriptionComponent implements OnInit {
                 setTimeout(() => {this.router.navigate(["/connexion"])}, 2000);
             })
             .catch(error => {
-                console.log(error);
                 this.snackbar.open("Identifiants invalides", "Fermer");
             });
     }

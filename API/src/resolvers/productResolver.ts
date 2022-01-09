@@ -37,7 +37,7 @@ export default class productResolver {
         {
             let productString = JSON.stringify(this.productData, null, 4);
             fs.writeFileSync("JSON/products.json", productString, { encoding: "utf-8", flag: "w" });
- 
+            console.log("--- Saved products ---");
             this.modificationCounter = 0;
         }
     }

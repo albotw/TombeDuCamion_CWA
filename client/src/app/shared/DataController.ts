@@ -67,7 +67,6 @@ export default class DataController
 	// * fonction pour tester si l'API fonctionne, a supprimer
 	public static testApi = async (callback: (data: any) => void) =>
 	{
-		console.log(environment.API);
 		let query = gql`
 		{
 		}`

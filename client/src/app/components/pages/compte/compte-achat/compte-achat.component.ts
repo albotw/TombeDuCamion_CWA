@@ -1,50 +1,22 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import DataController from '../../../../shared/DataController';
-import { data } from '../../../../shared/global';
 import State, { CacheData } from "../../../../shared/State";
+import { AbstractListeComponent } from '../abstract-liste/abstract-liste.component';
 
 @Component({
   selector: 'app-compte-achat',
-  templateUrl: './compte-achat.component.html',
-  styleUrls: ['./compte-achat.component.css']
+  templateUrl: '../abstract-liste/abstract-liste.component.html',
+  styleUrls: ['../abstract-liste/abstract-liste.component.css']
 })
 
-export class CompteAchatComponent implements OnInit {
+export class CompteAchatComponent extends AbstractListeComponent {
+
 	auth = State.get(CacheData.Auth);
-	products = [];
-	history = [] ;
-	DATA = data;
+	
+	achat = true;
 
-	constructor(private route: ActivatedRoute, private router: Router)
-	{
-		this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+	constructor(route: ActivatedRoute, router: Router){
+		super(route, router);
 	}
 
-	ngOnInit(): void {
-		this.getHistory();
-	}
-
-	public getHistory(){
-		DataController.getHistory(this.auth, (data) =>
-		{
-			this.history = data.filter((data) => data.type == "BUY").map((data) => 
-			{
-				return data.product;
-			});
-
-			this.getProducts();
-		});
-	}
-
-	public getProducts()
-	{
-		for(const product in this.history)
-		{
-			DataController.getProduct(this.history[product] ,(data) =>
-			{
-				this.products.push(data)
-			});
-		}
-	}
 }

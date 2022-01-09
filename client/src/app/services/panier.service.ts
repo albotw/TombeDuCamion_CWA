@@ -12,7 +12,7 @@ TabProduits = []; //Tableau des objets ajouté
 TotalPanier; // Somme des différents objets du panier
 ProductCount;
 
-  constructor(private router : Router) { 
+  constructor(private router : Router) {
     this.TabProduits = State.get(CacheData.Panier);
   }
 
@@ -21,7 +21,7 @@ ProductCount;
     let productExists = false;
     for ( let i of this.TabProduits) {
       if (i.product.p_uid === product.product.p_uid) {
-        i.count++;                       
+        i.count++;
         productExists = true;
         break;
       }
@@ -36,7 +36,7 @@ ProductCount;
     this.getTotalPanier();
   }
 
- getTotalPanier(){ 
+ getTotalPanier(){
   this.TabProduits = State.get(CacheData.Panier);// compte le nombre de produit dans le panier
   if(this.TabProduits){
     this.TotalPanier = 0;
@@ -51,10 +51,10 @@ ProductCount;
 getProductFromTab = () => {
   this.TabProduits = State.get(CacheData.Panier); // nombre total de produit dans le panier
   return this.TabProduits;
-  
+
 }
 
-getProductCount = () => { 
+getProductCount = () => {
   this.TabProduits = State.get(CacheData.Panier);
   if(this.TabProduits) {
     this.ProductCount = 0;
@@ -67,7 +67,7 @@ getProductCount = () => {
 }
 
 ClearTab = () => {
-  this.TabProduits = State.get(CacheData.Panier); //efface le panier 
+  this.TabProduits = State.get(CacheData.Panier); //efface le panier
   this.TabProduits = [];
   this.router.navigate(['']);
   State.set(CacheData.Panier, this.TabProduits);
@@ -78,20 +78,19 @@ RemoveFromTab = (product) => {
   this.TabProduits = this.TabProduits.filter((item) => item.product.p_uid !== product.product.p_uid);
   State.set(CacheData.Panier, this.TabProduits);
 
-  if(this.TabProduits.length === 0) {
+  if(this.TabProduits.length == 0) {
     this.router.navigate(['']);
   }
   this.getTotalPanier();
 }
 
 MoinsFromTab = (product) => {
-  this.TabProduits = State.get(CacheData.Panier); // methode pour décrémenter la quantité de l'objet dans le panier 
+  this.TabProduits = State.get(CacheData.Panier); // methode pour décrémenter la quantité de l'objet dans le panier
   for ( let i of this.TabProduits) {
-    if(i.product.p_uid === product.product.p_uid) {
-      if(i.count === 0 ){
+    if(i.product.p_uid == product.product.p_uid) {
+      i.count--;
+      if(i.count <= 0 ){
         this.RemoveFromTab(product);
-      }
-      else { i.count--;
       }
     break;
     }

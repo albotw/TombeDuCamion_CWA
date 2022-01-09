@@ -46,18 +46,14 @@ export class AccueilComponent implements OnInit
 		this.DATA = data;
 		DataController.top("Global", "sales", (data) =>
 		{
-			console.log(data);
 			this.meilleurs["Meilleurs Ventes"] = this._hideDescription(data);
 		})
 		DataController.top("Global", "notation", (data) =>
 		{
-			console.log(data);
 			this.meilleurs["Mieux Notés"] = this._hideDescription(data);
 		})
 		DataController.top("Global", "views", (data) =>
 		{
-			console.log(data);
-
 			this.meilleurs["Plus Vus"] = this._hideDescription(data);
 		})
 	}

@@ -144,7 +144,6 @@ export class DvdComponent implements OnInit {
 
 
   openDialog() {
-    console.log("test");
     this.dialogRef = this.dialog.open(DialogDataComponent, {
       data: {
         animal: 'panda'

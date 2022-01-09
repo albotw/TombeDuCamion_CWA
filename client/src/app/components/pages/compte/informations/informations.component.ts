@@ -28,9 +28,7 @@ export class InformationsComponent implements OnInit {
   public getUser = async (auth: any) =>	{
     
 		let user : any = await DataController.getUser(auth);
-		console.log(user);
 		var tab = [user.getUser.nickname, user.getUser.email, user.getUser.totalSales, user.getUser.notation];
-		console.log(tab);
 		return tab;
   }
 
