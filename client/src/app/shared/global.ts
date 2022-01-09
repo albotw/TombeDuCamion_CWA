@@ -1,7 +1,7 @@
 
 
-export const data = { 
-    redirection: '', 
+export const data = {
+    redirection: '',
     darkmode: false,
     actualSort: "NO_SORT",
 	filter: {
