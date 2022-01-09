@@ -72,9 +72,13 @@ export class NewSellComponent implements OnInit {
 
     let auth = State.get(CacheData.Auth);
 
-    let name = await DataController.getUser(auth)['nickname'];
+    let name = await DataController.getUser(auth);
 
-    DataController.postProduct(auth, name, title.value, stock.value, descr.value, category.value, price.value, (data) =>{
+    DataController.postProduct(auth, name['getUser']['nickname'], title.value, stock.value, descr.value, category.value, price.value, (data) =>{
+      if (this.images.length == 0) {
+        this.posted = true;
+        setTimeout(() => {this.router.navigate(['accueil'])}, 2000);
+      }
       for (let i=0; i<this.images.length; i++){
         DataController.addImageToProduct(auth, data, this.images[i], () =>{
           this.posted = (this.images.length-1 == i);
